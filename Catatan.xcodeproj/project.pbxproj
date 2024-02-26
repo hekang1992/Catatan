@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516312B8C246E00FFEE85 /* AppDelegate.swift */; };
-		182516342B8C246E00FFEE85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516332B8C246E00FFEE85 /* SceneDelegate.swift */; };
-		182516362B8C246E00FFEE85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516352B8C246E00FFEE85 /* ViewController.swift */; };
-		182516392B8C246E00FFEE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182516372B8C246E00FFEE85 /* Main.storyboard */; };
 		1825163B2B8C246F00FFEE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1825163A2B8C246F00FFEE85 /* Assets.xcassets */; };
 		1825163E2B8C246F00FFEE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */; };
 		182516492B8C246F00FFEE85 /* CatatanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516482B8C246F00FFEE85 /* CatatanTests.swift */; };
 		182516532B8C246F00FFEE85 /* CatatanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516522B8C246F00FFEE85 /* CatatanUITests.swift */; };
 		182516552B8C246F00FFEE85 /* CatatanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516542B8C246F00FFEE85 /* CatatanUITestsLaunchTests.swift */; };
+		182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516632B8C251800FFEE85 /* BaseViewController.swift */; };
+		182516672B8C254700FFEE85 /* FristViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516662B8C254700FFEE85 /* FristViewController.swift */; };
+		182516692B8C258600FFEE85 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516682B8C258600FFEE85 /* Define.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +38,6 @@
 /* Begin PBXFileReference section */
 		1825162E2B8C246E00FFEE85 /* Catatan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catatan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182516312B8C246E00FFEE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		182516332B8C246E00FFEE85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		182516352B8C246E00FFEE85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		182516382B8C246E00FFEE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1825163A2B8C246F00FFEE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1825163D2B8C246F00FFEE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1825163F2B8C246F00FFEE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +46,9 @@
 		1825164E2B8C246F00FFEE85 /* CatatanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatatanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		182516522B8C246F00FFEE85 /* CatatanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatatanUITests.swift; sourceTree = "<group>"; };
 		182516542B8C246F00FFEE85 /* CatatanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatatanUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		182516632B8C251800FFEE85 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		182516662B8C254700FFEE85 /* FristViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristViewController.swift; sourceTree = "<group>"; };
+		182516682B8C258600FFEE85 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +99,10 @@
 		182516302B8C246E00FFEE85 /* Catatan */ = {
 			isa = PBXGroup;
 			children = (
-				182516312B8C246E00FFEE85 /* AppDelegate.swift */,
-				182516332B8C246E00FFEE85 /* SceneDelegate.swift */,
-				182516352B8C246E00FFEE85 /* ViewController.swift */,
-				182516372B8C246E00FFEE85 /* Main.storyboard */,
-				1825163A2B8C246F00FFEE85 /* Assets.xcassets */,
-				1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */,
 				1825163F2B8C246F00FFEE85 /* Info.plist */,
+				182516652B8C251F00FFEE85 /* Main */,
+				182516612B8C24E500FFEE85 /* Login */,
+				182516622B8C24EA00FFEE85 /* Base */,
 			);
 			path = Catatan;
 			sourceTree = "<group>";
@@ -125,6 +122,33 @@
 				182516542B8C246F00FFEE85 /* CatatanUITestsLaunchTests.swift */,
 			);
 			path = CatatanUITests;
+			sourceTree = "<group>";
+		};
+		182516612B8C24E500FFEE85 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		182516622B8C24EA00FFEE85 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				182516682B8C258600FFEE85 /* Define.swift */,
+				182516632B8C251800FFEE85 /* BaseViewController.swift */,
+				182516662B8C254700FFEE85 /* FristViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		182516652B8C251F00FFEE85 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				182516312B8C246E00FFEE85 /* AppDelegate.swift */,
+				1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */,
+				1825163A2B8C246F00FFEE85 /* Assets.xcassets */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +257,6 @@
 			files = (
 				1825163E2B8C246F00FFEE85 /* LaunchScreen.storyboard in Resources */,
 				1825163B2B8C246F00FFEE85 /* Assets.xcassets in Resources */,
-				182516392B8C246E00FFEE85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				182516362B8C246E00FFEE85 /* ViewController.swift in Sources */,
 				182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */,
-				182516342B8C246E00FFEE85 /* SceneDelegate.swift in Sources */,
+				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
+				182516692B8C258600FFEE85 /* Define.swift in Sources */,
+				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +321,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		182516372B8C246E00FFEE85 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				182516382B8C246E00FFEE85 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,25 +456,33 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Catatan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = INO.Catatan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testph.first;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Test PH1";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,25 +491,33 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Catatan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = INO.Catatan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testph.first;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Test PH1";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
