@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import SnapKit
+import UIColor_Hex_Swift
 
 // 屏幕宽度
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
@@ -23,7 +25,12 @@ let KWINDOW = UIApplication.shared.delegate?.window
 // Default
 let USER_DEFAULTS = UserDefaults.standard
 
-func TITlog<T>(message: T, fileName: String = #file, funcName: String = #function, lineNum : Int = #line) {
+let LOGIN_SUCCESS = "LOGIN_SUCCESS"
+
+// 状态栏高度
+let STATUSBAR_HIGH = is_iPhoneXSeries() ? 44 : 20
+
+func TITlog<T>(_ message: T, fileName: String = #file, funcName: String = #function, lineNum : Int = #line) {
     #if DEBUG
     /**
     * 此处还要在项目的build settings中搜索swift flags,找到 Other Swift Flags 找到Debug

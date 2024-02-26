@@ -7,8 +7,13 @@ target 'Catatan' do
 
   # Pods for Catatan
 
+  pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire', '~> 5.7.1'
   pod 'Kingfisher', '~> 7.11.0'
   pod 'MJRefresh', '~> 3.7.6'
+  pod 'JXGradientKit', '~> 0.0.11'
+  pod 'UIColor_Hex_Swift', '~> 5.1.9'
   pod 'IQKeyboardManagerSwift', '~> 6.5.16'
+  pod 'YYText', '~> 1.0.7'
+  pod 'Toast-Swift', '~> 5.1.0'
 end

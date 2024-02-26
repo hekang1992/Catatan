@@ -1,28 +1,48 @@
 PODS:
   - Alamofire (5.7.1)
   - IQKeyboardManagerSwift (6.5.16)
+  - JXGradientKit (0.0.11)
   - Kingfisher (7.11.0)
   - MJRefresh (3.7.6)
+  - SnapKit (5.6.0)
+  - Toast-Swift (5.1.0)
+  - UIColor_Hex_Swift (5.1.9)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - Alamofire (~> 5.7.1)
   - IQKeyboardManagerSwift (~> 6.5.16)
+  - JXGradientKit (~> 0.0.11)
   - Kingfisher (~> 7.11.0)
   - MJRefresh (~> 3.7.6)
+  - SnapKit (~> 5.6.0)
+  - Toast-Swift (~> 5.1.0)
+  - UIColor_Hex_Swift (~> 5.1.9)
+  - YYText (~> 1.0.7)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - JXGradientKit
     - Kingfisher
     - MJRefresh
+    - SnapKit
+    - Toast-Swift
+    - UIColor_Hex_Swift
+    - YYText
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
+  JXGradientKit: b79a369bedbc501e20ebfda9716cd0b049b02955
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Toast-Swift: dd369e68ee529f542c65bd0d0c6c50cd743cf6f2
+  UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 141054d99dba971c90998e9652190c4bebe41e75
+PODFILE CHECKSUM: e280505da406b6ab4c892a708f4d9876dd589104
 
 COCOAPODS: 1.14.3
