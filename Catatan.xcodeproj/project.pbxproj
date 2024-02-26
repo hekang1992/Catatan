@@ -16,6 +16,9 @@
 		182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516632B8C251800FFEE85 /* BaseViewController.swift */; };
 		182516672B8C254700FFEE85 /* FristViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516662B8C254700FFEE85 /* FristViewController.swift */; };
 		182516692B8C258600FFEE85 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516682B8C258600FFEE85 /* Define.swift */; };
+		1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */; };
+		1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825166C2B8C27DF00FFEE85 /* LoginView.swift */; };
+		290BB5069F3C8675DD55207A /* Pods_Catatan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,11 @@
 		182516632B8C251800FFEE85 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		182516662B8C254700FFEE85 /* FristViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristViewController.swift; sourceTree = "<group>"; };
 		182516682B8C258600FFEE85 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1825166C2B8C27DF00FFEE85 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2026A2E2D59471F7B340DACE /* Pods-Catatan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.debug.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.debug.xcconfig"; sourceTree = "<group>"; };
+		E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catatan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE95F7319F9F3850BBE1CA56 /* Pods-Catatan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.release.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				290BB5069F3C8675DD55207A /* Pods_Catatan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,8 @@
 				182516472B8C246F00FFEE85 /* CatatanTests */,
 				182516512B8C246F00FFEE85 /* CatatanUITests */,
 				1825162F2B8C246E00FFEE85 /* Products */,
+				E24E865CC29B0CEAB2B7B117 /* Pods */,
+				A63EE135F7A18A87BE77B49F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +138,8 @@
 		182516612B8C24E500FFEE85 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1825166C2B8C27DF00FFEE85 /* LoginView.swift */,
+				1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -151,6 +164,23 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		A63EE135F7A18A87BE77B49F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E24E865CC29B0CEAB2B7B117 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2026A2E2D59471F7B340DACE /* Pods-Catatan.debug.xcconfig */,
+				EE95F7319F9F3850BBE1CA56 /* Pods-Catatan.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 182516582B8C246F00FFEE85 /* Build configuration list for PBXNativeTarget "Catatan" */;
 			buildPhases = (
+				5096B2B104A387E4C568C68A /* [CP] Check Pods Manifest.lock */,
 				1825162A2B8C246E00FFEE85 /* Sources */,
 				1825162B2B8C246E00FFEE85 /* Frameworks */,
 				1825162C2B8C246E00FFEE85 /* Resources */,
+				907A134BF058FCBFF85806ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,14 +308,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5096B2B104A387E4C568C68A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Catatan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		907A134BF058FCBFF85806ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Catatan/Pods-Catatan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Catatan/Pods-Catatan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Catatan/Pods-Catatan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1825162A2B8C246E00FFEE85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */,
 				182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */,
 				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
+				1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */,
 				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +529,7 @@
 		};
 		182516592B8C246F00FFEE85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2026A2E2D59471F7B340DACE /* Pods-Catatan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -461,9 +538,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Catatan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -488,6 +567,7 @@
 		};
 		1825165A2B8C246F00FFEE85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE95F7319F9F3850BBE1CA56 /* Pods-Catatan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -496,9 +576,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Catatan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;

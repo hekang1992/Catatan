@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.7.1)
+  - IQKeyboardManagerSwift (6.5.16)
+  - Kingfisher (7.11.0)
+  - MJRefresh (3.7.6)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.7.1)
+  - IQKeyboardManagerSwift (~> 6.5.16)
+  - Kingfisher (~> 7.11.0)
+  - MJRefresh (~> 3.7.6)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - MJRefresh
+
+SPEC CHECKSUMS:
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
+
+PODFILE CHECKSUM: 141054d99dba971c90998e9652190c4bebe41e75
+
+COCOAPODS: 1.14.3
