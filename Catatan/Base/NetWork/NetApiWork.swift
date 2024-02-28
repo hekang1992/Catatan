@@ -1,5 +1,5 @@
 //
-//  ApiNetWork.swift
+//  NetApiWork.swift
 //  Catatan
 //
 //  Created by apple on 2024/2/28.
@@ -8,12 +8,12 @@
 import UIKit
 import Alamofire
 
-class ApiNetWork: NSObject {
+class NetApiWork: NSObject {
     
     typealias CompleteBlock = (Any?) -> Void
     typealias NSErrorBlock = (Error?) -> Void
     
-    static let shared = ApiNetWork()
+    static let shared = NetApiWork()
     
     func requestAPI(params: [String: Any]?,
                     pageUrl: String,
@@ -26,15 +26,14 @@ class ApiNetWork: NSObject {
             "Connection" : "keep-alive",
             "Content-Type" : "application/x-www-form-urlencoded;text/json;text/javascript;text/html;text/plain;multipart/form-data"
         ]
-        var wholeApiUrl = "https://www.baidu.com"
+        var wholeApiUrl = BASE_APIURL + pageUrl + "?" + CommonParams.getParas()
+        wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         AF.request(wholeApiUrl, method: method, parameters: params, headers: headers).responseData { response in
             switch response.result {
             case .success(let data):
-                // 处理成功的逻辑，解析和使用数据
                 print("Received data: \(data)")
                 complete(data)
             case .failure(let error):
-                // 处理失败的逻辑，显示错误
                 print("Error: \(error.localizedDescription)")
                 errorBlock(error.localizedDescription as? Error)
             }

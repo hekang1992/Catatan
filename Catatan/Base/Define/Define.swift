@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 import UIColor_Hex_Swift
 
+let BASE_APIURL = ""
+
 // 屏幕宽度
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 
@@ -28,6 +30,8 @@ let CNotificationCenter = NotificationCenter.default
 let USER_DEFAULTS = UserDefaults.standard
 
 let SET_ROOTVC = "SET_ROOTVC"
+
+let LOGIN_SEIZES = "seizes"
 
 // 状态栏高度
 let STATUSBAR_HIGH = is_iPhoneXSeries() ? 44 : 20
@@ -86,6 +90,16 @@ extension String {
     // 截取 从i到尾部
     func substring(from:Int) -> String{
         return self[from..<self.count]
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        let red = CGFloat.random(in: 0...1)
+        let green = CGFloat.random(in: 0...1)
+        let blue = CGFloat.random(in: 0...1)
+        let alpha = CGFloat.random(in: 0...1)
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
 
