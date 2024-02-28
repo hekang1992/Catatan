@@ -15,13 +15,11 @@ class NetworkManager {
     private let reachability = try!Reachability()
     
     private init() {
-        // 私有初始化方法，确保只有一个实例
         setupReachability()
     }
     
     private func setupReachability() {
-        NotificationCenter.default.addObserver(self, selector: #selector(networkStatusChanged), name: .reachabilityChanged, object: reachability)
-        
+        CNotificationCenter.addObserver(self, selector: #selector(networkStatusChanged), name: .reachabilityChanged, object: reachability)
         do {
             try reachability.startNotifier()
         } catch {

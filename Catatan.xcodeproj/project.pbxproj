@@ -28,6 +28,7 @@
 		184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F42B8EDD350048E257 /* NetworkManager.swift */; };
 		184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F62B8EE96D0048E257 /* DeviceInfo.swift */; };
 		18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */; };
+		18E9ACFC2B8F3F2900DC16A3 /* ApiNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFB2B8F3F2900DC16A3 /* ApiNetWork.swift */; };
 		290BB5069F3C8675DD55207A /* Pods_Catatan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		184760F62B8EE96D0048E257 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		184760F82B8F3AEA0048E257 /* Catatan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Catatan.entitlements; sourceTree = "<group>"; };
 		18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
+		18E9ACFB2B8F3F2900DC16A3 /* ApiNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetWork.swift; sourceTree = "<group>"; };
 		2026A2E2D59471F7B340DACE /* Pods-Catatan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.debug.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.debug.xcconfig"; sourceTree = "<group>"; };
 		E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catatan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE95F7319F9F3850BBE1CA56 /* Pods-Catatan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.release.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,16 +174,11 @@
 		182516622B8C24EA00FFEE85 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				182516682B8C258600FFEE85 /* Define.swift */,
-				1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */,
-				18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */,
-				184760F62B8EE96D0048E257 /* DeviceInfo.swift */,
-				184760F42B8EDD350048E257 /* NetworkManager.swift */,
-				182F671A2B8D811D000CA090 /* YBTabBarButton.swift */,
-				182516632B8C251800FFEE85 /* BaseViewController.swift */,
-				182516662B8C254700FFEE85 /* FristViewController.swift */,
-				1845FD2B2B8C959F00B4BEEF /* TabBarViewController.swift */,
-				1845FD362B8C985600B4BEEF /* BaseNavViewController.swift */,
+				18E9ACF92B8F3EF700DC16A3 /* Model */,
+				18E9ACF72B8F3ED400DC16A3 /* Define */,
+				18E9ACF82B8F3EDF00DC16A3 /* TabBar */,
+				18E9ACF62B8F3EBC00DC16A3 /* BaseVc */,
+				18E9ACFA2B8F3F0D00DC16A3 /* NetWork */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -218,6 +215,52 @@
 				1845FD342B8C95F800B4BEEF /* OrderViewController.swift */,
 			);
 			path = Order;
+			sourceTree = "<group>";
+		};
+		18E9ACF62B8F3EBC00DC16A3 /* BaseVc */ = {
+			isa = PBXGroup;
+			children = (
+				182516632B8C251800FFEE85 /* BaseViewController.swift */,
+				182516662B8C254700FFEE85 /* FristViewController.swift */,
+				1845FD2B2B8C959F00B4BEEF /* TabBarViewController.swift */,
+				1845FD362B8C985600B4BEEF /* BaseNavViewController.swift */,
+			);
+			path = BaseVc;
+			sourceTree = "<group>";
+		};
+		18E9ACF72B8F3ED400DC16A3 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				182516682B8C258600FFEE85 /* Define.swift */,
+				184760F62B8EE96D0048E257 /* DeviceInfo.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		18E9ACF82B8F3EDF00DC16A3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */,
+				182F671A2B8D811D000CA090 /* YBTabBarButton.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		18E9ACF92B8F3EF700DC16A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18E9ACFA2B8F3F0D00DC16A3 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				18E9ACFB2B8F3F2900DC16A3 /* ApiNetWork.swift */,
+				184760F42B8EDD350048E257 /* NetworkManager.swift */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 		A63EE135F7A18A87BE77B49F /* Frameworks */ = {
@@ -422,6 +465,7 @@
 				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
 				182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
+				18E9ACFC2B8F3F2900DC16A3 /* ApiNetWork.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
 				184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
