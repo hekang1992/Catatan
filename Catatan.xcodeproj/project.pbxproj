@@ -72,6 +72,7 @@
 		1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTabBar.swift; sourceTree = "<group>"; };
 		184760F42B8EDD350048E257 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		184760F62B8EE96D0048E257 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		184760F82B8F3AEA0048E257 /* Catatan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Catatan.entitlements; sourceTree = "<group>"; };
 		2026A2E2D59471F7B340DACE /* Pods-Catatan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.debug.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.debug.xcconfig"; sourceTree = "<group>"; };
 		E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catatan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE95F7319F9F3850BBE1CA56 /* Pods-Catatan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.release.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				1825163F2B8C246F00FFEE85 /* Info.plist */,
+				184760F82B8F3AEA0048E257 /* Catatan.entitlements */,
 				182516652B8C251F00FFEE85 /* Main */,
 				182516612B8C24E500FFEE85 /* Login */,
 				1845FD332B8C95E500B4BEEF /* Order */,
@@ -593,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Catatan/Catatan.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -632,6 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Catatan/Catatan.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;

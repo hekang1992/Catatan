@@ -30,13 +30,13 @@ class DeviceInfo: NSObject {
     
     static func disposed() -> String {
         let allmem:Double = SystemServices.shared().totalMemory
-        let disposed = String(format: "%.2lld", allmem)
+        let disposed = String(format: "%.0f", allmem * 1024 * 1024)
         return disposed
     }
     
     static func minute() -> String {
         let freemem:Double = SystemServices.shared().freeMemoryinRaw
-        let minute = String(format: "%.2lld", freemem)
+        let minute = String(format: "%.0f", freemem * 1024 * 1024)
         return minute
     }
     
@@ -235,11 +235,70 @@ class DeviceInfo: NSObject {
         }
         return ssid
     }
-
-    static func deviceDictInfo() -> [String:Any] {
-        let deviceDict:[String:Any] = [:]
-        return deviceDict
-    }
     
+    static func deviceDictInfo() -> [String:Any] {
+        
+        var dict:[String:Any] = ["compassion":"ios"]
+        
+        dict["seamstress"] = ["patience":patience(),
+                              "lists":lists(),
+                              "disposed":disposed(),
+                              "negroes":"negroes",
+                              "minute":minute()]
+        
+        dict["elbowing"] = ["angles":angles(),
+                            "pinned":"pinned",
+                            "bulletins":bulletins()]
+        
+        dict["rippled"] = ["column":column(),
+                           "crimson":crimson(),
+                           "perilous":perilous(),
+                           "arrived":arrived(),
+                           "streamed":streamed(),
+                           "trousers":trousers()]
+        
+        dict["slavery"] = [:]
+        
+        dict["matched"] = ["coats":coats(),
+                           "nines":nines(),
+                           "gentlemen":gentlemen(),
+                           "bowlers":bowlers(),
+                           "bobbed":"12",
+                           "stovepipe":"123"]
+        
+        dict["drawls"] = ["street":street(),
+                          "steps":steps(),
+                          "milled":milled(),
+                          "dressed":dressed(),
+                          "finely":finely(),
+                          "cleaved":cleaved(),
+                          "blocks":"en",
+                          "hubbub":"abc",
+                          "courthouse":courthouse(),
+                          "neared":neared(),
+                          "station":station(),
+                          "stroll":stroll()]
+        
+        dict["drawls"] = ["street":street(),
+                          "steps":steps(),
+                          "milled":milled(),
+                          "dressed":dressed(),
+                          "finely":finely(),
+                          "cleaved":cleaved(),
+                          "blocks":"en",
+                          "hubbub":"abc",
+                          "courthouse":courthouse(),
+                          "neared":neared(),
+                          "station":station(),
+                          "stroll":stroll()]
+        
+        dict["revival"] = ["traveling":[["jaunt":jaunt(),
+                                         "diversion":diversion(),
+                                         "blink":blink(),
+                                         "conjured":conjured(),
+                                         "quick":"app"]]]
+        
+        return dict
+    }
     
 }
