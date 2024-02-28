@@ -1,12 +1,10 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '12.0'
 
 target 'Catatan' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
   # Pods for Catatan
-
   pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire', '~> 5.7.1'
   pod 'Kingfisher', '~> 7.11.0'
@@ -20,4 +18,6 @@ target 'Catatan' do
   pod 'DeviceKit', '~> 5.2.2'
   pod 'SystemServices', '~> 2.0.1'
   pod 'SAMKeychain', '~> 1.5.3'
+  pod 'SwiftyJSON', '~> 5.0.1'
+  pod 'AppsFlyerFramework', '~> 6.12.3'
 end
