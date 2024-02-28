@@ -119,3 +119,5 @@ extension CGFloat {
         return 0 - self
     }
 }
+
+let TabBarHeight = 54.pix()

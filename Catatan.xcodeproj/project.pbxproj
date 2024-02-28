@@ -18,6 +18,7 @@
 		182516692B8C258600FFEE85 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516682B8C258600FFEE85 /* Define.swift */; };
 		1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */; };
 		1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825166C2B8C27DF00FFEE85 /* LoginView.swift */; };
+		182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F671A2B8D811D000CA090 /* YBTabBarButton.swift */; };
 		1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD2B2B8C959F00B4BEEF /* TabBarViewController.swift */; };
 		1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */; };
 		1845FD322B8C95E100B4BEEF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD312B8C95E100B4BEEF /* UserViewController.swift */; };
@@ -60,6 +61,7 @@
 		182516682B8C258600FFEE85 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1825166C2B8C27DF00FFEE85 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		182F671A2B8D811D000CA090 /* YBTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YBTabBarButton.swift; sourceTree = "<group>"; };
 		1845FD2B2B8C959F00B4BEEF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1845FD312B8C95E100B4BEEF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -163,11 +165,12 @@
 			isa = PBXGroup;
 			children = (
 				182516682B8C258600FFEE85 /* Define.swift */,
+				1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */,
+				182F671A2B8D811D000CA090 /* YBTabBarButton.swift */,
 				182516632B8C251800FFEE85 /* BaseViewController.swift */,
 				182516662B8C254700FFEE85 /* FristViewController.swift */,
 				1845FD2B2B8C959F00B4BEEF /* TabBarViewController.swift */,
 				1845FD362B8C985600B4BEEF /* BaseNavViewController.swift */,
-				1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				1845FD322B8C95E100B4BEEF /* UserViewController.swift in Sources */,
 				182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */,
 				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
+				182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
