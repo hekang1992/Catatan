@@ -22,10 +22,12 @@ let APPDELEGATE = UIApplication.shared.delegate
 // Window
 let KWINDOW = UIApplication.shared.delegate?.window
 
+let CNotificationCenter = NotificationCenter.default
+
 // Default
 let USER_DEFAULTS = UserDefaults.standard
 
-let LOGIN_SUCCESS = "LOGIN_SUCCESS"
+let SET_ROOTVC = "SET_ROOTVC"
 
 // 状态栏高度
 let STATUSBAR_HIGH = is_iPhoneXSeries() ? 44 : 20

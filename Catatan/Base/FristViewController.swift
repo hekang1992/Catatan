@@ -6,43 +6,58 @@
 //
 
 import UIKit
+import Alamofire
 
 class FristViewController: BaseViewController {
     
-    lazy var backBtn: UIButton = {
-        let backBtn = UIButton(type: .custom)
-        backBtn.setTitle("login", for: .normal)
-        backBtn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
-        backBtn.backgroundColor = .blue
-        return backBtn
+    lazy var bgImageView: UIImageView = {
+        let bgImageView = UIImageView()
+        bgImageView.contentMode = .scaleAspectFill
+        bgImageView.image = UIImage(named: "launch")
+        return bgImageView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
-        view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { make in
-            make.center.equalTo(view)
-            make.size.equalTo(CGSize(width: 100, height: 100))
+        view.addSubview(bgImageView)
+        bgImageView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
+        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
+        self.netStatus()
+    }
+    
+    func netStatus() {
+        NetworkManager.shared.observeNetworkStatus { [weak self] status in
+            switch status {
+            case .wifi:
+                print("WiFi连接")
+                self?.googleMarket()
+            case .cellular:
+                print("蜂窝数据连接")
+                self?.googleMarket()
+            case .none:
+                print("无网络连接")
+            }
         }
     }
     
-    @objc func btnClick(){
-        let login = LoginViewController()
-        login.modalPresentationStyle = .fullScreen
-        self.present(login, animated: true)
+    //google
+    func googleMarket() {
+        
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
+

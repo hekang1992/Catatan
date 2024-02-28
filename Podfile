@@ -16,4 +16,5 @@ target 'Catatan' do
   pod 'IQKeyboardManagerSwift', '~> 6.5.16'
   pod 'YYText', '~> 1.0.7'
   pod 'Toast-Swift', '~> 5.1.0'
+  pod 'ReachabilitySwift', '~> 5.0.0'
 end
