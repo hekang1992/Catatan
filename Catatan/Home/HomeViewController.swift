@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DeviceKit
 
 class HomeViewController: BaseViewController {
 
@@ -14,9 +15,10 @@ class HomeViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.purple
+        
+        let dict = DeviceInfo.deviceDictInfo()
     }
     
-
     /*
     // MARK: - Navigation
 

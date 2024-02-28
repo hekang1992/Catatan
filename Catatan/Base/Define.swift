@@ -32,18 +32,9 @@ let SET_ROOTVC = "SET_ROOTVC"
 // 状态栏高度
 let STATUSBAR_HIGH = is_iPhoneXSeries() ? 44 : 20
 
-func TITlog<T>(_ message: T, fileName: String = #file, funcName: String = #function, lineNum : Int = #line) {
-    #if DEBUG
-    /**
-    * 此处还要在项目的build settings中搜索swift flags,找到 Other Swift Flags 找到Debug
-    * 添加 -D DEBUG,即可。
-    */
-    // 1.对文件进行处理
-    let file = (fileName as NSString).lastPathComponent
-    // 2.打印内容
-    print("[\(file)][\(funcName)](\(lineNum))\(message)")
-    #endif
-}
+let keychain_service = "KeyChain_Service"
+let keychain_account = "KeyChain_Account"
+
 
 // 判断是否设备是iphoneX系列
 func is_iPhoneXSeries() -> (Bool) {

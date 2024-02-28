@@ -17,4 +17,7 @@ target 'Catatan' do
   pod 'YYText', '~> 1.0.7'
   pod 'Toast-Swift', '~> 5.1.0'
   pod 'ReachabilitySwift', '~> 5.0.0'
+  pod 'DeviceKit', '~> 5.2.2'
+  pod 'SystemServices', '~> 2.0.1'
+  pod 'SAMKeychain', '~> 1.5.3'
 end

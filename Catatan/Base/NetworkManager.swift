@@ -53,7 +53,6 @@ class NetworkManager {
     }
     
     typealias NetworkStatusHandler = (NetworkStatus) -> Void
-    
     private var networkStatusHandler: NetworkStatusHandler?
     
     func observeNetworkStatus(_ handler: @escaping NetworkStatusHandler) {
@@ -62,6 +61,5 @@ class NetworkManager {
     
     private func notifyNetworkStatus(_ status: NetworkStatus) {
         networkStatusHandler?(status)
-        let dict = DeviceInfo.deviceDictInfo()
     }
 }

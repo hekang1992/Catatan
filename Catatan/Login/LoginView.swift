@@ -112,7 +112,6 @@ class LoginView: UIView ,UITextFieldDelegate{
         let highlight = YYTextHighlight()
         text.yy_setTextHighlight(highlight, range: NSRange(location: 0, length: text.length))
         highlight.tapAction = { [weak self] containerView, text, range, rect in
-            TITlog("链接被点击")
             self?.makeToast("链接被点击",duration: 1.0, position: .center)
         }
         agreeMentLB.attributedText = text

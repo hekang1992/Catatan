@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import AppTrackingTransparency
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         noti()
         window?.makeKeyAndVisible()
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        if #available(iOS 14.0, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                // Handle the tracking authorization status if needed
+            }
+        }
     }
     
     func keyboardManager(){
