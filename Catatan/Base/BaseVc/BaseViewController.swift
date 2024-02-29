@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController,UINavigationControllerDelegate {
     
     lazy var navView: CNavView = {
         let view = CNavView()
@@ -17,7 +17,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -39,6 +39,11 @@ class BaseViewController: UIViewController {
             make.left.right.top.equalTo(view)
             make.height.equalTo(NAV_HIGH)
         }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        // 禁用侧滑返回
+        navigationController.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     /*

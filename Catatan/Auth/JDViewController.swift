@@ -26,7 +26,7 @@ class JDViewController: BaseViewController {
         jdView.block = {[weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        
+        jdView.typeImageView.currentState = .three
     }
     
 

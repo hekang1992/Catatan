@@ -12,6 +12,8 @@
 		1822945E2B90313F0045C533 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945D2B90313F0045C533 /* FaceView.swift */; };
 		182294602B9054F80045C533 /* JDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945F2B9054F80045C533 /* JDViewController.swift */; };
 		182294622B90550B0045C533 /* JDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294612B90550B0045C533 /* JDView.swift */; };
+		182294642B905C880045C533 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294632B905C880045C533 /* TypeView.swift */; };
+		182294662B90616A0045C533 /* TypeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294652B90616A0045C533 /* TypeImageView.swift */; };
 		182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516312B8C246E00FFEE85 /* AppDelegate.swift */; };
 		1825163B2B8C246F00FFEE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1825163A2B8C246F00FFEE85 /* Assets.xcassets */; };
 		1825163E2B8C246F00FFEE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */; };
@@ -61,6 +63,8 @@
 		1822945D2B90313F0045C533 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		1822945F2B9054F80045C533 /* JDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDViewController.swift; sourceTree = "<group>"; };
 		182294612B90550B0045C533 /* JDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDView.swift; sourceTree = "<group>"; };
+		182294632B905C880045C533 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
+		182294652B90616A0045C533 /* TypeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeImageView.swift; sourceTree = "<group>"; };
 		1825162E2B8C246E00FFEE85 /* Catatan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catatan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182516312B8C246E00FFEE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1825163A2B8C246F00FFEE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				182294612B90550B0045C533 /* JDView.swift */,
+				182294632B905C880045C533 /* TypeView.swift */,
 				1822945D2B90313F0045C533 /* FaceView.swift */,
+				182294652B90616A0045C533 /* TypeImageView.swift */,
 				1822945F2B9054F80045C533 /* JDViewController.swift */,
 				182294592B9028FC0045C533 /* FaceViewController.swift */,
 			);
@@ -486,12 +492,14 @@
 				1822945E2B90313F0045C533 /* FaceView.swift in Sources */,
 				1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */,
 				1845FD352B8C95F800B4BEEF /* OrderViewController.swift in Sources */,
+				182294642B905C880045C533 /* TypeView.swift in Sources */,
 				18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
 				1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */,
 				184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */,
 				1845FD322B8C95E100B4BEEF /* UserViewController.swift in Sources */,
 				182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */,
+				182294662B90616A0045C533 /* TypeImageView.swift in Sources */,
 				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
 				182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
