@@ -14,6 +14,7 @@ PODS:
   - SwiftyJSON (5.0.1)
   - SystemServices (2.0.1)
   - Toast-Swift (5.1.0)
+  - TYAlertController (1.2.0)
   - UIColor_Hex_Swift (5.1.9)
   - YYText (1.0.7)
 
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 5.0.1)
   - SystemServices (~> 2.0.1)
   - Toast-Swift (~> 5.1.0)
+  - TYAlertController (~> 1.2.0)
   - UIColor_Hex_Swift (~> 5.1.9)
   - YYText (~> 1.0.7)
 
@@ -49,6 +51,7 @@ SPEC REPOS:
     - SwiftyJSON
     - SystemServices
     - Toast-Swift
+    - TYAlertController
     - UIColor_Hex_Swift
     - YYText
 
@@ -66,9 +69,10 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   Toast-Swift: dd369e68ee529f542c65bd0d0c6c50cd743cf6f2
+  TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: ab0ce9c471f5528d138f27aa5c02df73717b0d07
+PODFILE CHECKSUM: 62450df0550f38768ccd3404cfc09e3dc260d557
 
 COCOAPODS: 1.14.3

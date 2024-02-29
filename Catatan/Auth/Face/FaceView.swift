@@ -8,7 +8,12 @@
 import UIKit
 import JXGradientKit
 
+typealias PhotoBlock = () -> Void
 class FaceView: UIView {
+    
+    var block1: PhotoBlock?
+    var block2: PhotoBlock?
+    var block3: PhotoBlock?
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -105,7 +110,6 @@ class FaceView: UIView {
         button.setTitle("Konfirmasi", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16.pix(), weight: .medium)
-        button.isEnabled = false
         return button
     }()
     
@@ -180,8 +184,8 @@ class FaceView: UIView {
         self.mainBtn2.setNeedsLayout()
         self.layoutIfNeeded()
         let maxY = self.mainBtn2.frame.maxY
-        self.bgView.frame = CGRectMake(0, 0, SCREEN_WIDTH, maxY + 20.pix())
-        self.scrollView.contentSize = CGSize(width: 0, height: maxY + 20.pix())
+        self.bgView.frame = CGRectMake(0, 0, SCREEN_WIDTH, maxY + 60.pix())
+        self.scrollView.contentSize = CGSize(width: 0, height: maxY + 60.pix())
     }
     
     required init?(coder: NSCoder) {
@@ -189,15 +193,15 @@ class FaceView: UIView {
     }
     
     @objc func xiangceClick() {
-        
+        self.block1!()
     }
     
     @objc func xiangjiClick() {
-        
+        self.block2!()
     }
     
     @objc func sureClick() {
-        
+        self.block3!()
     }
-    
+
 }

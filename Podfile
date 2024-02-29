@@ -20,4 +20,5 @@ target 'Catatan' do
   pod 'SAMKeychain', '~> 1.5.3'
   pod 'SwiftyJSON', '~> 5.0.1'
   pod 'AppsFlyerFramework', '~> 6.12.3'
+  pod 'TYAlertController', '~> 1.2.0'
 end

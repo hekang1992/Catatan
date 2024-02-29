@@ -1,5 +1,5 @@
 //
-//  FaceViewController.swift
+//  JDViewController.swift
 //  Catatan
 //
 //  Created by apple on 2024/2/29.
@@ -7,29 +7,38 @@
 
 import UIKit
 
-class FaceViewController: BaseViewController {
+class JDViewController: BaseViewController {
 
-    lazy var faceViwe: FaceView = {
-        let faceViwe = FaceView()
-        return faceViwe
+    lazy var jdView: JDView = {
+        let jdView = JDView()
+        return jdView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.white
-        addNavView()
-        navView.nameLabel.text = "Informasi dasar"
-        navView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
-        view.insertSubview(faceViwe, belowSubview: navView)
-        faceViwe.snp.makeConstraints { make in
+        view.addSubview(jdView)
+        jdView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
+        
+        jdView.block = {[weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        jdView.block1 = { [weak self] in
+            self?.nextVc()
+        }
+        
+        jdView.typeImageView.currentState = .three
     }
-
+    
+    func nextVc() {
+        let faceVc = FaceViewController()
+        self.navigationController?.pushViewController(faceVc, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -42,9 +42,9 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func btnClick(){
-        let faceVc = JDViewController()
-        faceVc.hideTabBar()
-        self.navigationController?.pushViewController(faceVc, animated: true)
+        let jdVc = JDViewController()
+        jdVc.hideTabBar()
+        self.navigationController?.pushViewController(jdVc, animated: true)
     }
     
     /*

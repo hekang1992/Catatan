@@ -118,6 +118,18 @@ extension UILabel {
     }
 }
 
+extension UIView {
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let maskPath = UIBezierPath(roundedRect: bounds,
+                                    byRoundingCorners: corners,
+                                    cornerRadii: CGSize(width: radius, height: radius))
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = maskPath.cgPath
+        layer.mask = maskLayer
+    }
+}
+
 extension Double {
     func pix() -> CGFloat {
         return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)

@@ -1,5 +1,5 @@
 //
-//  JDViewController.swift
+//  ContractViewController.swift
 //  Catatan
 //
 //  Created by apple on 2024/2/29.
@@ -7,26 +7,12 @@
 
 import UIKit
 
-class JDViewController: BaseViewController {
+class ContractViewController: BaseViewController {
 
-    lazy var jdView: JDView = {
-        let jdView = JDView()
-        return jdView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.addSubview(jdView)
-        jdView.snp.makeConstraints { make in
-            make.edges.equalTo(view)
-        }
-        
-        jdView.block = {[weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
-        jdView.typeImageView.currentState = .three
     }
     
 

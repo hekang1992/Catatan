@@ -9,9 +9,11 @@ import UIKit
 import JXGradientKit
 
 typealias BackBlock = () -> Void
+typealias NextBlock = () -> Void
 class JDView: UIView {
 
     var block:BackBlock?
+    var block1:NextBlock?
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -107,7 +109,6 @@ class JDView: UIView {
         button.setTitle("Konfirmasi", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16.pix(), weight: .medium)
-        button.isEnabled = false
         return button
     }()
     
@@ -209,7 +210,7 @@ class JDView: UIView {
     }
     
     @objc func sureClick() {
-        self.block!()
+        self.block1!()
     }
     
 }

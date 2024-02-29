@@ -14,6 +14,7 @@
 		182294622B90550B0045C533 /* JDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294612B90550B0045C533 /* JDView.swift */; };
 		182294642B905C880045C533 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294632B905C880045C533 /* TypeView.swift */; };
 		182294662B90616A0045C533 /* TypeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294652B90616A0045C533 /* TypeImageView.swift */; };
+		1822946A2B906E120045C533 /* PopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294692B906E120045C533 /* PopImageView.swift */; };
 		182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516312B8C246E00FFEE85 /* AppDelegate.swift */; };
 		1825163B2B8C246F00FFEE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1825163A2B8C246F00FFEE85 /* Assets.xcassets */; };
 		1825163E2B8C246F00FFEE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */; };
@@ -26,6 +27,13 @@
 		1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */; };
 		1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825166C2B8C27DF00FFEE85 /* LoginView.swift */; };
 		182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F671A2B8D811D000CA090 /* YBTabBarButton.swift */; };
+		1835E0B52B90849300C20E0E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835E0B42B90849300C20E0E /* CameraView.swift */; };
+		1835E0BA2B9087CF00C20E0E /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835E0B92B9087CF00C20E0E /* PersonalViewController.swift */; };
+		1835E0BC2B9087E000C20E0E /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835E0BB2B9087E000C20E0E /* PersonalView.swift */; };
+		1835E0BE2B9087FE00C20E0E /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835E0BD2B9087FE00C20E0E /* ContractViewController.swift */; };
+		1835E0C02B90880800C20E0E /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835E0BF2B90880800C20E0E /* BankViewController.swift */; };
+		1835E0C22B90881400C20E0E /* BankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835E0C12B90881400C20E0E /* BankView.swift */; };
+		1835E0C42B90882100C20E0E /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835E0C32B90882100C20E0E /* ContractView.swift */; };
 		1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD2B2B8C959F00B4BEEF /* TabBarViewController.swift */; };
 		1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */; };
 		1845FD322B8C95E100B4BEEF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD312B8C95E100B4BEEF /* UserViewController.swift */; };
@@ -65,6 +73,7 @@
 		182294612B90550B0045C533 /* JDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDView.swift; sourceTree = "<group>"; };
 		182294632B905C880045C533 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		182294652B90616A0045C533 /* TypeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeImageView.swift; sourceTree = "<group>"; };
+		182294692B906E120045C533 /* PopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopImageView.swift; sourceTree = "<group>"; };
 		1825162E2B8C246E00FFEE85 /* Catatan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catatan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182516312B8C246E00FFEE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1825163A2B8C246F00FFEE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +90,13 @@
 		1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1825166C2B8C27DF00FFEE85 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		182F671A2B8D811D000CA090 /* YBTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YBTabBarButton.swift; sourceTree = "<group>"; };
+		1835E0B42B90849300C20E0E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		1835E0B92B9087CF00C20E0E /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		1835E0BB2B9087E000C20E0E /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
+		1835E0BD2B9087FE00C20E0E /* ContractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
+		1835E0BF2B90880800C20E0E /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
+		1835E0C12B90881400C20E0E /* BankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankView.swift; sourceTree = "<group>"; };
+		1835E0C32B90882100C20E0E /* ContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		1845FD2B2B8C959F00B4BEEF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1845FD312B8C95E100B4BEEF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -127,14 +143,35 @@
 		182294582B9028C20045C533 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				182294612B90550B0045C533 /* JDView.swift */,
-				182294632B905C880045C533 /* TypeView.swift */,
-				1822945D2B90313F0045C533 /* FaceView.swift */,
-				182294652B90616A0045C533 /* TypeImageView.swift */,
-				1822945F2B9054F80045C533 /* JDViewController.swift */,
-				182294592B9028FC0045C533 /* FaceViewController.swift */,
+				182294682B906BA00045C533 /* Type */,
+				182294672B906B960045C533 /* Face */,
+				1835E0B72B90876B00C20E0E /* Contract */,
+				1835E0B62B90871200C20E0E /* Personal */,
+				1835E0B82B90877E00C20E0E /* BankInfo */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		182294672B906B960045C533 /* Face */ = {
+			isa = PBXGroup;
+			children = (
+				1822945D2B90313F0045C533 /* FaceView.swift */,
+				1835E0B42B90849300C20E0E /* CameraView.swift */,
+				182294692B906E120045C533 /* PopImageView.swift */,
+				182294592B9028FC0045C533 /* FaceViewController.swift */,
+			);
+			path = Face;
+			sourceTree = "<group>";
+		};
+		182294682B906BA00045C533 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				182294612B90550B0045C533 /* JDView.swift */,
+				182294632B905C880045C533 /* TypeView.swift */,
+				182294652B90616A0045C533 /* TypeImageView.swift */,
+				1822945F2B9054F80045C533 /* JDViewController.swift */,
+			);
+			path = Type;
 			sourceTree = "<group>";
 		};
 		182516252B8C246E00FFEE85 = {
@@ -221,6 +258,33 @@
 				1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		1835E0B62B90871200C20E0E /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0BB2B9087E000C20E0E /* PersonalView.swift */,
+				1835E0B92B9087CF00C20E0E /* PersonalViewController.swift */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		1835E0B72B90876B00C20E0E /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0C32B90882100C20E0E /* ContractView.swift */,
+				1835E0BD2B9087FE00C20E0E /* ContractViewController.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		1835E0B82B90877E00C20E0E /* BankInfo */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0C12B90881400C20E0E /* BankView.swift */,
+				1835E0BF2B90880800C20E0E /* BankViewController.swift */,
+			);
+			path = BankInfo;
 			sourceTree = "<group>";
 		};
 		1845FD2D2B8C95A900B4BEEF /* Home */ = {
@@ -486,29 +550,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1835E0C22B90881400C20E0E /* BankView.swift in Sources */,
 				1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */,
 				182294622B90550B0045C533 /* JDView.swift in Sources */,
 				1845FD372B8C985600B4BEEF /* BaseNavViewController.swift in Sources */,
 				1822945E2B90313F0045C533 /* FaceView.swift in Sources */,
 				1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */,
 				1845FD352B8C95F800B4BEEF /* OrderViewController.swift in Sources */,
+				1835E0BA2B9087CF00C20E0E /* PersonalViewController.swift in Sources */,
 				182294642B905C880045C533 /* TypeView.swift in Sources */,
 				18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
 				1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */,
+				1822946A2B906E120045C533 /* PopImageView.swift in Sources */,
+				1835E0C02B90880800C20E0E /* BankViewController.swift in Sources */,
 				184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */,
 				1845FD322B8C95E100B4BEEF /* UserViewController.swift in Sources */,
 				182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */,
 				182294662B90616A0045C533 /* TypeImageView.swift in Sources */,
 				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
 				182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */,
+				1835E0BE2B9087FE00C20E0E /* ContractViewController.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
 				1822945C2B902C610045C533 /* CNavView.swift in Sources */,
 				18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
+				1835E0C42B90882100C20E0E /* ContractView.swift in Sources */,
+				1835E0B52B90849300C20E0E /* CameraView.swift in Sources */,
 				184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */,
 				18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
+				1835E0BC2B9087E000C20E0E /* PersonalView.swift in Sources */,
 				1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */,
 				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
 			);
