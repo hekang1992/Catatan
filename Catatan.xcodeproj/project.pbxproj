@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294592B9028FC0045C533 /* FaceViewController.swift */; };
+		1822945C2B902C610045C533 /* CNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945B2B902C610045C533 /* CNavView.swift */; };
+		1822945E2B90313F0045C533 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945D2B90313F0045C533 /* FaceView.swift */; };
+		182294602B9054F80045C533 /* JDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945F2B9054F80045C533 /* JDViewController.swift */; };
+		182294622B90550B0045C533 /* JDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294612B90550B0045C533 /* JDView.swift */; };
 		182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516312B8C246E00FFEE85 /* AppDelegate.swift */; };
 		1825163B2B8C246F00FFEE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1825163A2B8C246F00FFEE85 /* Assets.xcassets */; };
 		1825163E2B8C246F00FFEE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */; };
@@ -51,6 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182294592B9028FC0045C533 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
+		1822945B2B902C610045C533 /* CNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavView.swift; sourceTree = "<group>"; };
+		1822945D2B90313F0045C533 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		1822945F2B9054F80045C533 /* JDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDViewController.swift; sourceTree = "<group>"; };
+		182294612B90550B0045C533 /* JDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDView.swift; sourceTree = "<group>"; };
 		1825162E2B8C246E00FFEE85 /* Catatan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catatan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182516312B8C246E00FFEE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1825163A2B8C246F00FFEE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +120,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182294582B9028C20045C533 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				182294612B90550B0045C533 /* JDView.swift */,
+				1822945D2B90313F0045C533 /* FaceView.swift */,
+				1822945F2B9054F80045C533 /* JDViewController.swift */,
+				182294592B9028FC0045C533 /* FaceViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		182516252B8C246E00FFEE85 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +163,7 @@
 				1845FD332B8C95E500B4BEEF /* Order */,
 				1845FD2E2B8C95B100B4BEEF /* Profile */,
 				1845FD2D2B8C95A900B4BEEF /* Home */,
+				182294582B9028C20045C533 /* Auth */,
 				182516622B8C24EA00FFEE85 /* Base */,
 			);
 			path = Catatan;
@@ -188,9 +210,9 @@
 		182516652B8C251F00FFEE85 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1825163A2B8C246F00FFEE85 /* Assets.xcassets */,
 				182516312B8C246E00FFEE85 /* AppDelegate.swift */,
 				1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */,
-				1825163A2B8C246F00FFEE85 /* Assets.xcassets */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -235,6 +257,7 @@
 			children = (
 				182516682B8C258600FFEE85 /* Define.swift */,
 				184760F62B8EE96D0048E257 /* DeviceInfo.swift */,
+				1822945B2B902C610045C533 /* CNavView.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -458,9 +481,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */,
+				182294622B90550B0045C533 /* JDView.swift in Sources */,
 				1845FD372B8C985600B4BEEF /* BaseNavViewController.swift in Sources */,
+				1822945E2B90313F0045C533 /* FaceView.swift in Sources */,
+				1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */,
 				1845FD352B8C95F800B4BEEF /* OrderViewController.swift in Sources */,
 				18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */,
+				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
 				1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */,
 				184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */,
 				1845FD322B8C95E100B4BEEF /* UserViewController.swift in Sources */,
@@ -468,6 +495,7 @@
 				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
 				182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
+				1822945C2B902C610045C533 /* CNavView.swift in Sources */,
 				18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
 				184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */,

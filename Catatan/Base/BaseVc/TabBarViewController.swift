@@ -76,4 +76,24 @@ class TabBarViewController: UITabBarController,YBTabBarDelegate {
         customTabBar?.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
     }
     
+    func showTabBar() {
+        if let customTabBar = self.customTabBar {
+            UIView.animate(withDuration: 0.25) {
+                var frame = customTabBar.frame
+                frame.origin.y = self.view.bounds.size.height - TabBarHeight - 26.pix()
+                customTabBar.frame = frame
+            }
+        }
+    }
+    
+    func hideTabBar() {
+        if let customTabBar = self.customTabBar {
+            UIView.animate(withDuration: 0.25) {
+                var frame = customTabBar.frame
+                frame.origin.y = self.view.bounds.size.height
+                customTabBar.frame = frame
+            }
+        }
+    }
+    
 }

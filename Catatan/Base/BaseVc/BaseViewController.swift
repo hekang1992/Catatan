@@ -8,13 +8,39 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    lazy var navView: CNavView = {
+        let view = CNavView()
+        view.frame = .zero
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
+    func showTabBar() {
+        if let tabbarVc = UIApplication.shared.delegate?.window??.rootViewController as? TabBarViewController {
+            tabbarVc.showTabBar()
+        }
+    }
+    
+    func hideTabBar() {
+        if let tabbarVc = UIApplication.shared.delegate?.window??.rootViewController as? TabBarViewController {
+            tabbarVc.hideTabBar()
+        }
+    }
+    
+    func addNavView() {
+        view.addSubview(navView)
+        navView.snp.makeConstraints { make in
+            make.left.right.top.equalTo(view)
+            make.height.equalTo(NAV_HIGH)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

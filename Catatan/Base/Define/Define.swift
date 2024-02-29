@@ -36,7 +36,11 @@ let LOGIN_SEIZES = "seizes"
 // 状态栏高度
 let STATUSBAR_HIGH = is_iPhoneXSeries() ? 44 : 20
 
+// 导航栏高度
+let NAV_HIGH = 44 + STATUSBAR_HIGH;
+
 let keychain_service = "KeyChain_Service"
+
 let keychain_account = "KeyChain_Account"
 
 
@@ -100,6 +104,17 @@ extension UIColor {
         let blue = CGFloat.random(in: 0...1)
         let alpha = CGFloat.random(in: 0...1)
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+}
+
+extension UILabel {
+    static func createLabel(font: UIFont, textColor: UIColor, textAlignment: NSTextAlignment) -> UILabel {
+        let label = UILabel()
+        label.font = font
+        label.textColor = textColor
+        label.textAlignment = textAlignment
+        label.backgroundColor = UIColor.clear
+        return label
     }
 }
 
