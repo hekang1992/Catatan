@@ -13,6 +13,11 @@ class PersonalViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.white
+        addNavView()
+        navView.block = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
 

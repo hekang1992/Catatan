@@ -36,11 +36,6 @@ class HomeViewController: BaseViewController {
         self.showTabBar()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.hideTabBar()
-    }
-    
     @objc func btnClick(){
         let jdVc = JDViewController()
         jdVc.hideTabBar()

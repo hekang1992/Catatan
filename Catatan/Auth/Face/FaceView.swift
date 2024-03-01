@@ -49,7 +49,7 @@ class FaceView: UIView {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .center
         nameLabel.text = "Hanya untuk verifikasi identitas"
-        nameLabel.textColor = UIColor("#959595")
+        nameLabel.textColor = UIColor(TITLE_COLOR)
         nameLabel.font = UIFont.systemFont(ofSize: 12.pix(), weight: .regular)
         return nameLabel
     }()
@@ -58,7 +58,7 @@ class FaceView: UIView {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
         nameLabel.text = "KTP"
-        nameLabel.textColor = UIColor("#959595")
+        nameLabel.textColor = UIColor(TITLE_COLOR)
         nameLabel.font = UIFont.systemFont(ofSize: 16.pix(), weight: .regular)
         return nameLabel
     }()
@@ -81,7 +81,7 @@ class FaceView: UIView {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
         nameLabel.text = "Pengenalan wajah"
-        nameLabel.textColor = UIColor("#959595")
+        nameLabel.textColor = UIColor(TITLE_COLOR)
         nameLabel.font = UIFont.systemFont(ofSize: 16.pix(), weight: .regular)
         return nameLabel
     }()
@@ -97,7 +97,7 @@ class FaceView: UIView {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .center
         nameLabel.text = "Perlindungan informasi pribadi"
-        nameLabel.textColor = UIColor("#959595")
+        nameLabel.textColor = UIColor(TITLE_COLOR)
         nameLabel.font = UIFont.systemFont(ofSize: 14.pix(), weight: .semibold)
         return nameLabel
     }()

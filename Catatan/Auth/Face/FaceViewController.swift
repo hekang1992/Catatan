@@ -42,7 +42,8 @@ class FaceViewController: BaseViewController {
     }
     
     func nextVc() {
-        self.view.makeToast("next", duration: 1.0, position: .center )
+        let personVc = PersonalViewController()
+        self.navigationController?.pushViewController(personVc, animated: true)
     }
     
     func popPhotoView() {

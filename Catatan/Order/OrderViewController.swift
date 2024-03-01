@@ -8,11 +8,18 @@
 import UIKit
 
 class OrderViewController: BaseViewController {
+    
+    var nameStr: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.s
+        addNavView()
+        navView.nameLabel.text = nameStr
+        navView.block = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
 

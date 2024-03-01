@@ -45,6 +45,10 @@
 		18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */; };
 		18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */; };
 		18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */; };
+		18F95BFB2B91848E005273A2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95BFA2B91848E005273A2 /* ProfileView.swift */; };
+		18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95BFC2B9190B2005273A2 /* ProfileCell.swift */; };
+		18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95BFE2B91AD41005273A2 /* AboutViewController.swift */; };
+		18F95C012B91AE1E005273A2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95C002B91AE1E005273A2 /* AboutView.swift */; };
 		290BB5069F3C8675DD55207A /* Pods_Catatan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +113,10 @@
 		18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
 		18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetApiWork.swift; sourceTree = "<group>"; };
 		18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonParams.swift; sourceTree = "<group>"; };
+		18F95BFA2B91848E005273A2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		18F95BFC2B9190B2005273A2 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		18F95BFE2B91AD41005273A2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		18F95C002B91AE1E005273A2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2026A2E2D59471F7B340DACE /* Pods-Catatan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.debug.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.debug.xcconfig"; sourceTree = "<group>"; };
 		E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catatan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE95F7319F9F3850BBE1CA56 /* Pods-Catatan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.release.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.release.xcconfig"; sourceTree = "<group>"; };
@@ -298,7 +306,8 @@
 		1845FD2E2B8C95B100B4BEEF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1845FD312B8C95E100B4BEEF /* UserViewController.swift */,
+				18F95C032B91AE43005273A2 /* User */,
+				18F95C022B91AE35005273A2 /* About */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -357,6 +366,25 @@
 				18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		18F95C022B91AE35005273A2 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				18F95C002B91AE1E005273A2 /* AboutView.swift */,
+				18F95BFE2B91AD41005273A2 /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		18F95C032B91AE43005273A2 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				18F95BFC2B9190B2005273A2 /* ProfileCell.swift */,
+				18F95BFA2B91848E005273A2 /* ProfileView.swift */,
+				1845FD312B8C95E100B4BEEF /* UserViewController.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		A63EE135F7A18A87BE77B49F /* Frameworks */ = {
@@ -576,13 +604,17 @@
 				18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
 				1835E0C42B90882100C20E0E /* ContractView.swift in Sources */,
+				18F95BFB2B91848E005273A2 /* ProfileView.swift in Sources */,
+				18F95C012B91AE1E005273A2 /* AboutView.swift in Sources */,
 				1835E0B52B90849300C20E0E /* CameraView.swift in Sources */,
 				184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */,
 				18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */,
+				18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
 				1835E0BC2B9087E000C20E0E /* PersonalView.swift in Sources */,
 				1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */,
 				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
+				18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

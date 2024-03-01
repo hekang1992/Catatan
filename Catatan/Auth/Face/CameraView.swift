@@ -44,7 +44,7 @@ class CameraView: UIView {
     }()
     
     lazy var nameLable1: UILabel = {
-        let nameLable = UILabel.createLabel(font: UIFont.systemFont(ofSize: 14.pix(), weight: .semibold), textColor: UIColor("#959595"), textAlignment: .center)
+        let nameLable = UILabel.createLabel(font: UIFont.systemFont(ofSize: 14.pix(), weight: .semibold), textColor: UIColor(TITLE_COLOR), textAlignment: .center)
         nameLable.numberOfLines = 0
         nameLable.text = "Instruksi foto"
         return nameLable
@@ -66,7 +66,7 @@ class CameraView: UIView {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .center
         nameLabel.text = "Perlindungan informasi pribadi"
-        nameLabel.textColor = UIColor("#959595")
+        nameLabel.textColor = UIColor(TITLE_COLOR)
         nameLabel.font = UIFont.systemFont(ofSize: 14.pix(), weight: .semibold)
         return nameLabel
     }()

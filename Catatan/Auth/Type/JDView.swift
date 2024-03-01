@@ -58,7 +58,7 @@ class JDView: UIView {
     }()
     
     lazy var nameLable1: UILabel = {
-        let nameLable = UILabel.createLabel(font: UIFont.systemFont(ofSize: 12.pix(), weight: .regular), textColor: UIColor("#959595"), textAlignment: .left)
+        let nameLable = UILabel.createLabel(font: UIFont.systemFont(ofSize: 12.pix(), weight: .regular), textColor: UIColor(TITLE_COLOR), textAlignment: .left)
         nameLable.numberOfLines = 0
         nameLable.text = "Untuk memastikan keamanan dana Anda, Anda perlu memverifikasi informasi identitas Anda"
         return nameLable
@@ -96,7 +96,7 @@ class JDView: UIView {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .center
         nameLabel.text = "Perlindungan informasi pribadi"
-        nameLabel.textColor = UIColor("#959595")
+        nameLabel.textColor = UIColor(TITLE_COLOR)
         nameLabel.font = UIFont.systemFont(ofSize: 14.pix(), weight: .semibold)
         return nameLabel
     }()

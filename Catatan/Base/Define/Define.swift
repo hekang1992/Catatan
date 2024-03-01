@@ -43,8 +43,8 @@ let keychain_service = "KeyChain_Service"
 
 let keychain_account = "KeyChain_Account"
 
+let TITLE_COLOR = "#959595"
 
-// 判断是否设备是iphoneX系列
 func is_iPhoneXSeries() -> (Bool) {
     let boundsSize = UIScreen.main.bounds.size;
     // iPhoneX,XS
