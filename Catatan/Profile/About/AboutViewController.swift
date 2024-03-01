@@ -59,10 +59,10 @@ class AboutViewController: BaseViewController {
         aboutView.nameLable.attributedText = attributedString
         return aboutView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         addNavView()
         navView.nameLabel.text = "Layanan pelanggan"
@@ -114,26 +114,39 @@ class AboutViewController: BaseViewController {
     }
     
     func pushEmail() {
-        
+        let email = "kreditinstan@gmail.com"
+        if let emailURL = URL(string: "mailto:\(email)"), UIApplication.shared.canOpenURL(emailURL) {
+            UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+        }
     }
     
     func pushPhone() {
-        
+        let phoneNumber = "1234567890"
+        if let phoneURL = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(phoneURL) {
+            UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+        } else {
+            
+        }
     }
     
     func pushApp() {
-        
+        let phoneNumber = "+1234567890"
+        if let whatsappURL = URL(string: "https://wa.me/\(phoneNumber)"), UIApplication.shared.canOpenURL(whatsappURL) {
+            UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
+        } else {
+            self.view.makeToast("Not installed WhatsApp",duration: 1.0,position: .center)
+        }
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

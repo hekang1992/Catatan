@@ -47,6 +47,7 @@ class AboutView: UIView {
         bgView.addSubview(iconImageView)
         bgView.addSubview(nameLable)
         bgView.addSubview(iconImageView1)
+        bgView.addSubview(clickBtn)
     }
 
     override func layoutSubviews() {
@@ -71,6 +72,9 @@ class AboutView: UIView {
             make.centerY.equalTo(bgView)
             make.right.equalTo(bgView).offset(-18.pix())
             make.size.equalTo(CGSize(width: 19.pix(), height: 11.pix()))
+        }
+        clickBtn.snp.makeConstraints { make in
+            make.edges.equalTo(bgView)
         }
     }
     
