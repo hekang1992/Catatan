@@ -7,6 +7,7 @@
 
 import UIKit
 import JXGradientKit
+import TYAlertController
 
 class UserViewController: BaseViewController {
     
@@ -70,11 +71,36 @@ class UserViewController: BaseViewController {
     }
     
     func logoutAccount() {
-        view.makeToast("logoutAccount",duration: 1.0,position: .center)
+        let exitView = ExitView()
+        exitView.frame = self.view.bounds
+        let alertVC = TYAlertController(alert: exitView, preferredStyle: .alert)
+        self.present(alertVC!, animated: true)
+        exitView.block = { [weak self] in
+            self?.logout()
+        }
+        exitView.cblock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
+    
+    func logout() {
+        
     }
     
     func deleteAccount() {
-        view.makeToast("deleteAccount",duration: 1.0,position: .center)
+        let delView = DeleteView()
+        delView.frame = self.view.bounds
+        let alertVC = TYAlertController(alert: delView, preferredStyle: .actionSheet)
+        self.present(alertVC!, animated: true)
+        delView.block1 = { [weak self] in
+            
+        }
+        delView.block2 = { [weak self] in
+            
+        }
+        delView.block3 = { [weak self] in
+            
+        }
     }
     
     /*

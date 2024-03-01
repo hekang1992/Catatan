@@ -42,6 +42,8 @@
 		1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */; };
 		184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F42B8EDD350048E257 /* NetworkManager.swift */; };
 		184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F62B8EE96D0048E257 /* DeviceInfo.swift */; };
+		18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD83C2B91C64E009E8A6B /* ExitView.swift */; };
+		18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD83E2B91CE4D009E8A6B /* DeleteView.swift */; };
 		18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */; };
 		18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */; };
 		18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */; };
@@ -110,6 +112,8 @@
 		184760F42B8EDD350048E257 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		184760F62B8EE96D0048E257 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		184760F82B8F3AEA0048E257 /* Catatan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Catatan.entitlements; sourceTree = "<group>"; };
+		18DCD83C2B91C64E009E8A6B /* ExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitView.swift; sourceTree = "<group>"; };
+		18DCD83E2B91CE4D009E8A6B /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
 		18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
 		18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetApiWork.swift; sourceTree = "<group>"; };
 		18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonParams.swift; sourceTree = "<group>"; };
@@ -320,6 +324,25 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
+		18DCD8402B91CE52009E8A6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18F95BFC2B9190B2005273A2 /* ProfileCell.swift */,
+				18F95BFA2B91848E005273A2 /* ProfileView.swift */,
+				18DCD83C2B91C64E009E8A6B /* ExitView.swift */,
+				18DCD83E2B91CE4D009E8A6B /* DeleteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18DCD8412B91CE5D009E8A6B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1845FD312B8C95E100B4BEEF /* UserViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		18E9ACF62B8F3EBC00DC16A3 /* BaseVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,9 +403,8 @@
 		18F95C032B91AE43005273A2 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				18F95BFC2B9190B2005273A2 /* ProfileCell.swift */,
-				18F95BFA2B91848E005273A2 /* ProfileView.swift */,
-				1845FD312B8C95E100B4BEEF /* UserViewController.swift */,
+				18DCD8402B91CE52009E8A6B /* View */,
+				18DCD8412B91CE5D009E8A6B /* Controller */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -588,6 +610,7 @@
 				1835E0BA2B9087CF00C20E0E /* PersonalViewController.swift in Sources */,
 				182294642B905C880045C533 /* TypeView.swift in Sources */,
 				18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */,
+				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
 				1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */,
 				1822946A2B906E120045C533 /* PopImageView.swift in Sources */,
@@ -601,6 +624,7 @@
 				1835E0BE2B9087FE00C20E0E /* ContractViewController.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
 				1822945C2B902C610045C533 /* CNavView.swift in Sources */,
+				18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */,
 				18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
 				1835E0C42B90882100C20E0E /* ContractView.swift in Sources */,
