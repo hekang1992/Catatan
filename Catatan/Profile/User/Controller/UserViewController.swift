@@ -93,14 +93,19 @@ class UserViewController: BaseViewController {
         let alertVC = TYAlertController(alert: delView, preferredStyle: .actionSheet)
         self.present(alertVC!, animated: true)
         delView.block1 = { [weak self] in
-            
+            self?.dismiss(animated: true)
         }
         delView.block2 = { [weak self] in
-            
+            //sure
+            self?.sureDel()
         }
         delView.block3 = { [weak self] in
-            
+            self?.dismiss(animated: true)
         }
+    }
+    
+    func sureDel() {
+        
     }
     
     /*
