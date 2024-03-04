@@ -8,13 +8,14 @@
 import UIKit
 import JXGradientKit
 import YYText
-import Toast_Swift
+import MBProgressHUD_WJExtension
 
 typealias BtnBlock = () -> Void
 typealias BtnCodeBlock = (UIButton) -> Void
 class LoginView: UIView ,UITextFieldDelegate{
     var block:BtnBlock?
     var block1:BtnCodeBlock?
+    var block2:BtnBlock?
     lazy var bgView: GradientView = {
         let bgView = GradientView()
         let topColer = UIColor("#E4D7EF")
@@ -112,7 +113,7 @@ class LoginView: UIView ,UITextFieldDelegate{
         let highlight = YYTextHighlight()
         text.yy_setTextHighlight(highlight, range: NSRange(location: 0, length: text.length))
         highlight.tapAction = { [weak self] containerView, text, range, rect in
-            self?.makeToast("链接被点击",duration: 1.0, position: .center)
+            MBProgressHUD.wj_showPlainText("链接被点击", view: nil)
         }
         agreeMentLB.attributedText = text
         agreeMentLB.isUserInteractionEnabled = true
@@ -192,6 +193,16 @@ class LoginView: UIView ,UITextFieldDelegate{
     }
     
     @objc func loginClick(){
-        
+        self.block2!()
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+        if textField == emailT {
+            return newText.count <= 13
+        }else{
+            return newText.count <= 6
+        }
+    }
+    
 }

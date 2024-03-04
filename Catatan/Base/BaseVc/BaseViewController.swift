@@ -27,6 +27,12 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         view.frame = .zero
         return view
     }()
+    
+    lazy var hud: HudView = {
+        let hud = HudView()
+        hud.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        return hud
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +62,16 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
             make.left.right.top.equalTo(view)
             make.height.equalTo(NAV_HIGH)
         }
+    }
+    
+    func addHudView() {
+        if let keyWindow = UIApplication.shared.keyWindow {
+            keyWindow.addSubview(hud)
+        }
+    }
+    
+    func removeHudView() {
+        hud.removeFromSuperview()
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {

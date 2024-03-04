@@ -2,10 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>abc</string>
+	<string>In order to verify your identity and determine your location for accurate service provision, we need to collect your location data and effectively prevent fraud risks.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>abc</string>
+	<string>In order to verify your identity and determine your location for accurate service provision, we need to collect your location data and effectively prevent fraud risks.</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>We seek your Advertising ID to enhance our services and fortify fraud prevention. We are committed to safeguarding your privacy and complying with all applicable laws and regulations. The collected Advertising ID will be utilized solely for the purpose of service improvement.</string>
 	<key>UIApplicationSceneManifest</key>

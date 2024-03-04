@@ -7,13 +7,15 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class NetApiWork: NSObject {
     
-    typealias CompleteBlock = (Any?) -> Void
-    typealias NSErrorBlock = (Error?) -> Void
-    
     static let shared = NetApiWork()
+    
+    typealias CompleteBlock = (BaseModel?) -> Void
+    
+    typealias NSErrorBlock = (Error?) -> Void
     
     func requestAPI(params: [String: Any]?,
                     pageUrl: String,
@@ -26,17 +28,17 @@ class NetApiWork: NSObject {
             "Connection" : "keep-alive",
             "Content-Type" : "application/x-www-form-urlencoded;text/json;text/javascript;text/html;text/plain;multipart/form-data"
         ]
-        var wholeApiUrl = BASE_APIURL + pageUrl + "?" + CommonParams.getParas()
+        var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         AF.request(wholeApiUrl, method: method, parameters: params, headers: headers).responseData { response in
-            switch response.result {
-            case .success(let data):
-                print("Received data: \(data)")
-                complete(data)
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                errorBlock(error.localizedDescription as? Error)
+            if response.data == nil {
+                print("no data")
+                return
             }
+            let json = try? JSONSerialization.jsonObject(with: response.data!,options:[.mutableContainers,.mutableLeaves,.fragmentsAllowed])
+            let jsonDic = JSON.init(json as Any)
+            let model = BaseModel(jsondata: jsonDic)
+            complete(model)
         }
     }
     

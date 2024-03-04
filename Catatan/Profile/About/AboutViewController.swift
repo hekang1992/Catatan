@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD_WJExtension
 
 class AboutViewController: BaseViewController {
     
@@ -134,7 +135,7 @@ class AboutViewController: BaseViewController {
         if let whatsappURL = URL(string: "https://wa.me/\(phoneNumber)"), UIApplication.shared.canOpenURL(whatsappURL) {
             UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
         } else {
-            self.view.makeToast("Not installed WhatsApp",duration: 1.0,position: .center)
+            MBProgressHUD.wj_showPlainText("Not installed WhatsApp", view: nil)
         }
     }
     

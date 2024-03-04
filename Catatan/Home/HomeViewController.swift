@@ -32,17 +32,11 @@ class HomeViewController: BaseViewController {
             make.size.equalTo(CGSize(width: 100, height: 100))
         }
         
-        LocationManager.shared.startUpdatingLocation { locationModel in
-            print("国家>>>：\(locationModel.country ?? "")")
-            print("国家代码>>>：\(locationModel.countryCode ?? "")")
-            print("省>>>：\(locationModel.province ?? "")")
-            print("市>>>：\(locationModel.city ?? "")")
-            print("区>>>：\(locationModel.district ?? "")")
-            print("街道>>>：\(locationModel.street ?? "")")
-            print("经度>>>：\(locationModel.excellent ?? 0.0)")
-            print("纬度>>>：\(locationModel.carpenter ?? 0.0)")
+        let token: String = USER_DEFAULTS.object(forKey: LOGIN_SEIZES) as? String ?? ""
+        if token.isEmpty == true {
+            locationInfo()
+            uploadDeviceInfo()
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +48,34 @@ class HomeViewController: BaseViewController {
         let jdVc = JDViewController()
         jdVc.hideTabBar()
         self.navigationController?.pushViewController(jdVc, animated: true)
+    }
+    
+    func locationInfo() {
+        LocationManager.shared.startUpdatingLocation { [weak self] locationModel in
+            print("国家>>>：\(locationModel.country ?? "")")
+            print("国家代码>>>：\(locationModel.countryCode ?? "")")
+            print("省>>>：\(locationModel.province ?? "")")
+            print("市>>>：\(locationModel.city ?? "")")
+            print("区>>>：\(locationModel.district ?? "")")
+            print("街道>>>：\(locationModel.street ?? "")")
+            print("经度>>>：\(locationModel.excellent ?? 0.0)")
+            print("纬度>>>：\(locationModel.carpenter ?? 0.0)")
+            self?.upLocationInfo(locationModel)
+        }
+    }
+    
+    func upLocationInfo(_ locationModel: LocationModel) {
+        let dict = ["stephen":locationModel.country,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent,"carpenter":locationModel.carpenter] as [String : Any]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: mastersThough, method: .post) { model in
+            
+        } errorBlock: { error in
+            
+        }
+
+    }
+    
+    func uploadDeviceInfo() {
+        
     }
     
     /*

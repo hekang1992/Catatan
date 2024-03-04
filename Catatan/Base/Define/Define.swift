@@ -10,8 +10,6 @@ import UIKit
 import SnapKit
 import UIColor_Hex_Swift
 
-let BASE_APIURL = ""
-
 // 屏幕宽度
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 
@@ -155,3 +153,35 @@ extension CGFloat {
 }
 
 let TabBarHeight = 54.pix()
+
+
+func topViewController() -> UIViewController? {
+    var window = UIApplication.shared.delegate?.window ?? UIWindow()
+
+    if window?.windowLevel != UIWindow.Level.normal {
+        let windows = UIApplication.shared.windows
+        for tmpWin in windows {
+            if tmpWin.windowLevel == UIWindow.Level.normal {
+                window = tmpWin
+                break
+            }
+        }
+    }
+
+    var rootVC = window?.rootViewController
+    var activityVC: UIViewController?
+    while true {
+        if let navController = rootVC as? UINavigationController {
+            activityVC = navController.visibleViewController
+        } else if let tabController = rootVC as? UITabBarController {
+            activityVC = tabController.selectedViewController
+        } else if let presentedVC = rootVC?.presentedViewController {
+            activityVC = presentedVC
+        } else {
+            break
+        }
+
+        rootVC = activityVC
+    }
+    return activityVC
+}

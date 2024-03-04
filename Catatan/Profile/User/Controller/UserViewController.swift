@@ -8,6 +8,7 @@
 import UIKit
 import JXGradientKit
 import TYAlertController
+import MBProgressHUD_WJExtension
 
 class UserViewController: BaseViewController {
     
@@ -31,8 +32,6 @@ class UserViewController: BaseViewController {
         userView.blcok = {[weak self] index,title in
             self?.indexWithVc(index,title)
         }
-        
-        print("经度>>>>\(LocationManager.shared.locatinModel.carpenter ?? 0.0)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +77,9 @@ class UserViewController: BaseViewController {
         let alertVC = TYAlertController(alert: exitView, preferredStyle: .alert)
         self.present(alertVC!, animated: true)
         exitView.block = { [weak self] in
-            self?.logout()
+            self?.dismiss(animated: true, completion: {
+                self?.logout()
+            })
         }
         exitView.cblock = { [weak self] in
             self?.dismiss(animated: true)
@@ -86,7 +87,20 @@ class UserViewController: BaseViewController {
     }
     
     func logout() {
-        
+        addHudView()
+        let dict: [String: Any] = [:]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: obliteratedYears, method: .get) { [weak self] model in
+            let awareness = model?.awareness
+            let edges = model?.edges
+            if awareness == 0 || awareness == 00 {
+                SaveLoginInfo.removeLoginInfo()
+                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
+            }
+            self?.removeHudView()
+            MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
     }
     
     func deleteAccount() {
@@ -99,7 +113,9 @@ class UserViewController: BaseViewController {
         }
         delView.block2 = { [weak self] in
             //sure
-            self?.sureDel()
+            self?.dismiss(animated: true,completion: {
+                self?.sureDel()
+            })
         }
         delView.block3 = { [weak self] in
             self?.dismiss(animated: true)
@@ -107,7 +123,20 @@ class UserViewController: BaseViewController {
     }
     
     func sureDel() {
-        
+        addHudView()
+        let dict: [String: Any] = [:]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: familiarHeadless, method: .get) { [weak self] model in
+            let awareness = model?.awareness
+            let edges = model?.edges
+            if awareness == 0 || awareness == 00 {
+                SaveLoginInfo.removeLoginInfo()
+                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
+            }
+            self?.removeHudView()
+            MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
     }
     
     /*

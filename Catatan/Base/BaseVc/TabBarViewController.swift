@@ -59,10 +59,22 @@ class TabBarViewController: UITabBarController,YBTabBarDelegate {
     
     func ybTabBar(_ tabBar: CTabBar, didSelectedButtonFrom from: Int, to: Int) {
         print("from>>>>to>>>>\(from)------\(to)")
-        selectedIndex = to
         if from == to {
             return
         }
+        let isLogin: String = USER_DEFAULTS.object(forKey: LOGIN_SEIZES) as? String ?? ""
+        if isLogin.isEmpty {
+            self.loginVc()
+            return
+        }
+        selectedIndex = to
+    }
+    
+    func loginVc() {
+        let login = LoginViewController()
+        let nav = BaseNavViewController(rootViewController: login)
+        nav.modalPresentationStyle = .overFullScreen
+        present(nav, animated: true, completion: nil)
     }
     
     func setupChildViewController(childVc: UIViewController, title: String, imageName: String, selectedImageName: String) {

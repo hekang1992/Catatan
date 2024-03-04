@@ -10,9 +10,19 @@ import Reachability
 
 class NetworkManager {
     
+    enum NetworkStatus {
+        case wifi
+        case cellular
+        case none
+    }
+    
     static let shared = NetworkManager()
     
     private let reachability = try!Reachability()
+    
+    typealias NetworkStatusHandler = (NetworkStatus) -> Void
+    
+    private var networkStatusHandler: NetworkStatusHandler?
     
     private init() {
         setupReachability()
@@ -43,15 +53,6 @@ class NetworkManager {
             notifyNetworkStatus(.none)
         }
     }
-    
-    enum NetworkStatus {
-        case wifi
-        case cellular
-        case none
-    }
-    
-    typealias NetworkStatusHandler = (NetworkStatus) -> Void
-    private var networkStatusHandler: NetworkStatusHandler?
     
     func observeNetworkStatus(_ handler: @escaping NetworkStatusHandler) {
         networkStatusHandler = handler

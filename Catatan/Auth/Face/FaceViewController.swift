@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Toast_Swift
 import TYAlertController
 
 class FaceViewController: BaseViewController {

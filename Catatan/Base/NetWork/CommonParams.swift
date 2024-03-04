@@ -24,7 +24,7 @@ class CommonParams: NSObject {
         
         let decades:String = "app-flexi"
         
-        let seizes:String = USER_DEFAULTS.object(forKey: LOGIN_SEIZES) as! String
+        let seizes:String = USER_DEFAULTS.object(forKey: LOGIN_SEIZES) as? String ?? ""
         
         let urgency:String = DeviceInfo.finely()
         
