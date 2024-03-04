@@ -31,6 +31,8 @@ class UserViewController: BaseViewController {
         userView.blcok = {[weak self] index,title in
             self?.indexWithVc(index,title)
         }
+        
+        print("经度>>>>\(LocationManager.shared.locatinModel.carpenter ?? 0.0)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

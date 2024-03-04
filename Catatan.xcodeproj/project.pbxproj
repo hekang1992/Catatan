@@ -47,6 +47,8 @@
 		18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */; };
 		18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */; };
 		18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */; };
+		18EF25D42B95623C001DE76B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D32B95623C001DE76B /* LocationManager.swift */; };
+		18EF25D62B957704001DE76B /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D52B957704001DE76B /* LocationModel.swift */; };
 		18F95BFB2B91848E005273A2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95BFA2B91848E005273A2 /* ProfileView.swift */; };
 		18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95BFC2B9190B2005273A2 /* ProfileCell.swift */; };
 		18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95BFE2B91AD41005273A2 /* AboutViewController.swift */; };
@@ -117,6 +119,8 @@
 		18E9ACF42B8F3D2100DC16A3 /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
 		18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetApiWork.swift; sourceTree = "<group>"; };
 		18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonParams.swift; sourceTree = "<group>"; };
+		18EF25D32B95623C001DE76B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		18EF25D52B957704001DE76B /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		18F95BFA2B91848E005273A2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		18F95BFC2B9190B2005273A2 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		18F95BFE2B91AD41005273A2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				18E9ACF72B8F3ED400DC16A3 /* Define */,
 				18E9ACF82B8F3EDF00DC16A3 /* TabBar */,
 				18E9ACF62B8F3EBC00DC16A3 /* BaseVc */,
+				18EF25D22B95620A001DE76B /* Location */,
 				18E9ACFA2B8F3F0D00DC16A3 /* NetWork */,
 			);
 			path = Base;
@@ -385,10 +390,19 @@
 			isa = PBXGroup;
 			children = (
 				18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */,
-				184760F42B8EDD350048E257 /* NetworkManager.swift */,
 				18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */,
+				184760F42B8EDD350048E257 /* NetworkManager.swift */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		18EF25D22B95620A001DE76B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				18EF25D52B957704001DE76B /* LocationModel.swift */,
+				18EF25D32B95623C001DE76B /* LocationManager.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		18F95C022B91AE35005273A2 /* About */ = {
@@ -612,6 +626,7 @@
 				18E9ACF52B8F3D2100DC16A3 /* AllModel.swift in Sources */,
 				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
+				18EF25D42B95623C001DE76B /* LocationManager.swift in Sources */,
 				1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */,
 				1822946A2B906E120045C533 /* PopImageView.swift in Sources */,
 				1835E0C02B90880800C20E0E /* BankViewController.swift in Sources */,
@@ -636,6 +651,7 @@
 				18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
 				1835E0BC2B9087E000C20E0E /* PersonalView.swift in Sources */,
+				18EF25D62B957704001DE76B /* LocationModel.swift in Sources */,
 				1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */,
 				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
 				18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */,
