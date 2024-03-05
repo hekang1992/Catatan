@@ -157,7 +157,6 @@ let TabBarHeight = 54.pix()
 
 func topViewController() -> UIViewController? {
     var window = UIApplication.shared.delegate?.window ?? UIWindow()
-
     if window?.windowLevel != UIWindow.Level.normal {
         let windows = UIApplication.shared.windows
         for tmpWin in windows {
@@ -167,7 +166,6 @@ func topViewController() -> UIViewController? {
             }
         }
     }
-
     var rootVC = window?.rootViewController
     var activityVC: UIViewController?
     while true {

@@ -51,6 +51,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         case .denied:
             // 用户拒绝授权
             print("用户拒绝授权位置信息")
+            let model = locatinModel
+            self.locationUpdateHandler?(model)
         default:
             break
         }

@@ -7,47 +7,40 @@
 
 import UIKit
 import DeviceKit
+import MJRefresh
 
 class HomeViewController: BaseViewController {
     
     private var locationManager: LocationManager?
     
-    lazy var btn: UIButton = {
-        let btn = UIButton(type: .custom)
-        btn.setTitle("next", for: .normal)
-        btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
-        btn.backgroundColor = UIColor.random()
-        btn.layer.cornerRadius = 20.pix()
-        return btn
+    lazy var homeOneView: HomeOneView = {
+        let homeOneView = HomeOneView()
+        return homeOneView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.random()
-        view.addSubview(btn)
-        btn.snp.makeConstraints { make in
-            make.center.equalTo(view)
-            make.size.equalTo(CGSize(width: 100, height: 100))
+        view.addSubview(homeOneView)
+        homeOneView.snp.makeConstraints { make in
+            make.edges.equalTo(view).inset(UIEdgeInsets(top: 0, left: 0, bottom: TabBarHeight, right: 0))
         }
-        
         let token: String = USER_DEFAULTS.object(forKey: LOGIN_SEIZES) as? String ?? ""
-        if token.isEmpty == true {
+        if token.isEmpty == false {
             locationInfo()
-            uploadDeviceInfo()
         }
+        homeOneView.blcok = { [weak self] index,title in
+            self?.applyClick(index)
+        }
+        getHomeData()
+        homeOneView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
+        homeOneView.tableView.mj_header?.isAutomaticallyChangeAlpha = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showTabBar()
-    }
-    
-    @objc func btnClick(){
-        let jdVc = JDViewController()
-        jdVc.hideTabBar()
-        self.navigationController?.pushViewController(jdVc, animated: true)
     }
     
     func locationInfo() {
@@ -65,16 +58,73 @@ class HomeViewController: BaseViewController {
     }
     
     func upLocationInfo(_ locationModel: LocationModel) {
-        let dict = ["stephen":locationModel.country,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent,"carpenter":locationModel.carpenter] as [String : Any]
-        NetApiWork.shared.requestAPI(params: dict, pageUrl: mastersThough, method: .post) { model in
-            
+        let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent,"carpenter":locationModel.carpenter] as [String : Any?]
+        NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: mastersThough, method: .post) { [weak self] model in
+            let awareness = model.awareness
+            if awareness == 0 || awareness == 00 {
+                print("location>>>>>>success")
+                self?.baseDictToBase64()
+            }
         } errorBlock: { error in
             
         }
-
     }
     
-    func uploadDeviceInfo() {
+    func baseDictToBase64() {
+        let dict: [String: Any] = DeviceInfo.deviceDictInfo()
+        if let base64String = convertDictToBase64(dict) {
+//            print("Base64-encoded string: \(base64String)")
+            // Use the base64String as needed
+            self.uploadDeviceInfo(base64String)
+        } else {
+            print("Failed to convert dictionary to base64")
+        }
+    }
+    
+    func convertDictToBase64(_ dict: [String: Any]) -> String? {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dict)
+            let base64EncodedString = jsonData.base64EncodedString()
+            return base64EncodedString
+        } catch {
+            print("Error: \(error)")
+            return nil
+        }
+    }
+
+    func uploadDeviceInfo(_ baseStr: String) {
+        let dict = ["hovered": baseStr]
+        NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: protestedPiteously, method: .post) { model in
+            let awareness = model.awareness
+            if awareness == 0 || awareness == 00 {
+                print("uploadDeviceInfo>>>>>>success")
+            }
+        } errorBlock: { error in
+            
+        }
+    }
+    
+    @objc func loadNewData() {
+        getHomeData()
+    }
+    
+    func getHomeData() {
+        addHudView()
+        let dict: [String: Any] = [:]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: leatherScratched, method: .get) { [weak self] model in
+            let awareness = model.awareness
+            if awareness == 0 || awareness == 00 {
+                
+            }
+            self?.removeHudView()
+            self?.homeOneView.tableView.mj_header?.endRefreshing()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+            self?.homeOneView.tableView.mj_header?.endRefreshing()
+        }
+    }
+    
+    func applyClick(_ index: NSInteger){
         
     }
     

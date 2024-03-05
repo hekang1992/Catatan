@@ -162,7 +162,7 @@ class LoginView: UIView ,UITextFieldDelegate{
         }
         countdownButton.snp.makeConstraints { make in
             make.left.equalTo(emailT.snp_leftMargin)
-            make.top.equalTo(passT.snp_bottomMargin).offset(12.pix())
+            make.top.equalTo(passT.snp_bottomMargin).offset(14.pix())
             make.size.equalTo(CGSize(width: 400.pix(), height: 20.pix()))
         }
         loginBtn.snp.makeConstraints { make in
@@ -174,7 +174,7 @@ class LoginView: UIView ,UITextFieldDelegate{
         agreeMentLB.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.left.equalTo(emailT.snp_leftMargin)
-            make.top.equalTo(loginBtn.snp_bottomMargin).offset(10.pix())
+            make.top.equalTo(loginBtn.snp_bottomMargin).offset(14.pix())
             make.height.equalTo(34.pix())
         }
         

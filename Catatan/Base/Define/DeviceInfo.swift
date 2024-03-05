@@ -236,7 +236,7 @@ class DeviceInfo: NSObject {
         return ssid
     }
     
-    static func deviceDictInfo() -> [String:Any] {
+    static func deviceDictInfo() -> [String: Any] {
         
         var dict:[String:Any] = ["compassion":"ios"]
         

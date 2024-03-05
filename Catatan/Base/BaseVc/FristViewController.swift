@@ -7,6 +7,8 @@
 
 import UIKit
 import Alamofire
+import AppsFlyerLib
+import HandyJSON
 
 class FristViewController: BaseViewController {
     
@@ -26,7 +28,6 @@ class FristViewController: BaseViewController {
         bgImageView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
-        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
         self.netStatus()
     }
     
@@ -47,7 +48,27 @@ class FristViewController: BaseViewController {
     
     //google
     func googleMarket() {
-        
+        let finely = DeviceInfo.finely()
+        let stroll = DeviceInfo.finely()
+        let dict = ["finely":finely,"stroll":stroll]
+        NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: singledTrouble, method: .post) { [weak self] model in
+            let awareness = model.awareness
+            if awareness == 0 || awareness == 00 {
+                let dict = model.hovered
+                let googleModel = JSONDeserializer<GoogleModel>.deserializeFrom(dict: dict)
+                self?.upLoadGoole(googleModel!.decades!, googleModel!.trapped!)
+                print("googleMarket>>>>>>success")
+            }
+            CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
+        } errorBlock: { error in
+            CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
+        }
+    }
+    
+    func upLoadGoole(_ appid: String, _ key: String) {
+        AppsFlyerLib.shared().appsFlyerDevKey = key
+        AppsFlyerLib.shared().appleAppID = appid
+        AppsFlyerLib.shared().start()
     }
     
     /*

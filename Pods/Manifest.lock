@@ -4,6 +4,7 @@ PODS:
     - AppsFlyerFramework/Main (= 6.12.3)
   - AppsFlyerFramework/Main (6.12.3)
   - DeviceKit (5.2.2)
+  - HandyJSON (5.0.4-beta)
   - IQKeyboardManagerSwift (6.5.16)
   - JXGradientKit (0.0.11)
   - Kingfisher (7.11.0)
@@ -13,7 +14,6 @@ PODS:
   - ReachabilitySwift (5.0.0)
   - SAMKeychain (1.5.3)
   - SnapKit (5.6.0)
-  - SwiftyJSON (5.0.1)
   - SystemServices (2.0.1)
   - TYAlertController (1.2.0)
   - UIColor_Hex_Swift (5.1.9)
@@ -23,6 +23,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.7.1)
   - AppsFlyerFramework (~> 6.12.3)
   - DeviceKit (~> 5.2.2)
+  - HandyJSON (~> 5.0.3-beta)
   - IQKeyboardManagerSwift (~> 6.5.16)
   - JXGradientKit (~> 0.0.11)
   - Kingfisher (~> 7.11.0)
@@ -32,7 +33,6 @@ DEPENDENCIES:
   - ReachabilitySwift (~> 5.0.0)
   - SAMKeychain (~> 1.5.3)
   - SnapKit (~> 5.6.0)
-  - SwiftyJSON (~> 5.0.1)
   - SystemServices (~> 2.0.1)
   - TYAlertController (~> 1.2.0)
   - UIColor_Hex_Swift (~> 5.1.9)
@@ -43,6 +43,7 @@ SPEC REPOS:
     - Alamofire
     - AppsFlyerFramework
     - DeviceKit
+    - HandyJSON
     - IQKeyboardManagerSwift
     - JXGradientKit
     - Kingfisher
@@ -52,7 +53,6 @@ SPEC REPOS:
     - ReachabilitySwift
     - SAMKeychain
     - SnapKit
-    - SwiftyJSON
     - SystemServices
     - TYAlertController
     - UIColor_Hex_Swift
@@ -62,6 +62,7 @@ SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   AppsFlyerFramework: fdc5c2fa3a3cfcd62eae58dfba4b8f59c6c77219
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
+  HandyJSON: a9c67202df97805a0ba4a00e30b50e9a30ac28f3
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   JXGradientKit: b79a369bedbc501e20ebfda9716cd0b049b02955
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
@@ -71,12 +72,11 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: bad22d34e53fe93468ba06af4d86f64a9d7786a8
+PODFILE CHECKSUM: dbbe86f3e7e930d5177a78c4dcd44ddf5d0a01c0
 
 COCOAPODS: 1.14.3

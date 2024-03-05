@@ -15,8 +15,8 @@ class ProfileView: UIView,UITableViewDelegate,UITableViewDataSource {
     let titleArray = ["Dalam Proses Pengajuan","Menunggu Pembayaran Kembali","Sudah Dibayar Kembali","Mengirim email","Keluar Akun","Pembatalan Akun"]
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect.zero,
-                                         style:.grouped)
+        let tableView = UITableView(frame: .zero,
+                                    style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none

@@ -30,7 +30,7 @@ target 'Catatan' do
   
   pod 'SAMKeychain', '~> 1.5.3'
   
-  pod 'SwiftyJSON', '~> 5.0.1'
+  pod 'HandyJSON', '~> 5.0.3-beta'
   
   pod 'AppsFlyerFramework', '~> 6.12.3'
   

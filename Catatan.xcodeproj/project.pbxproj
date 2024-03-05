@@ -42,6 +42,9 @@
 		1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */; };
 		184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F42B8EDD350048E257 /* NetworkManager.swift */; };
 		184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F62B8EE96D0048E257 /* DeviceInfo.swift */; };
+		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
+		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
+		187670152B970AC8000B256A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670142B970AC8000B256A /* UIViewController+Extension.swift */; };
 		18A32AA02B95AECA00CC937D /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32A9F2B95AECA00CC937D /* HudView.swift */; };
 		18A32AA22B95AFFD00CC937D /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 18A32AA12B95AFFD00CC937D /* loading.json */; };
 		18A32AA52B95C86F00CC937D /* SaveLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */; };
@@ -49,7 +52,6 @@
 		18A32AA92B95E23600CC937D /* AllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA82B95E23600CC937D /* AllModel.swift */; };
 		18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD83C2B91C64E009E8A6B /* ExitView.swift */; };
 		18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD83E2B91CE4D009E8A6B /* DeleteView.swift */; };
-		18E9ACF52B8F3D2100DC16A3 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACF42B8F3D2100DC16A3 /* BaseModel.swift */; };
 		18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */; };
 		18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */; };
 		18EF25D42B95623C001DE76B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D32B95623C001DE76B /* LocationManager.swift */; };
@@ -120,6 +122,9 @@
 		184760F42B8EDD350048E257 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		184760F62B8EE96D0048E257 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		184760F82B8F3AEA0048E257 /* Catatan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Catatan.entitlements; sourceTree = "<group>"; };
+		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
+		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
+		187670142B970AC8000B256A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		18A32A9F2B95AECA00CC937D /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		18A32AA12B95AFFD00CC937D /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoginInfo.swift; sourceTree = "<group>"; };
@@ -127,7 +132,6 @@
 		18A32AA82B95E23600CC937D /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
 		18DCD83C2B91C64E009E8A6B /* ExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitView.swift; sourceTree = "<group>"; };
 		18DCD83E2B91CE4D009E8A6B /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
-		18E9ACF42B8F3D2100DC16A3 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetApiWork.swift; sourceTree = "<group>"; };
 		18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonParams.swift; sourceTree = "<group>"; };
 		18EF25D32B95623C001DE76B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -319,6 +323,8 @@
 		1845FD2D2B8C95A900B4BEEF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1876700E2B96CA4B000B256A /* HomeOneView.swift */,
+				187670102B96CA57000B256A /* HomeTwoView.swift */,
 				1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -381,6 +387,7 @@
 				184760F62B8EE96D0048E257 /* DeviceInfo.swift */,
 				18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */,
 				18A32AA62B95DA2400CC937D /* UserFactory.swift */,
+				187670142B970AC8000B256A /* UIViewController+Extension.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -398,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				18A32AA82B95E23600CC937D /* AllModel.swift */,
-				18E9ACF42B8F3D2100DC16A3 /* BaseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187670152B970AC8000B256A /* UIViewController+Extension.swift in Sources */,
 				1835E0C22B90881400C20E0E /* BankView.swift in Sources */,
 				18EF25D82B9596D2001DE76B /* RequestUrl.swift in Sources */,
 				1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */,
@@ -643,7 +650,7 @@
 				1845FD352B8C95F800B4BEEF /* OrderViewController.swift in Sources */,
 				1835E0BA2B9087CF00C20E0E /* PersonalViewController.swift in Sources */,
 				182294642B905C880045C533 /* TypeView.swift in Sources */,
-				18E9ACF52B8F3D2100DC16A3 /* BaseModel.swift in Sources */,
+				187670112B96CA57000B256A /* HomeTwoView.swift in Sources */,
 				18A32AA92B95E23600CC937D /* AllModel.swift in Sources */,
 				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
@@ -679,6 +686,7 @@
 				1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */,
 				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
 				18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */,
+				1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

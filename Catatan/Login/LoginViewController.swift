@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD_WJExtension
+import HandyJSON
 
 class LoginViewController: BaseViewController {
     
@@ -80,8 +81,8 @@ class LoginViewController: BaseViewController {
         let dict = ["grieving":grieving]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fivedayTravel, method: .post) { [weak self] model in
-            let awareness = model?.awareness
-            let edges = model?.edges
+            let awareness = model.awareness
+            let edges = model.edges
             if awareness == 0 || awareness == 00 {
                 self?.btn!.isEnabled = false
                 self?.startTimer()
@@ -99,12 +100,13 @@ class LoginViewController: BaseViewController {
         let dict = ["postmaster":postmaster,"badly":badly]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: neverSelfconfident, method: .post) { [weak self] model in
-            let awareness = model?.awareness
-            let edges = model?.edges
+            let awareness = model.awareness
+            let edges = model.edges
             if awareness == 0 || awareness == 00 {
-                let loginModel: LoginModel = LoginModel(jsondata: model!.hovered!)
+                let hovered = model.hovered
+                let loginModel = JSONDeserializer<LoginModel>.deserializeFrom(dict: hovered)
                 SaveLoginInfo.removeLoginInfo()
-                SaveLoginInfo.saveLoginInfo(loginModel.seizes!)
+                SaveLoginInfo.saveLoginInfo((loginModel?.seizes)!)
                 CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
             }
             self?.removeHudView()

@@ -7,15 +7,15 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+import HandyJSON
 
 class NetApiWork: NSObject {
     
     static let shared = NetApiWork()
     
-    typealias CompleteBlock = (BaseModel?) -> Void
+    typealias CompleteBlock = (BaseModel) -> Void
     
-    typealias NSErrorBlock = (Error?) -> Void
+    typealias NSErrorBlock = (Error) -> Void
     
     func requestAPI(params: [String: Any]?,
                     pageUrl: String,
@@ -30,15 +30,30 @@ class NetApiWork: NSObject {
         ]
         var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        AF.request(wholeApiUrl, method: method, parameters: params, headers: headers).responseData { response in
-            if response.data == nil {
-                print("no data")
-                return
+        print("wholeApiUrl>>>>>>\(wholeApiUrl)")
+        AF.request(wholeApiUrl, method: method, parameters: params, headers: headers).responseData { [weak self] response in
+      
+            switch response.result {
+            case .success(let success): 
+                if response.data == nil {
+                    print("no data")
+                    return
+                }
+                let jsonStr = NSString(data:response.data! ,encoding: String.Encoding.utf8.rawValue)
+                let model = JSONDeserializer<BaseModel>.deserializeFrom(json: jsonStr as String?)
+                if model?.awareness == 0 || model?.awareness == 00 {
+                    complete(model!)
+                }else if model?.awareness == -2 {
+                    self?.showLoginVc()
+                }else{
+                    
+                }
+                break
+                
+            case .failure(let failure): 
+                errorBlock(failure)
+                break
             }
-            let json = try? JSONSerialization.jsonObject(with: response.data!,options:[.mutableContainers,.mutableLeaves,.fragmentsAllowed])
-            let jsonDic = JSON.init(json as Any)
-            let model = BaseModel(jsondata: jsonDic)
-            complete(model)
         }
     }
     
@@ -52,5 +67,10 @@ class NetApiWork: NSObject {
         
     }
     
-    
+    func showLoginVc (){
+        let loginVc = LoginViewController()
+        let vc = getCurrentUIVC()!
+        let nav = BaseNavViewController(rootViewController: loginVc)
+        vc.present(nav, animated: true)
+    }
 }
