@@ -8,8 +8,11 @@
 import UIKit
 import DeviceKit
 import MJRefresh
+import HandyJSON
 
 class HomeViewController: BaseViewController {
+    
+    var largeDataModel: [DrawingModel] = []
     
     private var locationManager: LocationManager?
     
@@ -73,7 +76,7 @@ class HomeViewController: BaseViewController {
     func baseDictToBase64() {
         let dict: [String: Any] = DeviceInfo.deviceDictInfo()
         if let base64String = convertDictToBase64(dict) {
-//            print("Base64-encoded string: \(base64String)")
+            //            print("Base64-encoded string: \(base64String)")
             // Use the base64String as needed
             self.uploadDeviceInfo(base64String)
         } else {
@@ -91,7 +94,7 @@ class HomeViewController: BaseViewController {
             return nil
         }
     }
-
+    
     func uploadDeviceInfo(_ baseStr: String) {
         let dict = ["hovered": baseStr]
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: protestedPiteously, method: .post) { model in
@@ -114,7 +117,12 @@ class HomeViewController: BaseViewController {
         NetApiWork.shared.requestAPI(params: dict, pageUrl: leatherScratched, method: .get) { [weak self] model in
             let awareness = model.awareness
             if awareness == 0 || awareness == 00 {
-                
+                let dict = model.hovered
+                let inModel = JSONDeserializer<HomeModel>.deserializeFrom(dict: dict)
+                if inModel?.lives == "nn" {
+                    self?.largeDataModel = inModel?.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
+                    print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
+                }
             }
             self?.removeHudView()
             self?.homeOneView.tableView.mj_header?.endRefreshing()
@@ -125,6 +133,8 @@ class HomeViewController: BaseViewController {
     }
     
     func applyClick(_ index: NSInteger){
+        let model: DrawingModel = self.largeDataModel.first!
+        print("applyClick>>>>>\(model.tradition ?? 0)")
         
     }
     

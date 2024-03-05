@@ -45,6 +45,8 @@
 		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
 		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
 		187670152B970AC8000B256A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670142B970AC8000B256A /* UIViewController+Extension.swift */; };
+		187670172B9737B1000B256A /* CManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670162B9737B1000B256A /* CManager.swift */; };
+		1876701A2B97384A000B256A /* CWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670192B97384A000B256A /* CWebViewController.swift */; };
 		18A32AA02B95AECA00CC937D /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32A9F2B95AECA00CC937D /* HudView.swift */; };
 		18A32AA22B95AFFD00CC937D /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 18A32AA12B95AFFD00CC937D /* loading.json */; };
 		18A32AA52B95C86F00CC937D /* SaveLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */; };
@@ -125,6 +127,8 @@
 		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
 		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
 		187670142B970AC8000B256A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		187670162B9737B1000B256A /* CManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CManager.swift; sourceTree = "<group>"; };
+		187670192B97384A000B256A /* CWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWebViewController.swift; sourceTree = "<group>"; };
 		18A32A9F2B95AECA00CC937D /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		18A32AA12B95AFFD00CC937D /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoginInfo.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				1825163F2B8C246F00FFEE85 /* Info.plist */,
 				184760F82B8F3AEA0048E257 /* Catatan.entitlements */,
 				182516652B8C251F00FFEE85 /* Main */,
+				187670182B973807000B256A /* Web */,
 				182516612B8C24E500FFEE85 /* Login */,
 				1845FD332B8C95E500B4BEEF /* Order */,
 				1845FD2E2B8C95B100B4BEEF /* Profile */,
@@ -274,7 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				18E9ACF92B8F3EF700DC16A3 /* Model */,
-				18E9ACF72B8F3ED400DC16A3 /* Define */,
+				18E9ACF72B8F3ED400DC16A3 /* Config */,
 				18E9ACF82B8F3EDF00DC16A3 /* TabBar */,
 				18E9ACF62B8F3EBC00DC16A3 /* BaseVc */,
 				18EF25D22B95620A001DE76B /* Location */,
@@ -347,6 +352,14 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
+		187670182B973807000B256A /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				187670192B97384A000B256A /* CWebViewController.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		18DCD8402B91CE52009E8A6B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,7 +390,7 @@
 			path = BaseVc;
 			sourceTree = "<group>";
 		};
-		18E9ACF72B8F3ED400DC16A3 /* Define */ = {
+		18E9ACF72B8F3ED400DC16A3 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				18A32AA12B95AFFD00CC937D /* loading.json */,
@@ -388,8 +401,9 @@
 				18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */,
 				18A32AA62B95DA2400CC937D /* UserFactory.swift */,
 				187670142B970AC8000B256A /* UIViewController+Extension.swift */,
+				187670162B9737B1000B256A /* CManager.swift */,
 			);
-			path = Define;
+			path = Config;
 			sourceTree = "<group>";
 		};
 		18E9ACF82B8F3EDF00DC16A3 /* TabBar */ = {
@@ -654,6 +668,7 @@
 				18A32AA92B95E23600CC937D /* AllModel.swift in Sources */,
 				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
+				187670172B9737B1000B256A /* CManager.swift in Sources */,
 				18A32AA72B95DA2400CC937D /* UserFactory.swift in Sources */,
 				18EF25D42B95623C001DE76B /* LocationManager.swift in Sources */,
 				1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */,
@@ -667,6 +682,7 @@
 				182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */,
 				1835E0BE2B9087FE00C20E0E /* ContractViewController.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
+				1876701A2B97384A000B256A /* CWebViewController.swift in Sources */,
 				1822945C2B902C610045C533 /* CNavView.swift in Sources */,
 				18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */,
 				18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */,

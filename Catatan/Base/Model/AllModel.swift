@@ -30,11 +30,13 @@ class GoogleModel: HandyJSON {
     
 }
 
+
+
 class HomeModel: HandyJSON {
     required init() {
-        
     }
     var incomes: [IncomesModel]?
+    var lives: String?
 }
 
 class IncomesModel: HandyJSON {
@@ -47,7 +49,7 @@ class IncomesModel: HandyJSON {
 class DrawingModel: HandyJSON {
     required init() {
     }
-    var tradition: NSInteger?
+    var tradition: Int?
     var plumb: String?
     var auctions: String?
     var managers: String?
@@ -57,6 +59,4 @@ class DrawingModel: HandyJSON {
     var promulgate: String?
     var deceptions: String?
     var falsehoods: String?
-    var helpers: String?
-    var shopkeepers: String?
 }
