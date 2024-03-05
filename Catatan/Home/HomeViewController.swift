@@ -36,13 +36,13 @@ class HomeViewController: BaseViewController {
         homeOneView.blcok = { [weak self] index,title in
             self?.applyClick(index)
         }
-        getHomeData()
         homeOneView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
         homeOneView.tableView.mj_header?.isAutomaticallyChangeAlpha = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getHomeData()
         self.showTabBar()
     }
     

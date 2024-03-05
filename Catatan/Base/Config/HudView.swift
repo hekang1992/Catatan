@@ -18,7 +18,6 @@ class HudView: UIView {
     
     private lazy var hudView: LottieAnimationView = {
         let animationView = LottieAnimationView(name: "loading.json", bundle: Bundle.main)
-        animationView.animationSpeed = 1
         animationView.loopMode = .loop
         animationView.play()
         return animationView
