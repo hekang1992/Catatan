@@ -8,11 +8,15 @@
 import UIKit
 import TYAlertController
 import HandyJSON
+import AVFoundation
+import Photos
 
-class FaceViewController: BaseViewController {
+class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     
     var bidders: String = ""
-
+    
+    let imagePicker = UIImagePickerController()
+    
     lazy var faceViwe: FaceView = {
         let faceViwe = FaceView()
         return faceViwe
@@ -20,7 +24,7 @@ class FaceViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
         addNavView()
@@ -52,6 +56,7 @@ class FaceViewController: BaseViewController {
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
+                
             }
             self?.removeHudView()
         } errorBlock: { [weak self] error in
@@ -69,10 +74,14 @@ class FaceViewController: BaseViewController {
         let alertVc = TYAlertController(alert: selView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
         selView.block1 = { [weak self] in
-            self?.xiangji()
+            self?.dismiss(animated: true,completion: {
+                self?.xiangji(0)
+            })
         }
         selView.block2 = { [weak self] in
-            self?.xiangce()
+            self?.dismiss(animated: true,completion: {
+                self?.xiangce()
+            })
         }
         selView.block3 = { [weak self] in
             self?.dismiss(animated: true)
@@ -84,29 +93,127 @@ class FaceViewController: BaseViewController {
         let alertVc = TYAlertController(alert: selView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
         selView.block1 = { [weak self] in
-            self?.xiangji()
+            self?.dismiss(animated: true,completion: {
+                self?.xiangji(1)
+            })
         }
         selView.block2 = { [weak self] in
             self?.dismiss(animated: true)
         }
     }
     
-    func xiangji() {
-        
+    func xiangji(_ index: Int) {
+        openCamera(index)
     }
     
     func xiangce() {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func openCamera(_ index: Int) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            checkCameraPermission { [weak self] granted in
+                if granted {
+                    DispatchQueue.main.async {
+                        self?.imagePicker.delegate = self
+                        self?.imagePicker.delegate = self
+                        self?.imagePicker.sourceType = .camera
+                        if index == 0 {
+                            self?.imagePicker.cameraDevice = .rear
+                        }else {
+                            self?.imagePicker.cameraDevice = .front
+                        }
+                        self?.present(self!.imagePicker, animated: true)
+                    }
+                } else {
+                    
+                }
+            }
+        } else {
+            print("Device doesn't support camera.")
+        }
     }
-    */
-
+    
+    func openPhotoLibrary() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            checkPhotoPermission { [weak self] (granted) in
+                if granted {
+                    DispatchQueue.main.async {
+                        self?.imagePicker.delegate = self
+                        self?.imagePicker.sourceType = .photoLibrary
+                        if let imagePicker = self?.imagePicker{
+                            self?.present(imagePicker, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
+            
+        } else {
+            print("Device doesn't support photo library.")
+        }
+    }
+    
+    func checkCameraPermission(completion: @escaping (Bool) -> Void) {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        switch status {
+        case .authorized:
+            completion(true)
+        case .denied, .restricted:
+            //            self.alert.show()
+            completion(false)
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { (granted) in
+                completion(granted)
+            }
+        @unknown default:
+            //            self.alert.show()
+            completion(false)
+        }
+    }
+    
+    func checkPhotoPermission(completion: @escaping (Bool) -> Void) {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            completion(true)
+        case .denied, .restricted:
+            //            self.alert.show()
+            completion(false)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { newStatus in
+                if newStatus == PHAuthorizationStatus.authorized {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
+        case .limited:
+            completion(true)
+        @unknown default:
+            //            self.alert.show()
+            completion(false)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            print("Selected Image: \(image)")
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

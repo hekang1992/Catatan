@@ -12,7 +12,7 @@ import HandyJSON
 class NetApiWork: NSObject {
     
     static let shared = NetApiWork()
-    
+
     typealias CompleteBlock = (BaseModel) -> Void
     
     typealias NSErrorBlock = (Error) -> Void
