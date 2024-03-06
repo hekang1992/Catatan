@@ -8,6 +8,8 @@
 import UIKit
 
 class ContractViewController: BaseViewController {
+    
+    var bidders: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

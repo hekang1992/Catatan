@@ -16,27 +16,16 @@ class BaseModel: HandyJSON {
     var hovered: [String: Any]?
 }
 
-class LoginModel: HandyJSON {
+class HoveredModel: HandyJSON {
     required init() {
     }
-    var seizes: String?
-}
-
-class GoogleModel: HandyJSON {
-    required init() {
-    }
+    var occurred: String?
+    var lives: String?
     var decades: String?//appid
     var trapped: String?
-    
-}
-
-
-
-class HomeModel: HandyJSON {
-    required init() {
-    }
+    var seizes: String?
     var incomes: [IncomesModel]?
-    var lives: String?
+    var circumstance: CircumstanceModel?
 }
 
 class IncomesModel: HandyJSON {
@@ -59,4 +48,10 @@ class DrawingModel: HandyJSON {
     var promulgate: String?
     var deceptions: String?
     var falsehoods: String?
+}
+
+class CircumstanceModel: HandyJSON {
+    required init() {
+    }
+    var picture: String?
 }

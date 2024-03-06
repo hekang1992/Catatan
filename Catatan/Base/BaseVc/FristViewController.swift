@@ -55,7 +55,7 @@ class FristViewController: BaseViewController {
             let awareness = model.awareness
             if awareness == 0 || awareness == 00 {
                 let dict = model.hovered
-                let googleModel = JSONDeserializer<GoogleModel>.deserializeFrom(dict: dict)
+                let googleModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 self?.upLoadGoole(googleModel!.decades!, googleModel!.trapped!)
                 print("googleMarket>>>>>>success")
             }

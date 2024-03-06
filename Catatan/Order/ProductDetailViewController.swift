@@ -1,25 +1,20 @@
 //
-//  PersonalViewController.swift
+//  ProductDetailViewController.swift
 //  Catatan
 //
-//  Created by apple on 2024/2/29.
+//  Created by apple on 2024/3/6.
 //
 
 import UIKit
 
-class PersonalViewController: BaseViewController {
-    
-    var bidders: String = ""
+class ProductDetailViewController: BaseViewController {
 
+    var bidders: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.white
-        addNavView()
-        navView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
     }
     
 

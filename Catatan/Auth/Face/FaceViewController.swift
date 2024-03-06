@@ -7,8 +7,11 @@
 
 import UIKit
 import TYAlertController
+import HandyJSON
 
 class FaceViewController: BaseViewController {
+    
+    var bidders: String = ""
 
     lazy var faceViwe: FaceView = {
         let faceViwe = FaceView()
@@ -37,6 +40,22 @@ class FaceViewController: BaseViewController {
         }
         faceViwe.block3 = { [weak self] in
             self?.nextVc()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addHudView()
+        let dict = ["bidders":bidders]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: shackledPenetrate, method: .get) { [weak self] baseModel in
+            let hovered = baseModel.hovered
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
         }
     }
     

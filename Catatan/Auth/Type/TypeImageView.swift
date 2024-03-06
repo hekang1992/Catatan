@@ -10,13 +10,13 @@ import UIKit
 class TypeImageView: UIView {
     
     enum typeImageState {
-        case one
-        case two
-        case three
-        case four
+        case dcan1
+        case dcan2
+        case dcan3
+        case dcan4
     }
     
-    var currentState: typeImageState = .one {
+    var currentState: typeImageState = .dcan1 {
         didSet {
             forCurrentState()
         }
@@ -96,25 +96,25 @@ class TypeImageView: UIView {
 
     func forCurrentState() {
         switch currentState {
-        case .one:
+        case .dcan1:
             iconImageView1.image = UIImage(named: "image_select")
             iconImageView2.image = UIImage(named: "image_white")
             iconImageView3.image = UIImage(named: "image_white")
             iconImageView4.image = UIImage(named: "image_white")
             break
-        case .two:
+        case .dcan2:
             iconImageView1.image = UIImage(named: "image_select")
             iconImageView2.image = UIImage(named: "image_select")
             iconImageView3.image = UIImage(named: "image_white")
             iconImageView4.image = UIImage(named: "image_white")
             break
-        case .three:
+        case .dcan3:
             iconImageView1.image = UIImage(named: "image_select")
             iconImageView2.image = UIImage(named: "image_select")
             iconImageView3.image = UIImage(named: "image_select")
             iconImageView4.image = UIImage(named: "image_white")
             break
-        case .four:
+        case .dcan4:
             iconImageView1.image = UIImage(named: "image_select")
             iconImageView2.image = UIImage(named: "image_select")
             iconImageView3.image = UIImage(named: "image_select")

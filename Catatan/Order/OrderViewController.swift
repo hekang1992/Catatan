@@ -10,7 +10,9 @@ import UIKit
 class OrderViewController: BaseViewController {
     
     var nameStr: String?
-
+    
+    var orderId: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

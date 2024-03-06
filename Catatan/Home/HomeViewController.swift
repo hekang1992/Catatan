@@ -76,8 +76,6 @@ class HomeViewController: BaseViewController {
     func baseDictToBase64() {
         let dict: [String: Any] = DeviceInfo.deviceDictInfo()
         if let base64String = convertDictToBase64(dict) {
-            //            print("Base64-encoded string: \(base64String)")
-            // Use the base64String as needed
             self.uploadDeviceInfo(base64String)
         } else {
             print("Failed to convert dictionary to base64")
@@ -118,7 +116,7 @@ class HomeViewController: BaseViewController {
             let awareness = model.awareness
             if awareness == 0 || awareness == 00 {
                 let dict = model.hovered
-                let inModel = JSONDeserializer<HomeModel>.deserializeFrom(dict: dict)
+                let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 if inModel?.lives == "nn" {
                     self?.largeDataModel = inModel?.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
                     print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
@@ -133,9 +131,22 @@ class HomeViewController: BaseViewController {
     }
     
     func applyClick(_ index: NSInteger){
+        addHudView()
         let model: DrawingModel = self.largeDataModel.first!
         print("applyClick>>>>>\(model.tradition ?? 0)")
-        
+        let bidders = model.tradition ?? 0
+        let dict = ["bidders":bidders]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: thoseWater, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let dict = baseModel.hovered
+                let applyModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
+                CManager.pageJump(path: applyModel!.occurred!, isVerify: false)
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
     }
     
     /*

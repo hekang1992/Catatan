@@ -8,6 +8,8 @@
 import UIKit
 
 class BankViewController: BaseViewController {
+    
+    var bidders: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

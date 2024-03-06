@@ -104,7 +104,7 @@ class LoginViewController: BaseViewController {
             let edges = model.edges
             if awareness == 0 || awareness == 00 {
                 let hovered = model.hovered
-                let loginModel = JSONDeserializer<LoginModel>.deserializeFrom(dict: hovered)
+                let loginModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 SaveLoginInfo.removeLoginInfo()
                 SaveLoginInfo.saveLoginInfo((loginModel?.seizes)!)
                 CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)

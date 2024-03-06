@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import HandyJSON
 
 class JDViewController: BaseViewController {
+    
+    var bidders: String = ""
+    
+    var picture: String = ""
 
     lazy var jdView: JDView = {
         let jdView = JDView()
@@ -26,17 +31,70 @@ class JDViewController: BaseViewController {
         jdView.block = {[weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        
+
         jdView.block1 = { [weak self] in
             self?.nextVc()
         }
         
-        jdView.typeImageView.currentState = .three
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getProductDetailInfo()
+    }
+    
+    func getProductDetailInfo() {
+        let dict = ["bidders":bidders]
+        addHudView()
+        NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fieldQuite, method: .post) { [weak self] baseModel in
+            let hovered = baseModel.hovered
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
+                let picture = model?.circumstance?.picture
+                self?.stateInfo(picture ?? "")
+                self?.picture = picture ?? ""
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
+    }
+    
+    func stateInfo(_ type: String) {
+        if type == "dcan1" {
+            jdView.typeImageView.currentState = .dcan1
+        }else if type == "dcan2" {
+            jdView.typeImageView.currentState = .dcan2
+        }else if type == "dcan3" {
+            jdView.typeImageView.currentState = .dcan3
+        }else if type == "dcan4" {
+            jdView.typeImageView.currentState = .dcan4
+        }else{}
     }
     
     func nextVc() {
-        let faceVc = FaceViewController()
-        self.navigationController?.pushViewController(faceVc, animated: true)
+        if self.picture == "dcan1" {
+            let photoVc = FaceViewController()
+            photoVc.bidders = bidders
+            getVc(photoVc)
+        }else if self.picture == "dcan2" {
+            let personVc = PersonalViewController()
+            personVc.bidders = bidders
+            getVc(personVc)
+        }else if self.picture == "dcan3" {
+            let conVc = ContractViewController()
+            conVc.bidders = bidders
+            getVc(conVc)
+        }else if self.picture == "dcan4" {
+            let bankVc = BankViewController()
+            bankVc.bidders = bidders
+            getVc(bankVc)
+        }else{}
+    }
+    
+    func getVc(_ currentVc: BaseViewController) {
+        self.navigationController?.pushViewController(currentVc, animated: true)
     }
     
     /*
