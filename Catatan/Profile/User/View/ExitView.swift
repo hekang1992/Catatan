@@ -19,6 +19,7 @@ class ExitView: UIView {
     lazy var descLabel: UILabel = {
         let label =  UILabel.createLabel(font: UIFont.systemFont(ofSize: 16, weight: .semibold), textColor: UIColor("#000000"), textAlignment: .center)
         label.text = "Apakah Anda yakin untuk logout?"
+        label.numberOfLines = 0
         return label
     }()
     
@@ -74,8 +75,8 @@ class ExitView: UIView {
         }
         descLabel.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
-            make.top.equalTo(bgView).offset(46)
-            make.left.equalTo(bgView).offset(33)
+            make.top.equalTo(bgView).offset(30.pix())
+            make.left.equalTo(bgView).offset(13.pix())
         }
         cancelBtn.snp.makeConstraints { make in
             make.top.equalTo(descLabel.snp.bottom).offset(48)
@@ -95,7 +96,11 @@ class ExitView: UIView {
         let btn = viewWithTag(101) as! UIButton
         if mbtn.tag == 100 {
             mbtn.backgroundColor = UIColor("#BBD598")
-            mbtn.setTitle("Konfirmasi", for: .normal)
+            if mbtn.titleLabel?.text == "Konfirmasi" {
+                mbtn.setTitle("Konfirmasi", for: .normal)
+            }else{
+                mbtn.setTitle("Pengaturan", for: .normal)
+            }
             mbtn.setTitleColor(UIColor.white, for: .normal)
             btn.backgroundColor = UIColor("#FFFFFF")
             btn.setTitle("Batal", for: .normal)
@@ -106,7 +111,11 @@ class ExitView: UIView {
             mbtn.setTitle("Batal", for: .normal)
             mbtn.setTitleColor(UIColor.white, for: .normal)
             sbtn.backgroundColor = UIColor("#FFFFFF")
-            sbtn.setTitle("Konfirmasi", for: .normal)
+            if sbtn.titleLabel?.text == "Konfirmasi" {
+                sbtn.setTitle("Konfirmasi", for: .normal)
+            }else{
+                sbtn.setTitle("Pengaturan", for: .normal)
+            }
             sbtn.setTitleColor(UIColor("#000000"), for: .normal)
             cblock?()
         }

@@ -107,7 +107,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     }
     
     func xiangce() {
-        
+        openPhotoLibrary()
     }
     
     func openCamera(_ index: Int) {
@@ -159,14 +159,14 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         case .authorized:
             completion(true)
         case .denied, .restricted:
-            //            self.alert.show()
+            self.wanLiuView("Anda belum mendapatkan izin kamera,silakan pergi ke pengaturan.")
             completion(false)
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { (granted) in
                 completion(granted)
             }
         @unknown default:
-            //            self.alert.show()
+            self.wanLiuView("Anda belum mendapatkan izin kamera,silakan pergi ke pengaturan.")
             completion(false)
         }
     }
@@ -177,7 +177,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         case .authorized:
             completion(true)
         case .denied, .restricted:
-            //            self.alert.show()
+            self.wanLiuView("Anda belum memberikan izin akses ke galeri. Silakan pergi ke pengaturan.")
             completion(false)
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization { newStatus in
@@ -190,7 +190,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         case .limited:
             completion(true)
         @unknown default:
-            //            self.alert.show()
+            self.wanLiuView("Anda belum memberikan izin akses ke galeri. Silakan pergi ke pengaturan.")
             completion(false)
         }
     }
@@ -204,6 +204,34 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func wanLiuView(_ title: String) {
+        let exitView = ExitView()
+        exitView.descLabel.text = title
+        exitView.sureBtn.setTitle("Pengaturan", for: .normal)
+        exitView.cancelBtn.setTitle("Batal", for: .normal)
+        exitView.sureBtn.backgroundColor = UIColor("#BBD598")
+        exitView.sureBtn.setTitleColor(.white, for: .normal)
+        exitView.cancelBtn.backgroundColor = UIColor("#FFFFFF")
+        exitView.cancelBtn.setTitleColor(.black, for: .normal)
+        exitView.frame = self.view.bounds
+        let alertVC = TYAlertController(alert: exitView, preferredStyle: .alert)
+        self.present(alertVC!, animated: true)
+        exitView.block = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.goSet()
+            })
+        }
+        exitView.cblock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
+    
+    func goSet() {
+        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
     /*
