@@ -10,7 +10,9 @@ import UIKit
 class PopImageView: UIView {
     
     var block1: (() -> Void)?
+    
     var block2: (() -> Void)?
+    
     var block3: (() -> Void)?
 
     lazy var bgView: UIView = {
@@ -202,6 +204,7 @@ class PopImageView: UIView {
     @objc func canClick() {
         self.block3!()
     }
+    
 }
 
 

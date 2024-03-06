@@ -42,8 +42,8 @@ class ProfileView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let VinViewCellID = "VinViewCellID"
-        let cell = ProfileCell(style: .subtitle, reuseIdentifier: VinViewCellID)
+        let vinViewCellID = "VinViewCellID"
+        let cell = ProfileCell(style: .subtitle, reuseIdentifier: vinViewCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         cell.nameLable.text = titleArray[indexPath.row]

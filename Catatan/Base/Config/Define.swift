@@ -178,8 +178,35 @@ func topViewController() -> UIViewController? {
         } else {
             break
         }
-
+        
         rootVC = activityVC
     }
     return activityVC
+}
+
+//图片压缩
+extension Data {
+    static func compressQuality(image: UIImage, maxLength: Int) -> Data? {
+        var compression: CGFloat = 0.8
+        var data = image.jpegData(compressionQuality: compression)
+        if let imageData = data, imageData.count < maxLength {
+            return data
+        }
+        var max: CGFloat = 1.0
+        var min: CGFloat = 0.0
+        for _ in 0..<6 {
+            compression = (max + min) / 2
+            if let imageData = image.jpegData(compressionQuality: compression) {
+                if imageData.count < Int(Double(maxLength) * 0.9) {
+                    min = compression
+                } else if imageData.count > maxLength {
+                    max = compression
+                } else {
+                    break
+                }
+                data = imageData
+            }
+        }
+        return data
+    }
 }

@@ -26,6 +26,11 @@ class HoveredModel: HandyJSON {
     var seizes: String?
     var incomes: [IncomesModel]?
     var circumstance: CircumstanceModel?
+    var conjured: String?
+    var pawed: String?
+    var square: String?//日
+    var ogling: String?//月
+    var buyers: String?//年
 }
 
 class IncomesModel: HandyJSON {

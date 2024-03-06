@@ -10,8 +10,11 @@ import TYAlertController
 import HandyJSON
 import AVFoundation
 import Photos
+import MBProgressHUD_WJExtension
 
 class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
+    
+    var typeFace: String = "11"
     
     var bidders: String = ""
     
@@ -37,9 +40,11 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
             make.edges.equalTo(view)
         }
         faceViwe.block1 = { [weak self] in
+            self?.typeFace = "11"
             self?.popPhotoView()
         }
         faceViwe.block2 = { [weak self] in
+            self?.typeFace = "10"
             self?.popCameraView()
         }
         faceViwe.block3 = { [weak self] in
@@ -196,10 +201,11 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            print("Selected Image: \(image)")
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        let data = Data.compressQuality(image: image!, maxLength: 1024)
+        picker.dismiss(animated: true) { [weak self] in
+            self?.setUpLoadImage(data!,image!)
         }
-        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -231,6 +237,40 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     func goSet() {
         if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func setUpLoadImage(_ data: Data, _ image: UIImage) {
+        addHudView()
+        let lives = self.typeFace
+        let pinched = "1"
+        let bidders = bidders
+        let dict = ["lives":lives,"pinched":pinched,"bidders":bidders]
+        NetApiWork.shared.uploadImageAPI(params: dict, pageUrl: enoughGiven, method: .post, data: data) { [weak self] baseModel in
+            let edges = baseModel.edges
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                self?.selectFaceView()
+            }
+            self?.removeHudView()
+            MBProgressHUD.wj_showPlainText(edges!, view: nil)
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+            print("error>>>>>>>\(error)")
+        }
+    }
+    
+    func selectFaceView() {
+        let selView = FaceSelectView(frame: self.view.bounds)
+        let alertVc = TYAlertController(alert: selView, preferredStyle: .actionSheet)
+        self.present(alertVc!, animated: true)
+        selView.block1 = { [weak self] in
+            self?.dismiss(animated: true,completion: {
+                
+            })
+        }
+        selView.block2 = { [weak self] in
+            self?.dismiss(animated: true)
         }
     }
     

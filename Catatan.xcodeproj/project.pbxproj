@@ -15,6 +15,8 @@
 		182294642B905C880045C533 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294632B905C880045C533 /* TypeView.swift */; };
 		182294662B90616A0045C533 /* TypeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294652B90616A0045C533 /* TypeImageView.swift */; };
 		1822946A2B906E120045C533 /* PopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294692B906E120045C533 /* PopImageView.swift */; };
+		182515D52B98737B00783BFD /* FaceSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182515D42B98737B00783BFD /* FaceSelectView.swift */; };
+		182515E12B98793500783BFD /* CommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182515E02B98793500783BFD /* CommonCell.swift */; };
 		182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182516312B8C246E00FFEE85 /* AppDelegate.swift */; };
 		1825163B2B8C246F00FFEE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1825163A2B8C246F00FFEE85 /* Assets.xcassets */; };
 		1825163E2B8C246F00FFEE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1825163C2B8C246F00FFEE85 /* LaunchScreen.storyboard */; };
@@ -93,6 +95,8 @@
 		182294632B905C880045C533 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		182294652B90616A0045C533 /* TypeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeImageView.swift; sourceTree = "<group>"; };
 		182294692B906E120045C533 /* PopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopImageView.swift; sourceTree = "<group>"; };
+		182515D42B98737B00783BFD /* FaceSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceSelectView.swift; sourceTree = "<group>"; };
+		182515E02B98793500783BFD /* CommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCell.swift; sourceTree = "<group>"; };
 		1825162E2B8C246E00FFEE85 /* Catatan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catatan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182516312B8C246E00FFEE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1825163A2B8C246F00FFEE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,10 +197,8 @@
 		182294672B906B960045C533 /* Face */ = {
 			isa = PBXGroup;
 			children = (
-				1822945D2B90313F0045C533 /* FaceView.swift */,
-				1835E0B42B90849300C20E0E /* CameraView.swift */,
-				182294692B906E120045C533 /* PopImageView.swift */,
-				182294592B9028FC0045C533 /* FaceViewController.swift */,
+				182515D62B98781000783BFD /* View */,
+				182515D72B98781A00783BFD /* Controller */,
 			);
 			path = Face;
 			sourceTree = "<group>";
@@ -204,12 +206,96 @@
 		182294682B906BA00045C533 /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				182515D82B98782400783BFD /* View */,
+				182515D92B98782B00783BFD /* Controller */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		182515D62B98781000783BFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1822945D2B90313F0045C533 /* FaceView.swift */,
+				1835E0B42B90849300C20E0E /* CameraView.swift */,
+				182294692B906E120045C533 /* PopImageView.swift */,
+				182515D42B98737B00783BFD /* FaceSelectView.swift */,
+				182515E02B98793500783BFD /* CommonCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		182515D72B98781A00783BFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				182294592B9028FC0045C533 /* FaceViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182515D82B98782400783BFD /* View */ = {
+			isa = PBXGroup;
+			children = (
 				182294612B90550B0045C533 /* JDView.swift */,
 				182294632B905C880045C533 /* TypeView.swift */,
 				182294652B90616A0045C533 /* TypeImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		182515D92B98782B00783BFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				1822945F2B9054F80045C533 /* JDViewController.swift */,
 			);
-			path = Type;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182515DA2B98784600783BFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0B92B9087CF00C20E0E /* PersonalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182515DB2B98784900783BFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0BB2B9087E000C20E0E /* PersonalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		182515DC2B98786800783BFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0BF2B90880800C20E0E /* BankViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182515DD2B98786B00783BFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0C12B90881400C20E0E /* BankView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		182515DE2B98787800783BFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0BD2B9087FE00C20E0E /* ContractViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182515DF2B98787A00783BFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1835E0C32B90882100C20E0E /* ContractView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		182516252B8C246E00FFEE85 = {
@@ -303,8 +389,8 @@
 		1835E0B62B90871200C20E0E /* Personal */ = {
 			isa = PBXGroup;
 			children = (
-				1835E0BB2B9087E000C20E0E /* PersonalView.swift */,
-				1835E0B92B9087CF00C20E0E /* PersonalViewController.swift */,
+				182515DB2B98784900783BFD /* View */,
+				182515DA2B98784600783BFD /* Controller */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -312,8 +398,8 @@
 		1835E0B72B90876B00C20E0E /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				1835E0C32B90882100C20E0E /* ContractView.swift */,
-				1835E0BD2B9087FE00C20E0E /* ContractViewController.swift */,
+				182515DF2B98787A00783BFD /* View */,
+				182515DE2B98787800783BFD /* Controller */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -321,8 +407,8 @@
 		1835E0B82B90877E00C20E0E /* BankInfo */ = {
 			isa = PBXGroup;
 			children = (
-				1835E0C12B90881400C20E0E /* BankView.swift */,
-				1835E0BF2B90880800C20E0E /* BankViewController.swift */,
+				182515DD2B98786B00783BFD /* View */,
+				182515DC2B98786800783BFD /* Controller */,
 			);
 			path = BankInfo;
 			sourceTree = "<group>";
@@ -665,6 +751,7 @@
 				1822945E2B90313F0045C533 /* FaceView.swift in Sources */,
 				1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */,
 				1845FD352B8C95F800B4BEEF /* OrderViewController.swift in Sources */,
+				182515D52B98737B00783BFD /* FaceSelectView.swift in Sources */,
 				1835E0BA2B9087CF00C20E0E /* PersonalViewController.swift in Sources */,
 				182294642B905C880045C533 /* TypeView.swift in Sources */,
 				187670112B96CA57000B256A /* HomeTwoView.swift in Sources */,
@@ -703,6 +790,7 @@
 				18483C782B981536005F89D1 /* ProductDetailViewController.swift in Sources */,
 				1835E0BC2B9087E000C20E0E /* PersonalView.swift in Sources */,
 				18EF25D62B957704001DE76B /* LocationModel.swift in Sources */,
+				182515E12B98793500783BFD /* CommonCell.swift in Sources */,
 				1825166B2B8C27CF00FFEE85 /* LoginViewController.swift in Sources */,
 				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
 				18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */,

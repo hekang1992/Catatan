@@ -15,8 +15,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
     let titleArray = ["1","2","3","4","5","6","7","8","9","10"]
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero,
-                                    style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -42,8 +41,8 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let VinViewCellID = "VinViewCellID"
-        let cell = ProfileCell(style: .subtitle, reuseIdentifier: VinViewCellID)
+        let vinViewCellID = "VinViewCellID"
+        let cell = ProfileCell(style: .subtitle, reuseIdentifier: vinViewCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         cell.nameLable.text = titleArray[indexPath.row]
