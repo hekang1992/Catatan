@@ -40,4 +40,6 @@ target 'Catatan' do
   
   pod 'lottie-ios', '~> 4.3.1'
   
+  pod 'BRPickerView', '~> 2.8.1'
+  
 end

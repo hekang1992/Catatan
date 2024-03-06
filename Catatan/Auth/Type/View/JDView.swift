@@ -180,7 +180,7 @@ class JDView: UIView {
         nameLabel4.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.left.equalTo(bgView).offset(28.pix())
-            make.top.equalTo(typeView4.snp.bottom).offset(54.pix())
+            make.top.equalTo(typeView4.snp.bottom).offset(44.pix())
             make.height.equalTo(20.pix())
         }
         mainBtn2.snp.makeConstraints { make in

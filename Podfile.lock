@@ -3,6 +3,18 @@ PODS:
   - AppsFlyerFramework (6.12.3):
     - AppsFlyerFramework/Main (= 6.12.3)
   - AppsFlyerFramework/Main (6.12.3)
+  - BRPickerView (2.8.1):
+    - BRPickerView/AddressPickerView (= 2.8.1)
+    - BRPickerView/Base (= 2.8.1)
+    - BRPickerView/DatePickerView (= 2.8.1)
+    - BRPickerView/StringPickerView (= 2.8.1)
+  - BRPickerView/AddressPickerView (2.8.1):
+    - BRPickerView/Base
+  - BRPickerView/Base (2.8.1)
+  - BRPickerView/DatePickerView (2.8.1):
+    - BRPickerView/Base
+  - BRPickerView/StringPickerView (2.8.1):
+    - BRPickerView/Base
   - DeviceKit (5.2.2)
   - HandyJSON (5.0.4-beta)
   - IQKeyboardManagerSwift (6.5.16)
@@ -22,6 +34,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.7.1)
   - AppsFlyerFramework (~> 6.12.3)
+  - BRPickerView (~> 2.8.1)
   - DeviceKit (~> 5.2.2)
   - HandyJSON (~> 5.0.3-beta)
   - IQKeyboardManagerSwift (~> 6.5.16)
@@ -42,6 +55,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AppsFlyerFramework
+    - BRPickerView
     - DeviceKit
     - HandyJSON
     - IQKeyboardManagerSwift
@@ -61,6 +75,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   AppsFlyerFramework: fdc5c2fa3a3cfcd62eae58dfba4b8f59c6c77219
+  BRPickerView: 2531a2d4d0fea0b57a1c738de215af0f88863a2f
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
   HandyJSON: a9c67202df97805a0ba4a00e30b50e9a30ac28f3
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
@@ -77,6 +92,6 @@ SPEC CHECKSUMS:
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: dbbe86f3e7e930d5177a78c4dcd44ddf5d0a01c0
+PODFILE CHECKSUM: f2032449d6fecbe64c81e266b7449638f1eef53f
 
 COCOAPODS: 1.14.3

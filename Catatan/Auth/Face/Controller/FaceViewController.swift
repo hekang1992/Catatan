@@ -11,6 +11,7 @@ import HandyJSON
 import AVFoundation
 import Photos
 import MBProgressHUD_WJExtension
+import IQKeyboardManagerSwift
 
 class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     
@@ -250,7 +251,8 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
             let edges = baseModel.edges
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
-                self?.selectFaceView()
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                self?.selectFaceView(model!)
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges!, view: nil)
@@ -260,8 +262,9 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         }
     }
     
-    func selectFaceView() {
+    func selectFaceView(_ model: HoveredModel) {
         let selView = FaceSelectView(frame: self.view.bounds)
+        selView.model = model
         let alertVc = TYAlertController(alert: selView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
         selView.block1 = { [weak self] in

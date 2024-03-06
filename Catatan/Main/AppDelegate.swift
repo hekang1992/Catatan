@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func keyboardManager(){
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 5.pix()
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
     }

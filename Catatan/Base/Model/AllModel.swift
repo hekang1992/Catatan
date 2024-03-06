@@ -28,6 +28,7 @@ class HoveredModel: HandyJSON {
     var circumstance: CircumstanceModel?
     var conjured: String?
     var pawed: String?
+    var locked: String?
     var square: String?//日
     var ogling: String?//月
     var buyers: String?//年

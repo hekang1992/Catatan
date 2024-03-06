@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import BRPickerView
 
 class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
 
     var block1: (() -> Void)?
     
     var block2: (() -> Void)?
+    
+    var model: HoveredModel?
+    
+    let titleArray = ["Nama","Nomor KTP","Hari ulang tahun"]
 
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -65,8 +70,6 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bgView)
-        bgView.addSubview(nameLable)
-        bgView.addSubview(bgImageView1)
         bgView.addSubview(tableView)
         bgView.addSubview(mainBtn1)
         bgView.addSubview(backBtn)
@@ -82,26 +85,11 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
             make.left.right.bottom.equalTo(self)
             make.height.equalTo(620.pix())
         }
-        nameLable.snp.makeConstraints { make in
-            make.left.equalTo(bgView).offset(28.pix())
-            make.top.equalTo(bgView).offset(20.pix())
-            make.right.equalTo(bgView).offset(-28.pix())
-            make.height.equalTo(44.pix())
-        }
-        bgImageView1.snp.makeConstraints { make in
-            make.top.equalTo(nameLable.snp.bottom).offset(10.pix())
-            make.left.equalTo(bgView).offset(28.pix())
-            make.height.equalTo(168.pix())
-            make.centerX.equalTo(bgView)
-        }
         tableView.snp.makeConstraints { make in
-            make.left.equalTo(bgImageView1.snp.left)
-            make.top.equalTo(bgImageView1.snp.bottom).offset(14.pix())
-            make.centerX.equalTo(bgView)
-            make.height.equalTo(240)
+            make.edges.equalTo(bgView).inset(UIEdgeInsets(top: 0, left: 28.pix(), bottom: 80.pix(), right: 28.pix()))
         }
         mainBtn1.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom).offset(43.pix())
+            make.top.equalTo(tableView.snp.bottom).offset(  5.pix())
             make.centerX.equalTo(bgView)
             make.left.equalTo(bgView).offset(16.pix())
             make.height.equalTo(56.pix())
@@ -127,6 +115,15 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
         let cell = CommonCell(style: .subtitle, reuseIdentifier: commonCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
+        cell.nameLable.text = titleArray[indexPath.row]
+        if indexPath.row == 0 {
+            cell.textField1.text = model!.conjured
+        }else if indexPath.row == 1 {
+            cell.textField1.text = model!.pawed
+        }else {
+            cell.textField1.isEnabled = false
+            cell.textField1.text = String(format: "%@-%@-%@", model!.square!,model!.ogling!,model!.buyers!)
+        }
         return cell
     }
     
@@ -139,10 +136,55 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print("indexPath>>>>>>>\(indexPath.row)")
+        if indexPath.row == 2{
+            let cell = tableView.cellForRow(at: indexPath) as? CommonCell
+            self.pickDate(day:model!.square!, mon:model!.ogling!, year:model!.buyers!,cell:cell!)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
+        return 250.pix()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headView = UIView()
+        headView.addSubview(nameLable)
+        headView.addSubview(bgImageView1)
+        nameLable.snp.makeConstraints { make in
+            make.left.equalTo(headView)
+            make.top.equalTo(headView).offset(20.pix())
+            make.right.equalTo(headView)
+            make.height.equalTo(44.pix())
+        }
+        bgImageView1.snp.makeConstraints { make in
+            make.top.equalTo(nameLable.snp.bottom).offset(10.pix())
+            make.left.equalTo(headView)
+            make.height.equalTo(168.pix())
+            make.centerX.equalTo(headView)
+        }
+        return headView
+    }
+    
+    func pickDate(day: String, mon: String, year: String, cell: CommonCell) {
+        let datePickerView = BRDatePickerView()
+        datePickerView.pickerMode = .date
+        datePickerView.selectDate = NSDate.br_setYear(Int(year)!, month: Int(mon)!, day: Int(day)!)
+        datePickerView.minDate = NSDate.br_setYear(1900, month: 3, day: 12)
+        datePickerView.maxDate = Date()
+        datePickerView.resultBlock = { selectDate, selectValue in
+            print("selectValue>>>>>\(selectValue ?? "")")
+            let timeArray = selectValue!.components(separatedBy: "-")
+            let year = timeArray[0]
+            let mon = timeArray[1]
+            let day = timeArray[2]
+            cell.textField1.text = String(format: "%@-%@-%@",day,mon,year)
+        }
+        let customStyle = BRPickerStyle()
+        customStyle.pickerColor = BR_RGB_HEX(0xd9dbdf, 1.0)
+        customStyle.pickerTextColor = UIColor("#373E49")
+        customStyle.separatorColor = UIColor("#373E49")
+        datePickerView.pickerStyle = customStyle
+        datePickerView.show()
     }
 }
