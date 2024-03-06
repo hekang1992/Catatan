@@ -217,9 +217,9 @@
 			children = (
 				1822945D2B90313F0045C533 /* FaceView.swift */,
 				1835E0B42B90849300C20E0E /* CameraView.swift */,
+				182515E02B98793500783BFD /* CommonCell.swift */,
 				182294692B906E120045C533 /* PopImageView.swift */,
 				182515D42B98737B00783BFD /* FaceSelectView.swift */,
-				182515E02B98793500783BFD /* CommonCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

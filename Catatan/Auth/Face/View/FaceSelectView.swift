@@ -10,7 +10,7 @@ import BRPickerView
 
 class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
 
-    var block1: (() -> Void)?
+    var block1: ((String,String,String) -> Void)?
     
     var block2: (() -> Void)?
     
@@ -103,7 +103,13 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
     }
     
     @objc func cameraClick() {
-        self.block1!()
+        let indexPath0 = IndexPath(row: 0, section: 0)
+        let indexPath1 = IndexPath(row: 1, section: 0)
+        let indexPath2 = IndexPath(row: 2, section: 0)
+        let cell0 = tableView.cellForRow(at: indexPath0) as? CommonCell
+        let cell1 = tableView.cellForRow(at: indexPath1) as? CommonCell
+        let cell2 = tableView.cellForRow(at: indexPath2) as? CommonCell
+        self.block1!(cell0!.textField1.text!,cell1!.textField1.text!,cell2!.textField1.text!)
     }
     
     @objc func canClick() {
@@ -187,4 +193,5 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
         datePickerView.pickerStyle = customStyle
         datePickerView.show()
     }
+    
 }

@@ -267,14 +267,19 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         selView.model = model
         let alertVc = TYAlertController(alert: selView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
-        selView.block1 = { [weak self] in
+        selView.block1 = { [weak self] name,phone,dateTime in
             self?.dismiss(animated: true,completion: {
-                
+                self?.saveInfo(name,phone,dateTime)
             })
         }
         selView.block2 = { [weak self] in
             self?.dismiss(animated: true)
         }
+    }
+    
+    #warning("todo")
+    func saveInfo(_ name: String, _ ktp: String, _ dateTime: String) {
+        
     }
     
     /*
