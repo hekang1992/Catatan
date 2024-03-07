@@ -132,7 +132,7 @@ class HomeViewController: BaseViewController {
     
     func applyClick(_ index: NSInteger){
         addHudView()
-        let model: DrawingModel = self.largeDataModel.first!
+        guard let model = self.largeDataModel.first else { return }
         print("applyClick>>>>>\(model.tradition ?? 0)")
         let bidders = model.tradition ?? 0
         let dict = ["bidders":bidders]

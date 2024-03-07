@@ -6,31 +6,69 @@
 //
 
 import UIKit
+import HandyJSON
+import MBProgressHUD_WJExtension
 
 class PersonalViewController: BaseViewController {
     
     var bidders: String = ""
-
+    
+    lazy var personView: PersonalView = {
+        let personView = PersonalView()
+        return personView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
         addNavView()
         navView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
+        
+        view.addSubview(personView)
+        view.insertSubview(personView, belowSubview: navView)
+        personView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
+        personView.blcok = { [weak self] index in
+            
+        }
+        getPeopleInfo()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getPeopleInfo() {
+        addHudView()
+        let dict = ["bidders":bidders]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: boundAfter, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            let edges = baseModel.edges
+            if awareness == 0 || awareness == 00 {
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                let craved = model?.craved
+                if let craved = craved {
+                    self?.personView.array = craved
+                    self?.personView.tableView.reloadData()
+                }
+            }
+            self?.removeHudView()
+            MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
+        
     }
-    */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

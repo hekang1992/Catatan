@@ -24,14 +24,38 @@ class HoveredModel: HandyJSON {
     var decades: String?//appid
     var trapped: String?
     var seizes: String?
-    var incomes: [IncomesModel]?
-    var circumstance: CircumstanceModel?
     var conjured: String?
     var pawed: String?
     var locked: String?
     var square: String?//日
     var ogling: String?//月
     var buyers: String?//年
+    var incomes: [IncomesModel]?
+    var circumstance: CircumstanceModel?
+    var blouses: BlousesModel?
+    var commented: CommentedModel?
+    var checked: CheckedModel?
+    var craved: [CravedModel]?
+}
+
+class CommentedModel: HandyJSON {//身份证
+    required init() {
+    }
+    var occurred: String?//url
+    var emancipation: String?//是否通过
+}
+
+class CheckedModel: HandyJSON {//人脸
+    required init() {
+    }
+    var occurred: String?//url
+    var emancipation: String?//是否通过
+}
+
+class BlousesModel: HandyJSON {
+    required init() {
+    }
+    var hardworking: String?//order ID
 }
 
 class IncomesModel: HandyJSON {
@@ -60,4 +84,24 @@ class CircumstanceModel: HandyJSON {
     required init() {
     }
     var picture: String?
+}
+
+class CravedModel: HandyJSON {
+    required init() {
+    }
+    var tradition, prime, lives: String?
+    var grimy, emancipation, blaspheming: Int?
+    var brick: String?//cell类型
+    var waiters: String?//title
+    var paced: String?//placeHolder
+    var awareness: String?//key
+    var borne: Int?//是否是数字键盘
+    var customers: [CustomerModel]?
+}
+
+class CustomerModel: HandyJSON {
+    required init() {
+    }
+    var conjured: String?
+    var lives: Int?
 }

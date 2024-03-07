@@ -7,6 +7,8 @@
 
 import UIKit
 import JXGradientKit
+import HandyJSON
+import MBProgressHUD_WJExtension
 
 class BaseViewController: UIViewController,UINavigationControllerDelegate {
     
@@ -77,6 +79,49 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         // 禁用侧滑返回
         navigationController.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    func getProductDetailInfo(_ bidders: String) {
+        let dict = ["bidders":bidders]
+        addHudView()
+        NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fieldQuite, method: .post) { [weak self] baseModel in
+            let hovered = baseModel.hovered
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
+                let picture = model?.circumstance?.picture
+                let hardworking = model?.blouses?.hardworking
+                self?.nextPushVc(picture!,hardworking!,bidders)
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
+    }
+    
+    func nextPushVc(_ picture: String,_ hardworking: String, _ bidders: String) {
+        if picture == "dcan1" {
+            let photoVc = FaceViewController()
+            photoVc.bidders = bidders
+            photoVc.hardworking = hardworking
+            getVc(photoVc)
+        }else if picture == "dcan2" {
+            let personVc = PersonalViewController()
+            personVc.bidders = bidders
+            getVc(personVc)
+        }else if picture == "dcan3" {
+            let conVc = ContractViewController()
+            conVc.bidders = bidders
+            getVc(conVc)
+        }else if picture == "dcan4" {
+            let bankVc = BankViewController()
+            bankVc.bidders = bidders
+            getVc(bankVc)
+        }else{}
+    }
+    
+    func getVc(_ currentVc: BaseViewController) {
+        self.navigationController?.pushViewController(currentVc, animated: true)
     }
     
     /*

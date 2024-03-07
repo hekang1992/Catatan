@@ -7,17 +7,23 @@
 
 import UIKit
 import TYAlertController
-import HandyJSON
 import AVFoundation
 import Photos
+import Kingfisher
+import HandyJSON
 import MBProgressHUD_WJExtension
-import IQKeyboardManagerSwift
 
 class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     
-    var typeFace: String = "11"
+    var typeFace: String = "11"//身份证正面
     
     var bidders: String = ""
+    
+    var hardworking: String = ""
+    
+    var emancipation: String = "0"
+    
+    var imageFace: UIImage?
     
     let imagePicker = UIImagePickerController()
     
@@ -56,13 +62,18 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addHudView()
+        getPeropleInfo()
+    }
+    
+    func getPeropleInfo() {
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: shackledPenetrate, method: .get) { [weak self] baseModel in
             let hovered = baseModel.hovered
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
-                
+                let emancipation = model?.checked?.emancipation
+                self?.emancipation = emancipation ?? "0"
             }
             self?.removeHudView()
         } errorBlock: { [weak self] error in
@@ -71,8 +82,11 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     }
     
     func nextVc() {
-        let personVc = PersonalViewController()
-        self.navigationController?.pushViewController(personVc, animated: true)
+        if self.emancipation == "0"{
+            MBProgressHUD.wj_showPlainText("Please upload your ID information", view: nil)
+        }else{
+            getProductDetailInfo(bidders)
+        }
     }
     
     func popPhotoView() {
@@ -252,7 +266,15 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
-                self?.selectFaceView(model!)
+                self?.imageFace = image
+                if self?.typeFace == "11" {
+                    self?.selectFaceView(model!)
+                }else{
+                    self?.faceViwe.mainBtn1 .setImage(image, for: .normal)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        self?.getPeropleInfo()
+                    }
+                }
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges!, view: nil)
@@ -277,9 +299,20 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         }
     }
     
-    #warning("todo")
     func saveInfo(_ name: String, _ ktp: String, _ dateTime: String) {
-        
+        addHudView()
+        let dict = ["locked":dateTime,"pawed":ktp,"conjured":name,"bidders":bidders,"warehouse":hardworking]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: spendMarched, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            let edges = baseModel.edges
+            if awareness == 0 || awareness == 00 {
+                self?.faceViwe.mainBtn.setImage(self?.imageFace, for: .normal)
+            }
+            self?.removeHudView()
+            MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
     }
     
     /*

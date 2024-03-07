@@ -13,6 +13,8 @@ class JDViewController: BaseViewController {
     var bidders: String = ""
     
     var picture: String = ""
+    
+    var hardworking: String = ""
 
     lazy var jdView: JDView = {
         let jdView = JDView()
@@ -52,8 +54,10 @@ class JDViewController: BaseViewController {
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 let picture = model?.circumstance?.picture
+                let hardworking = model?.blouses?.hardworking
                 self?.stateInfo(picture ?? "")
                 self?.picture = picture ?? ""
+                self?.hardworking = hardworking ?? ""
             }
             self?.removeHudView()
         } errorBlock: { [weak self] error in
@@ -77,6 +81,7 @@ class JDViewController: BaseViewController {
         if self.picture == "dcan1" {
             let photoVc = FaceViewController()
             photoVc.bidders = bidders
+            photoVc.hardworking = hardworking
             getVc(photoVc)
         }else if self.picture == "dcan2" {
             let personVc = PersonalViewController()
@@ -91,10 +96,6 @@ class JDViewController: BaseViewController {
             bankVc.bidders = bidders
             getVc(bankVc)
         }else{}
-    }
-    
-    func getVc(_ currentVc: BaseViewController) {
-        self.navigationController?.pushViewController(currentVc, animated: true)
     }
     
     /*

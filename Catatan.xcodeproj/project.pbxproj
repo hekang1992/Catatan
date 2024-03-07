@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181877262B99A66E00A8C2AA /* PopEnumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181877252B99A66E00A8C2AA /* PopEnumView.swift */; };
+		181877282B99B02700A8C2AA /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181877272B99B02700A8C2AA /* InfoCell.swift */; };
 		1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294592B9028FC0045C533 /* FaceViewController.swift */; };
 		1822945C2B902C610045C533 /* CNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945B2B902C610045C533 /* CNavView.swift */; };
 		1822945E2B90313F0045C533 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945D2B90313F0045C533 /* FaceView.swift */; };
@@ -87,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181877252B99A66E00A8C2AA /* PopEnumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEnumView.swift; sourceTree = "<group>"; };
+		181877272B99B02700A8C2AA /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		182294592B9028FC0045C533 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 		1822945B2B902C610045C533 /* CNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavView.swift; sourceTree = "<group>"; };
 		1822945D2B90313F0045C533 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
@@ -187,8 +191,8 @@
 			children = (
 				182294682B906BA00045C533 /* Type */,
 				182294672B906B960045C533 /* Face */,
-				1835E0B72B90876B00C20E0E /* Contract */,
 				1835E0B62B90871200C20E0E /* Personal */,
+				1835E0B72B90876B00C20E0E /* Contract */,
 				1835E0B82B90877E00C20E0E /* BankInfo */,
 			);
 			path = Auth;
@@ -261,7 +265,9 @@
 		182515DB2B98784900783BFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				181877272B99B02700A8C2AA /* InfoCell.swift */,
 				1835E0BB2B9087E000C20E0E /* PersonalView.swift */,
+				181877252B99A66E00A8C2AA /* PopEnumView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -795,6 +801,8 @@
 				182516642B8C251800FFEE85 /* BaseViewController.swift in Sources */,
 				18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */,
 				1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */,
+				181877262B99A66E00A8C2AA /* PopEnumView.swift in Sources */,
+				181877282B99B02700A8C2AA /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

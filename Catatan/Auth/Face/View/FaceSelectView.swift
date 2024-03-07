@@ -109,7 +109,14 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
         let cell0 = tableView.cellForRow(at: indexPath0) as? CommonCell
         let cell1 = tableView.cellForRow(at: indexPath1) as? CommonCell
         let cell2 = tableView.cellForRow(at: indexPath2) as? CommonCell
-        self.block1!(cell0!.textField1.text!,cell1!.textField1.text!,cell2!.textField1.text!)
+        let dateStr = cell2?.textField1.text ?? ""
+        let timeArray = dateStr.components(separatedBy: "-")
+        if timeArray.isEmpty == false {
+            let day = timeArray[0]
+            let mon = timeArray[1]
+            let year = timeArray[2]
+            self.block1!(cell0!.textField1.text!,cell1!.textField1.text!,String(format: "%@-%@-%@",year,mon,day))
+        }
     }
     
     @objc func canClick() {

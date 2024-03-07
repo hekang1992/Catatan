@@ -15,7 +15,7 @@ class NetApiWork: NSObject {
     
     typealias CompleteBlock = (BaseModel) -> Void
     
-    typealias NSErrorBlock = (Error) -> Void
+    typealias NSErrorBlock = (Any) -> Void
     
     func requestAPI(params: [String: Any]?,
                     pageUrl: String,
@@ -44,9 +44,10 @@ class NetApiWork: NSObject {
                 if model?.awareness == 0 || model?.awareness == 00 {
                     complete(model!)
                 }else if model?.awareness == -2 {
+                    complete(model!)
                     self?.showLoginVc()
                 }else{
-                    
+                    errorBlock("")
                 }
                 break
             case .failure(let failure):
@@ -106,6 +107,9 @@ class NetApiWork: NSObject {
         let loginVc = LoginViewController()
         let vc = getCurrentUIVC()!
         let nav = BaseNavViewController(rootViewController: loginVc)
+        nav.modalPresentationStyle = .overFullScreen
         vc.present(nav, animated: true)
     }
 }
+
+

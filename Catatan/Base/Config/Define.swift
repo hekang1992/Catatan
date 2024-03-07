@@ -43,6 +43,8 @@ let keychain_account = "KeyChain_Account"
 
 let TITLE_COLOR = "#959595"
 
+let TabBarHeight = 54.pix()
+
 func is_iPhoneXSeries() -> (Bool) {
     let boundsSize = UIScreen.main.bounds.size;
     // iPhoneX,XS
@@ -151,9 +153,6 @@ extension CGFloat {
         return 0 - self
     }
 }
-
-let TabBarHeight = 54.pix()
-
 
 func topViewController() -> UIViewController? {
     var window = UIApplication.shared.delegate?.window ?? UIWindow()
