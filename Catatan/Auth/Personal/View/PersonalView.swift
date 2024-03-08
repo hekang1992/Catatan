@@ -147,7 +147,7 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
             self.popEView(modelArray,model,cell!)
         }else if brick == "vry" {//城市选择
             guard let modelArray = model.customers else { return }
-            self.popEView(modelArray,model,cell!)
+            self.popCityView()
         }
     }
 
@@ -182,5 +182,9 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
         exitView.frame = self.bounds
         let alertVC = TYAlertController(alert: exitView, preferredStyle: .actionSheet)
         getCurrentUIVC()?.present(alertVC!, animated: true)
+        exitView.block1 = {
+            getCurrentUIVC()?.dismiss(animated: true)
+        }
     }
+    
 }
