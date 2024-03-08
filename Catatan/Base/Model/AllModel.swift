@@ -31,6 +31,7 @@ class HoveredModel: HandyJSON {
     var square: String?//日
     var ogling: String?//月
     var buyers: String?//年
+    
     var incomes: [IncomesModel]?
     var circumstance: CircumstanceModel?
     var blouses: BlousesModel?
@@ -57,24 +58,6 @@ class BlousesModel: HandyJSON {
     required init() {
     }
     var hardworking: String?//order ID
-}
-
-class IncomesModel: HandyJSON {
-    required init() {
-    }
-    var lives: String?
-    var awareness: String?
-    var conjured: String?
-    var bandanas: [BandanasModel]?
-    var drawing: [DrawingModel]?
-}
-
-class BandanasModel: HandyJSON {
-    required init() {
-    }
-    var awareness: String?
-    var conjured: String?
-    var bandanas: [BandanasModel]?
 }
 
 class DrawingModel: HandyJSON {
@@ -109,6 +92,8 @@ class CravedModel: HandyJSON {
     var awareness: String?//key
     var borne: Int?//是否是数字键盘
     var customers: [CustomerModel]?
+    
+    var saveStr: String?
 }
 
 class CustomerModel: HandyJSON {
@@ -116,4 +101,22 @@ class CustomerModel: HandyJSON {
     }
     var conjured: String?
     var lives: Int?
+}
+
+class IncomesModel: HandyJSON {
+    required init() {
+    }
+    var lives: String?
+    var awareness: String?
+    var conjured: String?
+    var bandanas: [BandanasModel]?
+    var drawing: [DrawingModel]?
+}
+
+class BandanasModel: HandyJSON {
+    required init() {
+    }
+    var awareness: String?
+    var conjured: String?
+    var bandanas: [BandanasModel]?
 }

@@ -10,10 +10,12 @@ import TYAlertController
 
 typealias IndexPBlock = (_ index: NSInteger) -> Void
 class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
-
+    
     var blcok: IndexPBlock?
     
     var array: [CravedModel] = []
+    
+    var cityArray: [IncomesModel] = []
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
@@ -146,13 +148,8 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
             guard let modelArray = model.customers else { return }
             self.popEView(modelArray,model,cell!)
         }else if brick == "vry" {//城市选择
-            guard let modelArray = model.customers else { return }
-            self.popCityView()
+            self.popCityView(cityArray,cell!,model)
         }
-    }
-
-    @objc func sureClick() {
-        
     }
     
     func popEView(_ modelArray: [CustomerModel],_ model: CravedModel, _ cell: CommonCell) {
@@ -170,21 +167,59 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
             if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
                 if let jsonString = String(data: jsonData, encoding: .utf8) {
                     print("enmu>>>>>>>>>>\(jsonString)")
-                    cell.textField2.text = jsonString
+                    cell.model.saveStr = jsonString
+                    cell.textField2.text = cell.model.saveStr
                 }
             }
             getCurrentUIVC()?.dismiss(animated: true)
         }
     }
     
-    func popCityView() {
+    func popCityView(_ array: [IncomesModel], _ cell: CommonCell, _ model: CravedModel) {
         let exitView = PopCityView()
         exitView.frame = self.bounds
+        exitView.array = array
         let alertVC = TYAlertController(alert: exitView, preferredStyle: .actionSheet)
         getCurrentUIVC()?.present(alertVC!, animated: true)
         exitView.block1 = {
             getCurrentUIVC()?.dismiss(animated: true)
         }
+        exitView.block2 = { cityStr in
+            getCurrentUIVC()?.dismiss(animated: true,completion: {
+                cell.textField1.text = cityStr
+                cell.model.prime = cityStr
+                let dict = [model.awareness:cityStr]
+                if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
+                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print("city>>>>>>\(jsonString)")
+                        cell.model.saveStr = jsonString
+                        cell.textField2.text = cell.model.saveStr
+                    }
+                }
+            })
+        }
     }
     
+    @objc func sureClick() {
+        for view in self.subviews {
+            if view.isKind(of: UITableView.self)  {
+                for cell in tableView.subviews {
+                    if cell.isKind(of: CommonCell.self) {
+                        if let cell = cell as? CommonCell {
+                            print("str====\(cell.textField1.text ?? "")")
+                            let jsonStr = cell.textField2.text
+                            if let jsonData = jsonStr?.data(using: .utf8),
+                               let dict = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+//                                print("dict>>>>\(dict)")
+                            } else {
+//                                print("无法将字符串转换为字典")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+
+

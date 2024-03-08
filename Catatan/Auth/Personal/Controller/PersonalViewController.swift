@@ -65,9 +65,9 @@ class PersonalViewController: BaseViewController {
         NetApiWork.shared.requestAPI(params: [:], pageUrl: ricketySeason, method: .get) { baseModel in
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
-                let dict = baseModel.hovered
-                if let dict = dict {
-                    print("dict>>地址>>\(dict)")
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                if let model = model {
+                    self.personView.cityArray = model.incomes!
                 }
             }
         } errorBlock: { error in
