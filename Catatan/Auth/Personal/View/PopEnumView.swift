@@ -108,4 +108,5 @@ class PopEnumView: UIView, UITableViewDelegate, UITableViewDataSource {
             self.block!(cell!,model.conjured!,model.lives!)
         }
     }
+    
 }

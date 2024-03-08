@@ -37,6 +37,7 @@ class PersonalViewController: BaseViewController {
             
         }
         getPeopleInfo()
+        getCityInfo()
     }
     
     func getPeopleInfo() {
@@ -58,7 +59,20 @@ class PersonalViewController: BaseViewController {
         } errorBlock: { [weak self] error in
             self?.removeHudView()
         }
-        
+    }
+    
+    func getCityInfo() {
+        NetApiWork.shared.requestAPI(params: [:], pageUrl: ricketySeason, method: .get) { baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let dict = baseModel.hovered
+                if let dict = dict {
+                    print("dict>>地址>>\(dict)")
+                }
+            }
+        } errorBlock: { error in
+            
+        }
     }
     
     /*

@@ -63,7 +63,18 @@ class IncomesModel: HandyJSON {
     required init() {
     }
     var lives: String?
+    var awareness: String?
+    var conjured: String?
+    var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?
+}
+
+class BandanasModel: HandyJSON {
+    required init() {
+    }
+    var awareness: String?
+    var conjured: String?
+    var bandanas: [BandanasModel]?
 }
 
 class DrawingModel: HandyJSON {
