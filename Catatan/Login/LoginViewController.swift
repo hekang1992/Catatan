@@ -105,8 +105,9 @@ class LoginViewController: BaseViewController {
             if awareness == 0 || awareness == 00 {
                 let hovered = model.hovered
                 let loginModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
+                guard let loginModel = loginModel else { return }
                 SaveLoginInfo.removeLoginInfo()
-                SaveLoginInfo.saveLoginInfo((loginModel?.seizes)!)
+                SaveLoginInfo.saveLoginInfo(loginModel.seizes ?? "", loginModel.postmaster ?? "")
                 CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
             }
             self?.removeHudView()

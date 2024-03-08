@@ -27,6 +27,7 @@ class HoveredModel: HandyJSON {
     var conjured: String?
     var pawed: String?
     var locked: String?
+    var postmaster: String?//电话
     var square: String?//日
     var ogling: String?//月
     var buyers: String?//年

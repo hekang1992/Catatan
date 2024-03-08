@@ -75,7 +75,7 @@ class ProfileView: UIView,UITableViewDelegate,UITableViewDataSource {
             make.size.equalTo(CGSizeMake(80.pix(), 80.pix()))
         }
         let nameLabel = UILabel.createLabel(font: UIFont.systemFont(ofSize: 22.pix(), weight: .semibold), textColor: .black, textAlignment: .center)
-        nameLabel.text = "Pengguna"
+        nameLabel.text = USER_DEFAULTS.object(forKey: LOGIN_PHONE) as? String ?? ""
         headView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(headView)
