@@ -162,7 +162,7 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
         getCurrentUIVC()?.present(alertVC!, animated: true)
         exitView.block = { cell1,title,lives in
             cell.textField1.text = title
-            cell.model.prime = title
+            cell.model.saveStr = title
             let dict = [model.awareness:lives]
             if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
                 if let jsonString = String(data: jsonData, encoding: .utf8) {
@@ -187,7 +187,7 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
         exitView.block2 = { cityStr in
             getCurrentUIVC()?.dismiss(animated: true,completion: {
                 cell.textField1.text = cityStr
-                cell.model.prime = cityStr
+                cell.model.saveStr = cityStr
                 let dict = [model.awareness:cityStr]
                 if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
                     if let jsonString = String(data: jsonData, encoding: .utf8) {
