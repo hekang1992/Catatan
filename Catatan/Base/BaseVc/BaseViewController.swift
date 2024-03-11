@@ -135,6 +135,12 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     
+    func goSet() {
+        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
     /*
      // MARK: - Navigation
      

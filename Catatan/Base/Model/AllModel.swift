@@ -123,6 +123,7 @@ class IncomesModel: HandyJSON {
     var female: String?
     var scuffle: String?
     var yearly: String?
+    var saveStr: String?
     var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?
     var frantic: [CustomerModel]?
@@ -134,4 +135,10 @@ class BandanasModel: HandyJSON {
     var awareness: String?
     var conjured: String?
     var bandanas: [BandanasModel]?
+}
+
+struct ContactModel {
+    var givenName: String
+    var familyName: String
+    var phoneNumbers: [String]
 }

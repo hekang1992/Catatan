@@ -68,6 +68,13 @@ class ContractView: UIView,UITableViewDelegate,UITableViewDataSource {
         cell.selectionStyle = .none
         let model = array[indexPath.row]
         cell.model = model
+        cell.block1 = { [weak self] in
+            guard let modelArray = model.frantic else { return }
+            self?.popEView(modelArray,model,cell)
+        }
+        cell.block2 = {
+            let allContacts = ContactsManager.getAllContacts()
+        }
         return cell
     }
     
@@ -137,14 +144,7 @@ class ContractView: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         return headView
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model: IncomesModel = array[indexPath.row]
-        let cell = tableView.cellForRow(at: indexPath) as? ContractViewCell
-        guard let modelArray = model.frantic else { return }
-        self.popEView(modelArray,model,cell!)
-    }
-    
+
     func popEView(_ modelArray: [CustomerModel],_ model: IncomesModel, _ cell: ContractViewCell) {
         let exitView = PopEnumView()
         exitView.frame = self.bounds
@@ -154,9 +154,9 @@ class ContractView: UIView,UITableViewDelegate,UITableViewDataSource {
         let alertVC = TYAlertController(alert: exitView, preferredStyle: .actionSheet)
         getCurrentUIVC()?.present(alertVC!, animated: true)
         exitView.block = { cell1,title,lives in
-//            cell.textField1.text = title
-//            cell.model.saveStr = title
-//            cell.model.lives = lives
+            cell.nameLabel4.text = title
+            cell.model.saveStr = title
+            cell.model.lives = String(lives)
             getCurrentUIVC()?.dismiss(animated: true)
         }
     }

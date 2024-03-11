@@ -11,6 +11,7 @@
 		181877262B99A66E00A8C2AA /* PopEnumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181877252B99A66E00A8C2AA /* PopEnumView.swift */; };
 		181877282B99B02700A8C2AA /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181877272B99B02700A8C2AA /* InfoCell.swift */; };
 		181E57C22B9EDDDC002417B3 /* ContractViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E57C12B9EDDDC002417B3 /* ContractViewCell.swift */; };
+		181E57C42B9F1299002417B3 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E57C32B9F1299002417B3 /* ContactsManager.swift */; };
 		1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294592B9028FC0045C533 /* FaceViewController.swift */; };
 		1822945C2B902C610045C533 /* CNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945B2B902C610045C533 /* CNavView.swift */; };
 		1822945E2B90313F0045C533 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822945D2B90313F0045C533 /* FaceView.swift */; };
@@ -95,6 +96,7 @@
 		181877252B99A66E00A8C2AA /* PopEnumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEnumView.swift; sourceTree = "<group>"; };
 		181877272B99B02700A8C2AA /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		181E57C12B9EDDDC002417B3 /* ContractViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractViewCell.swift; sourceTree = "<group>"; };
+		181E57C32B9F1299002417B3 /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		182294592B9028FC0045C533 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 		1822945B2B902C610045C533 /* CNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavView.swift; sourceTree = "<group>"; };
 		1822945D2B90313F0045C533 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				1835E0C32B90882100C20E0E /* ContractView.swift */,
 				181E57C12B9EDDDC002417B3 /* ContractViewCell.swift */,
+				181E57C32B9F1299002417B3 /* ContactsManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				1835E0BE2B9087FE00C20E0E /* ContractViewController.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
 				1876701A2B97384A000B256A /* CWebViewController.swift in Sources */,
+				181E57C42B9F1299002417B3 /* ContactsManager.swift in Sources */,
 				181E57C22B9EDDDC002417B3 /* ContractViewCell.swift in Sources */,
 				1822945C2B902C610045C533 /* CNavView.swift in Sources */,
 				18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */,

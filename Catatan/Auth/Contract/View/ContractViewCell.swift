@@ -8,6 +8,9 @@
 import UIKit
 
 class ContractViewCell: UITableViewCell {
+    
+    var block1: (() -> Void)?
+    var block2: (() -> Void)?
 
     var model: IncomesModel! {
         didSet {
@@ -15,11 +18,26 @@ class ContractViewCell: UITableViewCell {
             nameLabel1.text = "Relasi"
             nameLabel2.text = "Nama"
             nameLabel3.text = "Nomor telepon"
-            nameLabel4.text = "Sila Pilih"
+            if model.saveStr?.isEmpty == false {
+                nameLabel4.textColor = .black
+            }
+            nameLabel4.text = model.saveStr ?? "Sila Pilih"
             nameLabel5.text = "Silakan Masukkan"
             nameLabel6.text = "Silakan Masukkan"
         }
     }
+    
+    lazy var btn1: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.addTarget(self, action: #selector(click1), for: .touchUpInside)
+        return btn
+    }()
+    
+    lazy var btn2: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.addTarget(self, action: #selector(click2), for: .touchUpInside)
+        return btn
+    }()
     
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -80,6 +98,8 @@ class ContractViewCell: UITableViewCell {
         bgView.addSubview(nameLabel4)
         bgView.addSubview(nameLabel5)
         bgView.addSubview(nameLabel6)
+        bgView.addSubview(btn1)
+        bgView.addSubview(btn2)
         
         bgView.snp.makeConstraints { make in
             make.top.equalTo(contentView)
@@ -128,10 +148,26 @@ class ContractViewCell: UITableViewCell {
             make.right.equalTo(bgView).offset(-20.pix())
             make.height.equalTo(22.pix())
         }
+        btn1.snp.makeConstraints { make in
+            make.left.right.top.equalTo(bgView)
+            make.bottom.equalTo(lineView.snp.top)
+        }
+        btn2.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(bgView)
+            make.top.equalTo(lineView.snp.bottom)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func click1() {
+        self.block1!()
+    }
+    
+    @objc func click2() {
+        self.block2!()
     }
     
 }

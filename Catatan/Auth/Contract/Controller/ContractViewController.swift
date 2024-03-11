@@ -8,6 +8,7 @@
 import UIKit
 import HandyJSON
 import MBProgressHUD_WJExtension
+import Contacts
 
 class ContractViewController: BaseViewController {
     
@@ -17,10 +18,10 @@ class ContractViewController: BaseViewController {
         let contractView = ContractView()
         return contractView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         addNavView()
         navView.block = { [weak self] in
@@ -55,14 +56,9 @@ class ContractViewController: BaseViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getContractPeInfo() {
+        let allContacts = ContactsManager.getAllContacts()
+        print("allContacts>>>>>>\(allContacts)")
     }
-    */
-
+    
 }

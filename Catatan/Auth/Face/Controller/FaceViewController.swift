@@ -249,12 +249,6 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         }
     }
     
-    func goSet() {
-        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-    
     func setUpLoadImage(_ data: Data, _ image: UIImage) {
         addHudView()
         let lives = self.typeFace
