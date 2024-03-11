@@ -84,7 +84,7 @@ class CircumstanceModel: HandyJSON {
 class CravedModel: HandyJSON {
     required init() {
     }
-    var tradition, prime, lives: String?
+    var tradition: String?
     var grimy, emancipation, blaspheming: Int?
     var brick: String?//cell类型
     var waiters: String?//title
@@ -92,6 +92,8 @@ class CravedModel: HandyJSON {
     var awareness: String?//key
     var borne: Int?//是否是数字键盘
     var customers: [CustomerModel]?
+    var prime: String?//用户选择的值
+    var lives: Int?//用户选择的key
     
     var saveStr: String?
 }

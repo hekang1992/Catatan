@@ -86,7 +86,6 @@ class CommonCell: UITableViewCell {
             self.nameLable.text = model.waiters
             self.textField1.placeholder = model.paced
             self.textField1.text = model.saveStr
-            self.textField2.text = model.saveStr
             if model.brick != "cty" {
                 self.textField1.isEnabled = false
                 self.iconImageView.isHidden = false
@@ -103,14 +102,6 @@ class CommonCell: UITableViewCell {
     @objc func textFieldEditingChanged(_ textField: UITextField) {
         if textField == textField1 {
             model.saveStr = textField1.text
-            let dict = [model.awareness:model.saveStr]
-            if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
-                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print("txt>>>>>>>>>>\(jsonString)")
-                    model.saveStr = jsonString
-                    textField2.text = model.saveStr
-                }
-            }
         }
     }
 }

@@ -33,8 +33,9 @@ class PersonalViewController: BaseViewController {
         personView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
-        personView.blcok = { [weak self] index in
-            
+        personView.block = { [weak self] dict in
+            dict["bidders"] = self?.bidders
+            print("dict>>参数>>\(dict)")
         }
         getPeopleInfo()
         getCityInfo()

@@ -8,14 +8,13 @@
 import UIKit
 import TYAlertController
 
-typealias IndexPBlock = (_ index: NSInteger) -> Void
 class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
-    
-    var blcok: IndexPBlock?
     
     var array: [CravedModel] = []
     
     var cityArray: [IncomesModel] = []
+    
+    var block: ((inout [String : Any]) -> Void)?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
@@ -69,7 +68,8 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
         let cell = CommonCell(style: .subtitle, reuseIdentifier: peopleViewCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
-        cell.model = array[indexPath.row]
+        let model = array[indexPath.row]
+        cell.model = model
         return cell
     }
     
@@ -149,7 +149,7 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
             self.popEView(modelArray,model,cell!)
         }else if brick == "vry" {//城市选择
             self.popCityView(cityArray,cell!,model)
-        }
+        }else {}
     }
     
     func popEView(_ modelArray: [CustomerModel],_ model: CravedModel, _ cell: CommonCell) {
@@ -163,14 +163,7 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
         exitView.block = { cell1,title,lives in
             cell.textField1.text = title
             cell.model.saveStr = title
-            let dict = [model.awareness:lives]
-            if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
-                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print("enmu>>>>>>>>>>\(jsonString)")
-                    cell.model.saveStr = jsonString
-                    cell.textField2.text = cell.model.saveStr
-                }
-            }
+            cell.model.lives = lives
             getCurrentUIVC()?.dismiss(animated: true)
         }
     }
@@ -188,37 +181,19 @@ class PersonalView: UIView,UITableViewDelegate,UITableViewDataSource {
             getCurrentUIVC()?.dismiss(animated: true,completion: {
                 cell.textField1.text = cityStr
                 cell.model.saveStr = cityStr
-                let dict = [model.awareness:cityStr]
-                if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
-                    if let jsonString = String(data: jsonData, encoding: .utf8) {
-                        print("city>>>>>>\(jsonString)")
-                        cell.model.saveStr = jsonString
-                        cell.textField2.text = cell.model.saveStr
-                    }
-                }
             })
         }
     }
     
     @objc func sureClick() {
-        for view in self.subviews {
-            if view.isKind(of: UITableView.self)  {
-                for cell in tableView.subviews {
-                    if cell.isKind(of: CommonCell.self) {
-                        if let cell = cell as? CommonCell {
-                            print("str====\(cell.textField1.text ?? "")")
-                            let jsonStr = cell.textField2.text
-                            if let jsonData = jsonStr?.data(using: .utf8),
-                               let dict = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
-//                                print("dict>>>>\(dict)")
-                            } else {
-//                                print("无法将字符串转换为字典")
-                            }
-                        }
-                    }
-                }
+        var body: [String: Any] = self.array.reduce(into: [String: Any]()) { result, model in
+            if model.brick == "rty" {
+                result[model.awareness!] = model.lives
+            }else {
+                result[model.awareness!] = model.saveStr
             }
         }
+        self.block!(&body)
     }
 }
 
