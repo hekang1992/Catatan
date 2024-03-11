@@ -56,8 +56,10 @@ class FristViewController: BaseViewController {
             if awareness == 0 || awareness == 00 {
                 let dict = model.hovered
                 let googleModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
-                self?.upLoadGoole(googleModel!.decades!, googleModel!.trapped!)
-                print("googleMarket>>>>>>success")
+                if let googleModel = googleModel {
+                    self?.upLoadGoole(googleModel.decades ?? "", googleModel.trapped ?? "")
+                    print("googleMarket>>>>>>success")
+                }
             }
             CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
         } errorBlock: { error in

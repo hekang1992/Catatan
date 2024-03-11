@@ -38,6 +38,14 @@ class HoveredModel: HandyJSON {
     var commented: CommentedModel?
     var checked: CheckedModel?
     var craved: [CravedModel]?
+    var released: ReleasedModel?
+}
+
+class ReleasedModel: HandyJSON {
+    required init() {
+    }
+    var incomes: [IncomesModel]?
+    var alternate_phone: String?
 }
 
 class CommentedModel: HandyJSON {//身份证
@@ -111,8 +119,13 @@ class IncomesModel: HandyJSON {
     var lives: String?
     var awareness: String?
     var conjured: String?
+    var ensued: String?
+    var female: String?
+    var scuffle: String?
+    var yearly: String?
     var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?
+    var frantic: [CustomerModel]?
 }
 
 class BandanasModel: HandyJSON {

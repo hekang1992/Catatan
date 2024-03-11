@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import HandyJSON
+import MBProgressHUD_WJExtension
 
 class ContractViewController: BaseViewController {
     
@@ -28,6 +30,28 @@ class ContractViewController: BaseViewController {
         view.insertSubview(contractView, belowSubview: navView)
         contractView.snp.makeConstraints { make in
             make.edges.equalTo(view)
+        }
+        getContractInfo()
+    }
+    
+    func getContractInfo() {
+        addHudView()
+        let dict = ["bidders":bidders]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: tarzanDamned, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            let edges = baseModel.edges
+            if awareness == 0 || awareness == 00 {
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                let incomes = model?.released?.incomes
+                if let incomes = incomes {
+                    self?.contractView.array = incomes
+                    self?.contractView.tableView.reloadData()
+                }
+            }
+            self?.removeHudView()
+            MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
         }
     }
     

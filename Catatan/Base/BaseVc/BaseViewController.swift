@@ -127,7 +127,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
     func popToSpecificViewController() {
         if let navigationController = self.navigationController {
             for viewController in navigationController.viewControllers {
-                if let targetViewController = viewController as? FaceViewController {
+                if let targetViewController = viewController as? JDViewController {
                     navigationController.popToViewController(targetViewController, animated: true)
                     break
                 }

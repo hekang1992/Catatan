@@ -36,8 +36,8 @@ class PersonalViewController: BaseViewController {
             print("dict>>参数>>\(dict)")
             self?.saveInfo(dict: dict)
         }
-        getPeopleInfo()
         getCityInfo()
+        getPeopleInfo()
     }
     
     func getPeopleInfo() {

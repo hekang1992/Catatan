@@ -117,9 +117,11 @@ class HomeViewController: BaseViewController {
             if awareness == 0 || awareness == 00 {
                 let dict = model.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
-                if inModel?.lives == "nn" {
-                    self?.largeDataModel = inModel?.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
-                    print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
+                if let inModel = inModel {
+                    if inModel.lives == "nn" {
+                        self?.largeDataModel = inModel.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
+                        print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
+                    }
                 }
             }
             self?.removeHudView()
