@@ -24,7 +24,7 @@ class PersonalViewController: BaseViewController {
         // Do any additional setup after loading the view.
         addNavView()
         navView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.popToSpecificViewController()
         }
         view.addSubview(personView)
         view.insertSubview(personView, belowSubview: navView)

@@ -22,7 +22,7 @@ class ContractViewController: BaseViewController {
         // Do any additional setup after loading the view.
         addNavView()
         navView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.popToSpecificViewController()
         }
         view.addSubview(contractView)
         view.insertSubview(contractView, belowSubview: navView)
@@ -31,7 +31,6 @@ class ContractViewController: BaseViewController {
         }
     }
     
-
     /*
     // MARK: - Navigation
 

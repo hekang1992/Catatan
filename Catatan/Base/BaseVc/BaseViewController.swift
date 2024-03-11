@@ -35,7 +35,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         hud.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
         return hud
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
@@ -124,15 +124,26 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         self.navigationController?.pushViewController(currentVc, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func popToSpecificViewController() {
+        if let navigationController = self.navigationController {
+            for viewController in navigationController.viewControllers {
+                if let targetViewController = viewController as? FaceViewController {
+                    navigationController.popToViewController(targetViewController, animated: true)
+                    break
+                }
+            }
+        }
     }
-    */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
