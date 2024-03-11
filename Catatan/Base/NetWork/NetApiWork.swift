@@ -41,13 +41,11 @@ class NetApiWork: NSObject {
                 print("success>>api>>\(success)")
                 let jsonStr = NSString(data:response.data! ,encoding: String.Encoding.utf8.rawValue)
                 let model = JSONDeserializer<BaseModel>.deserializeFrom(json: jsonStr as String?)
-                if model?.awareness == 0 || model?.awareness == 00 {
-                    complete(model!)
-                }else if model?.awareness == -2 {
+                if model?.awareness == -2 {
                     complete(model!)
                     self?.showLoginVc()
-                }else{
-                    errorBlock("")
+                }else {
+                    complete(model!)
                 }
                 break
             case .failure(let failure):

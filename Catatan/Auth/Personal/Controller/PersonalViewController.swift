@@ -22,12 +22,10 @@ class PersonalViewController: BaseViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.white
         addNavView()
         navView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        
         view.addSubview(personView)
         view.insertSubview(personView, belowSubview: navView)
         personView.snp.makeConstraints { make in
@@ -36,6 +34,7 @@ class PersonalViewController: BaseViewController {
         personView.block = { [weak self] dict in
             dict["bidders"] = self?.bidders
             print("dict>>参数>>\(dict)")
+            self?.saveInfo(dict: dict)
         }
         getPeopleInfo()
         getCityInfo()
@@ -73,6 +72,21 @@ class PersonalViewController: BaseViewController {
             }
         } errorBlock: { error in
             
+        }
+    }
+    
+    func saveInfo(dict: [String: Any]) {
+        addHudView()
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: rabbitThere, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            let edges = baseModel.edges
+            if awareness == 0 || awareness == 00 {
+                self?.getProductDetailInfo(self?.bidders ?? "")
+            }
+            self?.removeHudView()
+            MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
         }
     }
     

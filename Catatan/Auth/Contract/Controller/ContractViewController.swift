@@ -10,11 +10,25 @@ import UIKit
 class ContractViewController: BaseViewController {
     
     var bidders: String = ""
+    
+    lazy var contractView: ContractView = {
+        let contractView = ContractView()
+        return contractView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addNavView()
+        navView.block = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        view.addSubview(contractView)
+        view.insertSubview(contractView, belowSubview: navView)
+        contractView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
     }
     
 
