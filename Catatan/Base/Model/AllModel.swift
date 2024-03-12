@@ -138,7 +138,7 @@ class BandanasModel: HandyJSON {
 }
 
 struct ContactModel {
-    var givenName: String
-    var familyName: String
-    var phoneNumbers: [String]
+    var conjured: String
+    var grieving: [String]
+    var balanced: [String]
 }

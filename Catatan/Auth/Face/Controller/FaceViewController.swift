@@ -227,28 +227,6 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func wanLiuView(_ title: String) {
-        let exitView = ExitView()
-        exitView.descLabel.text = title
-        exitView.sureBtn.setTitle("Pengaturan", for: .normal)
-        exitView.cancelBtn.setTitle("Batal", for: .normal)
-        exitView.sureBtn.backgroundColor = UIColor("#BBD598")
-        exitView.sureBtn.setTitleColor(.white, for: .normal)
-        exitView.cancelBtn.backgroundColor = UIColor("#FFFFFF")
-        exitView.cancelBtn.setTitleColor(.black, for: .normal)
-        exitView.frame = self.view.bounds
-        let alertVC = TYAlertController(alert: exitView, preferredStyle: .alert)
-        self.present(alertVC!, animated: true)
-        exitView.block = { [weak self] in
-            self?.dismiss(animated: true, completion: {
-                self?.goSet()
-            })
-        }
-        exitView.cblock = { [weak self] in
-            self?.dismiss(animated: true)
-        }
-    }
-    
     func setUpLoadImage(_ data: Data, _ image: UIImage) {
         addHudView()
         let lives = self.typeFace

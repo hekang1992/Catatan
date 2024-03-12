@@ -10,6 +10,7 @@ import UIKit
 class ContractViewCell: UITableViewCell {
     
     var block1: (() -> Void)?
+    
     var block2: (() -> Void)?
 
     var model: IncomesModel! {
@@ -18,24 +19,30 @@ class ContractViewCell: UITableViewCell {
             nameLabel1.text = "Relasi"
             nameLabel2.text = "Nama"
             nameLabel3.text = "Nomor telepon"
+            nameLabel4.text = ((model.saveStr?.isEmpty) != false) ? "Sila Pilih" : model.saveStr
+            nameLabel5.text = ((model.conjured?.isEmpty) != false) ? "Silakan Masukkan" : model.conjured
+            nameLabel6.text = ((model.female?.isEmpty) != false) ? "Silakan Masukkan" : model.female
             if model.saveStr?.isEmpty == false {
                 nameLabel4.textColor = .black
             }
-            nameLabel4.text = model.saveStr ?? "Sila Pilih"
-            nameLabel5.text = "Silakan Masukkan"
-            nameLabel6.text = "Silakan Masukkan"
+            if model.conjured?.isEmpty == false {
+                nameLabel5.textColor = .black
+                nameLabel6.textColor = .black
+            }
         }
     }
     
     lazy var btn1: UIButton = {
         let btn = UIButton(type: .custom)
         btn.addTarget(self, action: #selector(click1), for: .touchUpInside)
+//        btn.backgroundColor = .random()
         return btn
     }()
     
     lazy var btn2: UIButton = {
         let btn = UIButton(type: .custom)
         btn.addTarget(self, action: #selector(click2), for: .touchUpInside)
+//        btn.backgroundColor = .random()
         return btn
     }()
     

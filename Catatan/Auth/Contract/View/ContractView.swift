@@ -9,10 +9,12 @@ import UIKit
 import TYAlertController
 
 class ContractView: UIView,UITableViewDelegate,UITableViewDataSource {
-
+    
     var array: [IncomesModel] = []
     
-    var block: ((inout [String : Any]) -> Void)?
+    var block: (([[String: Any]]) -> Void)?
+    
+    var block1: ((ContractViewCell) -> Void)?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
@@ -72,8 +74,8 @@ class ContractView: UIView,UITableViewDelegate,UITableViewDataSource {
             guard let modelArray = model.frantic else { return }
             self?.popEView(modelArray,model,cell)
         }
-        cell.block2 = {
-            let allContacts = ContactsManager.getAllContacts()
+        cell.block2 = { [weak self] in
+            self?.block1!(cell)
         }
         return cell
     }
@@ -144,7 +146,7 @@ class ContractView: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         return headView
     }
-
+    
     func popEView(_ modelArray: [CustomerModel],_ model: IncomesModel, _ cell: ContractViewCell) {
         let exitView = PopEnumView()
         exitView.frame = self.bounds
@@ -155,21 +157,25 @@ class ContractView: UIView,UITableViewDelegate,UITableViewDataSource {
         getCurrentUIVC()?.present(alertVC!, animated: true)
         exitView.block = { cell1,title,lives in
             cell.nameLabel4.text = title
+            cell.nameLabel4.textColor = .black
             cell.model.saveStr = title
-            cell.model.lives = String(lives)
+            cell.model.ensued = String(lives)
+            cell.model.scuffle = model.scuffle
             getCurrentUIVC()?.dismiss(animated: true)
         }
     }
     
     @objc func sureClick() {
-//        var body: [String: Any] = self.array.reduce(into: [String: Any]()) { result, model in
-//            if model.brick == "rty" {
-//                result[model.awareness!] = model.lives
-//            }else {
-//                result[model.awareness!] = model.saveStr
-//            }
-//        }
-//        self.block!(&body)
+        let array = self.array.map { model in
+            var partialResult: [String: Any] = [:]
+            partialResult["scuffle"] = model.scuffle
+            partialResult["conjured"] = model.conjured
+            partialResult["female"] = model.female
+            partialResult["ensued"] = model.ensued
+            return partialResult
+        }
+        if let block = block {
+            block(array)
+        }
     }
-
 }
