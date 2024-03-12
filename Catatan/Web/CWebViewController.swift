@@ -8,11 +8,17 @@
 import UIKit
 
 class CWebViewController: BaseViewController {
+    
+    var url: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addNavView()
+        navView.block = { [weak self] in
+            self?.popToSpecificViewController()
+        }
     }
     
 

@@ -80,7 +80,7 @@ class ProfileView: UIView,UITableViewDelegate,UITableViewDataSource {
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(headView)
             make.top.equalTo(iconImageView.snp.bottom).offset(14.pix())
-            make.size.equalTo(CGSizeMake(300.pix(), 15.pix()))
+            make.size.equalTo(CGSizeMake(300.pix(), 22.pix()))
         }
         return headView
     }

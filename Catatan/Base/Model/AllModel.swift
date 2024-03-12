@@ -66,12 +66,15 @@ class BlousesModel: HandyJSON {
     required init() {
     }
     var hardworking: String?//order ID
+    var chests: String?
+    var signify: String?
+    var grievous: String?
 }
 
 class DrawingModel: HandyJSON {
     required init() {
     }
-    var tradition: Int?
+    var tradition: String?
     var plumb: String?
     var auctions: String?
     var managers: String?
@@ -101,7 +104,7 @@ class CravedModel: HandyJSON {
     var borne: Int?//是否是数字键盘
     var customers: [CustomerModel]?
     var prime: String?//用户选择的值
-    var lives: Int?//用户选择的key
+    var lives: String?//用户选择的key
     
     var saveStr: String?
 }
@@ -110,7 +113,7 @@ class CustomerModel: HandyJSON {
     required init() {
     }
     var conjured: String?
-    var lives: Int?
+    var lives: String?
 }
 
 class IncomesModel: HandyJSON {

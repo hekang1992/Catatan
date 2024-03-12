@@ -81,7 +81,7 @@ class PersonalViewController: BaseViewController {
             let awareness = baseModel.awareness
             let edges = baseModel.edges
             if awareness == 0 || awareness == 00 {
-                self?.getProductDetailInfo(self?.bidders ?? "")
+                self?.getProductDetailInfo(self?.bidders ?? "", "")
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)

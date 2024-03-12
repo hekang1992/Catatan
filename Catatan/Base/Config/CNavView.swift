@@ -54,8 +54,7 @@ class CNavView: UIView {
         
         backBtn.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 50.pix(), height: 50.pix()))
-            make.left.equalTo(bgView)
-            make.top.equalTo(bgView).offset(CGFloat(STATUSBAR_HIGH))
+            make.left.bottom.equalTo(bgView)
         }
         
         nameLabel.snp.makeConstraints { make in

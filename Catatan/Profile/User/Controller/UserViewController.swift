@@ -61,6 +61,7 @@ class UserViewController: BaseViewController {
     func orderListVc(_ index: NSInteger, _ title: String) {
         let orderVc = OrderViewController()
         orderVc.nameStr = title
+        orderVc.typeStr = String(7 - index)
         orderVc.hideTabBar()
         self.navigationController?.pushViewController(orderVc, animated: true)
     }

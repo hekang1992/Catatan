@@ -135,15 +135,23 @@ class HomeViewController: BaseViewController {
     func applyClick(_ index: NSInteger){
         addHudView()
         guard let model = self.largeDataModel.first else { return }
-        print("applyClick>>>>>\(model.tradition ?? 0)")
-        let bidders = model.tradition ?? 0
+        print("applyClick>>>>>\(model.tradition ?? "")")
+        let bidders = model.tradition ?? ""
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: thoseWater, method: .post) { [weak self] baseModel in
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 let dict = baseModel.hovered
                 let applyModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
-                CManager.pageJump(path: applyModel!.occurred!, isVerify: false)
+                let url = applyModel?.occurred
+                guard let url = url else { return }
+                print("url>>跳转>>\(url)")
+                if url.contains("app.dcatan/terrainShoot") {
+                    self?.getProductDetailInfo(bidders,url)
+                }else{
+                    //跳转webview
+                    self?.pushWebVC(url)
+                }
             }
             self?.removeHudView()
         } errorBlock: { [weak self] error in

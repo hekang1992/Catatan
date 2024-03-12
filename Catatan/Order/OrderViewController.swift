@@ -11,7 +11,7 @@ class OrderViewController: BaseViewController {
     
     var nameStr: String?
     
-    var orderId: String?
+    var typeStr: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

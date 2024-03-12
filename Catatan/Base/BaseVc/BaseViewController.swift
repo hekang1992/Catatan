@@ -82,7 +82,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         navigationController.interactivePopGestureRecognizer?.isEnabled = false
     }
     
-    func getProductDetailInfo(_ bidders: String) {
+    func getProductDetailInfo(_ bidders: String,_ url: String) {
         let dict = ["bidders":bidders]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fieldQuite, method: .post) { [weak self] baseModel in
@@ -92,7 +92,18 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 let picture = model?.circumstance?.picture
                 let hardworking = model?.blouses?.hardworking
-                self?.nextPushVc(picture!,hardworking!,bidders)
+                if picture != nil {
+                    if url.isEmpty {
+                        self?.nextPushVc(picture ?? "",hardworking ?? "",bidders)
+                    }else {
+                        CManager.pageJump(path: url, isVerify: false)
+                    }
+                }else {
+                    //通过orderid去获取url
+                    if let modelq = model {
+                        self?.orderIDUrl(hardworking ?? "",modelq.blouses?.chests ?? "",modelq.blouses?.signify ?? "",modelq.blouses?.grievous ?? "")
+                    }
+                }
             }
             self?.removeHudView()
         } errorBlock: { [weak self] error in
@@ -131,6 +142,8 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
                 if let targetViewController = viewController as? JDViewController {
                     navigationController.popToViewController(targetViewController, animated: true)
                     break
+                }else {
+                    navigationController.popViewController(animated: true)
                 }
             }
         }
@@ -162,6 +175,42 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         exitView.cblock = { [weak self] in
             self?.dismiss(animated: true)
         }
+    }
+    
+    func orderIDUrl(_ orderId: String,_ chests: String,_ signify: String,_ grievous: String) {
+        let dict = ["warehouse":orderId,"chests":chests,"signify":signify,"grievous":grievous]
+        addHudView()
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: districtUnder, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                if let model = model {
+                    let url = model.occurred
+                    print("url>>>>>>>>\(url ?? "")")
+                    self?.pushWebVC(url ?? "")
+                }
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
+    }
+    
+    func pushWebVC(_ url: String) {
+        let webVc = CWebViewController()
+        let urlString = url + "?" + CommonParams.getParas()
+        if let encodedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            if let encodedURL = URL(string: encodedURLString) {
+                print("Encoded URL: \(encodedURL)")
+            } else {
+                print("无法创建编码后的URL")
+            }
+        } else {
+            print("URL编码失败")
+        }
+        webVc.url = urlString
+        webVc.hideTabBar()
+        getVc(webVc)
     }
     
     /*

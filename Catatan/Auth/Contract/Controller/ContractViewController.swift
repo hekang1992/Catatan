@@ -163,7 +163,7 @@ class ContractViewController: BaseViewController {
             let edges = baseModel.edges
             if awareness == 0 || awareness == 00 {
                 print("isUpload>>>>>isUpload")
-                self?.getProductDetailInfo(self?.bidders ?? "")
+                self?.getProductDetailInfo(self?.bidders ?? "", "")
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)

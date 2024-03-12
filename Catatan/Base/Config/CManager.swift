@@ -52,7 +52,6 @@ class CManager: NSObject {
     }
     
     private static func mappingSchemeFunc(_ mapping: (function: String?, parameters: [String: String]?)) {
-        
         let funcStr = mapping.function
         let paramValue = mapping.parameters?.first?.value ?? ""
         let curVc = getCurrentUIVC()
@@ -65,7 +64,7 @@ class CManager: NSObject {
         } else if funcStr == "woodsHaving" {
             let orderVc = OrderViewController()
             orderVc.hideTabBar()
-            orderVc.orderId = paramValue
+            orderVc.typeStr = paramValue
             curVc?.navigationController?.pushViewController(orderVc, animated: true)
         } else if funcStr == "terrainShoot" {
             let jdVc = JDViewController()
@@ -78,5 +77,4 @@ class CManager: NSObject {
             
         }
     }
-    
 }

@@ -8,7 +8,7 @@
 import UIKit
 import JXGradientKit
 
-typealias InfoBlock = (InfoCell,String,Int) -> Void
+typealias InfoBlock = (InfoCell,String,String) -> Void
 class PopEnumView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     var modelArray:[CustomerModel]?
@@ -105,7 +105,7 @@ class PopEnumView: UIView, UITableViewDelegate, UITableViewDataSource {
         let model = modelArray?[indexPath.row]
         guard let model = model else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-            self.block!(cell!,model.conjured!,model.lives!)
+            self.block!(cell!,model.conjured!,model.lives ?? "")
         }
     }
     
