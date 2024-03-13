@@ -128,17 +128,22 @@ class IncomesModel: HandyJSON {
     var yearly: String?
     var saveStr: String?
     
-    var scars:String?
-    var plumb:String?
-    var auctions:String?
-    var barrister:String?
-    var merchandise:String?
-    var coffle:String?
-    var josiah:String?
-    var gestured:String?
-    var whether:String?
-    var masters:String?
-    var growled:String?
+    var scars: String?
+    var plumb: String?
+    var auctions: String?
+    var barrister: String?
+    var merchandise: String?
+    var coffle: String?
+    var josiah: String?
+    var gestured: String?
+    var whether: String?
+    var masters: String?
+    var growled: String?
+    var managers: String?
+    var untoward: String?
+    var inquisitiveness: String?
+    var notices: String?
+    var correct: String?
     
     var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?

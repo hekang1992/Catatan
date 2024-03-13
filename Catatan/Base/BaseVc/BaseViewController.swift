@@ -33,8 +33,14 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
     
     lazy var hud: HudView = {
         let hud = HudView()
-        hud.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        hud.frame = self.view.bounds
         return hud
+    }()
+    
+    lazy var emptyView: EmptyView = {
+        let emptyView = EmptyView()
+        emptyView.frame = CGRectMake(0, CGFloat(NAV_HIGH), SCREEN_WIDTH, SCREEN_HEIGHT - CGFloat(NAV_HIGH))
+        return emptyView
     }()
     
     override func viewDidLoad() {
@@ -75,6 +81,14 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
     
     func removeHudView() {
         hud.removeFromSuperview()
+    }
+    
+    func addEmptyView() {
+        self.view.addSubview(emptyView)
+    }
+    
+    func removeEmptyView() {
+        emptyView.removeFromSuperview()
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
@@ -211,6 +225,10 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         webVc.url = urlString
         webVc.hideTabBar()
         getVc(webVc)
+    }
+    
+    func maidian1() {
+        
     }
     
     /*

@@ -71,7 +71,7 @@ class ExitView: UIView {
         bgView.snp.makeConstraints { make in
             make.center.equalTo(self)
             make.left.equalTo(self).offset(26.pix())
-            make.height.equalTo(190.pix())
+            make.height.equalTo(180.pix())
         }
         descLabel.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
@@ -79,14 +79,14 @@ class ExitView: UIView {
             make.left.equalTo(bgView).offset(13.pix())
         }
         cancelBtn.snp.makeConstraints { make in
-            make.top.equalTo(descLabel.snp.bottom).offset(48)
-            make.left.equalTo(bgView).offset(20)
-            make.size.equalTo(CGSize(width: 128, height: 40))
+            make.bottom.equalTo(bgView).offset(-18.pix())
+            make.left.equalTo(bgView).offset(20.pix())
+            make.size.equalTo(CGSize(width: 128.pix(), height: 40.pix()))
         }
         sureBtn.snp.makeConstraints { make in
-            make.top.equalTo(descLabel.snp.bottom).offset(48)
-            make.right.equalTo(bgView).offset(-20)
-            make.size.equalTo(CGSize(width: 128, height: 40))
+            make.bottom.equalTo(bgView).offset(-18.pix())
+            make.right.equalTo(bgView).offset(-20.pix())
+            make.size.equalTo(CGSize(width: 128.pix(), height: 40.pix()))
         }
     }
     

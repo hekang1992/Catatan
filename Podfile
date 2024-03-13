@@ -42,4 +42,6 @@ target 'Catatan' do
   
   pod 'BRPickerView', '~> 2.8.1'
   
+  pod 'RxSwift', '~> 6.6.0'
+  
 end

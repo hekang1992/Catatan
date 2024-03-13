@@ -9,12 +9,17 @@ import UIKit
 import DeviceKit
 import MJRefresh
 import HandyJSON
+import RxSwift
 
 class HomeViewController: BaseViewController {
     
     var largeDataModel: [DrawingModel] = []
     
     private var locationManager: LocationManager?
+    
+    let bag = DisposeBag()
+    
+    var obs: PublishSubject<LocationModel?> = PublishSubject()
     
     lazy var homeOneView: HomeOneView = {
         let homeOneView = HomeOneView()
@@ -38,6 +43,12 @@ class HomeViewController: BaseViewController {
         }
         homeOneView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
         homeOneView.tableView.mj_header?.isAutomaticallyChangeAlpha = true
+        obs.debounce(.milliseconds(2000), scheduler: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] model in
+                if let model = model {
+                    self?.upLocationInfo(model)
+                }
+            }).disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +67,8 @@ class HomeViewController: BaseViewController {
             print("街道>>>：\(locationModel.street ?? "")")
             print("经度>>>：\(locationModel.excellent ?? 0.0)")
             print("纬度>>>：\(locationModel.carpenter ?? 0.0)")
-            self?.upLocationInfo(locationModel)
+//            self?.upLocationInfo(locationModel)
+            self?.obs.onNext(locationModel)
         }
     }
     

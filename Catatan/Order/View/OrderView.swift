@@ -8,6 +8,8 @@
 import UIKit
 
 class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
+    
+    var array: [IncomesModel] = []
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
@@ -41,11 +43,13 @@ class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
         let cell = OrderNormalCell(style: .subtitle, reuseIdentifier: vinViewCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
+        let model = array[indexPath.row]
+        cell.model = model
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return array.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

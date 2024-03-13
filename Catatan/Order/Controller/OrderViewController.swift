@@ -17,7 +17,6 @@ class OrderViewController: BaseViewController {
     
     lazy var orderView: OrderView = {
         let orderView = OrderView()
-        orderView.backgroundColor = .random()
         return orderView
     }()
     
@@ -50,14 +49,22 @@ class OrderViewController: BaseViewController {
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                let array = model?.incomes
+                if let listArray = array {
+                    self?.removeEmptyView()
+                    self?.orderView.array = listArray
+                }else{
+                    self?.addEmptyView()
+                }
             }
             self?.removeHudView()
+            self?.orderView.tableView.reloadData()
             self?.orderView.tableView.mj_header?.endRefreshing()
         } errorBlock: { [weak self] error in
             self?.removeHudView()
+            self?.addEmptyView()
             self?.orderView.tableView.mj_header?.endRefreshing()
         }
-        
     }
     
     @objc func loadNewData() {

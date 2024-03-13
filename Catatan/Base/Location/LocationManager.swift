@@ -20,7 +20,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.distanceFilter = kCLDistanceFilterNone
     }
     
