@@ -27,6 +27,8 @@ let CNotificationCenter = NotificationCenter.default
 // Default
 let USER_DEFAULTS = UserDefaults.standard
 
+let MAIDIAN_ONE = "MAIDIAN_ONE"
+
 let SET_ROOTVC = "SET_ROOTVC"
 
 let LOGIN_SEIZES = "seizes"

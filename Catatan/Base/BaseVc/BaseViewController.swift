@@ -227,10 +227,6 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         getVc(webVc)
     }
     
-    func maidian1() {
-        
-    }
-    
     /*
      // MARK: - Navigation
      

@@ -49,7 +49,7 @@ class FristViewController: BaseViewController {
     //google
     func googleMarket() {
         let finely = DeviceInfo.finely()
-        let stroll = DeviceInfo.finely()
+        let stroll = DeviceInfo.stroll()
         let dict = ["finely":finely,"stroll":stroll]
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: singledTrouble, method: .post) { [weak self] model in
             let awareness = model.awareness

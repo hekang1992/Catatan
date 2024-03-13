@@ -17,6 +17,8 @@ class HomeViewController: BaseViewController {
     
     private var locationManager: LocationManager?
     
+    var startTimeStr: String?
+    
     let bag = DisposeBag()
     
     var obs: PublishSubject<LocationModel?> = PublishSubject()
@@ -55,6 +57,7 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         getHomeData()
         self.showTabBar()
+        startTimeStr = String(Date().timeIntervalSince1970)
     }
     
     func locationInfo() {
@@ -67,7 +70,7 @@ class HomeViewController: BaseViewController {
             print("街道>>>：\(locationModel.street ?? "")")
             print("经度>>>：\(locationModel.excellent ?? 0.0)")
             print("纬度>>>：\(locationModel.carpenter ?? 0.0)")
-//            self?.upLocationInfo(locationModel)
+            //            self?.upLocationInfo(locationModel)
             self?.obs.onNext(locationModel)
         }
     }
@@ -89,6 +92,7 @@ class HomeViewController: BaseViewController {
         let dict: [String: Any] = DeviceInfo.deviceDictInfo()
         if let base64String = convertDictToBase64(dict) {
             self.uploadDeviceInfo(base64String)
+            self.maidian1()
         } else {
             print("Failed to convert dictionary to base64")
         }
@@ -168,6 +172,33 @@ class HomeViewController: BaseViewController {
             self?.removeHudView()
         } errorBlock: { [weak self] error in
             self?.removeHudView()
+        }
+    }
+    
+    func maidian1() {
+        let type = USER_DEFAULTS.object(forKey: MAIDIAN_ONE) as? String ?? ""
+        if type != "1" {
+            let model = LocationManager.shared.locatinModel
+            let target = ""
+            let possum = "1"
+            let hardworking = ""
+            let visits = DeviceInfo.finely()
+            let wrath = DeviceInfo.stroll()
+            let excellent = model.excellent
+            let carpenter = model.carpenter
+            let parents = startTimeStr
+            let confide = String(Date().timeIntervalSince1970)
+            print("maidian1>>>>参数>>>>>\(target),\(hardworking),\(possum),\(visits),\(wrath),\(excellent ?? 0.0),\(carpenter ?? 0.0),\(parents ?? ""),\(confide)")
+            let dict = ["target":target,"possum":possum,"hardworking":hardworking,"visits":visits,"wrath":wrath,"excellent":excellent ?? 0.0,"carpenter":carpenter ?? 0.0,"parents":parents ?? "","confide":confide] as [String : Any]
+            NetApiWork.shared.requestAPI(params: dict, pageUrl: fullyYoure, method: .post) { baseModel in
+                let awareness = baseModel.awareness
+                if awareness == 0 || awareness == 00 {
+                    USER_DEFAULTS.setValue("1", forKey: MAIDIAN_ONE)
+                    USER_DEFAULTS.synchronize()
+                }
+            } errorBlock: { error in
+                
+            }
         }
     }
     
