@@ -127,6 +127,19 @@ class IncomesModel: HandyJSON {
     var scuffle: String?
     var yearly: String?
     var saveStr: String?
+    
+    var scars:String?
+    var plumb:String?
+    var auctions:String?
+    var barrister:String?
+    var merchandise:String?
+    var coffle:String?
+    var josiah:String?
+    var gestured:String?
+    var whether:String?
+    var masters:String?
+    var growled:String?
+    
     var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?
     var frantic: [CustomerModel]?
