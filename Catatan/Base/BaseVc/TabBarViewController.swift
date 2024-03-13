@@ -58,7 +58,7 @@ class TabBarViewController: UITabBarController,YBTabBarDelegate {
     }
     
     func ybTabBar(_ tabBar: CTabBar, didSelectedButtonFrom from: Int, to: Int) {
-        print("from>>>>to>>>>\(from)------\(to)")
+//        print("from>>>>to>>>>\(from)------\(to)")
         if from == to {
             return
         }

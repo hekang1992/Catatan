@@ -14,6 +14,10 @@ class ContractViewController: BaseViewController {
     
     var bidders: String = ""
     
+    var hardworking: String = ""
+    
+    var startTime1: String = ""
+    
     var isUpload: Bool = false
     
     var incomes: [IncomesModel]?
@@ -51,6 +55,7 @@ class ContractViewController: BaseViewController {
             }
         }
         getContractInfo()
+        startTime1 = String(Int(Date().timeIntervalSince1970))
     }
     
     func getContractInfo() {
@@ -163,6 +168,7 @@ class ContractViewController: BaseViewController {
             let edges = baseModel.edges
             if awareness == 0 || awareness == 00 {
                 print("isUpload>>>>>isUpload")
+                self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "8", orderID: self?.hardworking ?? "")
                 self?.getProductDetailInfo(self?.bidders ?? "", "")
             }
             self?.removeHudView()

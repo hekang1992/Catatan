@@ -96,6 +96,31 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         navigationController.interactivePopGestureRecognizer?.isEnabled = false
     }
     
+    func maidian(productID: String,startTime: String,type: String,orderID: String) {
+        let model = LocationManager.shared.locatinModel
+        let target = productID
+        let possum = type
+        let hardworking = orderID
+        let visits = DeviceInfo.finely()
+        let wrath = DeviceInfo.stroll()
+        let excellent = model.excellent
+        let carpenter = model.carpenter
+        let parents = startTime
+        let confide = String(Int(Date().timeIntervalSince1970))
+        print("maidian>>>>参数>>>>>\(target),\(hardworking),\(possum),\(visits),\(wrath),\(excellent ?? 0.0),\(carpenter ?? 0.0),\(parents),\(confide)")
+        let dict = ["target":target,"possum":possum,"hardworking":hardworking,"visits":visits,"wrath":wrath,"excellent":excellent ?? 0.0,"carpenter":carpenter ?? 0.0,"parents":parents,"confide":confide] as [String : Any]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: fullyYoure, method: .post) { baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                print("maidian\(type)>>>>success")
+                USER_DEFAULTS.setValue("1", forKey: MAIDIAN_ONE)
+                USER_DEFAULTS.synchronize()
+            }
+        } errorBlock: { error in
+            
+        }
+    }
+    
     func getProductDetailInfo(_ bidders: String,_ url: String) {
         let dict = ["bidders":bidders]
         addHudView()
@@ -134,14 +159,17 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         }else if picture == "dcan2" {
             let personVc = PersonalViewController()
             personVc.bidders = bidders
+            personVc.hardworking = hardworking
             getVc(personVc)
         }else if picture == "dcan3" {
             let conVc = ContractViewController()
             conVc.bidders = bidders
+            conVc.hardworking = hardworking
             getVc(conVc)
         }else if picture == "dcan4" {
             let bankVc = BankViewController()
             bankVc.bidders = bidders
+            bankVc.hardworking = hardworking
             getVc(bankVc)
         }else{}
     }

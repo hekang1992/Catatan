@@ -101,7 +101,9 @@ class CommonCell: UITableViewCell {
     
     @objc func textFieldEditingChanged(_ textField: UITextField) {
         if textField == textField1 {
-            model.saveStr = textField1.text
+            if model != nil {
+                model.saveStr = textField1.text
+            }
         }
     }
 }

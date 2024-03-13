@@ -27,6 +27,9 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     
     let imagePicker = UIImagePickerController()
     
+    var startTime1: String?
+    var startTime2: String?
+    
     lazy var faceViwe: FaceView = {
         let faceViwe = FaceView()
         return faceViwe
@@ -48,10 +51,12 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         }
         faceViwe.block1 = { [weak self] in
             self?.typeFace = "11"
+            self?.startTime1 = String(Int(Date().timeIntervalSince1970))
             self?.popPhotoView()
         }
         faceViwe.block2 = { [weak self] in
             self?.typeFace = "10"
+            self?.startTime2 = String(Int(Date().timeIntervalSince1970))
             self?.popCameraView()
         }
         faceViwe.block3 = { [weak self] in
@@ -242,8 +247,9 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
                 if self?.typeFace == "11" {
                     self?.selectFaceView(model!)
                 }else{
-                    self?.faceViwe.mainBtn1 .setImage(image, for: .normal)
+                    self?.faceViwe.mainBtn1.setImage(image, for: .normal)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "5", orderID: self?.hardworking ?? "")
                         self?.getPeropleInfo()
                     }
                 }
@@ -279,6 +285,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
             let edges = baseModel.edges
             if awareness == 0 || awareness == 00 {
                 self?.faceViwe.mainBtn.setImage(self?.imageFace, for: .normal)
+                self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "3", orderID: self?.hardworking ?? "")
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)

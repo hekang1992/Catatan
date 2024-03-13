@@ -13,6 +13,10 @@ class BankViewController: BaseViewController {
     
     var bidders: String = ""
     
+    var hardworking: String = ""
+    
+    var startTime1: String = ""
+    
     lazy var bankView: BankView = {
         let bankView = BankView()
         return bankView
@@ -37,6 +41,7 @@ class BankViewController: BaseViewController {
             self?.saveInfo(dict: dict)
         }
         getBankInfo()
+        startTime1 = String(Int(Date().timeIntervalSince1970))
     }
     
     func getBankInfo() {
@@ -66,6 +71,7 @@ class BankViewController: BaseViewController {
             let awareness = baseModel.awareness
             let edges = baseModel.edges
             if awareness == 0 || awareness == 00 {
+                self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "9", orderID: self?.hardworking ?? "")
                 self?.getProductDetailInfo(self?.bidders ?? "", "")
             }
             self?.removeHudView()

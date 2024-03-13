@@ -57,34 +57,34 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         getHomeData()
         self.showTabBar()
-        startTimeStr = String(Date().timeIntervalSince1970)
+        startTimeStr = String(Int(Date().timeIntervalSince1970))
     }
     
     func locationInfo() {
         LocationManager.shared.startUpdatingLocation { [weak self] locationModel in
-            print("国家>>>：\(locationModel.country ?? "")")
-            print("国家代码>>>：\(locationModel.countryCode ?? "")")
-            print("省>>>：\(locationModel.province ?? "")")
-            print("市>>>：\(locationModel.city ?? "")")
-            print("区>>>：\(locationModel.district ?? "")")
-            print("街道>>>：\(locationModel.street ?? "")")
-            print("经度>>>：\(locationModel.excellent ?? 0.0)")
-            print("纬度>>>：\(locationModel.carpenter ?? 0.0)")
-            //            self?.upLocationInfo(locationModel)
+//            print("国家>>>：\(locationModel.country)")
+//            print("国家代码>>>：\(locationModel.countryCode)")
+//            print("省>>>：\(locationModel.province)")
+//            print("市>>>：\(locationModel.city)")
+//            print("区>>>：\(locationModel.district)")
+//            print("街道>>>：\(locationModel.street)")
+//            print("经度>>>：\(locationModel.excellent ?? 0.0)")
+//            print("纬度>>>：\(locationModel.carpenter ?? 0.0)")
+//            self?.upLocationInfo(locationModel)
             self?.obs.onNext(locationModel)
         }
     }
     
     func upLocationInfo(_ locationModel: LocationModel) {
-        let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent,"carpenter":locationModel.carpenter] as [String : Any?]
+        let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent ?? 0.0,"carpenter":locationModel.carpenter ?? 0.0] as [String : Any]
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: mastersThough, method: .post) { [weak self] model in
             let awareness = model.awareness
             if awareness == 0 || awareness == 00 {
                 print("location>>>>>>success")
-                self?.baseDictToBase64()
             }
-        } errorBlock: { error in
-            
+            self?.baseDictToBase64()
+        } errorBlock: { [weak self] error in
+            self?.baseDictToBase64()
         }
     }
     
@@ -136,7 +136,7 @@ class HomeViewController: BaseViewController {
                 if let inModel = inModel {
                     if inModel.lives == "nn" {
                         self?.largeDataModel = inModel.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
-                        print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
+//                        print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
                     }
                 }
             }
@@ -151,7 +151,7 @@ class HomeViewController: BaseViewController {
     func applyClick(_ index: NSInteger){
         addHudView()
         guard let model = self.largeDataModel.first else { return }
-        print("applyClick>>>>>\(model.tradition ?? "")")
+//        print("applyClick>>>>>\(model.tradition ?? "")")
         let bidders = model.tradition ?? ""
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: thoseWater, method: .post) { [weak self] baseModel in
@@ -187,12 +187,13 @@ class HomeViewController: BaseViewController {
             let excellent = model.excellent
             let carpenter = model.carpenter
             let parents = startTimeStr
-            let confide = String(Date().timeIntervalSince1970)
+            let confide = String(Int(Date().timeIntervalSince1970))
             print("maidian1>>>>参数>>>>>\(target),\(hardworking),\(possum),\(visits),\(wrath),\(excellent ?? 0.0),\(carpenter ?? 0.0),\(parents ?? ""),\(confide)")
             let dict = ["target":target,"possum":possum,"hardworking":hardworking,"visits":visits,"wrath":wrath,"excellent":excellent ?? 0.0,"carpenter":carpenter ?? 0.0,"parents":parents ?? "","confide":confide] as [String : Any]
             NetApiWork.shared.requestAPI(params: dict, pageUrl: fullyYoure, method: .post) { baseModel in
                 let awareness = baseModel.awareness
                 if awareness == 0 || awareness == 00 {
+                    print("maidian1>>>>success")
                     USER_DEFAULTS.setValue("1", forKey: MAIDIAN_ONE)
                     USER_DEFAULTS.synchronize()
                 }

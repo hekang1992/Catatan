@@ -13,6 +13,10 @@ class PersonalViewController: BaseViewController {
     
     var bidders: String = ""
     
+    var hardworking: String = ""
+    
+    var startTime1: String = ""
+    
     lazy var personView: PersonalView = {
         let personView = PersonalView()
         return personView
@@ -38,6 +42,7 @@ class PersonalViewController: BaseViewController {
         }
         getCityInfo()
         getPeopleInfo()
+        startTime1 = String(Int(Date().timeIntervalSince1970))
     }
     
     func getPeopleInfo() {
@@ -82,6 +87,7 @@ class PersonalViewController: BaseViewController {
             let edges = baseModel.edges
             if awareness == 0 || awareness == 00 {
                 self?.getProductDetailInfo(self?.bidders ?? "", "")
+                self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "6", orderID: self?.hardworking ?? "")
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
