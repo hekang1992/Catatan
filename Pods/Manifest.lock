@@ -16,7 +16,7 @@ PODS:
   - BRPickerView/StringPickerView (2.8.1):
     - BRPickerView/Base
   - DeviceKit (5.2.2)
-  - HandyJSON (5.0.4-beta)
+  - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.16)
   - JXGradientKit (0.0.11)
   - Kingfisher (7.11.0)
@@ -37,7 +37,7 @@ DEPENDENCIES:
   - AppsFlyerFramework (~> 6.12.3)
   - BRPickerView (~> 2.8.1)
   - DeviceKit (~> 5.2.2)
-  - HandyJSON (~> 5.0.3-beta)
+  - HandyJSON (~> 5.0.2)
   - IQKeyboardManagerSwift (~> 6.5.16)
   - JXGradientKit (~> 0.0.11)
   - Kingfisher (~> 7.11.0)
@@ -80,7 +80,7 @@ SPEC CHECKSUMS:
   AppsFlyerFramework: fdc5c2fa3a3cfcd62eae58dfba4b8f59c6c77219
   BRPickerView: 2531a2d4d0fea0b57a1c738de215af0f88863a2f
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
-  HandyJSON: a9c67202df97805a0ba4a00e30b50e9a30ac28f3
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   JXGradientKit: b79a369bedbc501e20ebfda9716cd0b049b02955
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
@@ -96,6 +96,6 @@ SPEC CHECKSUMS:
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: a3dfdb2fbc6e6e82f2a18476f082583ba12be4c8
+PODFILE CHECKSUM: 153a1f3131964ddfc270f3bfe2beb20f4ab4da47
 
 COCOAPODS: 1.14.3

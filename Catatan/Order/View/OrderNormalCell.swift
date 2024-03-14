@@ -115,7 +115,6 @@ class OrderNormalCell: UITableViewCell {
         label2.snp.makeConstraints { make in
             make.top.equalTo(whitView).offset(19.pix())
             make.height.equalTo(22.pix())
-            make.width.equalTo(90.pix())
             make.right.equalTo(whitView).offset(-18.pix())
         }
         lineView.snp.makeConstraints { make in
