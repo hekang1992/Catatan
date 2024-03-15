@@ -75,7 +75,7 @@ class ExitView: UIView {
         }
         descLabel.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
-            make.top.equalTo(bgView).offset(30.pix())
+            make.top.equalTo(bgView).offset(40.pix())
             make.left.equalTo(bgView).offset(13.pix())
         }
         cancelBtn.snp.makeConstraints { make in
