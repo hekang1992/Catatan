@@ -6,13 +6,26 @@
 //
 
 import UIKit
+import Kingfisher
 
-typealias IndexHomeBlock = (_ index: NSInteger,_ title: String) -> Void
+typealias IndexHomeBlock = (_ index: NSInteger) -> Void
 class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     var blcok: IndexHomeBlock?
     
-    let titleArray = ["1","2","3","4","5","6","7","8","9","10"]
+    var largeDataModel: [DrawingModel] = []
+    
+    lazy var iconImageView: UIImageView = {
+        let iconImageView = UIImageView()
+        iconImageView.backgroundColor = .white
+        iconImageView.layer.cornerRadius = 8.pix()
+        return iconImageView
+    }()
+    
+    lazy var label: UILabel = {
+        let label = UILabel.createLabel(font: UIFont.systemFont(ofSize: 18.pix(), weight: .semibold), textColor: .black, textAlignment: .left)
+        return label
+    }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -26,6 +39,8 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(iconImageView)
+        addSubview(label)
         addSubview(tableView)
     }
     
@@ -35,58 +50,64 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        iconImageView.snp.makeConstraints { make in
+            make.left.equalTo(self).offset(16.pix())
+            make.size.equalTo(CGSize(width: 31.pix(), height: 31.pix()))
+            make.top.equalTo(self).offset(CGFloat(STATUSBAR_HIGH) + 10.pix())
+        }
+        label.snp.makeConstraints { make in
+            make.left.equalTo(self).offset(55.pix())
+            make.centerY.equalTo(iconImageView.snp.centerY)
+            make.height.equalTo(25.pix())
+        }
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(self)
+            make.bottom.left.right.equalTo(self)
+            make.top.equalTo(label.snp_bottomMargin).offset(27.pix())
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let vinViewCellID = "VinViewCellID"
-        let cell = ProfileCell(style: .subtitle, reuseIdentifier: vinViewCellID)
+        let homeOneCellID = "homeOneCellID"
+        let cell = HomeOneCell(style: .subtitle, reuseIdentifier: homeOneCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
-        cell.nameLable.text = titleArray[indexPath.row]
+        let model = largeDataModel[indexPath.row]
+        cell.model = model
+        self.label.text = model.plumb
+        let imageUrl = URL(string: model.auctions ?? "")
+        self.iconImageView.kf.setImage(with: imageUrl)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titleArray.count
+        return largeDataModel.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 72.pix()
+        return 200.pix()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 230.pix()
+        return 4.pix()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headView = UIView()
-        let iconImageView = UIImageView()
-        iconImageView.layer.cornerRadius = 40.pix()
-        iconImageView.layer.masksToBounds = true
-        iconImageView.image = UIImage(named: "iconabc")
-        headView.addSubview(iconImageView)
-        iconImageView.snp.makeConstraints { make in
-            make.centerX.equalTo(headView)
-            make.top.equalTo(headView).offset(NAV_HIGH)
-            make.size.equalTo(CGSizeMake(80.pix(), 80.pix()))
-        }
-        let nameLabel = UILabel.createLabel(font: UIFont.systemFont(ofSize: 22.pix(), weight: .semibold), textColor: .black, textAlignment: .center)
-        nameLabel.text = "Pengguna"
-        headView.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(headView)
-            make.top.equalTo(iconImageView.snp.bottom).offset(14.pix())
-            make.size.equalTo(CGSizeMake(300.pix(), 15.pix()))
-        }
         return headView
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 100.pix()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footView = UIView()
+        footView.backgroundColor = .random()
+        return footView
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let title = titleArray[indexPath.row]
-        self.blcok!(indexPath.row,title)
+        self.blcok!(indexPath.row)
     }
     
 }

@@ -40,7 +40,7 @@ class HomeViewController: BaseViewController {
         if token.isEmpty == false {
             locationInfo()
         }
-        homeOneView.blcok = { [weak self] index,title in
+        homeOneView.blcok = { [weak self] index in
             self?.applyClick(index)
         }
         homeOneView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
@@ -137,8 +137,13 @@ class HomeViewController: BaseViewController {
                     if inModel.lives == "nn" {
                         self?.largeDataModel = inModel.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
 //                        print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
+                        if let modelArray = self?.largeDataModel {
+                            self?.homeOneView.largeDataModel = modelArray
+                        }
+                        
                     }
                 }
+                self?.homeOneView.tableView.reloadData()
             }
             self?.removeHudView()
             self?.homeOneView.tableView.mj_header?.endRefreshing()
