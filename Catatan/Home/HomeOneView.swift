@@ -7,9 +7,12 @@
 
 import UIKit
 import Kingfisher
+import GKCycleScrollView
 
 typealias IndexHomeBlock = (_ index: NSInteger) -> Void
-class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
+class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScrollViewDataSource {
+    
+    var dataSourceArray = ["abc3","iconabc","abc4"]
     
     var blcok: IndexHomeBlock?
     
@@ -35,6 +38,20 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
         return tableView
+    }()
+    
+    lazy var cycleScrollView: GKCycleScrollView = {
+        let scrollView = GKCycleScrollView(frame: .zero)
+        scrollView.dataSource = self
+        scrollView.layer.cornerRadius = 22.pix()
+        return scrollView
+    }()
+    
+    lazy var footOneView: FootOneView = {
+        let footOneView = FootOneView()
+        footOneView.backgroundColor = UIColor("#BBD598")
+        footOneView.layer.cornerRadius = 32.pix()
+        return footOneView
     }()
     
     override init(frame: CGRect) {
@@ -102,7 +119,21 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footView = UIView()
-        footView.backgroundColor = .random()
+        footView.addSubview(cycleScrollView)
+        footView.addSubview(footOneView)
+        cycleScrollView.snp.makeConstraints { make in
+            make.top.equalTo(footView).offset(30.pix())
+            make.centerX.equalTo(footView)
+            make.left.equalTo(footView).offset(17.pix())
+            make.height.equalTo(127.pix())
+        }
+        footOneView.snp.makeConstraints { make in
+            make.left.equalTo(footView).offset(17.pix())
+            make.top.equalTo(cycleScrollView.snp.top).offset(89.pix())
+            make.centerX.equalTo(footView)
+            make.height.equalTo(290.pix())
+        }
+        cycleScrollView.reloadData()
         return footView
     }
     
@@ -110,4 +141,16 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource {
         self.blcok!(indexPath.row)
     }
     
+    func numberOfCells(in cycleScrollView: GKCycleScrollView!) -> Int {
+        return 3
+    }
+    
+    func cycleScrollView(_ cycleScrollView: GKCycleScrollView!, cellForViewAt index: Int) -> GKCycleScrollViewCell! {
+        var cell = cycleScrollView.dequeueReusableCell()
+        if cell == nil {
+            cell = GKCycleScrollViewCell()
+        }
+        cell?.imageView.image = UIImage(named: dataSourceArray[index] as String)
+        return cell!
+    }
 }

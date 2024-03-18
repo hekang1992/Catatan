@@ -136,7 +136,6 @@ class HomeViewController: BaseViewController {
                 if let inModel = inModel {
                     if inModel.lives == "nn" {
                         self?.largeDataModel = inModel.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
-//                        print("largeDataModel>>>>>\(self?.largeDataModel ?? [])")
                         if let modelArray = self?.largeDataModel {
                             self?.homeOneView.largeDataModel = modelArray
                         }
