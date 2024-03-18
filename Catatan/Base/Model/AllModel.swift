@@ -19,6 +19,7 @@ class BaseModel: HandyJSON {
 class HoveredModel: HandyJSON {
     required init() {
     }
+    var cleaved: String?
     var occurred: String?
     var lives: String?
     var decades: String?//appid

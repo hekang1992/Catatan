@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow.init(frame: UIScreen.main.bounds)
         noti()
         keyboardManager()
+//        getFontNames()
         window?.rootViewController = FristViewController()
         window?.makeKeyAndVisible()
         return true
@@ -39,12 +40,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func noti(){
-        CNotificationCenter.addObserver(self, selector: #selector(setUpRootVc), name: NSNotification.Name(SET_ROOTVC), object: nil)
+        CNotificationCenter.addObserver(self, selector: #selector(setUpRootVc(_:)), name: NSNotification.Name(SET_ROOTVC), object: nil)
     }
     
-    @objc func setUpRootVc(){
+    @objc func setUpRootVc(_ notification: Notification){
         windowAnimation()
-        window?.rootViewController = TabBarViewController()
+        if let userInfo = notification.userInfo {
+            if let value = userInfo["cleaved"] as? String {
+                if value == "uu" {
+                    window?.rootViewController = TabBarViewController()
+                }else{
+                    window?.rootViewController = OAViewController()
+                }
+            }
+        }
     }
     
     func windowAnimation() {

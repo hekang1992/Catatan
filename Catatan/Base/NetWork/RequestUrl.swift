@@ -46,3 +46,5 @@ let protestedPiteously = "/cata/protestedPiteously"
 let singledTrouble = "/cata/singledTrouble"
 let fullyYoure = "/cata/fullyYoure"
 let pocketsHardworking = "/cata/pocketsHardworking"
+
+let shirtingSouth = "/cata/shirtingSouth"

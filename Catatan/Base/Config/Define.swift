@@ -47,6 +47,12 @@ let keychain_account = "KeyChain_Account"
 
 let TITLE_COLOR = "#959595"
 
+let Futura_Medium = "Futura-Medium"
+
+let Futura_MediumItalic = "Futura-MediumItalic"
+
+let Futura_Bold = "Futura-Bold"
+
 let TabBarHeight = 54.pix()
 
 func is_iPhoneXSeries() -> (Bool) {

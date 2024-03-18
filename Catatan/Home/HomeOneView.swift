@@ -12,7 +12,7 @@ import GKCycleScrollView
 typealias IndexHomeBlock = (_ index: NSInteger) -> Void
 class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScrollViewDataSource {
     
-    var dataSourceArray = ["abc3","iconabc","abc4"]
+    var dataSourceArray = ["ban124","ban124","ban125"]
     
     var blcok: IndexHomeBlock?
     
@@ -44,6 +44,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
         let scrollView = GKCycleScrollView(frame: .zero)
         scrollView.dataSource = self
         scrollView.layer.cornerRadius = 22.pix()
+        scrollView.minimumCellAlpha = 0.0;
         return scrollView
     }()
     

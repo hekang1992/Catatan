@@ -75,6 +75,10 @@
 		18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95BFE2B91AD41005273A2 /* AboutViewController.swift */; };
 		18F95C012B91AE1E005273A2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F95C002B91AE1E005273A2 /* AboutView.swift */; };
 		18FE73D82BA7F1EA00E4737D /* FootOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE73D72BA7F1EA00E4737D /* FootOneView.swift */; };
+		18FE73DA2BA823C000E4737D /* OAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE73D92BA823C000E4737D /* OAViewController.swift */; };
+		18FE73DE2BA8258900E4737D /* futuramedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FE73DB2BA8258900E4737D /* futuramedium.ttf */; };
+		18FE73DF2BA8258900E4737D /* FuturaMediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FE73DC2BA8258900E4737D /* FuturaMediumItalic.ttf */; };
+		18FE73E02BA8258900E4737D /* futur.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FE73DD2BA8258900E4737D /* futur.ttf */; };
 		290BB5069F3C8675DD55207A /* Pods_Catatan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +173,10 @@
 		18F95BFE2B91AD41005273A2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		18F95C002B91AE1E005273A2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		18FE73D72BA7F1EA00E4737D /* FootOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootOneView.swift; sourceTree = "<group>"; };
+		18FE73D92BA823C000E4737D /* OAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAViewController.swift; sourceTree = "<group>"; };
+		18FE73DB2BA8258900E4737D /* futuramedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = futuramedium.ttf; sourceTree = "<group>"; };
+		18FE73DC2BA8258900E4737D /* FuturaMediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaMediumItalic.ttf; sourceTree = "<group>"; };
+		18FE73DD2BA8258900E4737D /* futur.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = futur.ttf; sourceTree = "<group>"; };
 		2026A2E2D59471F7B340DACE /* Pods-Catatan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.debug.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.debug.xcconfig"; sourceTree = "<group>"; };
 		E384972E835CAC08E48FD3C5 /* Pods_Catatan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catatan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE95F7319F9F3850BBE1CA56 /* Pods-Catatan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catatan.release.xcconfig"; path = "Target Support Files/Pods-Catatan/Pods-Catatan.release.xcconfig"; sourceTree = "<group>"; };
@@ -493,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */,
+				18FE73D92BA823C000E4737D /* OAViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -549,6 +558,9 @@
 				184760F62B8EE96D0048E257 /* DeviceInfo.swift */,
 				18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */,
 				18A32AA62B95DA2400CC937D /* UserFactory.swift */,
+				18FE73DD2BA8258900E4737D /* futur.ttf */,
+				18FE73DB2BA8258900E4737D /* futuramedium.ttf */,
+				18FE73DC2BA8258900E4737D /* FuturaMediumItalic.ttf */,
 				187670142B970AC8000B256A /* UIViewController+Extension.swift */,
 			);
 			path = Config;
@@ -732,9 +744,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FE73DF2BA8258900E4737D /* FuturaMediumItalic.ttf in Resources */,
 				1825163E2B8C246F00FFEE85 /* LaunchScreen.storyboard in Resources */,
 				1825163B2B8C246F00FFEE85 /* Assets.xcassets in Resources */,
+				18FE73DE2BA8258900E4737D /* futuramedium.ttf in Resources */,
 				18A32AA22B95AFFD00CC937D /* loading.json in Resources */,
+				18FE73E02BA8258900E4737D /* futur.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +822,7 @@
 				1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */,
 				182294622B90550B0045C533 /* JDView.swift in Sources */,
 				18BBD0FA2BA146AB00F3D322 /* OrderView.swift in Sources */,
+				18FE73DA2BA823C000E4737D /* OAViewController.swift in Sources */,
 				1845FD372B8C985600B4BEEF /* BaseNavViewController.swift in Sources */,
 				18BABAFA2BA44E9D004A070E /* HomeOneCell.swift in Sources */,
 				1822945E2B90313F0045C533 /* FaceView.swift in Sources */,

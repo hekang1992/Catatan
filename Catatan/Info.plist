@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>futur.ttf</string>
+		<string>FuturaMediumItalic.ttf</string>
+		<string>futuramedium.ttf</string>
+	</array>
 	<key>NSContactsUsageDescription</key>
 	<string>We need access to your contacts to provide better services.</string>
 	<key>UIApplicationSceneManifest</key>
