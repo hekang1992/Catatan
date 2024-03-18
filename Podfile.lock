@@ -29,6 +29,7 @@ PODS:
   - SnapKit (5.6.0)
   - SystemServices (2.0.1)
   - TYAlertController (1.2.0)
+  - TYCyclePagerView (1.2.0)
   - UIColor_Hex_Swift (5.1.9)
   - YYText (1.0.7)
 
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - SnapKit (~> 5.6.0)
   - SystemServices (~> 2.0.1)
   - TYAlertController (~> 1.2.0)
+  - TYCyclePagerView (~> 1.2.0)
   - UIColor_Hex_Swift (~> 5.1.9)
   - YYText (~> 1.0.7)
 
@@ -72,6 +74,7 @@ SPEC REPOS:
     - SnapKit
     - SystemServices
     - TYAlertController
+    - TYCyclePagerView
     - UIColor_Hex_Swift
     - YYText
 
@@ -93,9 +96,10 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
+  TYCyclePagerView: 2b051dade0615c70784aa34f40c646feeddb7344
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 153a1f3131964ddfc270f3bfe2beb20f4ab4da47
+PODFILE CHECKSUM: c66e482443dc4a33ab0072c548accf0f3c3eb972
 
 COCOAPODS: 1.14.3
