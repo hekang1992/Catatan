@@ -46,4 +46,6 @@ target 'Catatan' do
   
   pod 'GKCycleScrollView', '~> 1.2.2'
   
+  pod 'SwipeCellKit', '~> 2.7.1'
+  
 end

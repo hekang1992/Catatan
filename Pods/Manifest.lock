@@ -28,6 +28,7 @@ PODS:
   - RxSwift (6.6.0)
   - SAMKeychain (1.5.3)
   - SnapKit (5.6.0)
+  - SwipeCellKit (2.7.1)
   - SystemServices (2.0.1)
   - TYAlertController (1.2.0)
   - UIColor_Hex_Swift (5.1.9)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - RxSwift (~> 6.6.0)
   - SAMKeychain (~> 1.5.3)
   - SnapKit (~> 5.6.0)
+  - SwipeCellKit (~> 2.7.1)
   - SystemServices (~> 2.0.1)
   - TYAlertController (~> 1.2.0)
   - UIColor_Hex_Swift (~> 5.1.9)
@@ -73,6 +75,7 @@ SPEC REPOS:
     - RxSwift
     - SAMKeychain
     - SnapKit
+    - SwipeCellKit
     - SystemServices
     - TYAlertController
     - UIColor_Hex_Swift
@@ -95,11 +98,12 @@ SPEC CHECKSUMS:
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: abc2f0a8ddbff139dba0e1fb180999247aa9ef5d
+PODFILE CHECKSUM: 6f9fca84b638742b1c5037be97d076538072a90a
 
 COCOAPODS: 1.14.3
