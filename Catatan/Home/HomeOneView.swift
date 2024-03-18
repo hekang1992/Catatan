@@ -16,7 +16,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
     
     var blcok: IndexHomeBlock?
     
-    var largeDataModel: [DrawingModel] = []
+    var largeDataModel: [DrawingModel]?
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
@@ -88,16 +88,16 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
         let cell = HomeOneCell(style: .subtitle, reuseIdentifier: homeOneCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
-        let model = largeDataModel[indexPath.row]
+        let model = largeDataModel?[indexPath.row]
         cell.model = model
-        self.label.text = model.plumb
-        let imageUrl = URL(string: model.auctions ?? "")
+        self.label.text = model?.plumb
+        let imageUrl = URL(string: model?.auctions ?? "")
         self.iconImageView.kf.setImage(with: imageUrl)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return largeDataModel.count
+        return largeDataModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -132,6 +132,12 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
             make.top.equalTo(cycleScrollView.snp.top).offset(89.pix())
             make.centerX.equalTo(footView)
             make.height.equalTo(290.pix())
+        }
+        if let model = largeDataModel {
+            footOneView.label1.text = model[0].promulgate
+            footOneView.label2.text = model[0].falsehoods
+            footOneView.label3.text = model[0].ashamed
+            footOneView.label4.text = model[0].deceptions
         }
         cycleScrollView.reloadData()
         return footView
