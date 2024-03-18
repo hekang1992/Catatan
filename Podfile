@@ -44,6 +44,6 @@ target 'Catatan' do
   
   pod 'RxSwift', '~> 6.6.0'
   
-  pod 'TYCyclePagerView', '~> 1.2.0'
+  pod 'GKCycleScrollView', '~> 1.2.2'
   
 end

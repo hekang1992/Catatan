@@ -16,6 +16,7 @@ PODS:
   - BRPickerView/StringPickerView (2.8.1):
     - BRPickerView/Base
   - DeviceKit (5.2.2)
+  - GKCycleScrollView (1.2.2)
   - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.16)
   - JXGradientKit (0.0.11)
@@ -29,7 +30,6 @@ PODS:
   - SnapKit (5.6.0)
   - SystemServices (2.0.1)
   - TYAlertController (1.2.0)
-  - TYCyclePagerView (1.2.0)
   - UIColor_Hex_Swift (5.1.9)
   - YYText (1.0.7)
 
@@ -38,6 +38,7 @@ DEPENDENCIES:
   - AppsFlyerFramework (~> 6.12.3)
   - BRPickerView (~> 2.8.1)
   - DeviceKit (~> 5.2.2)
+  - GKCycleScrollView (~> 1.2.2)
   - HandyJSON (~> 5.0.2)
   - IQKeyboardManagerSwift (~> 6.5.16)
   - JXGradientKit (~> 0.0.11)
@@ -51,7 +52,6 @@ DEPENDENCIES:
   - SnapKit (~> 5.6.0)
   - SystemServices (~> 2.0.1)
   - TYAlertController (~> 1.2.0)
-  - TYCyclePagerView (~> 1.2.0)
   - UIColor_Hex_Swift (~> 5.1.9)
   - YYText (~> 1.0.7)
 
@@ -61,6 +61,7 @@ SPEC REPOS:
     - AppsFlyerFramework
     - BRPickerView
     - DeviceKit
+    - GKCycleScrollView
     - HandyJSON
     - IQKeyboardManagerSwift
     - JXGradientKit
@@ -74,7 +75,6 @@ SPEC REPOS:
     - SnapKit
     - SystemServices
     - TYAlertController
-    - TYCyclePagerView
     - UIColor_Hex_Swift
     - YYText
 
@@ -83,6 +83,7 @@ SPEC CHECKSUMS:
   AppsFlyerFramework: fdc5c2fa3a3cfcd62eae58dfba4b8f59c6c77219
   BRPickerView: 2531a2d4d0fea0b57a1c738de215af0f88863a2f
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
+  GKCycleScrollView: ecc033c0d1376f28f7441f0275e9a9d515da9a6f
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   JXGradientKit: b79a369bedbc501e20ebfda9716cd0b049b02955
@@ -96,10 +97,9 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
-  TYCyclePagerView: 2b051dade0615c70784aa34f40c646feeddb7344
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: c66e482443dc4a33ab0072c548accf0f3c3eb972
+PODFILE CHECKSUM: abc2f0a8ddbff139dba0e1fb180999247aa9ef5d
 
 COCOAPODS: 1.14.3
