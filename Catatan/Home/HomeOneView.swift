@@ -93,6 +93,9 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
         self.label.text = model?.plumb
         let imageUrl = URL(string: model?.auctions ?? "")
         self.iconImageView.kf.setImage(with: imageUrl)
+        cell.block = { [weak self] in
+            self?.blcok!(indexPath.row)
+        }
         return cell
     }
     

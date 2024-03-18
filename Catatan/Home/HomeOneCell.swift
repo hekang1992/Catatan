@@ -9,6 +9,8 @@ import UIKit
 
 class HomeOneCell: UITableViewCell {
     
+    var block: (() -> Void)?
+    
     lazy var label1: UILabel = {
         let label = UILabel.createLabel(font: UIFont.systemFont(ofSize: 18.pix(), weight: .semibold), textColor: .black, textAlignment: .center)
         return label
@@ -60,7 +62,7 @@ class HomeOneCell: UITableViewCell {
     }
     
     @objc func applyClick() {
-        
+        self.block!()
     }
     
     var model: DrawingModel! {
