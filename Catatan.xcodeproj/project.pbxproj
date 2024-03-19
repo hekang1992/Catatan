@@ -59,6 +59,7 @@
 		18A32AA52B95C86F00CC937D /* SaveLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */; };
 		18A32AA72B95DA2400CC937D /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA62B95DA2400CC937D /* UserFactory.swift */; };
 		18A32AA92B95E23600CC937D /* AllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA82B95E23600CC937D /* AllModel.swift */; };
+		18A777522BA92FE200586168 /* OAViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A777512BA92FE200586168 /* OAViewCell.swift */; };
 		18BABAFA2BA44E9D004A070E /* HomeOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABAF92BA44E9D004A070E /* HomeOneCell.swift */; };
 		18BBD0FA2BA146AB00F3D322 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD0F92BA146AB00F3D322 /* OrderView.swift */; };
 		18BBD0FC2BA146C300F3D322 /* OrderNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD0FB2BA146C300F3D322 /* OrderNormalCell.swift */; };
@@ -157,6 +158,7 @@
 		18A32AA42B95C86F00CC937D /* SaveLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoginInfo.swift; sourceTree = "<group>"; };
 		18A32AA62B95DA2400CC937D /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		18A32AA82B95E23600CC937D /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
+		18A777512BA92FE200586168 /* OAViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAViewCell.swift; sourceTree = "<group>"; };
 		18BABAF92BA44E9D004A070E /* HomeOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneCell.swift; sourceTree = "<group>"; };
 		18BBD0F92BA146AB00F3D322 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		18BBD0FB2BA146C300F3D322 /* OrderNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNormalCell.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				187670102B96CA57000B256A /* HomeTwoView.swift */,
 				18BABAF92BA44E9D004A070E /* HomeOneCell.swift */,
 				18FE73D72BA7F1EA00E4737D /* FootOneView.swift */,
+				18A777512BA92FE200586168 /* OAViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
 				187670172B9737B1000B256A /* CManager.swift in Sources */,
+				18A777522BA92FE200586168 /* OAViewCell.swift in Sources */,
 				18A32AA72B95DA2400CC937D /* UserFactory.swift in Sources */,
 				18EF25D42B95623C001DE76B /* LocationManager.swift in Sources */,
 				18FE73D82BA7F1EA00E4737D /* FootOneView.swift in Sources */,

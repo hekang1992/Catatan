@@ -255,6 +255,12 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         getVc(webVc)
     }
     
+    func delay(_ delay: TimeInterval, closure: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            closure()
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
