@@ -183,19 +183,23 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         case 1001:
             MBProgressHUD.wj_showPlainText("reward", view: nil)
             break
-            
         case 1002:
-            MBProgressHUD.wj_showPlainText("add", view: nil)
+            if selectIndex == 0 {
+                MBProgressHUD.wj_showPlainText("0", view: nil)
+            }else if selectIndex == 1 {
+                MBProgressHUD.wj_showPlainText("1", view: nil)
+            }else if selectIndex == 2 {
+                MBProgressHUD.wj_showPlainText("2", view: nil)
+            }else {
+                MBProgressHUD.wj_showPlainText("3", view: nil)
+            }
             break
-            
         case 1003:
             MBProgressHUD.wj_showPlainText("bills", view: nil)
             break
-            
         case 1004:
             MBProgressHUD.wj_showPlainText("set", view: nil)
             break
-            
         default:
             break
         }
