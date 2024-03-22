@@ -9,10 +9,13 @@ import UIKit
 import GKCycleScrollView
 import MJRefresh
 import SwipeCellKit
+import MBProgressHUD_WJExtension
 
 class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycleScrollViewDelegate, UITableViewDelegate,UITableViewDataSource, SwipeTableViewCellDelegate {
     
-    var dataSourceArray = ["abce1234","abce1235","abce1236"]
+    var selectIndex: Int = 0
+    
+    var dataSourceArray = ["bank1","bank2","bank3","bank4"]
     
     lazy var bgView1: UIView = {
         let bgView = UIView()
@@ -34,8 +37,9 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     lazy var btn: UIButton = {
         let btn = UIButton(type: .custom)
+        btn.tag = 1001
         btn.setBackgroundImage(UIImage(named: "rew12"), for: .normal)
-        btn.addTarget(self, action: #selector(btnClick1), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         return btn
     }()
     
@@ -43,6 +47,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         let scrollView = GKCycleScrollView(frame: .zero)
         scrollView.dataSource = self
         scrollView.delegate = self
+        scrollView.isInfiniteLoop = false
         scrollView.isAutoScroll = false
         scrollView.isChangeAlpha = false;
         scrollView.leftRightMargin = 20.pix()
@@ -58,6 +63,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     lazy var btn1: UIButton = {
         let btn = UIButton(type: .custom)
+        btn.tag = 1002
         btn.setImage(UIImage(named: "icon_add"), for: .normal)
         btn.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         return btn
@@ -65,6 +71,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     lazy var btn2: UIButton = {
         let btn = UIButton(type: .custom)
+        btn.tag = 1003
         btn.setImage(UIImage(named: "icon_Bills"), for: .normal)
         btn.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         return btn
@@ -72,6 +79,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     lazy var btn3: UIButton = {
         let btn = UIButton(type: .custom)
+        btn.tag = 1004
         btn.setImage(UIImage(named: "icon_seet"), for: .normal)
         btn.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         return btn
@@ -148,7 +156,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     }
     
     func numberOfCells(in cycleScrollView: GKCycleScrollView!) -> Int {
-        return 3
+        return dataSourceArray.count
     }
     
     func cycleScrollView(_ cycleScrollView: GKCycleScrollView!, cellForViewAt index: Int) -> GKCycleScrollViewCell! {
@@ -160,16 +168,37 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         return cell!
     }
     
+    func cycleScrollView(_ cycleScrollView: GKCycleScrollView!, didScrollCellTo index: Int) {
+        selectIndex = index
+        print("selectIndex>>>>>>>>>\(selectIndex)")
+    }
+    
     func sizeForCell(in cycleScrollView: GKCycleScrollView) -> CGSize {
         return CGSize(width: 253.pix(), height: 130.pix())
     }
     
-    @objc func btnClick1() {
-        
-    }
-    
     @objc func btnClick(_ sender: UIButton) {
-        
+        let index = sender.tag
+        switch index {
+        case 1001:
+            MBProgressHUD.wj_showPlainText("reward", view: nil)
+            break
+            
+        case 1002:
+            MBProgressHUD.wj_showPlainText("add", view: nil)
+            break
+            
+        case 1003:
+            MBProgressHUD.wj_showPlainText("bills", view: nil)
+            break
+            
+        case 1004:
+            MBProgressHUD.wj_showPlainText("set", view: nil)
+            break
+            
+        default:
+            break
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
