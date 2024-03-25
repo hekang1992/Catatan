@@ -10,6 +10,7 @@ import GKCycleScrollView
 import MJRefresh
 import SwipeCellKit
 import MBProgressHUD_WJExtension
+import TYAlertController
 
 class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycleScrollViewDelegate, UITableViewDelegate,UITableViewDataSource, SwipeTableViewCellDelegate {
     
@@ -184,15 +185,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             MBProgressHUD.wj_showPlainText("reward", view: nil)
             break
         case 1002:
-            if selectIndex == 0 {
-                MBProgressHUD.wj_showPlainText("0", view: nil)
-            }else if selectIndex == 1 {
-                MBProgressHUD.wj_showPlainText("1", view: nil)
-            }else if selectIndex == 2 {
-                MBProgressHUD.wj_showPlainText("2", view: nil)
-            }else {
-                MBProgressHUD.wj_showPlainText("3", view: nil)
-            }
+            alertListView(selectIndex)
             break
         case 1003:
             MBProgressHUD.wj_showPlainText("bills", view: nil)
@@ -277,6 +270,28 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         delay(2) { [weak self] in
             self?.tableView.mj_header?.endRefreshing()
         }
+    }
+    
+    func alertListView(_ index: Int) {
+        if selectIndex == 0 {
+            alertBank("ins1","ins2")
+        }else if selectIndex == 1 {
+            alertBank("ins3","ins4")
+        }else if selectIndex == 2 {
+            alertBank("ins5","ins6")
+        }else {
+            alertBank("ins7","ins8")
+        }
+    }
+    
+    func alertBank(_ image1: String, _ image2: String ) {
+        let bankListView = BankListView()
+        bankListView.iconImageViwe1.image = UIImage(named: image1)
+        bankListView.iconImageViwe2.image = UIImage(named: image2)
+        bankListView.frame = self.view.bounds
+        let alertVC = TYAlertController(alert: bankListView, preferredStyle: .alert)
+        alertVC?.backgoundTapDismissEnable = true
+        self.present(alertVC!, animated: true)
     }
     
     /*
