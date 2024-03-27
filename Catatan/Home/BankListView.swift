@@ -8,13 +8,13 @@
 import UIKit
 
 class BankListView: UIView {
-
+    
     lazy var iconImageViwe1: UIImageView = {
         let iconImageViwe = UIImageView()
         iconImageViwe.image = UIImage(named: "ins1")
         return iconImageViwe
     }()
-
+    
     lazy var iconImageViwe2: UIImageView = {
         let iconImageViwe = UIImageView()
         iconImageViwe.image = UIImage(named: "ins2")
@@ -28,11 +28,45 @@ class BankListView: UIView {
         return bgView
     }()
     
+    lazy var btn1: UIButton = {
+        let btn1 = UIButton(type: .custom)
+        btn1.setImage(UIImage(named: "Fund1"), for: .normal)
+        btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        return btn1
+    }()
+    
+    lazy var btn2: UIButton = {
+        let btn1 = UIButton(type: .custom)
+        btn1.setImage(UIImage(named: "Fund2"), for: .normal)
+        btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        return btn1
+    }()
+    
+    lazy var btn3: UIButton = {
+        let btn1 = UIButton(type: .custom)
+        btn1.setImage(UIImage(named: "Fund3"), for: .normal)
+        btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        return btn1
+    }()
+    
+    lazy var btn4: UIButton = {
+        let btn1 = UIButton(type: .custom)
+        btn1.setImage(UIImage(named: "Fund4"), for: .normal)
+        btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        return btn1
+    }()
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(iconImageViwe1)
         addSubview(iconImageViwe2)
         addSubview(bgView)
+        bgView.addSubview(btn1)
+        bgView.addSubview(btn2)
+        bgView.addSubview(btn3)
+        bgView.addSubview(btn4)
         
         iconImageViwe1.snp.makeConstraints { make in
             make.centerX.equalTo(self)
@@ -50,10 +84,35 @@ class BankListView: UIView {
             make.top.equalTo(bgView.snp_bottomMargin).offset(-40.pix())
             make.size.equalTo(CGSizeMake(204.pix(), 97.pix()))
         }
+        btn1.snp.makeConstraints { make in
+            make.top.equalTo(bgView).offset(42.pix())
+            make.left.equalTo(bgView).offset(39.pix())
+            make.size.equalTo(CGSizeMake(105.pix(), 96.pix()))
+        }
+        btn2.snp.makeConstraints { make in
+            make.top.equalTo(bgView).offset(42.pix())
+            make.right.equalTo(bgView).offset(-39.pix())
+            make.size.equalTo(CGSizeMake(105.pix(), 96.pix()))
+        }
+        btn3.snp.makeConstraints { make in
+            make.bottom.equalTo(bgView).offset(-40.pix())
+            make.left.equalTo(bgView).offset(39.pix())
+            make.size.equalTo(CGSizeMake(105.pix(), 96.pix()))
+        }
+        btn4.snp.makeConstraints { make in
+            make.bottom.equalTo(bgView).offset(-40.pix())
+            make.right.equalTo(bgView).offset(-39.pix())
+            make.size.equalTo(CGSizeMake(105.pix(), 96.pix()))
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        // Handle button tap
+        print("Button tapped")
     }
     
 }

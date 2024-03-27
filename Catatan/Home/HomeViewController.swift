@@ -36,8 +36,7 @@ class HomeViewController: BaseViewController {
         homeOneView.snp.makeConstraints { make in
             make.edges.equalTo(view).inset(UIEdgeInsets(top: 0, left: 0, bottom: TabBarHeight, right: 0))
         }
-        let token: String = USER_DEFAULTS.object(forKey: LOGIN_SEIZES) as? String ?? ""
-        if token.isEmpty == false {
+        if IS_LOGIN {
             locationInfo()
         }
         homeOneView.blcok = { [weak self] index in

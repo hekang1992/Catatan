@@ -37,11 +37,9 @@ class FristViewController: BaseViewController {
         NetworkManager.shared.observeNetworkStatus { [weak self] status in
             switch status {
             case .wifi:
-                print("WiFi连接")
                 self?.devInfo()
                 self?.googleMarket()
             case .cellular:
-                print("蜂窝数据连接")
                 self?.devInfo()
                 self?.googleMarket()
             case .none:
@@ -88,18 +86,18 @@ class FristViewController: BaseViewController {
                 let cleaved = (model?.cleaved ?? "") as String
                 if cleaved == "uu" {//b面
                     let dict = ["cleaved":"uu"]
-                    CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: "nil" , userInfo: dict)
+                    CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
                 }else{
                     let dict = ["cleaved":"aa"]
-                    CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: "nil" , userInfo: dict)
+                    CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
                 }
             }else {
                 let dict = ["cleaved":"aa"]
-                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: "nil" , userInfo: dict)
+                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
             }
         } errorBlock: { error in
             let dict = ["cleaved":"aa"]
-            CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: "nil" , userInfo: dict)
+            CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
         }
     }
     

@@ -34,6 +34,7 @@ class NetApiWork: NSObject {
         AF.request(wholeApiUrl, method: method, parameters: params, headers: headers).responseData { [weak self] response in
             switch response.result {
             case .success(let success):
+                print("success>>>>>>>\(success)")
                 if response.data == nil {
                     print("no data")
                     return
@@ -152,6 +153,7 @@ class NetApiWork: NSObject {
         nav.modalPresentationStyle = .overFullScreen
         vc.present(nav, animated: true)
     }
+    
 }
 
 

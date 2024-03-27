@@ -25,9 +25,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>abc</string>
+	<string>To authenticate your identity and prevent fraud, we kindly request access to your camera for securely capturing an electronic version. Your personal information will be treated with care and used only for authentication purposes. We appreciate your cooperation.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>abc</string>
+	<string>To confirm your identity and prevent fraud, we kindly ask for permission to access your photo library in order to securely obtain an electronic copy. Rest assured that your personal information will be protected and utilized exclusively for identity verification purposes.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>In order to verify your identity and determine your location for accurate service provision, we need to collect your location data and effectively prevent fraud risks.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

@@ -55,6 +55,14 @@ let Futura_Bold = "Futura-Bold"
 
 let TabBarHeight = 54.pix()
 
+var IS_LOGIN: Bool {
+    if let cSonID = USER_DEFAULTS.object(forKey: LOGIN_SEIZES) as? String {
+        return !cSonID.isEmpty
+    } else {
+        return false
+    }
+}
+
 func is_iPhoneXSeries() -> (Bool) {
     let boundsSize = UIScreen.main.bounds.size;
     // iPhoneX,XS

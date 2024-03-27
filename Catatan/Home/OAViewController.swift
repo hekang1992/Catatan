@@ -129,7 +129,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         }
         btn.snp.makeConstraints { make in
             make.right.equalTo(bgView1).offset(-20.pix())
-            make.size.equalTo(CGSize(width: 100.pix(), height: 34.pix()))
+            make.size.equalTo(CGSize(width: 73.pix(), height: 34.pix()))
             make.top.equalTo(titleLabel.snp.top).offset(6.pix())
         }
         cycleScrollView.snp.makeConstraints { make in
@@ -185,7 +185,14 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             MBProgressHUD.wj_showPlainText("reward", view: nil)
             break
         case 1002:
-            alertListView(selectIndex)
+            if IS_LOGIN {
+                alertListView(selectIndex)
+            }else {
+                let login = LoginFakeViewController()
+                let nav = BaseNavViewController(rootViewController: login)
+                nav.modalPresentationStyle = .overFullScreen
+                present(nav, animated: true, completion: nil)
+            }
             break
         case 1003:
             MBProgressHUD.wj_showPlainText("bills", view: nil)
@@ -274,20 +281,24 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     func alertListView(_ index: Int) {
         if selectIndex == 0 {
-            alertBank("ins1","ins2")
+            alertBank("ins1","ins2","Fund1","Fund2","Fund3","Fund4")
         }else if selectIndex == 1 {
-            alertBank("ins3","ins4")
+            alertBank("ins3","ins4","Cash1","Cash2","Cash3","Cash4")
         }else if selectIndex == 2 {
-            alertBank("ins5","ins6")
+            alertBank("ins5","ins6","Loan1","Loan2","Loan3","Loan4")
         }else {
-            alertBank("ins7","ins8")
+            alertBank("ins7","ins8","Car1","Car2","Car3","Car4")
         }
     }
     
-    func alertBank(_ image1: String, _ image2: String ) {
+    func alertBank(_ image1: String, _ image2: String, _ image3: String, _ image4: String, _ image5: String, _ image6: String) {
         let bankListView = BankListView()
         bankListView.iconImageViwe1.image = UIImage(named: image1)
         bankListView.iconImageViwe2.image = UIImage(named: image2)
+        bankListView.btn1.setImage(UIImage(named: image3), for: .normal)
+        bankListView.btn2.setImage(UIImage(named: image4), for: .normal)
+        bankListView.btn3.setImage(UIImage(named: image5), for: .normal)
+        bankListView.btn4.setImage(UIImage(named: image6), for: .normal)
         bankListView.frame = self.view.bounds
         let alertVC = TYAlertController(alert: bankListView, preferredStyle: .alert)
         alertVC?.backgoundTapDismissEnable = true

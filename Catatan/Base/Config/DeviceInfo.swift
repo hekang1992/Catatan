@@ -151,17 +151,7 @@ class DeviceInfo: NSObject {
     }
     
     static func courthouse() -> String {
-        var courthouse: String = "Unknown Network"
-        NetworkManager.shared.observeNetworkStatus { status in
-            switch status {
-            case .wifi:
-                courthouse = "WIFI"
-            case .cellular:
-                courthouse = "4G/5G"
-            case .none:
-                courthouse = "Unknown Network"
-            }
-        }
+        let courthouse: String = NetworkManager.shared.networkStatusChanged()
         return courthouse
     }
     

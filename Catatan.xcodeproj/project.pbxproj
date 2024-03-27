@@ -49,6 +49,8 @@
 		1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845FD3E2B8CA06300B4BEEF /* CTabBar.swift */; };
 		184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F42B8EDD350048E257 /* NetworkManager.swift */; };
 		184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184760F62B8EE96D0048E257 /* DeviceInfo.swift */; };
+		184D873B2BB3C54800773F45 /* LoginFakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D873A2BB3C54800773F45 /* LoginFakeView.swift */; };
+		184D873D2BB3C56100773F45 /* LoginFakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D873C2BB3C56100773F45 /* LoginFakeViewController.swift */; };
 		186BD4A52BAD64F200C130A9 /* BankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BD4A42BAD64F200C130A9 /* BankListView.swift */; };
 		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
 		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
@@ -149,6 +151,8 @@
 		184760F42B8EDD350048E257 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		184760F62B8EE96D0048E257 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		184760F82B8F3AEA0048E257 /* Catatan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Catatan.entitlements; sourceTree = "<group>"; };
+		184D873A2BB3C54800773F45 /* LoginFakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFakeView.swift; sourceTree = "<group>"; };
+		184D873C2BB3C56100773F45 /* LoginFakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFakeViewController.swift; sourceTree = "<group>"; };
 		186BD4A42BAD64F200C130A9 /* BankListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListView.swift; sourceTree = "<group>"; };
 		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
 		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 			children = (
 				1825166C2B8C27DF00FFEE85 /* LoginView.swift */,
 				1825166A2B8C27CF00FFEE85 /* LoginViewController.swift */,
+				184D873A2BB3C54800773F45 /* LoginFakeView.swift */,
+				184D873C2BB3C56100773F45 /* LoginFakeViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 				18FE73DA2BA823C000E4737D /* OAViewController.swift in Sources */,
 				1845FD372B8C985600B4BEEF /* BaseNavViewController.swift in Sources */,
 				18BABAFA2BA44E9D004A070E /* HomeOneCell.swift in Sources */,
+				184D873B2BB3C54800773F45 /* LoginFakeView.swift in Sources */,
 				1822945E2B90313F0045C533 /* FaceView.swift in Sources */,
 				1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */,
 				1845FD352B8C95F800B4BEEF /* OrderViewController.swift in Sources */,
@@ -862,6 +869,7 @@
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
 				1876701A2B97384A000B256A /* CWebViewController.swift in Sources */,
 				181E57C42B9F1299002417B3 /* ContactsManager.swift in Sources */,
+				184D873D2BB3C56100773F45 /* LoginFakeViewController.swift in Sources */,
 				181E57C22B9EDDDC002417B3 /* ContractViewCell.swift in Sources */,
 				1822945C2B902C610045C533 /* CNavView.swift in Sources */,
 				18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */,
