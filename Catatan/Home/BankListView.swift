@@ -9,6 +9,11 @@ import UIKit
 
 class BankListView: UIView {
     
+    var block1: (() -> Void)?
+    var block2: (() -> Void)?
+    var block3: (() -> Void)?
+    var block4: (() -> Void)?
+    
     lazy var iconImageViwe1: UIImageView = {
         let iconImageViwe = UIImageView()
         iconImageViwe.image = UIImage(named: "ins1")
@@ -30,33 +35,31 @@ class BankListView: UIView {
     
     lazy var btn1: UIButton = {
         let btn1 = UIButton(type: .custom)
-        btn1.setImage(UIImage(named: "Fund1"), for: .normal)
+        btn1.tag = 101
         btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         return btn1
     }()
     
     lazy var btn2: UIButton = {
         let btn1 = UIButton(type: .custom)
-        btn1.setImage(UIImage(named: "Fund2"), for: .normal)
+        btn1.tag = 102
         btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         return btn1
     }()
     
     lazy var btn3: UIButton = {
         let btn1 = UIButton(type: .custom)
-        btn1.setImage(UIImage(named: "Fund3"), for: .normal)
+        btn1.tag = 103
         btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         return btn1
     }()
     
     lazy var btn4: UIButton = {
         let btn1 = UIButton(type: .custom)
-        btn1.setImage(UIImage(named: "Fund4"), for: .normal)
+        btn1.tag = 104
         btn1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         return btn1
     }()
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -113,6 +116,22 @@ class BankListView: UIView {
     @objc func buttonTapped(_ sender: UIButton) {
         // Handle button tap
         print("Button tapped")
+        switch sender.tag {
+        case 101:
+            self.block1!()
+            break
+        case 102:
+            self.block2!()
+            break
+        case 103:
+            self.block3!()
+            break
+        case 104:
+            self.block4!()
+            break
+        default:
+            break
+        }
     }
     
 }

@@ -281,17 +281,17 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     func alertListView(_ index: Int) {
         if selectIndex == 0 {
-            alertBank("ins1","ins2","Fund1","Fund2","Fund3","Fund4")
+            alertBank("ins1","ins2","Fund1","Fund2","Fund3","Fund4",0)
         }else if selectIndex == 1 {
-            alertBank("ins3","ins4","Cash1","Cash2","Cash3","Cash4")
+            alertBank("ins3","ins4","Cash1","Cash2","Cash3","Cash4",1)
         }else if selectIndex == 2 {
-            alertBank("ins5","ins6","Loan1","Loan2","Loan3","Loan4")
+            alertBank("ins5","ins6","Loan1","Loan2","Loan3","Loan4",2)
         }else {
-            alertBank("ins7","ins8","Car1","Car2","Car3","Car4")
+            alertBank("ins7","ins8","Car1","Car2","Car3","Car4",3)
         }
     }
     
-    func alertBank(_ image1: String, _ image2: String, _ image3: String, _ image4: String, _ image5: String, _ image6: String) {
+    func alertBank(_ image1: String, _ image2: String, _ image3: String, _ image4: String, _ image5: String, _ image6: String, _ selectIndex: Int) {
         let bankListView = BankListView()
         bankListView.iconImageViwe1.image = UIImage(named: image1)
         bankListView.iconImageViwe2.image = UIImage(named: image2)
@@ -303,6 +303,62 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         let alertVC = TYAlertController(alert: bankListView, preferredStyle: .alert)
         alertVC?.backgoundTapDismissEnable = true
         self.present(alertVC!, animated: true)
+        bankListView.block1 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                if selectIndex == 0 {
+                    
+                }else if selectIndex == 1 {
+                    
+                }else if selectIndex == 2 {
+                    
+                }else {
+                    
+                }
+            })
+        }
+        bankListView.block2 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                if selectIndex == 0 {
+                    
+                }else if selectIndex == 1 {
+                    
+                }else if selectIndex == 2 {
+                    
+                }else {
+                    
+                }
+            })
+        }
+        bankListView.block3 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                if selectIndex == 0 {
+                    
+                }else if selectIndex == 1 {
+                    
+                }else if selectIndex == 2 {
+                    
+                }else {
+                    
+                }
+            })
+        }
+        bankListView.block4 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                if selectIndex == 0 {
+                    
+                }else if selectIndex == 1 {
+                    
+                }else if selectIndex == 2 {
+                    
+                }else {
+                    
+                }
+            })
+        }
+    }
+    
+    func pushListVc(_ type: String) {
+        
     }
     
     /*
