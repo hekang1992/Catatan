@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if value == "uu" {
                     window?.rootViewController = TabBarViewController()
                 }else{
-                    window?.rootViewController = OAViewController()
+                    window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
                 }
             }
         }

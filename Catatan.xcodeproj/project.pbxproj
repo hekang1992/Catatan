@@ -52,11 +52,11 @@
 		184D873B2BB3C54800773F45 /* LoginFakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D873A2BB3C54800773F45 /* LoginFakeView.swift */; };
 		184D873D2BB3C56100773F45 /* LoginFakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D873C2BB3C56100773F45 /* LoginFakeViewController.swift */; };
 		184D873F2BB410C600773F45 /* ListFakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D873E2BB410C600773F45 /* ListFakeViewController.swift */; };
-		184D87412BB410EB00773F45 /* ListView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D87402BB410EB00773F45 /* ListView1.swift */; };
-		184D87432BB4110F00773F45 /* ListView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D87422BB4110F00773F45 /* ListView2.swift */; };
-		184D87452BB4111800773F45 /* ListView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D87442BB4111800773F45 /* ListView3.swift */; };
-		184D87472BB4112000773F45 /* ListView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D87462BB4112000773F45 /* ListView4.swift */; };
 		184D87492BB4112E00773F45 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D87482BB4112E00773F45 /* ListView.swift */; };
+		184D874B2BB4215900773F45 /* ListOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D874A2BB4215900773F45 /* ListOneCell.swift */; };
+		184D874D2BB4287700773F45 /* ListTwoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D874C2BB4287700773F45 /* ListTwoCell.swift */; };
+		184D874F2BB42BF800773F45 /* ListThreeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D874E2BB42BF800773F45 /* ListThreeCell.swift */; };
+		184D87512BB42E4600773F45 /* ListFourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D87502BB42E4600773F45 /* ListFourCell.swift */; };
 		186BD4A52BAD64F200C130A9 /* BankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BD4A42BAD64F200C130A9 /* BankListView.swift */; };
 		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
 		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
@@ -160,11 +160,11 @@
 		184D873A2BB3C54800773F45 /* LoginFakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFakeView.swift; sourceTree = "<group>"; };
 		184D873C2BB3C56100773F45 /* LoginFakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFakeViewController.swift; sourceTree = "<group>"; };
 		184D873E2BB410C600773F45 /* ListFakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFakeViewController.swift; sourceTree = "<group>"; };
-		184D87402BB410EB00773F45 /* ListView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView1.swift; sourceTree = "<group>"; };
-		184D87422BB4110F00773F45 /* ListView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView2.swift; sourceTree = "<group>"; };
-		184D87442BB4111800773F45 /* ListView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView3.swift; sourceTree = "<group>"; };
-		184D87462BB4112000773F45 /* ListView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView4.swift; sourceTree = "<group>"; };
 		184D87482BB4112E00773F45 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		184D874A2BB4215900773F45 /* ListOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOneCell.swift; sourceTree = "<group>"; };
+		184D874C2BB4287700773F45 /* ListTwoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTwoCell.swift; sourceTree = "<group>"; };
+		184D874E2BB42BF800773F45 /* ListThreeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListThreeCell.swift; sourceTree = "<group>"; };
+		184D87502BB42E4600773F45 /* ListFourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFourCell.swift; sourceTree = "<group>"; };
 		186BD4A42BAD64F200C130A9 /* BankListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListView.swift; sourceTree = "<group>"; };
 		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
 		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
@@ -539,10 +539,10 @@
 				18A777512BA92FE200586168 /* OAViewCell.swift */,
 				186BD4A42BAD64F200C130A9 /* BankListView.swift */,
 				184D87482BB4112E00773F45 /* ListView.swift */,
-				184D87402BB410EB00773F45 /* ListView1.swift */,
-				184D87422BB4110F00773F45 /* ListView2.swift */,
-				184D87442BB4111800773F45 /* ListView3.swift */,
-				184D87462BB4112000773F45 /* ListView4.swift */,
+				184D874A2BB4215900773F45 /* ListOneCell.swift */,
+				184D874C2BB4287700773F45 /* ListTwoCell.swift */,
+				184D874E2BB42BF800773F45 /* ListThreeCell.swift */,
+				184D87502BB42E4600773F45 /* ListFourCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -851,10 +851,10 @@
 				18EF25D82B9596D2001DE76B /* RequestUrl.swift in Sources */,
 				1825166D2B8C27DF00FFEE85 /* LoginView.swift in Sources */,
 				182294622B90550B0045C533 /* JDView.swift in Sources */,
-				184D87472BB4112000773F45 /* ListView4.swift in Sources */,
 				18BBD0FA2BA146AB00F3D322 /* OrderView.swift in Sources */,
 				18FE73DA2BA823C000E4737D /* OAViewController.swift in Sources */,
 				1845FD372B8C985600B4BEEF /* BaseNavViewController.swift in Sources */,
+				184D874B2BB4215900773F45 /* ListOneCell.swift in Sources */,
 				18BABAFA2BA44E9D004A070E /* HomeOneCell.swift in Sources */,
 				184D873B2BB3C54800773F45 /* LoginFakeView.swift in Sources */,
 				1822945E2B90313F0045C533 /* FaceView.swift in Sources */,
@@ -864,9 +864,9 @@
 				1835E0BA2B9087CF00C20E0E /* PersonalViewController.swift in Sources */,
 				182294642B905C880045C533 /* TypeView.swift in Sources */,
 				18BBD0FC2BA146C300F3D322 /* OrderNormalCell.swift in Sources */,
+				184D874F2BB42BF800773F45 /* ListThreeCell.swift in Sources */,
 				187670112B96CA57000B256A /* HomeTwoView.swift in Sources */,
 				18A32AA92B95E23600CC937D /* AllModel.swift in Sources */,
-				184D87412BB410EB00773F45 /* ListView1.swift in Sources */,
 				18BBD1022BA17CD000F3D322 /* EmptyView.swift in Sources */,
 				184D87492BB4112E00773F45 /* ListView.swift in Sources */,
 				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
@@ -878,16 +878,17 @@
 				18FE73D82BA7F1EA00E4737D /* FootOneView.swift in Sources */,
 				1845FD3F2B8CA06300B4BEEF /* CTabBar.swift in Sources */,
 				1822946A2B906E120045C533 /* PopImageView.swift in Sources */,
+				184D87512BB42E4600773F45 /* ListFourCell.swift in Sources */,
 				184D873F2BB410C600773F45 /* ListFakeViewController.swift in Sources */,
 				1835E0C02B90880800C20E0E /* BankViewController.swift in Sources */,
 				184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */,
 				1801FAE62B9AB895002D9F81 /* PopCityView.swift in Sources */,
 				1845FD322B8C95E100B4BEEF /* UserViewController.swift in Sources */,
-				184D87432BB4110F00773F45 /* ListView2.swift in Sources */,
 				182516322B8C246E00FFEE85 /* AppDelegate.swift in Sources */,
 				182294662B90616A0045C533 /* TypeImageView.swift in Sources */,
 				182516672B8C254700FFEE85 /* FristViewController.swift in Sources */,
 				182F671B2B8D811D000CA090 /* YBTabBarButton.swift in Sources */,
+				184D874D2BB4287700773F45 /* ListTwoCell.swift in Sources */,
 				1835E0BE2B9087FE00C20E0E /* ContractViewController.swift in Sources */,
 				1845FD302B8C95D400B4BEEF /* HomeViewController.swift in Sources */,
 				1876701A2B97384A000B256A /* CWebViewController.swift in Sources */,
@@ -897,7 +898,6 @@
 				1822945C2B902C610045C533 /* CNavView.swift in Sources */,
 				18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */,
 				18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */,
-				184D87452BB4111800773F45 /* ListView3.swift in Sources */,
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
 				1835E0C42B90882100C20E0E /* ContractView.swift in Sources */,
 				18A32AA02B95AECA00CC937D /* HudView.swift in Sources */,

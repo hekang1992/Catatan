@@ -306,59 +306,62 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         bankListView.block1 = { [weak self] in
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
-                    
+                    self?.pushListVc("Fund",selectIndex)
                 }else if selectIndex == 1 {
-                    
+                    self?.pushListVc("Cash",selectIndex)
                 }else if selectIndex == 2 {
-                    
+                    self?.pushListVc("Credit Card",selectIndex)
                 }else {
-                    
+                    self?.pushListVc("Car",selectIndex)
                 }
             })
         }
         bankListView.block2 = { [weak self] in
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
-                    
+                    self?.pushListVc("Bank Wealth",selectIndex)
                 }else if selectIndex == 1 {
-                    
+                    self?.pushListVc("Credit Limit",selectIndex)
                 }else if selectIndex == 2 {
-                    
+                    self?.pushListVc("Loan",selectIndex)
                 }else {
-                    
+                    self?.pushListVc("House",selectIndex)
                 }
             })
         }
         bankListView.block3 = { [weak self] in
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
-                    
+                    self?.pushListVc("Insurance",selectIndex)
                 }else if selectIndex == 1 {
-                    
+                    self?.pushListVc("Debit Card",selectIndex)
                 }else if selectIndex == 2 {
-                    
+                    self?.pushListVc("Payment",selectIndex)
                 }else {
-                    
+                    self?.pushListVc("Equipment",selectIndex)
                 }
             })
         }
         bankListView.block4 = { [weak self] in
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
-                    
+                    self?.pushListVc("Other",selectIndex)
                 }else if selectIndex == 1 {
-                    
+                    self?.pushListVc("Other",selectIndex)
                 }else if selectIndex == 2 {
-                    
+                    self?.pushListVc("Other",selectIndex)
                 }else {
-                    
+                    self?.pushListVc("Other",selectIndex)
                 }
             })
         }
     }
     
-    func pushListVc(_ type: String) {
-        
+    func pushListVc(_ type: String, _ index: Int) {
+        let listVc = ListFakeViewController()
+        listVc.titleStr = type
+        listVc.index = index
+        self.navigationController?.pushViewController(listVc, animated: true)
     }
     
     /*
