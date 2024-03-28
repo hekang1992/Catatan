@@ -13,6 +13,7 @@ class TipsView: UIView {
 
     lazy var imageV: UIImageView = {
         let imageV = UIImageView()
+        imageV.contentMode = .scaleAspectFit
         imageV.image = UIImage(named: "tipsImage")
         return imageV
     }()

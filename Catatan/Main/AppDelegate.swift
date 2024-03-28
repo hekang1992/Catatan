@@ -53,6 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
                 }
             }
+        }else {
+            window?.rootViewController = TabBarViewController()
         }
     }
     

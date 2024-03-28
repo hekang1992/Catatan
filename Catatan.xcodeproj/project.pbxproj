@@ -62,6 +62,7 @@
 		18762BE92BB51FD3005DE29E /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BE82BB51FD3005DE29E /* SetViewController.swift */; };
 		18762BEB2BB5475F005DE29E /* SetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEA2BB5475F005DE29E /* SetView.swift */; };
 		18762BED2BB55935005DE29E /* SetCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEC2BB55935005DE29E /* SetCellView.swift */; };
+		18762BEF2BB56A21005DE29E /* LogFOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEE2BB56A21005DE29E /* LogFOutView.swift */; };
 		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
 		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
 		187670152B970AC8000B256A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670142B970AC8000B256A /* UIViewController+Extension.swift */; };
@@ -174,6 +175,7 @@
 		18762BE82BB51FD3005DE29E /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		18762BEA2BB5475F005DE29E /* SetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetView.swift; sourceTree = "<group>"; };
 		18762BEC2BB55935005DE29E /* SetCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCellView.swift; sourceTree = "<group>"; };
+		18762BEE2BB56A21005DE29E /* LogFOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFOutView.swift; sourceTree = "<group>"; };
 		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
 		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
 		187670142B970AC8000B256A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				18762BE62BB514EA005DE29E /* TipsView.swift */,
 				18762BEA2BB5475F005DE29E /* SetView.swift */,
 				18762BEC2BB55935005DE29E /* SetCellView.swift */,
+				18762BEE2BB56A21005DE29E /* LogFOutView.swift */,
 			);
 			name = HomeFView;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				186BD4A52BAD64F200C130A9 /* BankListView.swift in Sources */,
 				18762BE92BB51FD3005DE29E /* SetViewController.swift in Sources */,
 				18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */,
+				18762BEF2BB56A21005DE29E /* LogFOutView.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
 				18A32AA52B95C86F00CC937D /* SaveLoginInfo.swift in Sources */,
 				1835E0BC2B9087E000C20E0E /* PersonalView.swift in Sources */,

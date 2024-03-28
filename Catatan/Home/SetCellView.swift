@@ -8,21 +8,26 @@
 import UIKit
 
 class SetCellView: UIView {
+    
+    var block: (() -> Void)?
 
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .white
         bgView.layer.cornerRadius = 12.pix()
+        bgView.isUserInteractionEnabled = true
         return bgView
     }()
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
+        iconImageView.isUserInteractionEnabled = true
         return iconImageView
     }()
     
     lazy var iconImageView1: UIImageView = {
         let iconImageView = UIImageView()
+        iconImageView.isUserInteractionEnabled = true
         iconImageView.image = UIImage(named: "jiantouloukong-zuo")
         return iconImageView
     }()
@@ -32,12 +37,19 @@ class SetCellView: UIView {
         return nameLable
     }()
     
+    lazy var btn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
+        return btn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bgView)
         bgView.addSubview(iconImageView)
         bgView.addSubview(nameLable)
         bgView.addSubview(iconImageView1)
+        bgView.addSubview(btn)
     }
     
     override func layoutSubviews() {
@@ -63,10 +75,17 @@ class SetCellView: UIView {
             make.right.equalTo(bgView).offset(-18.pix())
             make.size.equalTo(CGSize(width: 25.pix(), height: 25.pix()))
         }
+        btn.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func btnClick() {
+        self.block!()
     }
     
 }

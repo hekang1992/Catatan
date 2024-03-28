@@ -10,6 +10,13 @@ import MBProgressHUD_WJExtension
 
 class SetView: UIView {
     
+    var block: (() -> Void)?
+    var block1: (() -> Void)?
+    var block2: (() -> Void)?
+    var block3: (() -> Void)?
+    var block4: (() -> Void)?
+    var block5: (() -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -126,6 +133,9 @@ class SetView: UIView {
         let set1 = SetCellView()
         set1.iconImageView.image = UIImage(named: "about us")
         set1.nameLable.text = "User Agreement"
+        set1.block = { [weak self] in
+            self?.block1!()
+        }
         return set1
     }()
     
@@ -133,6 +143,9 @@ class SetView: UIView {
         let set1 = SetCellView()
         set1.iconImageView.image = UIImage(named: "about us1")
         set1.nameLable.text = "About Us"
+        set1.block = { [weak self] in
+            self?.block2!()
+        }
         return set1
     }()
     
@@ -140,6 +153,9 @@ class SetView: UIView {
         let set1 = SetCellView()
         set1.iconImageView.image = UIImage(named: "feedback")
         set1.nameLable.text = "Feedback"
+        set1.block = { [weak self] in
+            self?.block3!()
+        }
         return set1
     }()
     
@@ -147,6 +163,9 @@ class SetView: UIView {
         let set1 = SetCellView()
         set1.iconImageView.image = UIImage(named: "logout")
         set1.nameLable.text = "Logout"
+        set1.block = { [weak self] in
+            self?.block4!()
+        }
         return set1
     }()
     
@@ -154,6 +173,9 @@ class SetView: UIView {
         let set1 = SetCellView()
         set1.iconImageView.image = UIImage(named: "delete account")
         set1.nameLable.text = "Delete account"
+        set1.block = { [weak self] in
+            self?.block5!()
+        }
         return set1
     }()
     
@@ -216,7 +238,6 @@ class SetView: UIView {
             make.centerX.equalTo(bgView)
             make.top.equalTo(icon1.snp.bottom).offset(14.pix())
             make.height.equalTo(25.pix())
-            
         }
         label4.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
@@ -352,7 +373,7 @@ extension SetView {
             deleteCache(forDirectory: cacheDirectoryURL)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 self.label7.text = "0.00 MB"
-                MBProgressHUD.wj_showPlainText("Cleanup successful.", view: nil)
+                self.block!()
             }
             break
         default:
