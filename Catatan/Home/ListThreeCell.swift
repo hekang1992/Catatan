@@ -62,8 +62,8 @@ class ListThreeCell: UITableViewCell {
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalTo(bgView)
-            make.left.equalTo(bgView).offset(11)
-            make.size.equalTo(CGSize(width: 32, height: 32))
+            make.left.equalTo(bgView).offset(11.pix())
+            make.size.equalTo(CGSize(width: 32.pix(), height: 32.pix()))
         }
         emailT.snp.makeConstraints { make in
             make.left.equalTo(icon.snp_rightMargin).offset(15.pix())

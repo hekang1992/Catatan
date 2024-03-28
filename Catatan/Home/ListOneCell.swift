@@ -73,20 +73,20 @@ class ListOneCell: UITableViewCell {
             make.height.equalTo(152.pix())
         }
         label1.snp.makeConstraints { make in
-            make.top.equalTo(bgView).offset(21)
-            make.left.equalTo(bgView).offset(23)
-            make.height.equalTo(26)
+            make.top.equalTo(bgView).offset(21.pix())
+            make.left.equalTo(bgView).offset(23.pix())
+            make.height.equalTo(26.pix())
         }
         lineView.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
-            make.left.equalTo(bgView).offset(22)
-            make.height.equalTo(1)
-            make.top.equalTo(bgView).offset(90)
+            make.left.equalTo(bgView).offset(22.pix())
+            make.height.equalTo(1.pix())
+            make.top.equalTo(bgView).offset(90.pix())
         }
         icon.snp.makeConstraints { make in
-            make.right.equalTo(bgView).offset(-22)
-            make.top.equalTo(bgView).offset(13)
-            make.size.equalTo(CGSizeMake(80, 73))
+            make.right.equalTo(bgView).offset(-22.pix())
+            make.top.equalTo(bgView).offset(13.pix())
+            make.size.equalTo(CGSizeMake(80.pix(), 73.pix()))
         }
         label2.snp.makeConstraints { make in
             make.right.equalTo(icon.snp_rightMargin)

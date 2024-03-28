@@ -58,6 +58,8 @@
 		184D874F2BB42BF800773F45 /* ListThreeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D874E2BB42BF800773F45 /* ListThreeCell.swift */; };
 		184D87512BB42E4600773F45 /* ListFourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D87502BB42E4600773F45 /* ListFourCell.swift */; };
 		186BD4A52BAD64F200C130A9 /* BankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BD4A42BAD64F200C130A9 /* BankListView.swift */; };
+		18762BE72BB514EA005DE29E /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BE62BB514EA005DE29E /* TipsView.swift */; };
+		18762BE92BB51FD3005DE29E /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BE82BB51FD3005DE29E /* SetViewController.swift */; };
 		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
 		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
 		187670152B970AC8000B256A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670142B970AC8000B256A /* UIViewController+Extension.swift */; };
@@ -166,6 +168,8 @@
 		184D874E2BB42BF800773F45 /* ListThreeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListThreeCell.swift; sourceTree = "<group>"; };
 		184D87502BB42E4600773F45 /* ListFourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFourCell.swift; sourceTree = "<group>"; };
 		186BD4A42BAD64F200C130A9 /* BankListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListView.swift; sourceTree = "<group>"; };
+		18762BE62BB514EA005DE29E /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		18762BE82BB51FD3005DE29E /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
 		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
 		187670142B970AC8000B256A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -493,6 +497,32 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
+		18762BE42BB513EB005DE29E /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				1876700E2B96CA4B000B256A /* HomeOneView.swift */,
+				187670102B96CA57000B256A /* HomeTwoView.swift */,
+				18BABAF92BA44E9D004A070E /* HomeOneCell.swift */,
+				18FE73D72BA7F1EA00E4737D /* FootOneView.swift */,
+				186BD4A42BAD64F200C130A9 /* BankListView.swift */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
+		18762BE52BB513F5005DE29E /* HomeFView */ = {
+			isa = PBXGroup;
+			children = (
+				184D87482BB4112E00773F45 /* ListView.swift */,
+				184D874A2BB4215900773F45 /* ListOneCell.swift */,
+				184D874C2BB4287700773F45 /* ListTwoCell.swift */,
+				184D874E2BB42BF800773F45 /* ListThreeCell.swift */,
+				184D87502BB42E4600773F45 /* ListFourCell.swift */,
+				18A777512BA92FE200586168 /* OAViewCell.swift */,
+				18762BE62BB514EA005DE29E /* TipsView.swift */,
+			);
+			name = HomeFView;
+			sourceTree = "<group>";
+		};
 		187670182B973807000B256A /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +555,7 @@
 				1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */,
 				18FE73D92BA823C000E4737D /* OAViewController.swift */,
 				184D873E2BB410C600773F45 /* ListFakeViewController.swift */,
+				18762BE82BB51FD3005DE29E /* SetViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -532,17 +563,8 @@
 		18BBD1002BA14B5100F3D322 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1876700E2B96CA4B000B256A /* HomeOneView.swift */,
-				187670102B96CA57000B256A /* HomeTwoView.swift */,
-				18BABAF92BA44E9D004A070E /* HomeOneCell.swift */,
-				18FE73D72BA7F1EA00E4737D /* FootOneView.swift */,
-				18A777512BA92FE200586168 /* OAViewCell.swift */,
-				186BD4A42BAD64F200C130A9 /* BankListView.swift */,
-				184D87482BB4112E00773F45 /* ListView.swift */,
-				184D874A2BB4215900773F45 /* ListOneCell.swift */,
-				184D874C2BB4287700773F45 /* ListTwoCell.swift */,
-				184D874E2BB42BF800773F45 /* ListThreeCell.swift */,
-				184D87502BB42E4600773F45 /* ListFourCell.swift */,
+				18762BE42BB513EB005DE29E /* HomeView */,
+				18762BE52BB513F5005DE29E /* HomeFView */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -907,6 +929,7 @@
 				184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */,
 				18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */,
 				186BD4A52BAD64F200C130A9 /* BankListView.swift in Sources */,
+				18762BE92BB51FD3005DE29E /* SetViewController.swift in Sources */,
 				18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
 				18A32AA52B95C86F00CC937D /* SaveLoginInfo.swift in Sources */,
@@ -918,6 +941,7 @@
 				18F95BFD2B9190B2005273A2 /* ProfileCell.swift in Sources */,
 				1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */,
 				181877262B99A66E00A8C2AA /* PopEnumView.swift in Sources */,
+				18762BE72BB514EA005DE29E /* TipsView.swift in Sources */,
 				181877282B99B02700A8C2AA /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

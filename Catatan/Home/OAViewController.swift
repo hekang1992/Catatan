@@ -182,7 +182,13 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         let index = sender.tag
         switch index {
         case 1001:
-            MBProgressHUD.wj_showPlainText("reward", view: nil)
+            let tipsView = TipsView()
+            tipsView.block = { [weak self] in
+                self?.dismiss(animated: true)
+            }
+            tipsView.frame = self.view.bounds
+            let alertVC = TYAlertController(alert: tipsView, preferredStyle: .alert, transitionAnimation: .dropDown)
+            self.present(alertVC!, animated: true)
             break
         case 1002:
             if IS_LOGIN {
@@ -198,7 +204,8 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             MBProgressHUD.wj_showPlainText("bills", view: nil)
             break
         case 1004:
-            MBProgressHUD.wj_showPlainText("set", view: nil)
+            let setVc = SetViewController()
+            self.navigationController?.pushViewController(setVc, animated: true)
             break
         default:
             break
@@ -301,7 +308,6 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         bankListView.btn4.setImage(UIImage(named: image6), for: .normal)
         bankListView.frame = self.view.bounds
         let alertVC = TYAlertController(alert: bankListView, preferredStyle: .alert)
-        alertVC?.backgoundTapDismissEnable = true
         self.present(alertVC!, animated: true)
         bankListView.block1 = { [weak self] in
             self?.dismiss(animated: true, completion: {

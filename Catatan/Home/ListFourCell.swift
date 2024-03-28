@@ -54,14 +54,14 @@ class ListFourCell: UITableViewCell {
             make.height.equalTo(180.pix())
         }
         icon.snp.makeConstraints { make in
-            make.top.equalTo(bgView).offset(12)
-            make.left.equalTo(bgView).offset(12)
-            make.size.equalTo(CGSize(width: 32, height: 32))
+            make.top.equalTo(bgView).offset(12.pix())
+            make.left.equalTo(bgView).offset(12.pix())
+            make.size.equalTo(CGSize(width: 32.pix(), height: 32.pix()))
         }
         textView.snp.makeConstraints { make in
             make.left.equalTo(icon.snp.right)
             make.right.equalTo(bgView)
-            make.top.bottom.equalTo(bgView)
+            make.top.bottom.equalTo(bgView).offset(10.pix())
         }
     }
     
