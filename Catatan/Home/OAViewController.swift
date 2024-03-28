@@ -11,12 +11,15 @@ import MJRefresh
 import SwipeCellKit
 import MBProgressHUD_WJExtension
 import TYAlertController
+import HandyJSON
 
 class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycleScrollViewDelegate, UITableViewDelegate,UITableViewDataSource, SwipeTableViewCellDelegate {
     
     var selectIndex: Int = 0
     
     var dataSourceArray = ["bank1","bank2","bank3","bank4"]
+    
+    var model: HoveredModel?
     
     lazy var bgView1: UIView = {
         let bgView = UIView()
@@ -95,6 +98,12 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         return tableView
     }()
     
+    lazy var nodaView: FNodataView = {
+        let nodaView = FNodataView()
+        nodaView.frame = self.tableView.bounds
+        return nodaView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -156,6 +165,39 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         cycleScrollView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getHomeFData(selectIndex + 1)
+    }
+    
+    func getHomeFData(_ type: Int) {
+        addHudView()
+        let dict: [String: Any] = ["school":type]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: firstWhite, method: .post) { [weak self] model in
+            let awareness = model.awareness
+            if awareness == 0 || awareness == 00 {
+                let dict = model.hovered
+                let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
+                if let model = inModel {
+                    self?.model = model
+                    if model.incomes?.count == 0 {
+                        self?.tableView.addSubview(self!.nodaView)
+                    }else{
+                        self?.nodaView.removeFromSuperview()
+                    }
+                }else{
+                    self?.tableView.addSubview(self!.nodaView)
+                }
+                self?.tableView.reloadData()
+            }
+            self?.removeHudView()
+            self?.tableView.mj_header?.endRefreshing()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+            self?.tableView.mj_header?.endRefreshing()
+        }
+    }
+    
     func numberOfCells(in cycleScrollView: GKCycleScrollView!) -> Int {
         return dataSourceArray.count
     }
@@ -171,6 +213,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     func cycleScrollView(_ cycleScrollView: GKCycleScrollView!, didScrollCellTo index: Int) {
         selectIndex = index
+        getHomeFData(selectIndex + 1)
         print("selectIndex>>>>>>>>>\(selectIndex)")
     }
     
@@ -211,34 +254,29 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             break
         }
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.model?.incomes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.pix()
+        return 90.pix()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let homeOneCellID = "homeOneCellID"
+        guard let modelArray = self.model?.incomes else { return UITableViewCell() }
+        let model = modelArray[indexPath.row]
         let cell = OAViewCell(style: .subtitle, reuseIdentifier: homeOneCellID)
         cell.delegate = self
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
+        cell.model = model
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 138.pix()
-        }else {
-            return 0.pix()
-        }
+        return 138.pix()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -251,7 +289,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             iconImageView.snp.makeConstraints { make in
                 make.edges.equalTo(headView).inset(UIEdgeInsets(top: 0, left: 0, bottom: 10.pix(), right: 0))
             }
-            var label1 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 17.pix()) ?? UIFont.boldSystemFont(ofSize: 17.pix()), textColor: UIColor("#081645"), textAlignment: .center)
+            let label1 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 17.pix()) ?? UIFont.boldSystemFont(ofSize: 17.pix()), textColor: UIColor("#081645"), textAlignment: .center)
             label1.text = "Total expenses"
             iconImageView.addSubview(label1)
             label1.snp.makeConstraints { make in
@@ -259,8 +297,8 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
                 make.top.equalTo(iconImageView).offset(21.pix())
                 make.height.equalTo(15.pix())
             }
-            var label2 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 32.pix()) ?? UIFont.boldSystemFont(ofSize: 32.pix()), textColor: UIColor("#081645"), textAlignment: .center)
-            label2.text = "$20,140.00"
+            let label2 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 32.pix()) ?? UIFont.boldSystemFont(ofSize: 32.pix()), textColor: UIColor("#081645"), textAlignment: .center)
+            label2.text = self.model?.galloped ?? "0.00"
             iconImageView.addSubview(label2)
             label2.snp.makeConstraints { make in
                 make.centerX.equalTo(iconImageView)
@@ -281,9 +319,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     }
     
     @objc func loadNewData() {
-        delay(2) { [weak self] in
-            self?.tableView.mj_header?.endRefreshing()
-        }
+        getHomeFData(selectIndex + 1)
     }
     
     func alertListView(_ index: Int) {

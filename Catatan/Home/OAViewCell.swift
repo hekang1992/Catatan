@@ -10,6 +10,14 @@ import SwipeCellKit
 
 class OAViewCell: SwipeTableViewCell {
     
+    var model: IncomesModel! {
+        didSet{
+            titleLabel1.text = model.addressname
+            titleLabel2.text = model.property
+            titleLabel3.text = model.chests
+        }
+    }
+    
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .white
@@ -80,5 +88,4 @@ class OAViewCell: SwipeTableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

@@ -63,6 +63,7 @@
 		18762BEB2BB5475F005DE29E /* SetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEA2BB5475F005DE29E /* SetView.swift */; };
 		18762BED2BB55935005DE29E /* SetCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEC2BB55935005DE29E /* SetCellView.swift */; };
 		18762BEF2BB56A21005DE29E /* LogFOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEE2BB56A21005DE29E /* LogFOutView.swift */; };
+		18762BF12BB57AA9005DE29E /* FNodataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BF02BB57AA9005DE29E /* FNodataView.swift */; };
 		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
 		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
 		187670152B970AC8000B256A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670142B970AC8000B256A /* UIViewController+Extension.swift */; };
@@ -176,6 +177,7 @@
 		18762BEA2BB5475F005DE29E /* SetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetView.swift; sourceTree = "<group>"; };
 		18762BEC2BB55935005DE29E /* SetCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCellView.swift; sourceTree = "<group>"; };
 		18762BEE2BB56A21005DE29E /* LogFOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFOutView.swift; sourceTree = "<group>"; };
+		18762BF02BB57AA9005DE29E /* FNodataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNodataView.swift; sourceTree = "<group>"; };
 		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
 		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
 		187670142B970AC8000B256A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 				18762BEA2BB5475F005DE29E /* SetView.swift */,
 				18762BEC2BB55935005DE29E /* SetCellView.swift */,
 				18762BEE2BB56A21005DE29E /* LogFOutView.swift */,
+				18762BF02BB57AA9005DE29E /* FNodataView.swift */,
 			);
 			name = HomeFView;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				184D87492BB4112E00773F45 /* ListView.swift in Sources */,
 				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
+				18762BF12BB57AA9005DE29E /* FNodataView.swift in Sources */,
 				187670172B9737B1000B256A /* CManager.swift in Sources */,
 				18A777522BA92FE200586168 /* OAViewCell.swift in Sources */,
 				18A32AA72B95DA2400CC937D /* UserFactory.swift in Sources */,

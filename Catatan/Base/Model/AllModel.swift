@@ -32,6 +32,7 @@ class HoveredModel: HandyJSON {
     var square: String?//日
     var ogling: String?//月
     var buyers: String?//年
+    var galloped: String?
     
     var incomes: [IncomesModel]?
     var circumstance: CircumstanceModel?
@@ -145,6 +146,13 @@ class IncomesModel: HandyJSON {
     var inquisitiveness: String?
     var notices: String?
     var correct: String?
+    
+    var addressname: String?
+    var flying: String?
+    var school: String?
+    var chests: String?
+    var hooves: String?
+    var property: String?
     
     var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?
