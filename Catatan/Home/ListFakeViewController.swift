@@ -32,7 +32,6 @@ class ListFakeViewController: BaseViewController {
         navView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        bgView.hide()
         view.insertSubview(bgView1, belowSubview: navView)
         bgView1.snp.makeConstraints { make in
             make.edges.equalTo(view)
@@ -41,6 +40,7 @@ class ListFakeViewController: BaseViewController {
         listView.snp.makeConstraints { make in
             make.edges.equalTo(bgView1).inset(UIEdgeInsets(top: CGFloat(NAV_HIGH), left: 0, bottom: 0, right: 0))
         }
+        
     }
 
     /*

@@ -60,6 +60,8 @@
 		186BD4A52BAD64F200C130A9 /* BankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BD4A42BAD64F200C130A9 /* BankListView.swift */; };
 		18762BE72BB514EA005DE29E /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BE62BB514EA005DE29E /* TipsView.swift */; };
 		18762BE92BB51FD3005DE29E /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BE82BB51FD3005DE29E /* SetViewController.swift */; };
+		18762BEB2BB5475F005DE29E /* SetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEA2BB5475F005DE29E /* SetView.swift */; };
+		18762BED2BB55935005DE29E /* SetCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18762BEC2BB55935005DE29E /* SetCellView.swift */; };
 		1876700F2B96CA4B000B256A /* HomeOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876700E2B96CA4B000B256A /* HomeOneView.swift */; };
 		187670112B96CA57000B256A /* HomeTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670102B96CA57000B256A /* HomeTwoView.swift */; };
 		187670152B970AC8000B256A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187670142B970AC8000B256A /* UIViewController+Extension.swift */; };
@@ -170,6 +172,8 @@
 		186BD4A42BAD64F200C130A9 /* BankListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListView.swift; sourceTree = "<group>"; };
 		18762BE62BB514EA005DE29E /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
 		18762BE82BB51FD3005DE29E /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		18762BEA2BB5475F005DE29E /* SetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetView.swift; sourceTree = "<group>"; };
+		18762BEC2BB55935005DE29E /* SetCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCellView.swift; sourceTree = "<group>"; };
 		1876700E2B96CA4B000B256A /* HomeOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneView.swift; sourceTree = "<group>"; };
 		187670102B96CA57000B256A /* HomeTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTwoView.swift; sourceTree = "<group>"; };
 		187670142B970AC8000B256A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -519,6 +523,8 @@
 				184D87502BB42E4600773F45 /* ListFourCell.swift */,
 				18A777512BA92FE200586168 /* OAViewCell.swift */,
 				18762BE62BB514EA005DE29E /* TipsView.swift */,
+				18762BEA2BB5475F005DE29E /* SetView.swift */,
+				18762BEC2BB55935005DE29E /* SetCellView.swift */,
 			);
 			name = HomeFView;
 			sourceTree = "<group>";
@@ -923,10 +929,12 @@
 				182516692B8C258600FFEE85 /* Define.swift in Sources */,
 				1835E0C42B90882100C20E0E /* ContractView.swift in Sources */,
 				18A32AA02B95AECA00CC937D /* HudView.swift in Sources */,
+				18762BEB2BB5475F005DE29E /* SetView.swift in Sources */,
 				18F95BFB2B91848E005273A2 /* ProfileView.swift in Sources */,
 				18F95C012B91AE1E005273A2 /* AboutView.swift in Sources */,
 				1835E0B52B90849300C20E0E /* CameraView.swift in Sources */,
 				184760F52B8EDD350048E257 /* NetworkManager.swift in Sources */,
+				18762BED2BB55935005DE29E /* SetCellView.swift in Sources */,
 				18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */,
 				186BD4A52BAD64F200C130A9 /* BankListView.swift in Sources */,
 				18762BE92BB51FD3005DE29E /* SetViewController.swift in Sources */,

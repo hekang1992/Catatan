@@ -13,6 +13,7 @@ typealias NextBlock = () -> Void
 class JDView: UIView {
 
     var block:BackBlock?
+    
     var block1:NextBlock?
     
     lazy var scrollView: UIScrollView = {
