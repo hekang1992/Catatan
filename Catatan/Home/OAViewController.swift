@@ -189,6 +189,8 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
                     self?.tableView.addSubview(self!.nodaView)
                 }
                 self?.tableView.reloadData()
+            }else{
+                self?.tableView.addSubview(self!.nodaView)
             }
             self?.removeHudView()
             self?.tableView.mj_header?.endRefreshing()
@@ -245,7 +247,13 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             break
         case 1003:
             if IS_LOGIN {
-                MBProgressHUD.wj_showPlainText("bills", view: nil)
+                let alertView = OAlertView()
+                alertView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 500.pix());
+                let alertVC = TYAlertController(alert: alertView, preferredStyle: .actionSheet)
+                self.present(alertVC!, animated: true)
+                alertView.block = { [weak self] in
+                    self?.dismiss(animated: true)
+                }
             }else{
                 let login = LoginFakeViewController()
                 let nav = BaseNavViewController(rootViewController: login)

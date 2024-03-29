@@ -104,13 +104,25 @@ class LoginFakeViewController: BaseViewController {
                 guard let loginModel = loginModel else { return }
                 SaveLoginInfo.removeLoginInfo()
                 SaveLoginInfo.saveLoginInfo(loginModel.seizes ?? "", loginModel.postmaster ?? "")
-                let dict = ["cleaved":"aa"]
-                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil, userInfo: dict)
+                self?.bindLogin()
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges!, view: nil)
         } errorBlock: { [weak self] error in
             self?.removeHudView()
+        }
+    }
+    
+    func bindLogin() {
+        let dict: [String: Any] = [:]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: womanNecessary, method: .post) { baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let dict = ["cleaved":"aa"]
+                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil, userInfo: dict)
+            }
+        } errorBlock: { error in
+            
         }
     }
     
