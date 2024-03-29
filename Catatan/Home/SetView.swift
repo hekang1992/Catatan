@@ -30,7 +30,8 @@ class SetView: UIView {
     
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 22)!, textColor: .black, textAlignment: .left)
-        label1.text = "Hi,John!a"
+        let nameStr = USER_DEFAULTS.object(forKey: LOGIN_PHONE) as? String
+        label1.text = "Hi,\(nameStr ?? "User")"
         return label1
     }()
     

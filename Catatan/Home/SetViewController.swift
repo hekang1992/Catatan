@@ -67,20 +67,18 @@ class SetViewController: BaseViewController {
         }
         setView.block6 = { [weak self] in
             if IS_LOGIN {
-                
+                MBProgressHUD.wj_showPlainText("chart", view: nil)
             }else{
                 self?.pushLogin()
             }
         }
         setView.block7 = { [weak self] in
-//            if IS_LOGIN {
-//                let reVc = ReViewController()
-//                self?.navigationController?.pushViewController(reVc, animated: true)
-//            }else{
-//                self?.pushLogin()
-//            }
-            let reVc = ReViewController()
-            self?.navigationController?.pushViewController(reVc, animated: true)
+            if IS_LOGIN {
+                let reVc = ReViewController()
+                self?.navigationController?.pushViewController(reVc, animated: true)
+            }else{
+                self?.pushLogin()
+            }
         }
     }
     
