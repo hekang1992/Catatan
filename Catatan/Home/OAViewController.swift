@@ -165,6 +165,11 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         cycleScrollView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getHomeFData(selectIndex + 1)
+    }
+    
     func numberOfCells(in cycleScrollView: GKCycleScrollView!) -> Int {
         return dataSourceArray.count
     }
@@ -335,9 +340,9 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
                     self?.pushListVc("Fund",selectIndex)
-                }else if selectIndex == 1 {
-                    self?.pushListVc("Cash",selectIndex)
                 }else if selectIndex == 2 {
+                    self?.pushListVc("Cash",selectIndex)
+                }else if selectIndex == 1 {
                     self?.pushListVc("Credit Card",selectIndex)
                 }else {
                     self?.pushListVc("Car",selectIndex)
@@ -348,9 +353,9 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
                     self?.pushListVc("Bank Wealth",selectIndex)
-                }else if selectIndex == 1 {
-                    self?.pushListVc("Credit Limit",selectIndex)
                 }else if selectIndex == 2 {
+                    self?.pushListVc("Credit Limit",selectIndex)
+                }else if selectIndex == 1 {
                     self?.pushListVc("Loan",selectIndex)
                 }else {
                     self?.pushListVc("House",selectIndex)
@@ -361,9 +366,9 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
                     self?.pushListVc("Insurance",selectIndex)
-                }else if selectIndex == 1 {
-                    self?.pushListVc("Debit Card",selectIndex)
                 }else if selectIndex == 2 {
+                    self?.pushListVc("Debit Card",selectIndex)
+                }else if selectIndex == 1 {
                     self?.pushListVc("Payment",selectIndex)
                 }else {
                     self?.pushListVc("Equipment",selectIndex)
@@ -374,9 +379,9 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
                     self?.pushListVc("Other",selectIndex)
-                }else if selectIndex == 1 {
-                    self?.pushListVc("Other",selectIndex)
                 }else if selectIndex == 2 {
+                    self?.pushListVc("Other",selectIndex)
+                }else if selectIndex == 1 {
                     self?.pushListVc("Other",selectIndex)
                 }else {
                     self?.pushListVc("Other",selectIndex)
