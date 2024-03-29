@@ -10,6 +10,7 @@ import UIKit
 class ListFakeViewController: BaseViewController {
     
     var titleStr: String?
+    
     var index: Int?
     
     lazy var bgView1: UIView = {

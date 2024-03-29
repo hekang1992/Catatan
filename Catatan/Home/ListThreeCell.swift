@@ -29,6 +29,12 @@ class ListThreeCell: UITableViewCell {
         return icon
     }()
     
+    lazy var icon1: UIImageView = {
+        let icon =  UIImageView()
+        icon.image = UIImage(named: "threedfaf")
+        return icon
+    }()
+    
     lazy var emailT: UITextField = {
         let emailT = UITextField()
         emailT.textAlignment = .left
@@ -48,6 +54,7 @@ class ListThreeCell: UITableViewCell {
         contentView.addSubview(label1)
         contentView.addSubview(bgView)
         bgView.addSubview(icon)
+        bgView.addSubview(icon1)
         bgView.addSubview(emailT)
         label1.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(26.pix())
@@ -69,6 +76,11 @@ class ListThreeCell: UITableViewCell {
             make.left.equalTo(icon.snp_rightMargin).offset(15.pix())
             make.right.equalTo(bgView)
             make.top.bottom.equalTo(bgView)
+        }
+        icon1.snp.makeConstraints { make in
+            make.centerY.equalTo(bgView)
+            make.right.equalTo(bgView).offset(-18.pix())
+            make.size.equalTo(CGSize(width: 15.pix(), height: 7.pix()))
         }
     }
     
