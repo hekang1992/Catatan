@@ -16,6 +16,8 @@ class SetView: UIView {
     var block3: (() -> Void)?
     var block4: (() -> Void)?
     var block5: (() -> Void)?
+    var block6: (() -> Void)?
+    var block7: (() -> Void)?
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -363,10 +365,10 @@ extension SetView {
         guard let tappedView = sender.view else { return }
         switch tappedView.tag {
         case 200:
-            MBProgressHUD.wj_showPlainText("chart", view: nil)
+            self.block6!()
             break
         case 201:
-            MBProgressHUD.wj_showPlainText("recyle", view: nil)
+            self.block7!()
             break
         case 202:
             let cacheDirectoryURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!

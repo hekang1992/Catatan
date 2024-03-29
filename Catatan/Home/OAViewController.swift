@@ -167,7 +167,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getHomeFData(selectIndex + 1)
+//        getHomeFData(selectIndex + 1)
     }
     
     func getHomeFData(_ type: Int) {

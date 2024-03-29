@@ -65,6 +65,23 @@ class SetViewController: BaseViewController {
                 self?.pushLogin()
             }
         }
+        setView.block6 = { [weak self] in
+            if IS_LOGIN {
+                
+            }else{
+                self?.pushLogin()
+            }
+        }
+        setView.block7 = { [weak self] in
+//            if IS_LOGIN {
+//                let reVc = ReViewController()
+//                self?.navigationController?.pushViewController(reVc, animated: true)
+//            }else{
+//                self?.pushLogin()
+//            }
+            let reVc = ReViewController()
+            self?.navigationController?.pushViewController(reVc, animated: true)
+        }
     }
     
     func imageAleet() {

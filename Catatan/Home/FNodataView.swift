@@ -38,7 +38,7 @@ class FNodataView: UIView {
         }
         icon.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
-            make.top.equalTo(bgView).offset(87.pix())
+            make.top.equalTo(bgView).offset(107.pix())
             make.size.equalTo(CGSizeMake(137.pix(), 117.pix()))
         }
         label.snp.makeConstraints { make in

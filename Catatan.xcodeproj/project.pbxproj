@@ -83,6 +83,7 @@
 		18DCD83F2B91CE4D009E8A6B /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD83E2B91CE4D009E8A6B /* DeleteView.swift */; };
 		18E9ACFC2B8F3F2900DC16A3 /* NetApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */; };
 		18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */; };
+		18EBA8512BB663A30045E4B1 /* ReViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBA8502BB663A30045E4B1 /* ReViewController.swift */; };
 		18EF25D42B95623C001DE76B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D32B95623C001DE76B /* LocationManager.swift */; };
 		18EF25D62B957704001DE76B /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D52B957704001DE76B /* LocationModel.swift */; };
 		18EF25D82B9596D2001DE76B /* RequestUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D72B9596D2001DE76B /* RequestUrl.swift */; };
@@ -197,6 +198,7 @@
 		18DCD83E2B91CE4D009E8A6B /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
 		18E9ACFB2B8F3F2900DC16A3 /* NetApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetApiWork.swift; sourceTree = "<group>"; };
 		18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonParams.swift; sourceTree = "<group>"; };
+		18EBA8502BB663A30045E4B1 /* ReViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReViewController.swift; sourceTree = "<group>"; };
 		18EF25D32B95623C001DE76B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		18EF25D52B957704001DE76B /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		18EF25D72B9596D2001DE76B /* RequestUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUrl.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				18FE73D92BA823C000E4737D /* OAViewController.swift */,
 				184D873E2BB410C600773F45 /* ListFakeViewController.swift */,
 				18762BE82BB51FD3005DE29E /* SetViewController.swift */,
+				18EBA8502BB663A30045E4B1 /* ReViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				18A32AA92B95E23600CC937D /* AllModel.swift in Sources */,
 				18BBD1022BA17CD000F3D322 /* EmptyView.swift in Sources */,
 				184D87492BB4112E00773F45 /* ListView.swift in Sources */,
+				18EBA8512BB663A30045E4B1 /* ReViewController.swift in Sources */,
 				18DCD83D2B91C64E009E8A6B /* ExitView.swift in Sources */,
 				182294602B9054F80045C533 /* JDViewController.swift in Sources */,
 				18762BF12BB57AA9005DE29E /* FNodataView.swift in Sources */,
