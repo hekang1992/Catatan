@@ -277,7 +277,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let homeOneCellID = "homeOneCellID"
         guard let modelArray = self.model?.incomes else { return UITableViewCell() }
-        let model = modelArray[indexPath.row]
+        let model = modelArray[indexPath.section]
         let cell = OAViewCell(style: .subtitle, reuseIdentifier: homeOneCellID)
         cell.delegate = self
         cell.selectionStyle = .none
@@ -329,6 +329,10 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
             print("Delete>>>>>Delete")
+            guard let modelArray = self.model?.incomes else { return }
+            let model = modelArray[indexPath.section]
+            let enfolding = model.enfolding ?? ""
+            self.deleteOrder(enfolding,indexPath.section)
         }
         return [deleteAction]
     }
@@ -419,6 +423,21 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         listVc.titleStr = type
         listVc.index = index
         self.navigationController?.pushViewController(listVc, animated: true)
+    }
+    
+    func deleteOrder(_ oid: String, _ index: Int) {
+        let dict = ["scars":oid]
+        addHudView()
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: passedBeyond, method: .post) { [weak self] model in
+            let awareness = model.awareness
+            if awareness == 0 || awareness == 00 {
+                self?.model?.incomes?.remove(at: index)
+                self?.getHomeFData(self!.selectIndex + 1)
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
     }
     
     /*

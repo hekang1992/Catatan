@@ -51,3 +51,6 @@ let shirtingSouth = "/cata/shirtingSouth"
 
 //首页
 let firstWhite = "/cata/firstWhite"
+let passedBeyond = "/cata/passedBeyond"
+
+
