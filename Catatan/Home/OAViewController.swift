@@ -17,7 +17,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     
     var selectIndex: Int = 0
     
-    var dataSourceArray = ["bank1","bank2","bank3","bank4"]
+    var dataSourceArray = ["bank1","bank3","bank2","bank4"]
     
     var model: HoveredModel?
     
@@ -244,7 +244,14 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             }
             break
         case 1003:
-            MBProgressHUD.wj_showPlainText("bills", view: nil)
+            if IS_LOGIN {
+                MBProgressHUD.wj_showPlainText("bills", view: nil)
+            }else{
+                let login = LoginFakeViewController()
+                let nav = BaseNavViewController(rootViewController: login)
+                nav.modalPresentationStyle = .overFullScreen
+                present(nav, animated: true, completion: nil)
+            }
             break
         case 1004:
             let setVc = SetViewController()
@@ -255,12 +262,16 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         }
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.model?.incomes?.count ?? 0
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90.pix()
+        return 80.pix()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -276,7 +287,11 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 138.pix()
+        if section == 0 {
+            return 138.pix()
+        }else{
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -326,9 +341,9 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         if selectIndex == 0 {
             alertBank("ins1","ins2","Fund1","Fund2","Fund3","Fund4",0)
         }else if selectIndex == 1 {
-            alertBank("ins3","ins4","Cash1","Cash2","Cash3","Cash4",1)
+            alertBank("ins5","ins6","Loan1","Loan2","Loan3","Loan4",1)
         }else if selectIndex == 2 {
-            alertBank("ins5","ins6","Loan1","Loan2","Loan3","Loan4",2)
+            alertBank("ins3","ins4","Cash1","Cash2","Cash3","Cash4",2)
         }else {
             alertBank("ins7","ins8","Car1","Car2","Car3","Car4",3)
         }
