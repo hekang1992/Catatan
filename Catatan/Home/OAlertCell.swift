@@ -1,37 +1,19 @@
 //
-//  OAViewCell.swift
+//  OAlertCell.swift
 //  Catatan
 //
-//  Created by apple on 2024/3/19.
+//  Created by apple on 2024/3/29.
 //
 
 import UIKit
-import SwipeCellKit
-import Kingfisher
 
-class OAViewCell: SwipeTableViewCell {
-    
-    var model: IncomesModel! {
-        didSet{
-            titleLabel1.text = model.addressname
-            titleLabel2.text = model.property
-            titleLabel3.text = model.chests
-            let imageUrl = URL(string: model.effect!)
-            iconImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "iocn4"))
-        }
-    }
-    
+class OAlertCell: UITableViewCell {
+
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.backgroundColor = .white
-        bgView.layer.cornerRadius = 20.pix()
+        bgView.backgroundColor = UIColor("#CEE7FF")
+        bgView.layer.cornerRadius = 12.pix()
         return bgView
-    }()
-    
-    lazy var iconImageView: UIImageView = {
-        let iconImageView = UIImageView()
-        iconImageView.image = UIImage(named: "iocn4")
-        return iconImageView
     }()
     
     lazy var titleLabel1: UILabel = {
@@ -55,35 +37,28 @@ class OAViewCell: SwipeTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(bgView)
-        bgView.addSubview(iconImageView)
         bgView.addSubview(titleLabel1)
         bgView.addSubview(titleLabel2)
         bgView.addSubview(titleLabel3)
-        
         bgView.snp.makeConstraints { make in
             make.centerX.equalTo(contentView)
             make.bottom.equalTo(contentView)
             make.left.equalTo(contentView).offset(20.pix())
-            make.height.equalTo(80.pix())
-        }
-        iconImageView.snp.makeConstraints { make in
-            make.centerY.equalTo(bgView)
-            make.left.equalTo(bgView).offset(15.pix())
-            make.size.equalTo(CGSizeMake(50.pix(), 50.pix()))
+            make.height.equalTo(59.pix())
         }
         titleLabel1.snp.makeConstraints { make in
-            make.left.equalTo(iconImageView.snp.right).offset(20.pix())
+            make.left.equalTo(bgView).offset(16.pix())
             make.top.equalTo(bgView).offset(14.pix())
-            make.height.equalTo(25.pix())
+            make.height.equalTo(19.pix())
         }
         titleLabel2.snp.makeConstraints { make in
-            make.left.equalTo(iconImageView.snp.right).offset(20.pix())
-            make.top.equalTo(titleLabel1.snp.bottom).offset(6.pix())
+            make.left.equalTo(titleLabel1.snp.left)
+            make.top.equalTo(titleLabel1.snp.bottom)
             make.height.equalTo(25.pix())
         }
         titleLabel3.snp.makeConstraints { make in
             make.right.equalTo(bgView).offset(-20.pix())
-            make.top.equalTo(bgView).offset(14.pix())
+            make.centerY.equalTo(bgView)
             make.height.equalTo(25.pix())
         }
     }
@@ -91,4 +66,27 @@ class OAViewCell: SwipeTableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    var model: IncomesModel? {
+        didSet {
+            titleLabel1.text = model?.addressname
+            titleLabel2.text = model?.property
+            titleLabel3.text = model?.chests
+        }
+    }
+    
+    var indexP: Int? {
+        didSet {
+            if indexP == 1 {
+                bgView.backgroundColor = UIColor("#CEE7FF")
+            }else if indexP == 2 {
+                bgView.backgroundColor = UIColor("#FFE1C0")
+            }else if indexP == 3 {
+                bgView.backgroundColor = UIColor("#DFF9BE")
+            }else {
+                bgView.backgroundColor = UIColor("#A4ACC5")
+            }
+        }
+    }
+    
 }

@@ -85,6 +85,7 @@
 		18E9ACFE2B8F48DC00DC16A3 /* CommonParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */; };
 		18EBA8512BB663A30045E4B1 /* ReViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBA8502BB663A30045E4B1 /* ReViewController.swift */; };
 		18EBA8552BB670280045E4B1 /* OAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBA8542BB670280045E4B1 /* OAlertView.swift */; };
+		18EBA8572BB68FF20045E4B1 /* OAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBA8562BB68FF20045E4B1 /* OAlertCell.swift */; };
 		18EF25D42B95623C001DE76B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D32B95623C001DE76B /* LocationManager.swift */; };
 		18EF25D62B957704001DE76B /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D52B957704001DE76B /* LocationModel.swift */; };
 		18EF25D82B9596D2001DE76B /* RequestUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF25D72B9596D2001DE76B /* RequestUrl.swift */; };
@@ -201,6 +202,7 @@
 		18E9ACFD2B8F48DC00DC16A3 /* CommonParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonParams.swift; sourceTree = "<group>"; };
 		18EBA8502BB663A30045E4B1 /* ReViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReViewController.swift; sourceTree = "<group>"; };
 		18EBA8542BB670280045E4B1 /* OAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAlertView.swift; sourceTree = "<group>"; };
+		18EBA8562BB68FF20045E4B1 /* OAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAlertCell.swift; sourceTree = "<group>"; };
 		18EF25D32B95623C001DE76B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		18EF25D52B957704001DE76B /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		18EF25D72B9596D2001DE76B /* RequestUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUrl.swift; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 				18762BEE2BB56A21005DE29E /* LogFOutView.swift */,
 				18762BF02BB57AA9005DE29E /* FNodataView.swift */,
 				18EBA8542BB670280045E4B1 /* OAlertView.swift */,
+				18EBA8562BB68FF20045E4B1 /* OAlertCell.swift */,
 			);
 			name = HomeFView;
 			sourceTree = "<group>";
@@ -956,6 +959,7 @@
 				18F95BFF2B91AD41005273A2 /* AboutViewController.swift in Sources */,
 				18762BEF2BB56A21005DE29E /* LogFOutView.swift in Sources */,
 				1845FD2C2B8C959F00B4BEEF /* TabBarViewController.swift in Sources */,
+				18EBA8572BB68FF20045E4B1 /* OAlertCell.swift in Sources */,
 				18A32AA52B95C86F00CC937D /* SaveLoginInfo.swift in Sources */,
 				1835E0BC2B9087E000C20E0E /* PersonalView.swift in Sources */,
 				18EF25D62B957704001DE76B /* LocationModel.swift in Sources */,

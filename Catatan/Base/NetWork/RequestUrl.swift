@@ -54,4 +54,6 @@ let firstWhite = "/cata/firstWhite"
 let passedBeyond = "/cata/passedBeyond"
 let beforeStrips = "/cata/beforeStrips"
 let womanNecessary = "/cata/womanNecessary"
+let briefFlesh = "/cata/briefFlesh"
+
 

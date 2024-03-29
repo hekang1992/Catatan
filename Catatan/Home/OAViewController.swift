@@ -165,41 +165,6 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         cycleScrollView.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        getHomeFData(selectIndex + 1)
-    }
-    
-    func getHomeFData(_ type: Int) {
-        addHudView()
-        let dict: [String: Any] = ["school":type]
-        NetApiWork.shared.requestAPI(params: dict, pageUrl: firstWhite, method: .post) { [weak self] model in
-            let awareness = model.awareness
-            if awareness == 0 || awareness == 00 {
-                let dict = model.hovered
-                let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
-                if let model = inModel {
-                    self?.model = model
-                    if model.incomes?.count == 0 {
-                        self?.tableView.addSubview(self!.nodaView)
-                    }else{
-                        self?.nodaView.removeFromSuperview()
-                    }
-                }else{
-                    self?.tableView.addSubview(self!.nodaView)
-                }
-                self?.tableView.reloadData()
-            }else{
-                self?.tableView.addSubview(self!.nodaView)
-            }
-            self?.removeHudView()
-            self?.tableView.mj_header?.endRefreshing()
-        } errorBlock: { [weak self] error in
-            self?.removeHudView()
-            self?.tableView.mj_header?.endRefreshing()
-        }
-    }
-    
     func numberOfCells(in cycleScrollView: GKCycleScrollView!) -> Int {
         return dataSourceArray.count
     }
@@ -247,13 +212,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             break
         case 1003:
             if IS_LOGIN {
-                let alertView = OAlertView()
-                alertView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 500.pix());
-                let alertVC = TYAlertController(alert: alertView, preferredStyle: .actionSheet)
-                self.present(alertVC!, animated: true)
-                alertView.block = { [weak self] in
-                    self?.dismiss(animated: true)
-                }
+                self.getOList(selectIndex + 1)
             }else{
                 let login = LoginFakeViewController()
                 let nav = BaseNavViewController(rootViewController: login)
@@ -269,7 +228,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             break
         }
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.model?.incomes?.count ?? 0
     }
@@ -433,6 +392,36 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         self.navigationController?.pushViewController(listVc, animated: true)
     }
     
+    func getHomeFData(_ type: Int) {
+        addHudView()
+        let dict: [String: Any] = ["school":type]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: firstWhite, method: .post) { [weak self] model in
+            let awareness = model.awareness
+            if awareness == 0 || awareness == 00 {
+                let dict = model.hovered
+                let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
+                if let model = inModel {
+                    self?.model = model
+                    if model.incomes?.count == 0 {
+                        self?.tableView.addSubview(self!.nodaView)
+                    }else{
+                        self?.nodaView.removeFromSuperview()
+                    }
+                }else{
+                    self?.tableView.addSubview(self!.nodaView)
+                }
+                self?.tableView.reloadData()
+            }else{
+                self?.tableView.addSubview(self!.nodaView)
+            }
+            self?.removeHudView()
+            self?.tableView.mj_header?.endRefreshing()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+            self?.tableView.mj_header?.endRefreshing()
+        }
+    }
+    
     func deleteOrder(_ oid: String, _ index: Int) {
         let dict = ["scars":oid]
         addHudView()
@@ -445,6 +434,37 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             self?.removeHudView()
         } errorBlock: { [weak self] error in
             self?.removeHudView()
+        }
+    }
+    
+    func getOList(_ index: Int) {
+        addHudView()
+        let dict = ["school": index]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: briefFlesh, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let dict = baseModel.hovered
+                let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
+                if let model = inModel {
+                    self?.alertLiView(model,index)
+                }
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
+    }
+    
+    func alertLiView(_ model: HoveredModel, _ index: Int) {
+        let alertView = OAlertView()
+        alertView.model = model
+        alertView.index = index
+        alertView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 500.pix());
+        let alertVC = TYAlertController(alert: alertView, preferredStyle: .actionSheet)
+        alertView.tableView.reloadData()
+        self.present(alertVC!, animated: true)
+        alertView.block = { [weak self] in
+            self?.dismiss(animated: true)
         }
     }
     

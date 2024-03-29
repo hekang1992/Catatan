@@ -11,6 +11,10 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
     
     var block: (() -> Void)?
     
+    var model: HoveredModel?
+    
+    var index: Int?
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
                                     style: .plain)
@@ -25,13 +29,12 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .white
-        bgView.isUserInteractionEnabled = true
         return bgView
     }()
     
     lazy var btn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setImage(UIImage(named: "cha-3"), for: .normal)
+        btn.setImage(UIImage(named: "cha3"), for: .normal)
         btn.addTarget(self, action: #selector(hideClick), for: .touchUpInside)
         return btn
     }()
@@ -50,9 +53,9 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
             make.height.equalTo(550.pix())
         }
         btn.snp.makeConstraints { make in
-            make.right.equalTo(bgView).offset(-1.pix())
-            make.top.equalTo(bgView).offset(3.pix())
-            make.size.equalTo(CGSize(width: 66.pix(), height: 66.pix()))
+            make.right.equalTo(bgView).offset(-10.pix())
+            make.top.equalTo(bgView).offset(12.pix())
+            make.size.equalTo(CGSize(width: 44.pix(), height: 44.pix()))
         }
         tableView.snp.makeConstraints { make in
             make.bottom.right.left.equalTo(bgView)
@@ -71,20 +74,21 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let vinViewCellID = "VinViewCellID"
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: vinViewCellID)
+        let cell = OAlertCell(style: .subtitle, reuseIdentifier: vinViewCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
-        cell.textLabel?.text = "fadfad"
+        let model = model?.incomes?[indexPath.row]
+        cell.model = model
+        cell.indexP = index
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return model?.incomes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.pix()
-        
+        return 70.pix()
     }
     
 }
