@@ -11,21 +11,13 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     enum typeImageState {
         case fund1
-        case fund2
-        case fund3
-        case fund4
         case card1
         case card2
-        case card3
-        case card4
         case cash1
         case cash2
         case cash3
         case cash4
         case car1
-        case car2
-        case car3
-        case car4
     }
     
     var currentState: typeImageState?
@@ -56,8 +48,41 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if currentState == .fund1 {
-            
+        if currentState == .fund1{
+            let index: Int = indexPath.row
+            if index == 0 {
+                let cellIdentifier = "Cell"
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+                if cell == nil {
+                    cell = ListOneCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.selectionStyle = .none
+                }
+                return cell!
+            }else if index == 1{
+                let cellIdentifier = "Cell"
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+                if cell == nil {
+                    cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.selectionStyle = .none
+                }
+                return cell!
+            }else if index == 2{
+                let cellIdentifier = "Cell"
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+                if cell == nil {
+                    cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.selectionStyle = .none
+                }
+                return cell!
+            }else {
+                let cellIdentifier = "Cell"
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+                if cell == nil {
+                    cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.selectionStyle = .none
+                }
+                return cell!
+            }
         }
         let index: Int = indexPath.row
         if index == 0 {

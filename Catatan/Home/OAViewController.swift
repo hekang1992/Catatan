@@ -378,13 +378,13 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         bankListView.block4 = { [weak self] in
             self?.dismiss(animated: true, completion: {
                 if selectIndex == 0 {
-                    self?.pushListVc("Other",selectIndex)
+                    self?.pushListVc("Other1",selectIndex)
                 }else if selectIndex == 2 {
-                    self?.pushListVc("Other",selectIndex)
+                    self?.pushListVc("Other2",selectIndex)
                 }else if selectIndex == 1 {
-                    self?.pushListVc("Other",selectIndex)
+                    self?.pushListVc("Other3",selectIndex)
                 }else {
-                    self?.pushListVc("Other",selectIndex)
+                    self?.pushListVc("Other4",selectIndex)
                 }
             })
         }

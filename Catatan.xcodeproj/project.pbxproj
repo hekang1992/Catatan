@@ -511,6 +511,25 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
+		185C72352BB6CB6D00E1C1B0 /* FController */ = {
+			isa = PBXGroup;
+			children = (
+				18FE73D92BA823C000E4737D /* OAViewController.swift */,
+				184D873E2BB410C600773F45 /* ListFakeViewController.swift */,
+				18EBA8502BB663A30045E4B1 /* ReViewController.swift */,
+				18762BE82BB51FD3005DE29E /* SetViewController.swift */,
+			);
+			name = FController;
+			sourceTree = "<group>";
+		};
+		185C72362BB6CB8100E1C1B0 /* RController */ = {
+			isa = PBXGroup;
+			children = (
+				1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */,
+			);
+			name = RController;
+			sourceTree = "<group>";
+		};
 		18762BE42BB513EB005DE29E /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,11 +591,8 @@
 		18BBD0FF2BA14B4C00F3D322 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1845FD2F2B8C95D400B4BEEF /* HomeViewController.swift */,
-				18FE73D92BA823C000E4737D /* OAViewController.swift */,
-				184D873E2BB410C600773F45 /* ListFakeViewController.swift */,
-				18762BE82BB51FD3005DE29E /* SetViewController.swift */,
-				18EBA8502BB663A30045E4B1 /* ReViewController.swift */,
+				185C72362BB6CB8100E1C1B0 /* RController */,
+				185C72352BB6CB6D00E1C1B0 /* FController */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

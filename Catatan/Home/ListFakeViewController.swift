@@ -41,6 +41,19 @@ class ListFakeViewController: BaseViewController {
         listView.snp.makeConstraints { make in
             make.edges.equalTo(bgView1).inset(UIEdgeInsets(top: CGFloat(NAV_HIGH), left: 0, bottom: 0, right: 0))
         }
+        if titleStr == "Fund" || titleStr == "Bank Wealth" || titleStr == "Insurance" || titleStr == "Other1"  {
+            listView.currentState = .fund1
+        }else if titleStr == "Credit Card" {
+            listView.currentState = .card1
+        }else if titleStr == "Loan" || titleStr == "Payment" || titleStr == "Other2" {
+            listView.currentState = .card2
+        }else if titleStr == "Cash" || titleStr == "Other3" {
+            listView.currentState = .cash1
+        }else if titleStr == "Debit Card" || titleStr == "Credit Limit" {
+            listView.currentState = .cash2
+        }else {
+            listView.currentState = .car1
+        }
         
     }
 
