@@ -109,6 +109,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
+                    cell?.icon.image = UIImage(named: "qweasd1")
                 }
                 return cell!
             }else if index == 2 {
@@ -118,6 +119,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
+                    cell?.icon.image = UIImage(named: "qweasd3")
                 }
                 return cell!
             }else {
@@ -127,6 +129,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
+                    cell?.icon.image = UIImage(named: "qweasd4")
                 }
                 return cell!
             }
@@ -152,6 +155,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
+                    cell?.icon.image = UIImage(named: "qwerty1")
                 }
                 return cell!
             }else if index == 2 {
@@ -161,6 +165,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
+                    cell?.icon.image = UIImage(named: "qwerty2")
                 }
                 return cell!
             }else if index == 3 {
@@ -170,6 +175,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
+                    cell?.icon.image = UIImage(named: "qwerty3")
                 }
                 return cell!
             }else {
@@ -179,6 +185,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
+                    cell?.icon.image = UIImage(named: "qwerty4")
                 }
                 return cell!
             }
@@ -204,6 +211,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
+                    cell?.icon.image = UIImage(named: "qwerty1")
                 }
                 return cell!
             }else if index == 2 {
@@ -213,6 +221,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
+                    cell?.icon.image = UIImage(named: "qwerty3")
                 }
                 return cell!
             }else {
@@ -222,6 +231,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
+                    cell?.icon.image = UIImage(named: "qwerty4")
                 }
                 return cell!
             }
@@ -247,6 +257,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
+                    cell?.icon.image = UIImage(named: "qweasd1")
                 }
                 return cell!
             }else if index == 2 {
@@ -257,6 +268,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell?.selectionStyle = .none
                     cell?.label1.text = "Last 4 Digits Of The Card"
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
+                    cell?.icon.image = UIImage(named: "qweasd2")
                 }
                 return cell!
             }else if index == 3 {
@@ -266,6 +278,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
+                    cell?.icon.image = UIImage(named: "qweasd3")
                 }
                 return cell!
             }else {
@@ -275,6 +288,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
+                    cell?.icon.image = UIImage(named: "qweasd4")
                 }
                 return cell!
             }
@@ -300,6 +314,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
+                    cell?.icon.image = UIImage(named: "qazxsw1")
                 }
                 return cell!
             }else if index == 2 {
@@ -309,6 +324,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
+                    cell?.icon.image = UIImage(named: "qazxsw2")
                 }
                 return cell!
             }else {
@@ -318,6 +334,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
+                    cell?.icon.image = UIImage(named: "qazxsw3")
                 }
                 return cell!
             }
