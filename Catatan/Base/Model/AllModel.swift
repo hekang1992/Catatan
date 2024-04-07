@@ -155,6 +155,9 @@ class IncomesModel: HandyJSON {
     var property: String?
     var enfolding: String?//orderid
     var effect: String?
+    var knobby: String?
+    var matched: String?
+    var distributes: String?
     
     var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?

@@ -13,6 +13,8 @@ class ListFakeViewController: BaseViewController {
     
     var index: Int?
     
+    var model: IncomesModel?
+    
     lazy var bgView1: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor("#FFFFFF")
@@ -29,7 +31,14 @@ class ListFakeViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         addNavView()
-        navView.nameLabel.text = titleStr
+        if let str = titleStr {
+            if str.contains("Other") {
+                navView.nameLabel.text = "Other"
+            }else {
+                navView.nameLabel.text = titleStr
+            }
+        }
+        
         navView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
@@ -41,6 +50,7 @@ class ListFakeViewController: BaseViewController {
         listView.snp.makeConstraints { make in
             make.edges.equalTo(bgView1).inset(UIEdgeInsets(top: CGFloat(NAV_HIGH), left: 0, bottom: 0, right: 0))
         }
+        listView.model = model
         if titleStr == "Fund" || titleStr == "Bank Wealth" || titleStr == "Insurance" || titleStr == "Other1"  {
             listView.currentState = .fund1
             listView.typeStr = titleStr
@@ -60,7 +70,6 @@ class ListFakeViewController: BaseViewController {
             listView.currentState = .car1
             listView.typeStr = titleStr
         }
-        
     }
 
     /*

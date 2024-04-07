@@ -309,6 +309,60 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         return [deleteAction]
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let modelArray = self.model?.incomes else { return }
+        let model = modelArray[indexPath.section]
+        let school = model.school//大
+        let flying = model.flying//小
+        let pushVc = ListFakeViewController()
+        pushVc.model = model
+        if school == "1" {
+            if flying == "1" {
+                pushVc.titleStr = "Fund"
+            }else if flying == "2" {
+                pushVc.titleStr = "Bank Wealth"
+            }else if flying == "3" {
+                pushVc.titleStr = "Insurance"
+            }else {
+                pushVc.titleStr = "Other1"
+            }
+            self.navigationController?.pushViewController(pushVc, animated: true)
+        }else if school == "3" {
+            if flying == "1" {
+                pushVc.titleStr = "Cash"
+            }else if flying == "2" {
+                pushVc.titleStr = "Debit Card"
+            }else if flying == "3" {
+                pushVc.titleStr = "Credit Limit"
+            }else {
+                pushVc.titleStr = "Other2"
+            }
+            self.navigationController?.pushViewController(pushVc, animated: true)
+        }else if school == "2" {
+            if flying == "1" {
+                pushVc.titleStr = "Credit Card"
+            }else if flying == "2" {
+                pushVc.titleStr = "Loan"
+            }else if flying == "3" {
+                pushVc.titleStr = "Payment"
+            }else {
+                pushVc.titleStr = "Other3"
+            }
+            self.navigationController?.pushViewController(pushVc, animated: true)
+        }else {
+            if flying == "1" {
+                pushVc.titleStr = "Car"
+            }else if flying == "2" {
+                pushVc.titleStr = "Home"
+            }else if flying == "3" {
+                pushVc.titleStr = "Equipment"
+            }else {
+                pushVc.titleStr = "Other4"
+            }
+            self.navigationController?.pushViewController(pushVc, animated: true)
+        }
+    }
+    
     @objc func loadNewData() {
         getHomeFData(selectIndex + 1)
     }

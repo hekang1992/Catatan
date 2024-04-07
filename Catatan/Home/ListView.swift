@@ -19,6 +19,8 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
         case car1
     }
     
+    var model: IncomesModel?
+    
     var typeStr: String?
     
     var currentState: typeImageState?
@@ -52,44 +54,54 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
         let index: Int = indexPath.row
         if currentState == .fund1{
             if index == 0 {
-                let cellIdentifier = "cell0"
+                let cellIdentifier = "\(typeStr ?? "")_cell0"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListOneCell
                 if cell == nil {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
-                    cell?.label2.text = typeStr
+                    if let str = typeStr {
+                        if str.contains("Other") {
+                            cell?.label2.text = "Other"
+                        }else{
+                            cell?.label2.text = str
+                        }
+                    }
+                    cell?.emailT.text = model?.chests
                     cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
-                let cellIdentifier = "Cell1"
+                let cellIdentifier = "\(typeStr ?? "")_Cell1"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.emailT.text = model?.addressname
                 }
                 return cell!
             }else if index == 2 {
-                let cellIdentifier = "Cell2"
+                let cellIdentifier = "\(typeStr ?? "")_Cell2"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.emailT.text = model?.distributes
                 }
                 return cell!
             }else {
-                let cellIdentifier = "Cell3"
+                let cellIdentifier = "\(typeStr ?? "")_Cell3"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.textView.text = model?.knobby
                 }
                 return cell!
             }
         }else if currentState == .cash1 {
             if index == 0 {
-                let cellIdentifier = "cell0"
+                let cellIdentifier = "\(typeStr ?? "")_cell0"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListOneCell
                 if cell == nil {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
@@ -98,44 +110,54 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell?.label2.backgroundColor = UIColor("#B3EE4B")
                     cell?.lineView.backgroundColor = UIColor("#B3EE4B")
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
-                    cell?.label2.text = typeStr
+                    if let str = typeStr {
+                        if str.contains("Other") {
+                            cell?.label2.text = "Other"
+                        }else{
+                            cell?.label2.text = str
+                        }
+                    }
+                    cell?.emailT.text = model?.chests
                     cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
-                let cellIdentifier = "Cell1"
+                let cellIdentifier = "\(typeStr ?? "")_Cell1"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
                     cell?.icon.image = UIImage(named: "qweasd1")
+                    cell?.emailT.text = model?.addressname
                 }
                 return cell!
             }else if index == 2 {
-                let cellIdentifier = "Cell2"
+                let cellIdentifier = "\(typeStr ?? "")_Cell2"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
                     cell?.icon.image = UIImage(named: "qweasd3")
+                    cell?.emailT.text = model?.distributes
                 }
                 return cell!
             }else {
-                let cellIdentifier = "Cell3"
+                let cellIdentifier = "\(typeStr ?? "")_Cell3"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
                     cell?.icon.image = UIImage(named: "qweasd4")
+                    cell?.textView.text = model?.knobby
                 }
                 return cell!
             }
         }else if currentState == .card1 {
             if index == 0 {
-                let cellIdentifier = "cell0"
+                let cellIdentifier = "\(typeStr ?? "")_cell0"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListOneCell
                 if cell == nil {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
@@ -144,203 +166,247 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell?.label2.backgroundColor = UIColor("#FB9A01")
                     cell?.lineView.backgroundColor = UIColor("#FB9A01")
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
-                    cell?.label2.text = typeStr
+                    if let str = typeStr {
+                        if str.contains("Other") {
+                            cell?.label2.text = "Other"
+                        }else{
+                            cell?.label2.text = str
+                        }
+                    }
+                    cell?.emailT.text = model?.chests
                     cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
-                let cellIdentifier = "Cell1"
+                let cellIdentifier = "\(typeStr ?? "")_Cell1"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
+                    cell?.emailT.text = model?.addressname
                     cell?.icon.image = UIImage(named: "qwerty1")
                 }
                 return cell!
             }else if index == 2 {
-                let cellIdentifier = "Cell2"
+                let cellIdentifier = "\(typeStr ?? "")_Cell2"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
+                    cell?.emailT.text = model?.addressname
                     cell?.icon.image = UIImage(named: "qwerty2")
                 }
                 return cell!
             }else if index == 3 {
-                let cellIdentifier = "Cell3"
+                let cellIdentifier = "\(typeStr ?? "")_Cell3"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
                     cell?.icon.image = UIImage(named: "qwerty3")
+                    cell?.emailT.text = model?.distributes
                 }
                 return cell!
             }else {
-                let cellIdentifier = "Cell4"
+                let cellIdentifier = "\(typeStr ?? "")_Cell4"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
                     cell?.icon.image = UIImage(named: "qwerty4")
+                    cell?.textView.text = model?.knobby
                 }
                 return cell!
             }
         }else if currentState == .card2 {
             if index == 0 {
-                let cellIdentifier = "cell0"
+                let cellIdentifier = "\(typeStr ?? "")_cell0"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListOneCell
                 if cell == nil {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
-                    cell?.label2.text = typeStr
+                    if let str = typeStr {
+                        if str.contains("Other") {
+                            cell?.label2.text = "Other"
+                        }else{
+                            cell?.label2.text = str
+                        }
+                    }
                     cell?.label2.backgroundColor = UIColor("#FB9A01")
                     cell?.lineView.backgroundColor = UIColor("#FB9A01")
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.icon.image = UIImage(named: typeStr ?? "")
+                    cell?.emailT.text = model?.chests
                 }
                 return cell!
             }else if index == 1 {
-                let cellIdentifier = "Cell1"
+                let cellIdentifier = "\(typeStr ?? "")_Cell1"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.icon.image = UIImage(named: "qwerty1")
+                    cell?.emailT.text = model?.addressname
                 }
                 return cell!
             }else if index == 2 {
-                let cellIdentifier = "Cell2"
+                let cellIdentifier = "\(typeStr ?? "")_Cell2"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.icon.image = UIImage(named: "qwerty3")
+                    cell?.emailT.text = model?.distributes
                 }
                 return cell!
             }else {
-                let cellIdentifier = "Cell3"
+                let cellIdentifier = "\(typeStr ?? "")_Cell3"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.icon.image = UIImage(named: "qwerty4")
+                    cell?.textView.text = model?.knobby
                 }
                 return cell!
             }
         }else if currentState == .cash2 {
             if index == 0 {
-                let cellIdentifier = "cell0"
+                let cellIdentifier = "\(typeStr ?? "")_cell0"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListOneCell
                 if cell == nil {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
-                    cell?.label2.text = typeStr
+                    if let str = typeStr {
+                        if str.contains("Other") {
+                            cell?.label2.text = "Other"
+                        }else{
+                            cell?.label2.text = str
+                        }
+                    }
                     cell?.label2.backgroundColor = UIColor("#B3EE4B")
                     cell?.lineView.backgroundColor = UIColor("#B3EE4B")
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.icon.image = UIImage(named: typeStr ?? "")
+                    cell?.emailT.text = model?.chests
                 }
                 return cell!
             }else if index == 1 {
-                let cellIdentifier = "Cell1"
+                let cellIdentifier = "\(typeStr ?? "")_Cell1"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.icon.image = UIImage(named: "qweasd1")
+                    cell?.emailT.text = model?.addressname
                 }
                 return cell!
             }else if index == 2 {
-                let cellIdentifier = "Cell2"
+                let cellIdentifier = "\(typeStr ?? "")_Cell2"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.label1.text = "Last 4 Digits Of The Card"
+                    cell?.emailT.text = model?.matched
+                    cell?.emailT.keyboardType = .numberPad
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.icon.image = UIImage(named: "qweasd2")
+                    cell?.emailT.text = model?.matched
                 }
                 return cell!
             }else if index == 3 {
-                let cellIdentifier = "Cell3"
+                let cellIdentifier = "\(typeStr ?? "")_Cell3"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.icon.image = UIImage(named: "qweasd3")
+                    cell?.emailT.text = model?.distributes
                 }
                 return cell!
             }else {
-                let cellIdentifier = "Cell4"
+                let cellIdentifier = "\(typeStr ?? "")_Cell4"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.icon.image = UIImage(named: "qweasd4")
+                    cell?.textView.text = model?.knobby
                 }
                 return cell!
             }
         }else if currentState == .car1 {
             if index == 0 {
-                let cellIdentifier = "cell0"
+                let cellIdentifier = "\(typeStr ?? "")_cell0"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListOneCell
                 if cell == nil {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
-                    cell?.label2.text = typeStr
+                    if let str = typeStr {
+                        if str.contains("Other") {
+                            cell?.label2.text = "Other"
+                        }else{
+                            cell?.label2.text = str
+                        }
+                    }
                     cell?.label2.backgroundColor = UIColor("#364880")
                     cell?.lineView.backgroundColor = UIColor("#364880")
                     cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
                     cell?.icon.image = UIImage(named: typeStr ?? "")
+                    cell?.emailT.text = model?.chests
                 }
                 return cell!
             }else if index == 1 {
-                let cellIdentifier = "Cell1"
+                let cellIdentifier = "\(typeStr ?? "")_Cell1"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
                     cell?.icon.image = UIImage(named: "qazxsw1")
+                    cell?.emailT.text = model?.addressname
                 }
                 return cell!
             }else if index == 2 {
-                let cellIdentifier = "Cell2"
+                let cellIdentifier = "\(typeStr ?? "")_Cell2"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
                     cell?.icon.image = UIImage(named: "qazxsw2")
+                    cell?.emailT.text = model?.distributes
                 }
                 return cell!
             }else {
-                let cellIdentifier = "Cell3"
+                let cellIdentifier = "\(typeStr ?? "")_Cell3"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
                     cell?.icon.image = UIImage(named: "qazxsw3")
+                    cell?.textView.text = model?.knobby
                 }
                 return cell!
             }
         }else {
             if index == 0 {
-                let cellIdentifier = "Cell0"
+                let cellIdentifier = "\(typeStr ?? "")_Cell0"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
                 if cell == nil {
                     cell = ListOneCell(style: .default, reuseIdentifier: cellIdentifier)
@@ -348,7 +414,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 }
                 return cell!
             }else if index == 1 {
-                let cellIdentifier = "Cell1"
+                let cellIdentifier = "\(typeStr ?? "")_Cell1"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
@@ -356,7 +422,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 }
                 return cell!
             }else if index == 2 {
-                let cellIdentifier = "Cell2"
+                let cellIdentifier = "\(typeStr ?? "")_Cell2"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
@@ -364,7 +430,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 }
                 return cell!
             }else if index == 3 {
-                let cellIdentifier = "Cell3"
+                let cellIdentifier = "\(typeStr ?? "")_Cell3"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
@@ -372,7 +438,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 }
                 return cell!
             }else {
-                let cellIdentifier = "Cell4"
+                let cellIdentifier = "\(typeStr ?? "")_Cell4"
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
