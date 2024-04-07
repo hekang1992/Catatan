@@ -26,6 +26,12 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
         return tableView
     }()
     
+    lazy var labelS: UILabel = {
+        let labelS = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 20.pix())!, textColor: .black, textAlignment: .left)
+        labelS.text = "All Historical Bills"
+        return labelS
+    }()
+    
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .white
@@ -43,6 +49,7 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
         super.init(frame: frame)
         addSubview(bgView)
         bgView.addSubview(btn)
+        bgView.addSubview(labelS)
         bgView.addSubview(tableView)
     }
     
@@ -52,10 +59,15 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
             make.bottom.right.left.equalTo(self)
             make.height.equalTo(550.pix())
         }
+        labelS.snp.makeConstraints { make in
+            make.left.equalTo(bgView).offset(18.pix())
+            make.top.equalTo(bgView).offset(24.pix())
+            make.height.equalTo(22.pix())
+        }
         btn.snp.makeConstraints { make in
             make.right.equalTo(bgView).offset(-10.pix())
-            make.top.equalTo(bgView).offset(12.pix())
-            make.size.equalTo(CGSize(width: 44.pix(), height: 44.pix()))
+            make.top.equalTo(bgView).offset(2.pix())
+            make.size.equalTo(CGSize(width: 66.pix(), height: 66.pix()))
         }
         tableView.snp.makeConstraints { make in
             make.bottom.right.left.equalTo(bgView)

@@ -148,20 +148,36 @@ class ListFakeViewController: BaseViewController {
             adcDict["flying"] = "4"
         }
         adcDict.merge(dict) { (_, new) in new }
+        addHudView()
         NetApiWork.shared.requestAPI(params: adcDict, pageUrl: lingerKnapsack, method: .post) { [weak self] baseModel in
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 self?.navigationController?.popToRootViewController(animated: true)
             }
-        } errorBlock: { error in
-            
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
         }
         
     }
     
     //编辑投资
     func haveOrderID(_ dict: [String: Any]) {
-        
+        addHudView()
+        var adcDict: [String: Any] = [:]
+        adcDict["school"] = model?.school
+        adcDict["flying"] = model?.flying
+        adcDict["scars"] = model?.enfolding
+        adcDict.merge(dict) { (_, new) in new }
+        NetApiWork.shared.requestAPI(params: adcDict, pageUrl: localsAfter, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+            self?.removeHudView()
+        } errorBlock: { [weak self] error in
+            self?.removeHudView()
+        }
     }
     
     /*

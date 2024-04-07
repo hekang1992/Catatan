@@ -515,9 +515,14 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
             for row in 0..<numberOfRows {
                 let indexPath = IndexPath(row: row, section: section)
                 if let cell = tableView.cellForRow(at: indexPath) as? ListOneCell {
-                    let cellValue = cell.emailT.text
-                    dict["chests"] = cellValue
-                    print("cellValue1>>>>>>\(cellValue ?? "")")
+                    let cellValue = cell.emailT.text ?? ""
+                    var money: String = ""
+                    if cellValue.contains(",") {
+                        let stringWithoutComma = cellValue.replacingOccurrences(of: ",", with: "")
+                        money = stringWithoutComma
+                    }
+                    dict["chests"] = money
+                    print("cellValue1>>>>>>\(cellValue)")
                 }
                 if let cell = tableView.cellForRow(at: indexPath) as? ListTwoCell {
                     let cellValue = cell.emailT.text
