@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD_WJExtension
+import TYAlertController
 
 class ListThreeCell: UITableViewCell {
     
@@ -90,8 +91,18 @@ class ListThreeCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func textFieldTapped(_ sender: UITextField) {
-        
+    @objc func textFieldTapped(_ sender: UITapGestureRecognizer) {
+        guard let textField = sender.view as? UITextField else { return }
+        let timeView = TimeAlertView()
+        timeView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 500.pix());
+        let alertVC = TYAlertController(alert: timeView, preferredStyle: .actionSheet)
+        let vc = Catatan.viewController(for: textField)
+        vc?.present(alertVC!, animated: true)
+        timeView.block = { string in
+            vc?.dismiss(animated: true, completion: {
+                textField.text = string
+            })
+        }
     }
     
 }

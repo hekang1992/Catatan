@@ -46,3 +46,14 @@ func getCurrentVC() -> UIViewController? {
     }
     return result
 }
+
+func viewController(for view: UIView) -> UIViewController? {
+    var nextResponder: UIResponder? = view.next
+    while nextResponder != nil {
+        if let viewController = nextResponder as? UIViewController {
+            return viewController
+        }
+        nextResponder = nextResponder?.next
+    }
+    return nil
+}
