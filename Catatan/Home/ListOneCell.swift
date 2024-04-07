@@ -31,7 +31,7 @@ class ListOneCell: UITableViewCell {
     
     lazy var icon: UIImageView = {
         let icon =  UIImageView()
-        icon.image = UIImage(named: "Fundfff")
+        icon.image = UIImage(named: "Fund")
         return icon
     }()
     

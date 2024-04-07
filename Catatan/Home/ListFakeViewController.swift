@@ -47,10 +47,10 @@ class ListFakeViewController: BaseViewController {
         }else if titleStr == "Credit Card" {
             listView.currentState = .card1
             listView.typeStr = titleStr
-        }else if titleStr == "Loan" || titleStr == "Payment" || titleStr == "Other2" {
+        }else if titleStr == "Loan" || titleStr == "Payment" || titleStr == "Other3" {
             listView.currentState = .card2
             listView.typeStr = titleStr
-        }else if titleStr == "Cash" || titleStr == "Other3" {
+        }else if titleStr == "Cash" || titleStr == "Other2" {
             listView.currentState = .cash1
             listView.typeStr = titleStr
         }else if titleStr == "Debit Card" || titleStr == "Credit Limit" {

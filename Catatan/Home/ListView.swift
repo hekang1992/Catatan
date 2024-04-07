@@ -59,6 +59,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
                     cell?.label2.text = typeStr
+                    cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
@@ -94,7 +95,11 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
+                    cell?.label2.backgroundColor = UIColor("#B3EE4B")
+                    cell?.lineView.backgroundColor = UIColor("#B3EE4B")
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.label2.text = typeStr
+                    cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
@@ -102,6 +107,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
                 }
                 return cell!
@@ -110,6 +116,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
                 }
                 return cell!
@@ -118,6 +125,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                     cell?.selectionStyle = .none
                 }
                 return cell!
@@ -130,7 +138,11 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell = ListOneCell(style: .subtitle, reuseIdentifier: cellIdentifier)
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
+                    cell?.label2.backgroundColor = UIColor("#FB9A01")
+                    cell?.lineView.backgroundColor = UIColor("#FB9A01")
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.label2.text = typeStr
+                    cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
@@ -138,6 +150,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
                 }
                 return cell!
@@ -146,6 +159,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
                 }
                 return cell!
@@ -154,6 +168,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
                 }
                 return cell!
@@ -162,6 +177,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFourCell
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
                 }
                 return cell!
@@ -175,6 +191,10 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
                     cell?.label2.text = typeStr
+                    cell?.label2.backgroundColor = UIColor("#FB9A01")
+                    cell?.lineView.backgroundColor = UIColor("#FB9A01")
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
+                    cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
@@ -183,6 +203,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                 }
                 return cell!
             }else if index == 2 {
@@ -191,6 +212,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                 }
                 return cell!
             }else {
@@ -199,6 +221,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                 }
                 return cell!
             }
@@ -211,6 +234,10 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
                     cell?.label2.text = typeStr
+                    cell?.label2.backgroundColor = UIColor("#B3EE4B")
+                    cell?.lineView.backgroundColor = UIColor("#B3EE4B")
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
+                    cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
@@ -219,14 +246,17 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                 }
                 return cell!
             }else if index == 2 {
                 let cellIdentifier = "Cell2"
-                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
                 if cell == nil {
-                    cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.label1.text = "Last 4 Digits Of The Card"
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                 }
                 return cell!
             }else if index == 3 {
@@ -235,6 +265,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                 }
                 return cell!
             }else {
@@ -243,6 +274,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#B3EE4B").cgColor
                 }
                 return cell!
             }
@@ -255,6 +287,10 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     cell?.backgroundColor = .clear
                     cell?.selectionStyle = .none
                     cell?.label2.text = typeStr
+                    cell?.label2.backgroundColor = UIColor("#364880")
+                    cell?.lineView.backgroundColor = UIColor("#364880")
+                    cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
+                    cell?.icon.image = UIImage(named: typeStr ?? "")
                 }
                 return cell!
             }else if index == 1 {
@@ -263,6 +299,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
                 }
                 return cell!
             }else if index == 2 {
@@ -271,6 +308,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
                 }
                 return cell!
             }else {
@@ -279,6 +317,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 if cell == nil {
                     cell = ListFourCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
+                    cell?.bgView.layer.borderColor = UIColor("#364880").cgColor
                 }
                 return cell!
             }
