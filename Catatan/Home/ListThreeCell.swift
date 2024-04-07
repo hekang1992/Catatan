@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import MBProgressHUD_WJExtension
 
 class ListThreeCell: UITableViewCell {
-
+    
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 20.pix())!, textColor: .black, textAlignment: .left)
         label1.text = "Accounting Reminder"
@@ -39,13 +40,14 @@ class ListThreeCell: UITableViewCell {
         let emailT = UITextField()
         emailT.textAlignment = .left
         emailT.textColor = .black
-        emailT.isEnabled = false
         emailT.keyboardType = UIKeyboardType.default
         emailT.font = UIFont(name:Futura_Medium , size: 16.pix())
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name:Futura_Medium , size: 16.pix()) ?? UIFont.systemFont(ofSize: 16.pix(), weight: .medium),
             .foregroundColor:UIColor.black.withAlphaComponent(0.29)]
         emailT.attributedPlaceholder = NSAttributedString(string: "Please choose", attributes: placeholderAttributes)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textFieldTapped(_ :)))
+        emailT.addGestureRecognizer(tapGesture)
         return emailT
     }()
     
@@ -87,5 +89,9 @@ class ListThreeCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    @objc func textFieldTapped(_ sender: UITextField) {
+        
+    }
+    
 }
