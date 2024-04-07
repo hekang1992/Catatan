@@ -48,7 +48,6 @@ class ListOneCell: UITableViewCell {
         let emailT = UITextField()
         emailT.textAlignment = .left
         emailT.textColor = .black
-        emailT.backgroundColor = .red
         emailT.keyboardType = UIKeyboardType.numberPad
         emailT.font = UIFont(name:Futura_Medium , size: 16.pix())
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
@@ -91,7 +90,7 @@ class ListOneCell: UITableViewCell {
         label2.snp.makeConstraints { make in
             make.right.equalTo(icon.snp_rightMargin)
             make.top.equalTo(lineView.snp_bottomMargin).offset(26.pix())
-            make.size.equalTo(CGSize(width: 66.pix(), height: 29.pix()))
+            make.size.equalTo(CGSize(width: 88.pix(), height: 29.pix()))
         }
         emailT.snp.makeConstraints { make in
             make.left.equalTo(bgView).offset(22.pix())

@@ -516,8 +516,8 @@
 			children = (
 				18FE73D92BA823C000E4737D /* OAViewController.swift */,
 				184D873E2BB410C600773F45 /* ListFakeViewController.swift */,
-				18EBA8502BB663A30045E4B1 /* ReViewController.swift */,
 				18762BE82BB51FD3005DE29E /* SetViewController.swift */,
+				18EBA8502BB663A30045E4B1 /* ReViewController.swift */,
 			);
 			name = FController;
 			sourceTree = "<group>";
