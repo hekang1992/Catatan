@@ -25,10 +25,10 @@ class ListFakeViewController: BaseViewController {
         let listView = ListView()
         return listView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         addNavView()
         if let str = titleStr {
@@ -70,16 +70,108 @@ class ListFakeViewController: BaseViewController {
             listView.currentState = .car1
             listView.typeStr = titleStr
         }
+        listView.dictBlock = { [weak self] dict in
+            print("dict>>>>>>>>>>\(dict)")
+            if self?.model?.enfolding == nil {
+                self?.noOrderID(dict)
+            }else {
+                self?.haveOrderID(dict)
+            }
+        }
     }
-
+    
+    //添加投资
+    func noOrderID(_ dict: [String: Any]) {
+        var adcDict: [String: Any] = [:]
+        if titleStr == "Fund" {
+            adcDict["school"] = "1"
+            adcDict["flying"] = "1"
+        }
+        if titleStr == "Bank Wealth" {
+            adcDict["school"] = "1"
+            adcDict["flying"] = "2"
+        }
+        if titleStr == "Insurance" {
+            adcDict["school"] = "1"
+            adcDict["flying"] = "3"
+        }
+        if titleStr == "Other1" {
+            adcDict["school"] = "1"
+            adcDict["flying"] = "4"
+        }
+        if titleStr == "Credit Card" {
+            adcDict["school"] = "2"
+            adcDict["flying"] = "1"
+        }
+        if titleStr == "Loan" {
+            adcDict["school"] = "2"
+            adcDict["flying"] = "2"
+        }
+        if titleStr == "Payment" {
+            adcDict["school"] = "2"
+            adcDict["flying"] = "3"
+        }
+        if titleStr == "Other2" {
+            adcDict["school"] = "2"
+            adcDict["flying"] = "4"
+        }
+        if titleStr == "Cash" {
+            adcDict["school"] = "3"
+            adcDict["flying"] = "1"
+        }
+        if titleStr == "Debit Card" {
+            adcDict["school"] = "3"
+            adcDict["flying"] = "2"
+        }
+        if titleStr == "Credit Limit" {
+            adcDict["school"] = "3"
+            adcDict["flying"] = "3"
+        }
+        if titleStr == "Other3" {
+            adcDict["school"] = "3"
+            adcDict["flying"] = "4"
+        }
+        if titleStr == "Car" {
+            adcDict["school"] = "4"
+            adcDict["flying"] = "1"
+        }
+        if titleStr == "House" {
+            adcDict["school"] = "4"
+            adcDict["flying"] = "2"
+        }
+        if titleStr == "Equipment" {
+            adcDict["school"] = "4"
+            adcDict["flying"] = "3"
+        }
+        if titleStr == "Other4" {
+            adcDict["school"] = "4"
+            adcDict["flying"] = "4"
+        }
+        adcDict.merge(dict) { (_, new) in new }
+        NetApiWork.shared.requestAPI(params: adcDict, pageUrl: lingerKnapsack, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+        } errorBlock: { error in
+            
+        }
+        
+    }
+    
+    //编辑投资
+    func haveOrderID(_ dict: [String: Any]) {
+        
+    }
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

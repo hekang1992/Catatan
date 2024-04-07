@@ -8,6 +8,8 @@
 import UIKit
 
 class ListOneCell: UITableViewCell {
+    
+    var dict: [String: Any] = [:]
 
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -53,7 +55,8 @@ class ListOneCell: UITableViewCell {
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name:Futura_Medium , size: 16.pix()) ?? UIFont.systemFont(ofSize: 16.pix(), weight: .regular),
             .foregroundColor:UIColor.black.withAlphaComponent(0.29)]
-        emailT.attributedPlaceholder = NSAttributedString(string: "Please Enter", attributes: placeholderAttributes)
+//        emailT.attributedPlaceholder = NSAttributedString(string: "Please Enter", attributes: placeholderAttributes)
+//        emailT.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return emailT
     }()
     
@@ -102,7 +105,5 @@ class ListOneCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
+
 }

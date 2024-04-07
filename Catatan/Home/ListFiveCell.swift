@@ -1,21 +1,19 @@
 //
-//  ListThreeCell.swift
+//  ListFiveCell.swift
 //  Catatan
 //
-//  Created by apple on 2024/3/27.
+//  Created by apple on 2024/4/7.
 //
 
 import UIKit
-import MBProgressHUD_WJExtension
-import TYAlertController
 
-class ListThreeCell: UITableViewCell {
-    
+class ListFiveCell: UITableViewCell {
+
     var dict: [String: Any] = [:]
-    
+
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 20.pix())!, textColor: .black, textAlignment: .left)
-        label1.text = "Accounting Reminder"
+        label1.text = "Last 4 Digits Of The Card"
         return label1
     }()
     
@@ -29,13 +27,7 @@ class ListThreeCell: UITableViewCell {
     
     lazy var icon: UIImageView = {
         let icon =  UIImageView()
-        icon.image = UIImage(named: "435rtef")
-        return icon
-    }()
-    
-    lazy var icon1: UIImageView = {
-        let icon =  UIImageView()
-        icon.image = UIImage(named: "threedfaf")
+        icon.image = UIImage(named: "fdasfads123")
         return icon
     }()
     
@@ -43,14 +35,12 @@ class ListThreeCell: UITableViewCell {
         let emailT = UITextField()
         emailT.textAlignment = .left
         emailT.textColor = .black
-        emailT.keyboardType = UIKeyboardType.default
+        emailT.keyboardType = .numberPad
         emailT.font = UIFont(name:Futura_Medium , size: 16.pix())
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name:Futura_Medium , size: 16.pix()) ?? UIFont.systemFont(ofSize: 16.pix(), weight: .medium),
             .foregroundColor:UIColor.black.withAlphaComponent(0.29)]
-        emailT.attributedPlaceholder = NSAttributedString(string: "Please choose", attributes: placeholderAttributes)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textFieldTapped(_ :)))
-        emailT.addGestureRecognizer(tapGesture)
+        emailT.attributedPlaceholder = NSAttributedString(string: "Please Enter", attributes: placeholderAttributes)
         return emailT
     }()
     
@@ -59,7 +49,6 @@ class ListThreeCell: UITableViewCell {
         contentView.addSubview(label1)
         contentView.addSubview(bgView)
         bgView.addSubview(icon)
-        bgView.addSubview(icon1)
         bgView.addSubview(emailT)
         label1.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(26.pix())
@@ -82,28 +71,10 @@ class ListThreeCell: UITableViewCell {
             make.right.equalTo(bgView)
             make.top.bottom.equalTo(bgView)
         }
-        icon1.snp.makeConstraints { make in
-            make.centerY.equalTo(bgView)
-            make.right.equalTo(bgView).offset(-18.pix())
-            make.size.equalTo(CGSize(width: 15.pix(), height: 7.pix()))
-        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func textFieldTapped(_ sender: UITapGestureRecognizer) {
-        guard let textField = sender.view as? UITextField else { return }
-        let timeView = TimeAlertView()
-        timeView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 500.pix());
-        let alertVC = TYAlertController(alert: timeView, preferredStyle: .actionSheet)
-        let vc = Catatan.viewController(for: textField)
-        vc?.present(alertVC!, animated: true)
-        timeView.block = { string in
-            vc?.dismiss(animated: true, completion: {
-                textField.text = string
-            })
-        }
-    }
 }

@@ -56,4 +56,7 @@ let beforeStrips = "/cata/beforeStrips"
 let womanNecessary = "/cata/womanNecessary"
 let briefFlesh = "/cata/briefFlesh"
 
-
+//编辑投资
+let localsAfter = "/cata/localsAfter"
+//添加投资
+let lingerKnapsack = "/cata/lingerKnapsack"

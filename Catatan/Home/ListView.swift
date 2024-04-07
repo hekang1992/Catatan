@@ -10,6 +10,10 @@ import MBProgressHUD_WJExtension
 
 class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
     
+    var dictBlock: (([String: Any]) -> Void)?
+    
+    var dict: [String: Any] = [:]
+    
     enum typeImageState {
         case fund1
         case card1
@@ -190,12 +194,12 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 return cell!
             }else if index == 2 {
                 let cellIdentifier = "\(typeStr ?? "")_Cell2"
-                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListThreeCell
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFiveCell
                 if cell == nil {
-                    cell = ListThreeCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell = ListFiveCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.bgView.layer.borderColor = UIColor("#FB9A01").cgColor
                     cell?.selectionStyle = .none
-                    cell?.emailT.text = model?.addressname
+                    cell?.emailT.text = model?.matched
                     cell?.icon.image = UIImage(named: "qwerty2")
                 }
                 return cell!
@@ -313,9 +317,9 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                 return cell!
             }else if index == 2 {
                 let cellIdentifier = "\(typeStr ?? "")_Cell2"
-                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTwoCell
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListFiveCell
                 if cell == nil {
-                    cell = ListTwoCell(style: .default, reuseIdentifier: cellIdentifier)
+                    cell = ListFiveCell(style: .default, reuseIdentifier: cellIdentifier)
                     cell?.selectionStyle = .none
                     cell?.label1.text = "Last 4 Digits Of The Card"
                     cell?.emailT.text = model?.matched
@@ -448,7 +452,7 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
             }
         }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if currentState == .fund1 || currentState == .card2 || currentState == .cash1 || currentState == .car1 {
             return 4
@@ -505,7 +509,38 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     @objc func conFirmClick() {
-        MBProgressHUD.wj_showPlainText("confirm", view: nil)
+        let numberOfSections = tableView.numberOfSections
+        for section in 0..<numberOfSections {
+            let numberOfRows = tableView.numberOfRows(inSection: section)
+            for row in 0..<numberOfRows {
+                let indexPath = IndexPath(row: row, section: section)
+                if let cell = tableView.cellForRow(at: indexPath) as? ListOneCell {
+                    let cellValue = cell.emailT.text
+                    dict["chests"] = cellValue
+                    print("cellValue1>>>>>>\(cellValue ?? "")")
+                }
+                if let cell = tableView.cellForRow(at: indexPath) as? ListTwoCell {
+                    let cellValue = cell.emailT.text
+                    dict["addressname"] = cellValue
+                    print("cellValue2>>>>>>\(cellValue ?? "")")
+                }
+                if let cell = tableView.cellForRow(at: indexPath) as? ListThreeCell {
+                    let cellValue = cell.emailT.text
+                    dict["distributes"] = cellValue
+                    print("cellValue3>>>>>>\(cellValue ?? "")")
+                }
+                if let cell = tableView.cellForRow(at: indexPath) as? ListFourCell {
+                    let cellValue = cell.textView.text
+                    dict["knobby"] = cellValue
+                    print("cellValue5>>>>>>\(cellValue ?? "")")
+                }
+                if let cell = tableView.cellForRow(at: indexPath) as? ListFiveCell {
+                    let cellValue = cell.emailT.text
+                    dict["matched"] = cellValue
+                    print("cellValue4>>>>>>\(cellValue ?? "")")
+                }
+            }
+        }
+        self.dictBlock!(dict)
     }
-    
 }

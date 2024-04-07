@@ -8,6 +8,8 @@
 import UIKit
 
 class ListTwoCell: UITableViewCell {
+    
+    var dict: [String: Any] = [:]
 
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 20.pix())!, textColor: .black, textAlignment: .left)
@@ -39,6 +41,8 @@ class ListTwoCell: UITableViewCell {
             .font: UIFont(name:Futura_Medium , size: 16.pix()) ?? UIFont.systemFont(ofSize: 16.pix(), weight: .medium),
             .foregroundColor:UIColor.black.withAlphaComponent(0.29)]
         emailT.attributedPlaceholder = NSAttributedString(string: "Please Enter", attributes: placeholderAttributes)
+//        emailT.attributedPlaceholder = NSAttributedString(string: "Please Enter", attributes: placeholderAttributes)
+//        emailT.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return emailT
     }()
     
@@ -74,5 +78,5 @@ class ListTwoCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class ListFourCell: UITableViewCell {
     
+    var dict: [String: Any] = [:]
+    
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont(name: Futura_Bold, size: 20.pix())!, textColor: .black, textAlignment: .left)
         label1.text = "Remark"

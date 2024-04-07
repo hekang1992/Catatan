@@ -12,6 +12,7 @@
 		181877282B99B02700A8C2AA /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181877272B99B02700A8C2AA /* InfoCell.swift */; };
 		181A2E952BC28321008F6C9F /* TimeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181A2E942BC28321008F6C9F /* TimeAlertView.swift */; };
 		181A2E972BC286FE008F6C9F /* TimeAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181A2E962BC286FE008F6C9F /* TimeAlertCell.swift */; };
+		181A2E992BC29DE9008F6C9F /* ListFiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181A2E982BC29DE9008F6C9F /* ListFiveCell.swift */; };
 		181E57C22B9EDDDC002417B3 /* ContractViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E57C12B9EDDDC002417B3 /* ContractViewCell.swift */; };
 		181E57C42B9F1299002417B3 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E57C32B9F1299002417B3 /* ContactsManager.swift */; };
 		1822945A2B9028FC0045C533 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182294592B9028FC0045C533 /* FaceViewController.swift */; };
@@ -126,6 +127,7 @@
 		181877272B99B02700A8C2AA /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		181A2E942BC28321008F6C9F /* TimeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAlertView.swift; sourceTree = "<group>"; };
 		181A2E962BC286FE008F6C9F /* TimeAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAlertCell.swift; sourceTree = "<group>"; };
+		181A2E982BC29DE9008F6C9F /* ListFiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFiveCell.swift; sourceTree = "<group>"; };
 		181E57C12B9EDDDC002417B3 /* ContractViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractViewCell.swift; sourceTree = "<group>"; };
 		181E57C32B9F1299002417B3 /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		182294592B9028FC0045C533 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				184D874C2BB4287700773F45 /* ListTwoCell.swift */,
 				184D874E2BB42BF800773F45 /* ListThreeCell.swift */,
 				184D87502BB42E4600773F45 /* ListFourCell.swift */,
+				181A2E982BC29DE9008F6C9F /* ListFiveCell.swift */,
 				18A777512BA92FE200586168 /* OAViewCell.swift */,
 				18762BE62BB514EA005DE29E /* TipsView.swift */,
 				18762BEA2BB5475F005DE29E /* SetView.swift */,
@@ -948,6 +951,7 @@
 				1822946A2B906E120045C533 /* PopImageView.swift in Sources */,
 				184D87512BB42E4600773F45 /* ListFourCell.swift in Sources */,
 				184D873F2BB410C600773F45 /* ListFakeViewController.swift in Sources */,
+				181A2E992BC29DE9008F6C9F /* ListFiveCell.swift in Sources */,
 				1835E0C02B90880800C20E0E /* BankViewController.swift in Sources */,
 				184760F72B8EE96D0048E257 /* DeviceInfo.swift in Sources */,
 				1801FAE62B9AB895002D9F81 /* PopCityView.swift in Sources */,
