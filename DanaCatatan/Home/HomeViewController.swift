@@ -168,7 +168,6 @@ class HomeViewController: BaseViewController {
                 if url.contains("app.dcatan/terrainShoot") {
                     self?.getProductDetailInfo(bidders,url)
                 }else{
-                    //跳转webview
                     self?.pushWebVC(url)
                 }
             }

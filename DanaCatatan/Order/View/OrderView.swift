@@ -7,9 +7,12 @@
 
 import UIKit
 
+typealias blockA = (_ model: IncomesModel) -> Void
 class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     var array: [IncomesModel] = []
+    
+    var block: blockA?
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
@@ -66,7 +69,8 @@ class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let model = array[indexPath.row]
+        self.block!(model)
     }
 
 }

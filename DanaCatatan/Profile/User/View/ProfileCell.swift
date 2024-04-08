@@ -19,8 +19,6 @@ class ProfileCell: UITableViewCell {
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
         iconImageView.image = UIImage(named: "iconabc")
-        iconImageView.layer.cornerRadius = 13.pix()
-        iconImageView.layer.masksToBounds = true
         return iconImageView
     }()
     
@@ -55,7 +53,7 @@ class ProfileCell: UITableViewCell {
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalTo(bgView)
             make.left.equalTo(bgView).offset(12)
-            make.size.equalTo(CGSizeMake(26, 26))
+            make.size.equalTo(CGSizeMake(26.pix(), 26.pix()))
         }
         nameLable.snp.makeConstraints { make in
             make.left.equalTo(iconImageView.snp.right).offset(10)

@@ -41,6 +41,11 @@ class HoveredModel: HandyJSON {
     var checked: CheckedModel?
     var craved: [CravedModel]?
     var released: ReleasedModel?
+    var monthss: [String]?//月份
+    var investment: [Double]?
+    var liabilities: [Double]?
+    var current: [Double]?
+    var fixed: [Double]?
 }
 
 class ReleasedModel: HandyJSON {

@@ -15,6 +15,8 @@ class JDViewController: BaseViewController {
     var picture: String = ""
     
     var hardworking: String = ""
+    
+    var model: HoveredModel?
 
     lazy var jdView: JDView = {
         let jdView = JDView()
@@ -53,6 +55,7 @@ class JDViewController: BaseViewController {
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
+                self?.model = model
                 let picture = model?.circumstance?.picture
                 let hardworking = model?.blouses?.hardworking
                 self?.stateInfo(picture ?? "")
@@ -95,7 +98,14 @@ class JDViewController: BaseViewController {
             let bankVc = BankViewController()
             bankVc.bidders = bidders
             getVc(bankVc)
-        }else{}
+        }else{//h5
+            if self.picture.isEmpty{
+                //通过orderid去获取url
+                if let modelq = model {
+                    self.orderIDUrl(hardworking,modelq.blouses?.chests ?? "",modelq.blouses?.signify ?? "",modelq.blouses?.grievous ?? "")
+                }
+            }
+        }
     }
     
     /*

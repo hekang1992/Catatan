@@ -183,13 +183,16 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
     
     func popToSpecificViewController() {
         if let navigationController = self.navigationController {
+            var viewControllerFound = false
             for viewController in navigationController.viewControllers {
                 if let targetViewController = viewController as? JDViewController {
                     navigationController.popToViewController(targetViewController, animated: true)
+                    viewControllerFound = true
                     break
-                }else {
-                    navigationController.popViewController(animated: true)
                 }
+            }
+            if !viewControllerFound {
+                navigationController.popViewController(animated: true)
             }
         }
     }

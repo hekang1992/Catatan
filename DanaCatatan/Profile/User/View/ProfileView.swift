@@ -14,6 +14,8 @@ class ProfileView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     let titleArray = ["Dalam Proses Pengajuan","Menunggu Pembayaran Kembali","Sudah Dibayar Kembali","Mengirim email","Keluar Akun","Pembatalan Akun"]
     
+    let titleArray1 = ["user123","user124","user125","user126","user127","user128"]
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
                                     style: .grouped)
@@ -47,6 +49,7 @@ class ProfileView: UIView,UITableViewDelegate,UITableViewDataSource {
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         cell.nameLable.text = titleArray[indexPath.row]
+        cell.iconImageView.image = UIImage(named: titleArray1[indexPath.row])
         return cell
     }
     

@@ -40,6 +40,22 @@ class OrderViewController: BaseViewController {
         if let type = typeStr {
             getOrderListInfo(type)
         }
+        self.orderView.block = { [weak self] model in
+            if let josiah: String = model.josiah {
+                if josiah.contains("app.dcatan/terrainShoot") {
+                    let splitedArray = josiah.components(separatedBy: "bidders=")
+                    self?.getProductDetailInfo(splitedArray.last ?? "",josiah)
+                }else{
+                    self?.pushWebVC(josiah)
+                }
+            }
+        }
+    }
+    
+    @objc func loadNewData() {
+        if let type = typeStr {
+            getOrderListInfo(type)
+        }
     }
     
     func getOrderListInfo(_ type: String) {
@@ -64,12 +80,6 @@ class OrderViewController: BaseViewController {
             self?.removeHudView()
             self?.addEmptyView()
             self?.orderView.tableView.mj_header?.endRefreshing()
-        }
-    }
-    
-    @objc func loadNewData() {
-        if let type = typeStr {
-            getOrderListInfo(type)
         }
     }
     

@@ -9,6 +9,7 @@ import UIKit
 import TYAlertController
 import MBProgressHUD_WJExtension
 import DGCharts
+import HandyJSON
 
 class SetViewController: BaseViewController {
     
@@ -22,6 +23,8 @@ class SetViewController: BaseViewController {
         let setView = SetView()
         return setView
     }()
+    
+    var model: HoveredModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +78,7 @@ class SetViewController: BaseViewController {
                 chartView.block = {
                     self?.dismiss(animated: true)
                 }
-                self?.setData(chartView.lineChartView)
+                self?.setChartData(chartView.lineChartView)
             }else{
                 self?.pushLogin()
             }
@@ -96,7 +99,11 @@ class SetViewController: BaseViewController {
         NetApiWork.shared.requestAPI(params: [:], pageUrl: belowBelow, method: .put) { [weak self] baseModel in
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
-                
+                let dict = baseModel.hovered
+                let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
+                if let model = inModel {
+                    self?.model = model
+                }
             }
             self?.removeHudView()
         } errorBlock: { [weak self] error in
@@ -197,23 +204,34 @@ class SetViewController: BaseViewController {
         present(nav, animated: true, completion: nil)
     }
     
-    func setData(_ lineChartView: LineChartView) {
+    func setChartData(_ lineChartView: LineChartView) {
+        
+        var array1 = model?.investment
+        array1?.insert(0, at: 0)
+        var array2 = model?.liabilities
+        array2?.insert(0, at: 0)
+        var array3 = model?.current
+        array3?.insert(0, at: 0)
+        var array4 = model?.fixed
+        array4?.insert(0, at: 0)
+        
+        let dataPoints1 = array1
+        let dataPoints2 = array2
+        let dataPoints3 = array3
+        let dataPoints4 = array4
+        
+        
         var entries1: [ChartDataEntry] = []
         var entries2: [ChartDataEntry] = []
         var entries3: [ChartDataEntry] = []
         var entries4: [ChartDataEntry] = []
         
-        let dataPoints1: [CGFloat] = [0, 100, 1200, 90, 150, 110, 130]
-        let dataPoints2: [CGFloat] = [0, 80, 110, 100, 14000, 120, 130]
-        let dataPoints3: [CGFloat] = [0, 90, 100, 110, 130, 120, 140]
-        let dataPoints4: [CGFloat] = [0, 1100, 130, 100, 1020, 140, 150]
-        
-        for i in 0..<dataPoints1.count {
+        for i in 0..<(dataPoints1?.count ?? 0) {
             if i > 0 {
-                entries1.append(ChartDataEntry(x: Double(i), y: Double(dataPoints1[i])))
-                entries2.append(ChartDataEntry(x: Double(i), y: Double(dataPoints2[i])))
-                entries3.append(ChartDataEntry(x: Double(i), y: Double(dataPoints3[i])))
-                entries4.append(ChartDataEntry(x: Double(i), y: Double(dataPoints4[i])))
+                entries1.append(ChartDataEntry(x: Double(i), y: Double(dataPoints1?[i] ?? 0)))
+                entries2.append(ChartDataEntry(x: Double(i), y: Double(dataPoints2?[i] ?? 0)))
+                entries3.append(ChartDataEntry(x: Double(i), y: Double(dataPoints3?[i] ?? 0)))
+                entries4.append(ChartDataEntry(x: Double(i), y: Double(dataPoints4?[i] ?? 0)))
             }
         }
         
@@ -222,42 +240,43 @@ class SetViewController: BaseViewController {
         let dataSet3 = LineChartDataSet(entries: entries3, label: "")
         let dataSet4 = LineChartDataSet(entries: entries4, label: "")
         
-        dataSet1.setColor(UIColor.blue)
-        dataSet1.setCircleColor(UIColor.blue)
+        dataSet1.setColor(UIColor("#188DFF"))
+        dataSet1.setCircleColor(UIColor("#188DFF"))
         dataSet1.lineWidth = 2.0
         dataSet1.circleRadius = 3.0
         dataSet1.fillAlpha = 65/255
-        dataSet1.fillColor = UIColor.blue
+        dataSet1.fillColor = UIColor("#188DFF")
         dataSet1.highlightColor = UIColor.white
         
-        dataSet2.setColor(UIColor.red)
-        dataSet2.setCircleColor(UIColor.red)
+        dataSet2.setColor(UIColor("#FB9A01"))
+        dataSet2.setCircleColor(UIColor("#FB9A01"))
         dataSet2.lineWidth = 2.0
         dataSet2.circleRadius = 3.0
         dataSet2.fillAlpha = 65/255
-        dataSet2.fillColor = UIColor.red
+        dataSet2.fillColor = UIColor("#FB9A01")
         dataSet2.highlightColor = UIColor.white
         
-        dataSet3.setColor(UIColor.green)
-        dataSet3.setCircleColor(UIColor.green)
+        dataSet3.setColor(UIColor("#B3EE4B"))
+        dataSet3.setCircleColor(UIColor("#B3EE4B"))
         dataSet3.lineWidth = 2.0
         dataSet3.circleRadius = 3.0
         dataSet3.fillAlpha = 65/255
-        dataSet3.fillColor = UIColor.green
+        dataSet3.fillColor = UIColor("#B3EE4B")
         dataSet3.highlightColor = UIColor.white
         
-        dataSet4.setColor(UIColor.purple)
-        dataSet4.setCircleColor(UIColor.purple)
+        dataSet4.setColor(UIColor("#364880"))
+        dataSet4.setCircleColor(UIColor("#364880"))
         dataSet4.lineWidth = 2.0
         dataSet4.circleRadius = 3.0
         dataSet4.fillAlpha = 65/255
-        dataSet4.fillColor = UIColor.purple
+        dataSet4.fillColor = UIColor("#364880")
         dataSet4.highlightColor = UIColor.white
-        
         
         let chartDataSet = LineChartData(dataSets: [dataSet1, dataSet2, dataSet3, dataSet4])
         
-        let customXLabels = ["0", "12", "11", "1", "2", "3", "4"]
+        var array = model?.monthss
+        array?.insert("0", at: 0)
+        guard let customXLabels = array else { return }
         let formatter = IndexAxisValueFormatter(values: customXLabels)
         lineChartView.xAxis.valueFormatter = formatter
         
