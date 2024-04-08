@@ -60,3 +60,5 @@ let briefFlesh = "/cata/briefFlesh"
 let localsAfter = "/cata/localsAfter"
 //添加投资
 let lingerKnapsack = "/cata/lingerKnapsack"
+//折线图
+let belowBelow = "/cata/belowBelow"

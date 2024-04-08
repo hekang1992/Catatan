@@ -40,11 +40,12 @@ class NetApiWork: NSObject {
                 }
                 let jsonStr = NSString(data:response.data! ,encoding: String.Encoding.utf8.rawValue)
                 let model = JSONDeserializer<BaseModel>.deserializeFrom(json: jsonStr as String?)
-                if model?.awareness == -2 {
-                    complete(model!)
+                guard let model = model else { return }
+                if model.awareness == -2 {
+                    complete(model)
                     self?.showLoginVc()
                 }else {
-                    complete(model!)
+                    complete(model)
                 }
                 break
             case .failure(let failure):
@@ -90,7 +91,8 @@ class NetApiWork: NSObject {
                 print("success>>image>>\(success)")
                 let jsonStr = NSString(data:response.data! ,encoding: String.Encoding.utf8.rawValue)
                 let model = JSONDeserializer<BaseModel>.deserializeFrom(json: jsonStr as String?)
-                complete(model!)
+                guard let model = model else { return }
+                complete(model)
                 break
             case .failure(let error):
                 errorBlock(error)

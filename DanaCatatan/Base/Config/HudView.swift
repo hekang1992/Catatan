@@ -46,7 +46,7 @@ class HudView: UIView {
         
         hudView.snp.makeConstraints { make in
             make.center.equalTo(self)
-            make.size.equalTo(CGSize(width: 200.pix(), height: 200.pix()))
+            make.size.equalTo(CGSize(width: 120.pix(), height: 120.pix()))
         }
     }
 }

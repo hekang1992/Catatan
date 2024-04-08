@@ -520,6 +520,8 @@ class ListView: UIView,UITableViewDelegate,UITableViewDataSource {
                     if cellValue.contains(",") {
                         let stringWithoutComma = cellValue.replacingOccurrences(of: ",", with: "")
                         money = stringWithoutComma
+                    }else{
+                        money = cellValue
                     }
                     dict["chests"] = money
                     print("cellValue1>>>>>>\(cellValue)")

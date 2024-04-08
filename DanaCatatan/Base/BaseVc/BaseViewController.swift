@@ -76,6 +76,9 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
     func addHudView() {
         if let keyWindow = UIApplication.shared.keyWindow {
             keyWindow.addSubview(hud)
+            delay(20) { [weak self] in
+                self?.hud.removeFromSuperview()
+            }
         }
     }
     
