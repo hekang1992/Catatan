@@ -75,6 +75,7 @@ class HomeViewController: BaseViewController {
     }
     
     func upLocationInfo(_ locationModel: LocationModel) {
+        addHudView()
         let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent ?? 0.0,"carpenter":locationModel.carpenter ?? 0.0] as [String : Any]
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: mastersThough, method: .post) { [weak self] model in
             let awareness = model.awareness
@@ -82,8 +83,10 @@ class HomeViewController: BaseViewController {
                 print("location>>>>>>success")
             }
             self?.baseDictToBase64()
+            self?.removeHudView()
         } errorBlock: { [weak self] error in
             self?.baseDictToBase64()
+            self?.removeHudView()
         }
     }
     

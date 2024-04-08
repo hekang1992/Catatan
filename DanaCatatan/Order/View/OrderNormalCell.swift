@@ -38,10 +38,10 @@ class OrderNormalCell: UITableViewCell {
     
     lazy var label2: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont.systemFont(ofSize: 12.pix(), weight: .medium), textColor: .white, textAlignment: .center)
-        label1.text = "Pembayaran"
         label1.backgroundColor = UIColor("#FF9346")
         label1.layer.cornerRadius = 11.pix()
         label1.layer.masksToBounds = true
+        label1.sizeToFit()
         return label1
     }()
     
@@ -132,7 +132,6 @@ class OrderNormalCell: UITableViewCell {
         label4.snp.makeConstraints { make in
             make.top.equalTo(lineView.snp.bottom).offset(9.pix())
             make.height.equalTo(20.pix())
-            make.width.equalTo(82.pix())
             make.right.equalTo(whitView).offset(-40.pix())
         }
         label5.snp.makeConstraints { make in
@@ -153,6 +152,10 @@ class OrderNormalCell: UITableViewCell {
             make.right.equalTo(bgView)
             make.height.equalTo(29.pix())
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     required init?(coder: NSCoder) {

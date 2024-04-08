@@ -17,7 +17,7 @@ class JDViewController: BaseViewController {
     var hardworking: String = ""
     
     var model: HoveredModel?
-
+    
     lazy var jdView: JDView = {
         let jdView = JDView()
         return jdView
@@ -25,7 +25,7 @@ class JDViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(jdView)
         jdView.snp.makeConstraints { make in
@@ -35,7 +35,7 @@ class JDViewController: BaseViewController {
         jdView.block = {[weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-
+        
         jdView.block1 = { [weak self] in
             self?.nextVc()
         }
@@ -102,20 +102,20 @@ class JDViewController: BaseViewController {
             if self.picture.isEmpty{
                 //通过orderid去获取url
                 if let modelq = model {
-                    self.orderIDUrl(hardworking,modelq.blouses?.chests ?? "",modelq.blouses?.signify ?? "",modelq.blouses?.grievous ?? "")
+                    self.orderIDUrl(hardworking, modelq.blouses?.chests ?? "", modelq.blouses?.signify ?? "", modelq.blouses?.grievous ?? "")
                 }
             }
         }
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

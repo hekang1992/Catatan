@@ -7,10 +7,10 @@
 
 import UIKit
 import WebKit
+import MBProgressHUD_WJExtension
 
-class CWebViewController: BaseViewController, WKNavigationDelegate {
-    
-    // 懒加载 WKWebView
+class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessageHandler {
+
     lazy var webView: WKWebView = {
         let configuration = WKWebViewConfiguration()
         let webView = WKWebView(frame: .zero, configuration: configuration)
@@ -48,6 +48,7 @@ class CWebViewController: BaseViewController, WKNavigationDelegate {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WKWebView.estimatedProgress) {
+            
         } else if keyPath == #keyPath(WKWebView.title) {
             if let newTitle = change?[.newKey] as? String {
                 DispatchQueue.main.async { [weak self] in
@@ -62,6 +63,48 @@ class CWebViewController: BaseViewController, WKNavigationDelegate {
     deinit {
         webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
         webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.title))
+    }
+    
+    //js
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        
+    }
+    
+    //web
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        addHudView()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        removeHudView()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: any Error) {
+        removeHudView()
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard let url = navigationAction.request.url else {
+            decisionHandler(.allow)
+            return
+        }
+        let urlStr = url.absoluteString
+        if urlStr.hasPrefix("mailto:") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        } else if urlStr.hasPrefix("whatsapp:") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                MBProgressHUD.wj_showPlainText("Not installed WhatsApp", view: nil)
+            }
+        }
+        if urlStr.hasPrefix("mailto:") || urlStr.hasPrefix("whatsapp:") {
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
     }
     
     /*

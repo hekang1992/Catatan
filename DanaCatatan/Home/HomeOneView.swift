@@ -20,8 +20,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
-        iconImageView.backgroundColor = .white
-        iconImageView.layer.cornerRadius = 8.pix()
+        iconImageView.image = UIImage(named: "qweerc")
         return iconImageView
     }()
     
@@ -93,7 +92,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
         cell.model = model
         self.label.text = model?.plumb
         let imageUrl = URL(string: model?.auctions ?? "")
-        self.iconImageView.kf.setImage(with: imageUrl)
+        self.iconImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "qweerc"))
         cell.block = { [weak self] in
             self?.blcok!(indexPath.row)
         }
