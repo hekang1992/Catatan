@@ -21,6 +21,8 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
         iconImageView.image = UIImage(named: "qweerc")
+        iconImageView.layer.cornerRadius = 8.pix()
+        iconImageView.layer.masksToBounds = true
         return iconImageView
     }()
     

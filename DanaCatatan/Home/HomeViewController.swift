@@ -56,7 +56,7 @@ class HomeViewController: BaseViewController {
             self?.applyClick(index)
         }
         homeTwoView.block = { [weak self] productID in
-            self?.getProductDetailInfo(productID, "")
+            self?.applyClick(Int(productID) ?? 0)
         }
         homeTwoView.block1 = { [weak self] productUrl in
             self?.pushWebVC(productUrl)
@@ -206,7 +206,7 @@ class HomeViewController: BaseViewController {
                 let url = applyModel?.occurred
                 guard let url = url else { return }
                 print("url>>跳转>>\(url)")
-                if url.contains("app.dcatan/terrainShoot") {
+                if url.contains(SCHEME_URL) {
                     self?.getProductDetailInfo(bidders,url)
                 }else{
                     self?.pushWebVC(url)

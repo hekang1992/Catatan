@@ -179,6 +179,16 @@ class ProductProCell: UITableViewCell {
             self.label2.text = model.managers ?? ""
             self.label3.text = model.tedious ?? ""
             self.label5.text = model.managers ?? ""
+            let typeStr = model.masters
+            if typeStr == "2" {//
+                self.label2.backgroundColor = UIColor("#FF9346")
+                self.bgView.backgroundColor = UIColor("#FF9346")
+            }else if typeStr == "5" {//预期
+                self.label2.backgroundColor = UIColor("#FF2F0D")
+                self.bgView.backgroundColor = UIColor("#FF2F0D")
+            }else {
+                
+            }
         }
     }
 }

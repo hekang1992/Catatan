@@ -119,9 +119,9 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
         let model = largeDataModel?[indexPath.row]
         let typeStr = model?.masters
         if typeStr == "1" || typeStr == "3" {
-            return 137.pix()
+            return 140.pix()
         }else {
-            return 161.pix()
+            return 160.pix()
         }
     }
     

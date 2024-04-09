@@ -134,6 +134,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 let picture = model?.circumstance?.picture
                 let hardworking = model?.blouses?.hardworking
+                let occurred: String = model?.occurred ?? ""
                 if picture != nil {
                     if url.isEmpty {
                         self?.nextPushVc(picture ?? "",hardworking ?? "",bidders)
@@ -142,9 +143,14 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
                     }
                 }else {
                     //通过orderid去获取url
-                    if let modelq = model {
-                        self?.orderIDUrl(hardworking ?? "",modelq.blouses?.chests ?? "",modelq.blouses?.signify ?? "",modelq.blouses?.grievous ?? "")
+                    if occurred.contains("http://") || occurred.contains("https://") {
+                        self?.pushWebVC(occurred)
+                    }else {
+                        if let modelq = model {
+                            self?.orderIDUrl(hardworking ?? "",modelq.blouses?.chests ?? "",modelq.blouses?.signify ?? "",modelq.blouses?.grievous ?? "")
+                        }
                     }
+                    
                 }
             }
             self?.removeHudView()
