@@ -35,14 +35,12 @@ class ContractViewCell: UITableViewCell {
     lazy var btn1: UIButton = {
         let btn = UIButton(type: .custom)
         btn.addTarget(self, action: #selector(click1), for: .touchUpInside)
-//        btn.backgroundColor = .random()
         return btn
     }()
     
     lazy var btn2: UIButton = {
         let btn = UIButton(type: .custom)
         btn.addTarget(self, action: #selector(click2), for: .touchUpInside)
-//        btn.backgroundColor = .random()
         return btn
     }()
     

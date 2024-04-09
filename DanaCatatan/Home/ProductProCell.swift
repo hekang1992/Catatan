@@ -25,7 +25,6 @@ class ProductProCell: UITableViewCell {
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
-        iconImageView.backgroundColor = .random()
         return iconImageView
     }()
     

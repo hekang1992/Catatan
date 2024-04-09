@@ -26,7 +26,6 @@ class OrderNormalCell: UITableViewCell {
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
-        iconImageView.backgroundColor = .random()
         return iconImageView
     }()
     
