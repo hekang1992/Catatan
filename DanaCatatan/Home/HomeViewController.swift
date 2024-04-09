@@ -84,7 +84,9 @@ class HomeViewController: BaseViewController {
     }
     
     func pushFuDaiVc() {
-        
+        let fudaiVc = FuDaiViewController()
+        fudaiVc.hideTabBar()
+        self.navigationController?.pushViewController(fudaiVc, animated: true)
     }
     
     func locationInfo() {

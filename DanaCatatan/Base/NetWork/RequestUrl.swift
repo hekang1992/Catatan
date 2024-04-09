@@ -38,6 +38,7 @@ let ricketySeason = "/cata/ricketySeason"
 //ORDER
 let districtUnder = "/cata/districtUnder"
 let scoopCould = "/cata/scoopCould"
+let stretchHuman = "/cata/stretchHuman"
 
 //UPLOAD
 let mastersThough = "/cata/mastersThough"

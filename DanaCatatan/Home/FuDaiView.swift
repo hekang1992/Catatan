@@ -27,7 +27,6 @@ class FuDaiView: UIView {
     lazy var label: UILabel = {
         let label = UILabel.createLabel(font: UIFont.systemFont(ofSize: 12.pix(), weight: .regular), textColor: UIColor("#000000"), textAlignment: .left)
         label.numberOfLines = 0
-//        label.text = "Pengguna tersayang, tolong\nselesaikan pembayaran sebelum\ntanggal untuk menghindari mengalami biaya tambahan."
         return label
     }()
     
@@ -35,7 +34,6 @@ class FuDaiView: UIView {
         let label1 = UILabel.createLabel(font: UIFont.systemFont(ofSize: 12.pix(), weight: .regular), textColor: UIColor("#000000"), textAlignment: .center)
         label1.layer.cornerRadius = 7.pix()
         label1.layer.masksToBounds = true
-//        label1.text = "Pembayaran"
         label1.backgroundColor = UIColor("#BBD598")
         return label1
     }()

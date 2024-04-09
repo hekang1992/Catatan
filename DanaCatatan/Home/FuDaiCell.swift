@@ -1,5 +1,5 @@
 //
-//  ProductCell.swift
+//  FuDaiCell.swift
 //  DanaCatatan
 //
 //  Created by apple on 2024/4/9.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ProductCell: UITableViewCell {
-    
+class FuDaiCell: UITableViewCell {
+
     lazy var whitView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .white
@@ -142,14 +142,14 @@ class ProductCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var model: DrawingModel? {
+    var model: IncomesModel? {
         didSet {
             guard let model = model else { return }
             let imageUrl = URL(string: model.auctions ?? "")
             self.iconImageView.kf.setImage(with: imageUrl)
             self.label1.text = model.plumb ?? ""
             self.label2.text = model.managers ?? ""
-            self.label3.text = model.tedious ?? ""
+            self.label3.text = model.dreary ?? ""
             self.label5.text = model.managers ?? ""
             if model.masters == "3" {
                 self.label2.backgroundColor = UIColor("#D9D9D9")
@@ -158,5 +158,4 @@ class ProductCell: UITableViewCell {
             }
         }
     }
-    
 }

@@ -177,6 +177,8 @@ class IncomesModel: HandyJSON {
     var knobby: String?
     var matched: String?
     var distributes: String?
+    var dreary: String?
+    var tradition: String?
     
     var bandanas: [BandanasModel]?
     var drawing: [DrawingModel]?

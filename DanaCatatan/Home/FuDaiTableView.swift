@@ -1,17 +1,17 @@
 //
-//  OrderView.swift
-//  Catatan
+//  FuDaiTableView.swift
+//  DanaCatatan
 //
-//  Created by apple on 2024/3/13.
+//  Created by apple on 2024/4/9.
 //
 
 import UIKit
 
-class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
-    
+class FuDaiTableView: UIView,UITableViewDelegate,UITableViewDataSource {
+
     var array: [IncomesModel] = []
     
-    var block: ((_ model: IncomesModel) -> Void)?
+    var block: ((String) -> Void)?
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero,
@@ -41,8 +41,8 @@ class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let vinViewCellID = "VinViewCellID"
-        let cell = OrderNormalCell(style: .subtitle, reuseIdentifier: vinViewCellID)
+        let vinViewCellID = "VinViewCellID_\(indexPath.row)"
+        let cell = FuDaiCell(style: .subtitle, reuseIdentifier: vinViewCellID)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         let model = array[indexPath.row]
@@ -59,7 +59,7 @@ class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40.pix()
+        return 0.pix()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -69,7 +69,7 @@ class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = array[indexPath.row]
-        self.block!(model)
+        self.block!(model.tradition ?? "")
     }
 
 }
