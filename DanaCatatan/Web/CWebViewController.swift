@@ -46,7 +46,12 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
         // Do any additional setup after loading the view.
         addNavView()
         navView.block = { [weak self] in
-            self?.popToSpecificViewController()
+            let isGo = self?.webView.canGoBack
+            if isGo ?? true {
+                self?.webView.goBack()
+            }else {
+                self?.popToSpecificViewController()
+            }
         }
         view.insertSubview(webView, belowSubview: navView)
         webView.snp.makeConstraints { make in
@@ -150,22 +155,22 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
         guard arguments.count >= 2 else { return }
         let textColor = arguments[0]
         let navColor = arguments[1]
-        
     }
     
     func uploadRiskLoan(_ arguments: [String]) {
         guard arguments.count >= 2 else { return }
         let productId = arguments[0]
         let startTime = arguments[1]
-        let endTime = Date().timeIntervalSince1970
+        self.maidian(productID: productId, startTime: startTime, type: "10", orderID: "")
     }
     
     func openUrl(_ arguments: [String]) {
         guard let path = arguments.first else { return }
         if path.contains(SCHEME_URL) {
-//            getProductDetailInfo(, <#T##url: String##String#>)
+            let splitedArray = path.components(separatedBy: "bidders=")
+            self.getProductDetailInfo(splitedArray.last ?? "",path)
         }else{
-            
+            self.pushWebVC(path)
         }
     }
     

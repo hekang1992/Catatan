@@ -25,7 +25,14 @@ class HomeViewController: BaseViewController {
     
     lazy var homeOneView: HomeOneView = {
         let homeOneView = HomeOneView()
+        homeOneView.isHidden = true
         return homeOneView
+    }()
+    
+    lazy var homeTwoView: HomeTwoView = {
+        let homeTwoView = HomeTwoView()
+        homeTwoView.isHidden = true
+        return homeTwoView
     }()
     
     override func viewDidLoad() {
@@ -33,7 +40,11 @@ class HomeViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
         view.addSubview(homeOneView)
+        view.addSubview(homeTwoView)
         homeOneView.snp.makeConstraints { make in
+            make.edges.equalTo(view).inset(UIEdgeInsets(top: 0, left: 0, bottom: TabBarHeight, right: 0))
+        }
+        homeTwoView.snp.makeConstraints { make in
             make.edges.equalTo(view).inset(UIEdgeInsets(top: 0, left: 0, bottom: TabBarHeight, right: 0))
         }
         if IS_LOGIN {
@@ -135,13 +146,18 @@ class HomeViewController: BaseViewController {
             if awareness == 0 || awareness == 00 {
                 let dict = model.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
-                if let inModel = inModel {
-                    if inModel.lives == "nn" {
-                        self?.largeDataModel = inModel.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
+                if let model1 = inModel {
+                    if model1.lives == "yy" {//首页2
+                        self?.homeOneView.isHidden = true
+                        self?.homeTwoView.isHidden = false
+                        
+                    }else {
+                        self?.homeOneView.isHidden = false
+                        self?.homeTwoView.isHidden = true
+                        self?.largeDataModel = model1.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
                         if let modelArray = self?.largeDataModel {
                             self?.homeOneView.largeDataModel = modelArray
                         }
-                        
                     }
                 }
                 self?.homeOneView.tableView.reloadData()
