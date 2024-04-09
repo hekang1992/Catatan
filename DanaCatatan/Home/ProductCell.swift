@@ -89,8 +89,8 @@ class ProductCell: UITableViewCell {
         whitView.snp.makeConstraints { make in
             make.centerX.equalTo(contentView)
             make.left.equalTo(contentView).offset(16.pix())
-            make.bottom.equalTo(contentView)
-            make.height.equalTo(117.pix())
+            make.top.equalTo(contentView)
+            make.height.equalTo(120.pix())
         }
         iconImageView.snp.makeConstraints { make in
             make.top.equalTo(whitView).offset(15.pix())

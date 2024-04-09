@@ -61,11 +61,14 @@ class HomeViewController: BaseViewController {
         homeTwoView.block1 = { [weak self] productUrl in
             self?.pushWebVC(productUrl)
         }
+        homeTwoView.block2 = { [weak self] str in
+            self?.pushFuDaiVc()
+        }
         homeOneView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
         homeOneView.tableView.mj_header?.isAutomaticallyChangeAlpha = true
         homeTwoView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
         homeTwoView.tableView.mj_header?.isAutomaticallyChangeAlpha = true
-        obs.debounce(.milliseconds(2000), scheduler: MainScheduler.asyncInstance)
+        obs.debounce(.milliseconds(3000), scheduler: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] model in
                 if let model = model {
                     self?.upLocationInfo(model)
@@ -78,6 +81,10 @@ class HomeViewController: BaseViewController {
         getHomeData()
         self.showTabBar()
         startTimeStr = String(Int(Date().timeIntervalSince1970))
+    }
+    
+    func pushFuDaiVc() {
+        
     }
     
     func locationInfo() {
@@ -96,7 +103,6 @@ class HomeViewController: BaseViewController {
     }
     
     func upLocationInfo(_ locationModel: LocationModel) {
-        addHudView()
         let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent ?? 0.0,"carpenter":locationModel.carpenter ?? 0.0] as [String : Any]
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: mastersThough, method: .post) { [weak self] model in
             let awareness = model.awareness
@@ -104,10 +110,8 @@ class HomeViewController: BaseViewController {
                 print("location>>>>>>success")
             }
             self?.baseDictToBase64()
-            self?.removeHudView()
         } errorBlock: { [weak self] error in
             self?.baseDictToBase64()
-            self?.removeHudView()
         }
     }
     

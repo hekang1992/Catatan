@@ -14,12 +14,13 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
     
     var block: ProductUrlBlock?
     var block1: ProductUrlBlock?
+    var block2: ProductUrlBlock?
     
     var largeDataModel: [DrawingModel]?
     
     var largeDataModel1: [DrawingModel]?
     
-    var smodel: SellingModel?
+    var smodel: SellingModel?//fudai
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
@@ -54,6 +55,9 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
     
     lazy var fudaiView: FuDaiView = {
         let fudaiView = FuDaiView()
+        fudaiView.block = { [weak self] in
+            self?.block2!("")
+        }
         return fudaiView
     }()
     
@@ -62,14 +66,7 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
         addSubview(iconImageView)
         addSubview(label)
         addSubview(tableView)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+        
         iconImageView.snp.makeConstraints { make in
             make.left.equalTo(self).offset(16.pix())
             make.size.equalTo(CGSize(width: 31.pix(), height: 31.pix()))
@@ -84,17 +81,30 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
             make.bottom.left.right.equalTo(self)
             make.top.equalTo(label.snp_bottomMargin).offset(27.pix())
         }
-        self.cycleScrollView.setNeedsLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        cycleScrollView.setNeedsLayout()
         self.layoutIfNeeded()
-        let pageControl1 = GKPageControl(frame: CGRect(x: 0, y: self.cycleScrollView.frame.size.height - 15.pix(), width: 160.pix(), height: 15.pix()))
+        let pageControl1 = GKPageControl(frame: .zero)
         pageControl1.style = .rectangle
-        self.cycleScrollView.pageControl = pageControl1
-        self.cycleScrollView.addSubview(pageControl1)
+        cycleScrollView.pageControl = pageControl1
+        cycleScrollView.addSubview(pageControl1)
+        pageControl1.snp.makeConstraints { make in
+            make.bottom.equalTo(cycleScrollView).offset(-5.pix())
+            make.left.equalTo(cycleScrollView).offset(10.pix())
+            make.size.equalTo(CGSize(width: 120.pix(), height: 10.pix()))
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let ProductCellID = "ProductCellID_\(indexPath.row)"
-        let model = largeDataModel?[indexPath.row]
+        let ProductCellID = "ProductCellID_\(indexPath.section)"
+        let model = largeDataModel?[indexPath.section]
         let typeStr = model?.masters
         if typeStr == "1" || typeStr == "3" {
             let cell = ProductCell(style: .subtitle, reuseIdentifier: ProductCellID)
@@ -111,58 +121,72 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return largeDataModel?.count ?? 0
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = largeDataModel?[indexPath.row]
+        let model = largeDataModel?[indexPath.section]
         let typeStr = model?.masters
         if typeStr == "1" || typeStr == "3" {
-            return 140.pix()
+            return 120.pix()
         }else {
-            return 160.pix()
+            return 140.pix()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if smodel == nil {
-            return 130.pix()
-        }else{
-            return 220.pix()
+        if section == 0 {
+            if smodel == nil {
+                return 130.pix()
+            }else{
+                return 240.pix()
+            }
+        }else if section == 1 {
+            return 0
+        }else {
+            return 18.pix()
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headView = UIView()
-        headView.addSubview(cycleScrollView)
-        if smodel == nil {
-            cycleScrollView.snp.makeConstraints { make in
-                make.top.equalTo(headView).offset(10.pix())
-                make.centerX.equalTo(headView)
-                make.left.equalTo(headView).offset(17.pix())
-                make.height.equalTo(111.pix())
+        if section == 0 {
+            headView.addSubview(cycleScrollView)
+            if smodel == nil {
+                cycleScrollView.snp.makeConstraints { make in
+                    make.top.equalTo(headView).offset(10.pix())
+                    make.centerX.equalTo(headView)
+                    make.left.equalTo(headView).offset(17.pix())
+                    make.height.equalTo(111.pix())
+                }
+            }else{
+                headView.addSubview(fudaiView)
+                fudaiView.label.text = smodel?.reckon
+                fudaiView.label1.text = smodel?.managers
+                cycleScrollView.snp.makeConstraints { make in
+                    make.top.equalTo(headView).offset(10.pix())
+                    make.centerX.equalTo(headView)
+                    make.left.equalTo(headView).offset(17.pix())
+                    make.height.equalTo(111.pix())
+                }
+                fudaiView.snp.makeConstraints { make in
+                    make.bottom.equalTo(headView).offset(-20.pix())
+                    make.top.equalTo(cycleScrollView.snp.bottom).offset(18.pix())
+                    make.left.right.equalTo(headView)
+                }
             }
-        }else{
-            headView.addSubview(fudaiView)
-            cycleScrollView.snp.makeConstraints { make in
-                make.top.equalTo(headView).offset(10.pix())
-                make.centerX.equalTo(headView)
-                make.left.equalTo(headView).offset(17.pix())
-                make.height.equalTo(111.pix())
-            }
-            fudaiView.snp.makeConstraints { make in
-                make.bottom.equalTo(headView).offset(-5.pix())
-                make.top.equalTo(cycleScrollView.snp.bottom).offset(18.pix())
-                make.left.right.equalTo(headView)
-            }
-        }
+        }else {}
         cycleScrollView.reloadData()
         return headView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = largeDataModel?[indexPath.row]
+        let model = largeDataModel?[indexPath.section]
         let productID = model?.tradition ?? ""
         self.block!(productID)
     }

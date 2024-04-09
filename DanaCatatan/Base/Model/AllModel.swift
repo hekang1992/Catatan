@@ -96,6 +96,7 @@ class DrawingModel: HandyJSON {
     var occurred: String?
     var tedious: String?
     var masters: String?
+    var downcast: String?
 }
 
 class SellingModel: HandyJSON {
