@@ -15,6 +15,8 @@ class HomeViewController: BaseViewController {
     
     var largeDataModel: [DrawingModel] = []
     
+    var largeDataModel1: [DrawingModel] = []
+    
     private var locationManager: LocationManager?
     
     var startTimeStr: String?
@@ -53,8 +55,16 @@ class HomeViewController: BaseViewController {
         homeOneView.blcok = { [weak self] index in
             self?.applyClick(index)
         }
+        homeTwoView.block = { [weak self] productID in
+            self?.getProductDetailInfo(productID, "")
+        }
+        homeTwoView.block1 = { [weak self] productUrl in
+            self?.pushWebVC(productUrl)
+        }
         homeOneView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
         homeOneView.tableView.mj_header?.isAutomaticallyChangeAlpha = true
+        homeTwoView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
+        homeTwoView.tableView.mj_header?.isAutomaticallyChangeAlpha = true
         obs.debounce(.milliseconds(2000), scheduler: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] model in
                 if let model = model {
@@ -146,11 +156,21 @@ class HomeViewController: BaseViewController {
             if awareness == 0 || awareness == 00 {
                 let dict = model.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
+                let smodel = inModel?.selling
+                self?.homeTwoView.smodel = smodel
                 if let model1 = inModel {
                     if model1.lives == "yy" {//首页2
                         self?.homeOneView.isHidden = true
                         self?.homeTwoView.isHidden = false
-                        
+                        self?.largeDataModel = model1.incomes?.filter{ $0.lives == "yy" }.compactMap{ $0.drawing }.first ?? []
+                        if let modelArray = self?.largeDataModel {
+                            self?.homeTwoView.largeDataModel = modelArray
+                        }
+                        self?.largeDataModel1 = model1.incomes?.filter{ $0.lives == "mm" }.compactMap{ $0.drawing }.first ?? []
+                        if let modelArray = self?.largeDataModel1 {
+                            self?.homeTwoView.largeDataModel1 = modelArray
+                        }
+                        self?.homeTwoView.tableView.reloadData()
                     }else {
                         self?.homeOneView.isHidden = false
                         self?.homeTwoView.isHidden = true
@@ -158,15 +178,17 @@ class HomeViewController: BaseViewController {
                         if let modelArray = self?.largeDataModel {
                             self?.homeOneView.largeDataModel = modelArray
                         }
+                        self?.homeOneView.tableView.reloadData()
                     }
                 }
-                self?.homeOneView.tableView.reloadData()
             }
             self?.removeHudView()
             self?.homeOneView.tableView.mj_header?.endRefreshing()
+            self?.homeTwoView.tableView.mj_header?.endRefreshing()
         } errorBlock: { [weak self] error in
             self?.removeHudView()
             self?.homeOneView.tableView.mj_header?.endRefreshing()
+            self?.homeTwoView.tableView.mj_header?.endRefreshing()
         }
     }
     

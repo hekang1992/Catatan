@@ -1,14 +1,13 @@
 //
-//  OrderNormalCell.swift
-//  Catatan
+//  ProductProCell.swift
+//  DanaCatatan
 //
-//  Created by apple on 2024/3/13.
+//  Created by apple on 2024/4/9.
 //
 
 import UIKit
-import Kingfisher
 
-class OrderNormalCell: UITableViewCell {
+class ProductProCell: UITableViewCell {
 
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -30,9 +29,16 @@ class OrderNormalCell: UITableViewCell {
         return iconImageView
     }()
     
+    lazy var iconImageView1: UIImageView = {
+        let iconImageView = UIImageView()
+        iconImageView.image = UIImage(named: "laba")
+        iconImageView.contentMode = .scaleAspectFill
+        return iconImageView
+    }()
+    
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont.systemFont(ofSize: 14.pix(), weight: .medium), textColor: .black, textAlignment: .left)
-        label1.text = "NameName"
+        label1.text = ""
         return label1
     }()
     
@@ -76,13 +82,6 @@ class OrderNormalCell: UITableViewCell {
         return label1
     }()
     
-    lazy var iconImageView1: UIImageView = {
-        let iconImageView = UIImageView()
-        iconImageView.image = UIImage(named: "laba")
-        iconImageView.contentMode = .scaleAspectFill
-        return iconImageView
-    }()
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(bgView)
@@ -120,12 +119,6 @@ class OrderNormalCell: UITableViewCell {
             make.height.equalTo(20.pix())
             make.left.equalTo(iconImageView.snp.right).offset(10.pix())
         }
-        label2.snp.makeConstraints { make in
-            make.top.equalTo(whitView).offset(19.pix())
-            make.height.equalTo(28.pix())
-            make.width.equalTo(120.pix())
-            make.right.equalTo(whitView).offset(-18.pix())
-        }
         lineView.snp.makeConstraints { make in
             make.left.equalTo(whitView).offset(18.pix())
             make.centerX.equalTo(whitView)
@@ -138,10 +131,11 @@ class OrderNormalCell: UITableViewCell {
             make.left.equalTo(whitView).offset(10.pix())
             make.width.equalTo(120.pix())
         }
-        label4.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom).offset(9.pix())
-            make.height.equalTo(20.pix())
-            make.right.equalTo(whitView).offset(-40.pix())
+        label2.snp.makeConstraints { make in
+            make.top.equalTo(lineView.snp.bottom).offset(14.pix())
+            make.height.equalTo(28.pix())
+            make.width.equalTo(120.pix())
+            make.right.equalTo(whitView).offset(-18.pix())
         }
         label5.snp.makeConstraints { make in
             make.top.equalTo(label3.snp.bottom)
@@ -176,18 +170,15 @@ class OrderNormalCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var model: IncomesModel? {
+    var model: DrawingModel? {
         didSet {
             guard let model = model else { return }
-            let imageUrl = URL(string: model.auctions!)
+            let imageUrl = URL(string: model.auctions ?? "")
             self.iconImageView.kf.setImage(with: imageUrl)
-            self.label1.text = model.plumb!
-            self.label2.text = model.managers!
-            self.label3.text = model.coffle!
-            self.label4.text = model.untoward!
-            self.label5.text = model.inquisitiveness!
-            self.label6.text = model.correct!
-            self.label7.text = model.merchandise!
+            self.label1.text = model.plumb ?? ""
+            self.label2.text = model.managers ?? ""
+            self.label3.text = model.tedious ?? ""
+            self.label5.text = model.managers ?? ""
         }
     }
 }

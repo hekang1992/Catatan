@@ -12,7 +12,7 @@ import GKCycleScrollView
 typealias IndexHomeBlock = (_ index: NSInteger) -> Void
 class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScrollViewDataSource {
     
-    var dataSourceArray = ["ban124","ban124","ban125"]
+    var dataSourceArray = ["ban123","ban124","ban125"]
     
     var blcok: IndexHomeBlock?
     

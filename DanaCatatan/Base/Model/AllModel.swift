@@ -46,6 +46,7 @@ class HoveredModel: HandyJSON {
     var liabilities: [Double]?
     var current: [Double]?
     var fixed: [Double]?
+    var selling: SellingModel?
 }
 
 class ReleasedModel: HandyJSON {
@@ -91,6 +92,18 @@ class DrawingModel: HandyJSON {
     var promulgate: String?
     var deceptions: String?
     var falsehoods: String?
+    var favors: String?
+    var occurred: String?
+    var tedious: String?
+    var masters: String?
+}
+
+class SellingModel: HandyJSON {
+    required init() {
+    }
+    var managers: String?
+    var plantation: String?
+    var reckon: String?
 }
 
 class CircumstanceModel: HandyJSON {

@@ -1,21 +1,13 @@
 //
-//  OrderNormalCell.swift
-//  Catatan
+//  ProductCell.swift
+//  DanaCatatan
 //
-//  Created by apple on 2024/3/13.
+//  Created by apple on 2024/4/9.
 //
 
 import UIKit
-import Kingfisher
 
-class OrderNormalCell: UITableViewCell {
-
-    lazy var bgView: UIView = {
-        let bgView = UIView()
-        bgView.backgroundColor = .systemBlue
-        bgView.layer.cornerRadius = 18.pix()
-        return bgView
-    }()
+class ProductCell: UITableViewCell {
     
     lazy var whitView: UIView = {
         let bgView = UIView()
@@ -30,9 +22,16 @@ class OrderNormalCell: UITableViewCell {
         return iconImageView
     }()
     
+    lazy var iconImageView1: UIImageView = {
+        let iconImageView = UIImageView()
+        iconImageView.image = UIImage(named: "laba")
+        iconImageView.contentMode = .scaleAspectFill
+        return iconImageView
+    }()
+    
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont.systemFont(ofSize: 14.pix(), weight: .medium), textColor: .black, textAlignment: .left)
-        label1.text = "NameName"
+        label1.text = ""
         return label1
     }()
     
@@ -41,7 +40,6 @@ class OrderNormalCell: UITableViewCell {
         label1.backgroundColor = UIColor("#FF9346")
         label1.layer.cornerRadius = 14.pix()
         label1.layer.masksToBounds = true
-        label1.sizeToFit()
         return label1
     }()
     
@@ -76,16 +74,8 @@ class OrderNormalCell: UITableViewCell {
         return label1
     }()
     
-    lazy var iconImageView1: UIImageView = {
-        let iconImageView = UIImageView()
-        iconImageView.image = UIImage(named: "laba")
-        iconImageView.contentMode = .scaleAspectFill
-        return iconImageView
-    }()
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(bgView)
         contentView.addSubview(whitView)
         whitView.addSubview(iconImageView)
         whitView.addSubview(label1)
@@ -95,20 +85,12 @@ class OrderNormalCell: UITableViewCell {
         whitView.addSubview(label4)
         whitView.addSubview(label5)
         whitView.addSubview(label6)
-        bgView.addSubview(label7)
-        bgView.addSubview(iconImageView1)
         
-        bgView.snp.makeConstraints { make in
-            make.centerX.equalTo(contentView)
-            make.left.equalTo(contentView).offset(16.pix())
-            make.top.equalTo(contentView)
-            make.height.equalTo(144.pix())
-        }
         whitView.snp.makeConstraints { make in
             make.centerX.equalTo(contentView)
             make.left.equalTo(contentView).offset(16.pix())
-            make.top.equalTo(contentView)
-            make.height.equalTo(114.pix())
+            make.bottom.equalTo(contentView)
+            make.height.equalTo(117.pix())
         }
         iconImageView.snp.makeConstraints { make in
             make.top.equalTo(whitView).offset(15.pix())
@@ -119,12 +101,6 @@ class OrderNormalCell: UITableViewCell {
             make.top.equalTo(whitView).offset(20.pix())
             make.height.equalTo(20.pix())
             make.left.equalTo(iconImageView.snp.right).offset(10.pix())
-        }
-        label2.snp.makeConstraints { make in
-            make.top.equalTo(whitView).offset(19.pix())
-            make.height.equalTo(28.pix())
-            make.width.equalTo(120.pix())
-            make.right.equalTo(whitView).offset(-18.pix())
         }
         lineView.snp.makeConstraints { make in
             make.left.equalTo(whitView).offset(18.pix())
@@ -138,10 +114,11 @@ class OrderNormalCell: UITableViewCell {
             make.left.equalTo(whitView).offset(10.pix())
             make.width.equalTo(120.pix())
         }
-        label4.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom).offset(9.pix())
-            make.height.equalTo(20.pix())
-            make.right.equalTo(whitView).offset(-40.pix())
+        label2.snp.makeConstraints { make in
+            make.top.equalTo(lineView.snp.bottom).offset(14.pix())
+            make.height.equalTo(28.pix())
+            make.width.equalTo(120.pix())
+            make.right.equalTo(whitView).offset(-18.pix())
         }
         label5.snp.makeConstraints { make in
             make.top.equalTo(label3.snp.bottom)
@@ -155,17 +132,6 @@ class OrderNormalCell: UITableViewCell {
             make.left.equalTo(label4.snp.left).offset(-43.pix())
             make.right.equalTo(label4.snp.right).offset(42.pix())
         }
-        label7.snp.makeConstraints { make in
-            make.left.equalTo(bgView).offset(40.pix())
-            make.bottom.equalTo(bgView)
-            make.right.equalTo(bgView)
-            make.height.equalTo(29.pix())
-        }
-        iconImageView1.snp.makeConstraints { make in
-            make.left.equalTo(bgView).offset(14.pix())
-            make.bottom.equalTo(bgView).offset(-8.pix())
-            make.size.equalTo(CGSizeMake(14.pix(), 13.pix()))
-        }
     }
     
     override func layoutSubviews() {
@@ -176,18 +142,21 @@ class OrderNormalCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var model: IncomesModel? {
+    var model: DrawingModel? {
         didSet {
             guard let model = model else { return }
-            let imageUrl = URL(string: model.auctions!)
+            let imageUrl = URL(string: model.auctions ?? "")
             self.iconImageView.kf.setImage(with: imageUrl)
-            self.label1.text = model.plumb!
-            self.label2.text = model.managers!
-            self.label3.text = model.coffle!
-            self.label4.text = model.untoward!
-            self.label5.text = model.inquisitiveness!
-            self.label6.text = model.correct!
-            self.label7.text = model.merchandise!
+            self.label1.text = model.plumb ?? ""
+            self.label2.text = model.managers ?? ""
+            self.label3.text = model.tedious ?? ""
+            self.label5.text = model.managers ?? ""
+            if model.favors == "3" {
+                self.label2.backgroundColor = UIColor("#D9D9D9")
+            }else {
+                self.label2.backgroundColor = UIColor("#BBD598")
+            }
         }
     }
+    
 }
