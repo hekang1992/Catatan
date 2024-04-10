@@ -29,6 +29,8 @@ let USER_DEFAULTS = UserDefaults.standard
 
 let MAIDIAN_ONE = "MAIDIAN_ONE"
 
+let LOCATION_ONE = "LOCATION_ONE"
+
 let SET_ROOTVC = "SET_ROOTVC"
 
 let LOGIN_SEIZES = "seizes"

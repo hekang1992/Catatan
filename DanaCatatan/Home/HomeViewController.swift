@@ -105,15 +105,20 @@ class HomeViewController: BaseViewController {
     }
     
     func upLocationInfo(_ locationModel: LocationModel) {
-        let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent ?? 0.0,"carpenter":locationModel.carpenter ?? 0.0] as [String : Any]
-        NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: mastersThough, method: .post) { [weak self] model in
-            let awareness = model.awareness
-            if awareness == 0 || awareness == 00 {
-                print("location>>>>>>success")
+        let type = USER_DEFAULTS.object(forKey: LOCATION_ONE) as? String ?? ""
+        if type != "1" {
+            let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent ?? 0.0,"carpenter":locationModel.carpenter ?? 0.0] as [String : Any]
+            NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: mastersThough, method: .post) { [weak self] model in
+                let awareness = model.awareness
+                if awareness == 0 || awareness == 00 {
+                    print("location>>>>>>success")
+                    self?.baseDictToBase64()
+                    USER_DEFAULTS.setValue("1", forKey: LOCATION_ONE)
+                    USER_DEFAULTS.synchronize()
+                }
+            } errorBlock: { [weak self] error in
+                self?.baseDictToBase64()
             }
-            self?.baseDictToBase64()
-        } errorBlock: { [weak self] error in
-            self?.baseDictToBase64()
         }
     }
     

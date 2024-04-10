@@ -64,7 +64,6 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WKWebView.estimatedProgress) {
-            
         } else if keyPath == #keyPath(WKWebView.title) {
             if let newTitle = change?[.newKey] as? String {
                 DispatchQueue.main.async { [weak self] in
@@ -148,13 +147,13 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
     
     
     func setNavExpansion(_ arguments: [String]) {
-        let isHidden = arguments.first == "1"
+//        let isHidden = arguments.first == "1"
     }
     
     func setNavColor(_ arguments: [String]) {
-        guard arguments.count >= 2 else { return }
-        let textColor = arguments[0]
-        let navColor = arguments[1]
+//        guard arguments.count >= 2 else { return }
+//        let textColor = arguments[0]
+//        let navColor = arguments[1]
     }
     
     func uploadRiskLoan(_ arguments: [String]) {

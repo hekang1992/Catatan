@@ -17,6 +17,7 @@ class SaveLoginInfo: NSObject {
         USER_DEFAULTS.removeObject(forKey: LOGIN_SEIZES)
         USER_DEFAULTS.removeObject(forKey: LOGIN_PHONE)
         USER_DEFAULTS.removeObject(forKey: MAIDIAN_ONE)
+        USER_DEFAULTS.removeObject(forKey: LOCATION_ONE)
         USER_DEFAULTS.synchronize()
     }
 }

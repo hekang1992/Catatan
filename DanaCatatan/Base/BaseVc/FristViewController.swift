@@ -31,6 +31,8 @@ class FristViewController: BaseViewController {
             make.edges.equalTo(view)
         }
         self.netStatus()
+        USER_DEFAULTS.setValue("0", forKey: LOCATION_ONE)
+        USER_DEFAULTS.synchronize()
     }
     
     func netStatus() {
