@@ -50,6 +50,7 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
         scrollView.delegate = self
         scrollView.layer.cornerRadius = 22.pix()
         scrollView.minimumCellAlpha = 0.0;
+        scrollView.leftRightMargin = 8.pix()
         return scrollView
     }()
     
@@ -161,7 +162,7 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
                 cycleScrollView.snp.makeConstraints { make in
                     make.top.equalTo(headView).offset(10.pix())
                     make.centerX.equalTo(headView)
-                    make.left.equalTo(headView).offset(17.pix())
+                    make.left.equalTo(headView).offset(9.pix())
                     make.height.equalTo(111.pix())
                 }
             }else{
@@ -171,7 +172,7 @@ class HomeTwoView: UIView, GKCycleScrollViewDataSource,UITableViewDelegate,UITab
                 cycleScrollView.snp.makeConstraints { make in
                     make.top.equalTo(headView).offset(10.pix())
                     make.centerX.equalTo(headView)
-                    make.left.equalTo(headView).offset(17.pix())
+                    make.left.equalTo(headView).offset(9.pix())
                     make.height.equalTo(111.pix())
                 }
                 fudaiView.snp.makeConstraints { make in
