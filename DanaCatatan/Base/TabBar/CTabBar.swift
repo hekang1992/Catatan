@@ -76,8 +76,8 @@ class CTabBar: UIView, CustomTabBarButtonDelegate {
     // MARK: - Button Click
     
     @objc private func buttonClick(_ button: YBTabBarButton) {
-        if let fromIndex = selectedButton?.tag, let toIndex = button.tag as? Int {
-            delegate?.ybTabBar(self, didSelectedButtonFrom: fromIndex, to: toIndex)
+        if let fromIndex = selectedButton?.tag {
+            delegate?.ybTabBar(self, didSelectedButtonFrom: fromIndex, to: button.tag)
         }
         selectedButton?.isSelected = false
         button.isSelected = true
