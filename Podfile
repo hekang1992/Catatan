@@ -4,7 +4,7 @@ platform :ios, '12.1'
 target 'DanaCatatan' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  # Pods for Catatan
+  # Pods for DanaCatatan
   
   pod 'SnapKit', '~> 5.6.0'
   
