@@ -65,7 +65,7 @@ class LoginViewController: BaseViewController {
             loginView.countdownButton.setTitle("Resend(\(seconds))", for: .normal)
         } else {
             stopTimer()
-            loginView.countdownButton.isEnabled = true // 启用按钮
+            loginView.countdownButton.isEnabled = true
             loginView.countdownButton.setTitle("Kirim kode verifikasi", for: .normal)
         }
     }
@@ -108,7 +108,8 @@ class LoginViewController: BaseViewController {
                 guard let loginModel = loginModel else { return }
                 SaveLoginInfo.removeLoginInfo()
                 SaveLoginInfo.saveLoginInfo(loginModel.seizes ?? "", loginModel.postmaster ?? "")
-                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
+                let dict = ["cleaved":"uu"]
+                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil, userInfo: dict)
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges!, view: nil)

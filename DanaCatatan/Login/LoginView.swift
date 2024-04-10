@@ -135,7 +135,7 @@ class LoginView: UIView ,UITextFieldDelegate{
         bgView.addSubview(passT)
         bgView.addSubview(countdownButton)
         bgView.addSubview(loginBtn)
-        bgView.addSubview(agreeMentLB)
+//        bgView.addSubview(agreeMentLB)
         
         bgView.snp.makeConstraints { make in
             make.edges.equalTo(self)
@@ -171,13 +171,12 @@ class LoginView: UIView ,UITextFieldDelegate{
             make.height.equalTo(48.pix())
             make.top.equalTo(countdownButton.snp_bottomMargin).offset(36.pix())
         }
-        agreeMentLB.snp.makeConstraints { make in
-            make.centerX.equalTo(bgView)
-            make.left.equalTo(emailT.snp_leftMargin)
-            make.top.equalTo(loginBtn.snp_bottomMargin).offset(14.pix())
-            make.height.equalTo(34.pix())
-        }
-        
+//        agreeMentLB.snp.makeConstraints { make in
+//            make.centerX.equalTo(bgView)
+//            make.left.equalTo(emailT.snp_leftMargin)
+//            make.top.equalTo(loginBtn.snp_bottomMargin).offset(14.pix())
+//            make.height.equalTo(34.pix())
+//        }
     }
     
     required init?(coder: NSCoder) {

@@ -145,7 +145,6 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
         }
     }
     
-    
     func setNavExpansion(_ arguments: [String]) {
 //        let isHidden = arguments.first == "1"
     }
@@ -200,7 +199,6 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
             SKStoreReviewController.requestReview()
         }
     }
-    
     
     /*
      // MARK: - Navigation
