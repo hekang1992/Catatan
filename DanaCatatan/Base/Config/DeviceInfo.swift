@@ -151,7 +151,7 @@ class DeviceInfo: NSObject {
     }
     
     static func courthouse() -> String {
-        let courthouse: String = NetworkManager.shared.networkStatusChanged()
+        let courthouse: String = NetworkManager.shared.typeStr
         return courthouse
     }
     

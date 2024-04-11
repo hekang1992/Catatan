@@ -16,6 +16,8 @@ class NetworkManager {
         case none
     }
     
+    var typeStr: String = "NONE"
+    
     static let shared = NetworkManager()
     
     private let reachability = try!Reachability()
@@ -42,18 +44,19 @@ class NetworkManager {
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
     }
     
-    @objc func networkStatusChanged() -> String {
+    @objc func networkStatusChanged(){
         if reachability.connection != .unavailable {
             if reachability.connection == .wifi {
+                typeStr = "WIFI"
                 notifyNetworkStatus(.wifi)
-                return "WIFI"
             } else {
+                typeStr = "4G/5G"
                 notifyNetworkStatus(.cellular)
-                return "4G/5G"
+                
             }
         } else {
+            typeStr = "Unknown Network"
             notifyNetworkStatus(.none)
-            return "Unknown Network"
         }
     }
     
