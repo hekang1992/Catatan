@@ -21,7 +21,6 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.distanceFilter = kCLDistanceFilterNone
     }
     
     // 启动位置更新
