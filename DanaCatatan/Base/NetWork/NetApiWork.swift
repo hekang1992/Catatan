@@ -17,17 +17,18 @@ class NetApiWork: NSObject {
     
     typealias NSErrorBlock = (Any) -> Void
     
+    let headers: HTTPHeaders = [
+        "Accept" : "application/json;",
+        "Connection" : "keep-alive",
+        "Content-Type" : "application/x-www-form-urlencoded;text/json;text/javascript;text/html;text/plain;multipart/form-data"
+    ]
+    
     func requestAPI(params: [String: Any]?,
                     pageUrl: String,
                     method: HTTPMethod,
                     timeout: TimeInterval = 30,
                     complete: @escaping CompleteBlock,
                     errorBlock: @escaping NSErrorBlock){
-        let headers: HTTPHeaders = [
-            "Accept" : "application/json;",
-            "Connection" : "keep-alive",
-            "Content-Type" : "application/x-www-form-urlencoded;text/json;text/javascript;text/html;text/plain;multipart/form-data"
-        ]
         var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         AF.request(wholeApiUrl, method: method, parameters: params, headers: headers).responseData { [weak self] response in
@@ -62,11 +63,6 @@ class NetApiWork: NSObject {
                         data: Data,
                         complete: @escaping CompleteBlock,
                         errorBlock: @escaping NSErrorBlock){
-        let headers: HTTPHeaders = [
-            "Accept" : "application/json;",
-            "Connection" : "keep-alive",
-            "Content-Type" : "application/x-www-form-urlencoded;text/json;text/javascript;text/html;text/plain;multipart/form-data;multipart/form-data"
-        ]
         var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         AF.upload(
@@ -107,11 +103,6 @@ class NetApiWork: NSObject {
                        timeout: TimeInterval = 30,
                        complete: @escaping CompleteBlock,
                        errorBlock: @escaping NSErrorBlock){
-        let headers: HTTPHeaders = [
-            "Accept" : "application/json;",
-            "Connection" : "keep-alive",
-            "Content-Type" : "application/x-www-form-urlencoded;text/json;text/javascript;text/html;text/plain;multipart/form-data;multipart/form-data"
-        ]
         var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         print("wholeApiUrl>>>data>>>\(wholeApiUrl)")
