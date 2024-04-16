@@ -206,6 +206,7 @@
 		18A32AA62B95DA2400CC937D /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		18A32AA82B95E23600CC937D /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
 		18A777512BA92FE200586168 /* OAViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAViewCell.swift; sourceTree = "<group>"; };
+		18AC015D2BCE63E800E1D2A1 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		18BABAF92BA44E9D004A070E /* HomeOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOneCell.swift; sourceTree = "<group>"; };
 		18BBD0F92BA146AB00F3D322 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		18BBD0FB2BA146C300F3D322 /* OrderNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNormalCell.swift; sourceTree = "<group>"; };
@@ -849,6 +850,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 182516252B8C246E00FFEE85;
 			productRefGroup = 1825162F2B8C246E00FFEE85 /* Products */;
@@ -1071,6 +1073,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1825163D2B8C246F00FFEE85 /* Base */,
+				18AC015D2BCE63E800E1D2A1 /* id */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1083,6 +1086,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1146,6 +1150,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

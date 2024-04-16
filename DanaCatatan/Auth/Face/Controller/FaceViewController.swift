@@ -79,13 +79,13 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 let emancipation = model?.checked?.emancipation
-                let occurred = model?.commented?.occurred
-                if let imageUrl = occurred {
-                    let url = URL(string: imageUrl)
-                    self?.faceViwe.mainBtn.kf.setImage(with: url, for: .normal)
-                    self?.faceViwe.mainBtn.isEnabled = false
-                }else {
+                let occurred: String = model?.commented?.occurred ?? ""
+                if occurred.isEmpty {
                     self?.faceViwe.mainBtn.isEnabled = true
+                }else{
+                    let url = URL(string: occurred)
+                    self?.faceViwe.mainBtn.kf.setImage(with: url, for: .normal, placeholder: UIImage(named: "abc3"))
+                    self?.faceViwe.mainBtn.isEnabled = false
                 }
                 self?.emancipation = emancipation ?? "0"
             }
