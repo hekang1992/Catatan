@@ -28,6 +28,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     let imagePicker = UIImagePickerController()
     
     var startTime1: String?
+    
     var startTime2: String?
     
     lazy var faceViwe: FaceView = {
@@ -78,6 +79,14 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 let emancipation = model?.checked?.emancipation
+                let occurred = model?.commented?.occurred
+                if let imageUrl = occurred {
+                    let url = URL(string: imageUrl)
+                    self?.faceViwe.mainBtn.kf.setImage(with: url, for: .normal)
+                    self?.faceViwe.mainBtn.isEnabled = false
+                }else {
+                    self?.faceViwe.mainBtn.isEnabled = true
+                }
                 self?.emancipation = emancipation ?? "0"
             }
             self?.removeHudView()

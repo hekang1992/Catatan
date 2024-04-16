@@ -112,17 +112,22 @@ class DeviceInfo: NSObject {
     }
     
     static func street() -> String {
-        let currentTimeZone = TimeZone.current
-        return currentTimeZone.identifier
+        let timeZone = NSTimeZone.system
+        return timeZone.abbreviation() ?? "";
     }
     
     static func steps() -> String {
-        var steps:String = "0"
-        let isUsingDProxy = isUsingProxy()
-        if isUsingDProxy {
-            steps = "1"
+        if let proxySettings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [AnyHashable: Any],
+           let proxies = CFNetworkCopyProxiesForURL(URL(string: "https://www.apple.com")! as CFURL, proxySettings as CFDictionary).takeRetainedValue() as? [Any],
+           let settings = proxies.first as? [AnyHashable: Any],
+           let proxyType = settings[kCFProxyTypeKey] as? String {
+            if proxyType == kCFProxyTypeNone as String {
+                return "0"
+            } else {
+                return "1"
+            }
         }
-        return steps
+        return "0"
     }
     
     static func milled() -> String {
