@@ -96,7 +96,19 @@ class DeviceInfo: NSObject {
     }
     
     static func bowlers() -> String {
-        return String(SSJailbreakCheck.jailbroken())
+        var s1 = false
+        var s2 = false
+        if let cydiaURL = URL(string: "cydia://"), UIApplication.shared.canOpenURL(cydiaURL) {
+            s1 = true
+        }
+        let appl = "/User/Applications/"
+        s2 = FileManager.default.fileExists(atPath: appl)
+        
+        if s1 || s2 {
+            return "1"
+        } else {
+            return "0"
+        }
     }
     
     static func street() -> String {

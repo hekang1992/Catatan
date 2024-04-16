@@ -77,7 +77,9 @@ class JDViewController: BaseViewController {
             jdView.typeImageView.currentState = .dcan3
         }else if type == "dcan4" {
             jdView.typeImageView.currentState = .dcan4
-        }else{}
+        }else{
+            jdView.typeImageView.currentState = .dcan4
+        }
     }
     
     func nextVc() {

@@ -8,7 +8,7 @@
 import UIKit
 import BRPickerView
 
-class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
+class FaceSelectView: UIView {
 
     var block1: ((String,String,String) -> Void)?
     
@@ -123,6 +123,11 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
         self.block2!()
     }
 
+}
+
+
+extension FaceSelectView: UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let commonCellID = "commonCellID"
         let cell = CommonCell(style: .subtitle, reuseIdentifier: commonCellID)
@@ -132,6 +137,7 @@ class FaceSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
         if indexPath.row == 0 {
             cell.textField1.text = model!.conjured
         }else if indexPath.row == 1 {
+            cell.textField1.keyboardType = .numberPad
             cell.textField1.text = model!.pawed
         }else {
             cell.textField1.isEnabled = false
