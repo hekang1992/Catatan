@@ -53,7 +53,7 @@ class HomeViewController: BaseViewController {
             locationInfo()
         }
         homeOneView.blcok = { [weak self] index in
-            self?.applyClick(index)
+            self?.applyClick(Int(index) ?? 0)
         }
         homeTwoView.block = { [weak self] productID in
             self?.applyClick(Int(productID) ?? 0)

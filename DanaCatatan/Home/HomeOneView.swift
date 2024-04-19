@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import GKCycleScrollView
 
-typealias IndexHomeBlock = (_ index: NSInteger) -> Void
+typealias IndexHomeBlock = (_ str: String) -> Void
 class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScrollViewDataSource {
     
     var dataSourceArray = ["ban123","ban124","ban125"]
@@ -96,7 +96,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
         let imageUrl = URL(string: model?.auctions ?? "")
         self.iconImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "qweerc"))
         cell.block = { [weak self] in
-            self?.blcok!(indexPath.row)
+            self?.blcok?(model?.tradition ?? "")
         }
         return cell
     }
@@ -149,7 +149,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.blcok!(indexPath.row)
+        self.blcok!(String(indexPath.row))
     }
     
     func numberOfCells(in cycleScrollView: GKCycleScrollView!) -> Int {

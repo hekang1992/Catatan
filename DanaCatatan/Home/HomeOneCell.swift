@@ -62,7 +62,7 @@ class HomeOneCell: UITableViewCell {
     }
     
     @objc func applyClick() {
-        self.block!()
+        self.block?()
     }
     
     var model: DrawingModel! {
