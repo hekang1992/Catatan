@@ -34,8 +34,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         guard let location = locations.last else {
             return
         }
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
+        let latitude: Double = location.coordinate.latitude
+        let longitude: Double = location.coordinate.longitude
         // 使用地理编码获取地址信息
         getAddressFromCoordinates(latitude: latitude, longitude: longitude)
     }
@@ -71,7 +71,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             model.province = placemark.administrativeArea ?? ""
             model.city = placemark.locality ?? ""
             model.district = placemark.subLocality ?? ""
-            model.street = placemark.thoroughfare ?? ""
+            model.street = placemark.name ?? ""
             DispatchQueue.global().async { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.locatinModel = model

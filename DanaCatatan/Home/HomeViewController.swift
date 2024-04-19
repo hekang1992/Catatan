@@ -211,7 +211,7 @@ class HomeViewController: BaseViewController {
         addHudView()
         guard let model = self.largeDataModel.first else { return }
 //        print("applyClick>>>>>\(model.tradition ?? "")")
-        let bidders = model.tradition ?? ""
+        let bidders = index
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: thoseWater, method: .post) { [weak self] baseModel in
             let awareness = baseModel.awareness
@@ -222,7 +222,7 @@ class HomeViewController: BaseViewController {
                 guard let url = url else { return }
                 print("url>>跳转>>\(url)")
                 if url.contains(SCHEME_URL) {
-                    self?.getProductDetailInfo(bidders,url)
+                    self?.getProductDetailInfo(String(bidders),url)
                 }else{
                     self?.pushWebVC(url)
                 }

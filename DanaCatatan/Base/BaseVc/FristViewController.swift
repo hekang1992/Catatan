@@ -33,6 +33,51 @@ class FristViewController: BaseViewController {
         self.netStatus()
         USER_DEFAULTS.setValue("0", forKey: LOCATION_ONE)
         USER_DEFAULTS.synchronize()
+        
+        
+//        // 创建一个并行队列
+//        let concurrentQueue = OperationQueue()
+//        concurrentQueue.maxConcurrentOperationCount = 3 // 设置最大并发操作数为3，可以根据需要调整
+//
+//        // 创建第一个网络请求操作
+//        let operation1 = BlockOperation {
+//            if let url = URL(string: "https://www.baidu.com") {
+//                if let data = try? Data(contentsOf: url) {
+//                    // 处理第一个请求返回的数据
+//                    print("Received data from request 1: \(data)")
+//                }
+//            }
+//        }
+//
+//        // 创建第二个网络请求操作
+//        let operation2 = BlockOperation {
+//            if let url = URL(string: "https://www.baidu.com") {
+//                if let data = try? Data(contentsOf: url) {
+//                    // 处理第二个请求返回的数据
+//                    print("Received data from request 2: \(data)")
+//                }
+//            }
+//        }
+//
+//        // 创建第三个网络请求操作，它依赖于第一个操作
+//        let operation3 = BlockOperation {
+//            if let url = URL(string: "https://www.baidu.com") {
+//                if let data = try? Data(contentsOf: url) {
+//                    // 处理第三个请求返回的数据
+//                    print("Received data from request 3: \(data)")
+//                }
+//            }
+//        }
+//
+//        // 将操作添加到并行队列中
+//        concurrentQueue.addOperation(operation1)
+//
+//        // 设置第三个操作依赖于第一个操作
+//        operation2.addDependency(operation1)
+//        operation3.addDependency(operation2)
+//        concurrentQueue.addOperation(operation2)
+//        concurrentQueue.addOperation(operation3)
+        
     }
     
     func netStatus() {

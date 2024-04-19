@@ -12,7 +12,7 @@ class OrderNormalCell: UITableViewCell {
 
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.backgroundColor = .systemBlue
+        bgView.backgroundColor = UIColor("#FF9346")
         bgView.layer.cornerRadius = 18.pix()
         return bgView
     }()

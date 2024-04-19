@@ -206,24 +206,10 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
             self.present(alertVC!, animated: true)
             break
         case 1002:
-            if IS_LOGIN {
-                alertListView(selectIndex)
-            }else {
-                let login = LoginFakeViewController()
-                let nav = BaseNavViewController(rootViewController: login)
-                nav.modalPresentationStyle = .overFullScreen
-                present(nav, animated: true, completion: nil)
-            }
+            alertListView(selectIndex)
             break
         case 1003:
-            if IS_LOGIN {
-                self.getOList(selectIndex + 1)
-            }else{
-                let login = LoginFakeViewController()
-                let nav = BaseNavViewController(rootViewController: login)
-                nav.modalPresentationStyle = .overFullScreen
-                present(nav, animated: true, completion: nil)
-            }
+            self.getOList(selectIndex + 1)
             break
         case 1004:
             let setVc = SetViewController()

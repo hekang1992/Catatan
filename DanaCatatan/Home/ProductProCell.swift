@@ -37,7 +37,6 @@ class ProductProCell: UITableViewCell {
     
     lazy var label1: UILabel = {
         let label1 = UILabel.createLabel(font: UIFont.systemFont(ofSize: 14.pix(), weight: .medium), textColor: .black, textAlignment: .left)
-        label1.text = ""
         return label1
     }()
     
@@ -177,7 +176,7 @@ class ProductProCell: UITableViewCell {
             self.label1.text = model.plumb ?? ""
             self.label2.text = model.managers ?? ""
             self.label3.text = model.tedious ?? ""
-            self.label5.text = model.managers ?? ""
+            self.label5.text = model.given ?? ""
             self.label7.text = model.downcast ?? ""
             let typeStr = model.masters
             if typeStr == "2" {//
