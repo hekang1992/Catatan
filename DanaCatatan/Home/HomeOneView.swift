@@ -124,6 +124,9 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footView = UIView()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        footView.isUserInteractionEnabled = true
+        footView.addGestureRecognizer(tapGesture)
         footView.addSubview(cycleScrollView)
         footView.addSubview(footOneView)
         cycleScrollView.snp.makeConstraints { make in
@@ -164,4 +167,13 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
         cell?.imageView.image = UIImage(named: dataSourceArray[index] as String)
         return cell!
     }
+}
+
+extension HomeOneView {
+    
+    @objc func viewTapped() {
+        let model = largeDataModel?[0]
+        self.blcok?(model?.tradition ?? "")
+    }
+    
 }

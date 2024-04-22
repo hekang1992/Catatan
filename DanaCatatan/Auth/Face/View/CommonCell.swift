@@ -85,7 +85,11 @@ class CommonCell: UITableViewCell {
         didSet {
             self.nameLable.text = model.waiters
             self.textField1.placeholder = model.paced
-            self.textField1.text = model.saveStr
+            let prime: String = model.prime ?? ""
+            self.textField1.text = prime.isEmpty ? model.saveStr : model.prime
+            if !prime.isEmpty {
+                model.saveStr = model.prime
+            }
             if model.brick != "cty" {
                 self.textField1.isEnabled = false
                 self.iconImageView.isHidden = false

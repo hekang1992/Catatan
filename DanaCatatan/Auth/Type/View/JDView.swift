@@ -107,7 +107,7 @@ class JDView: UIView {
         button.addTarget(self, action: #selector(sureClick), for: .touchUpInside)
         button.backgroundColor = UIColor("#BBD598")
         button.layer.cornerRadius = 28.pix()
-        button.setTitle("Konfirmasi", for: .normal)
+        button.setTitle("Lamar Sekarang", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16.pix(), weight: .medium)
         return button

@@ -74,7 +74,6 @@ class ContractViewController: BaseViewController {
                 }
             }
             self?.removeHudView()
-//            MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
         } errorBlock: { [weak self] error in
             self?.removeHudView()
         }

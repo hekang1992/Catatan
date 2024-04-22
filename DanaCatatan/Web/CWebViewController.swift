@@ -135,7 +135,7 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             } else {
-                MBProgressHUD.wj_showPlainText("Not installed WhatsApp", view: nil)
+                MBProgressHUD.wj_showPlainText("Tidak diinstal WhatsApp.", view: nil)
             }
         }
         if urlStr.hasPrefix("mailto:") || urlStr.hasPrefix("whatsapp:") {

@@ -10,6 +10,8 @@ import Foundation
 let BASE_URL = "https://shahajaybhai.com/daca"
 let BASE_HTML_URL = "https://shahajaybhai.com"
 let SCHEME_URL = "app.dcatan/"
+let BASE_GIT_URL = "https://raw.githubusercontent.com/dtsdark/cantatan/main/cat"
+let APIBAERURL = "APIBAERURL"
 
 //LOGIN
 let fivedayTravel = "/cata/fivedayTravel"

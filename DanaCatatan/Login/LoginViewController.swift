@@ -49,7 +49,7 @@ class LoginViewController: BaseViewController {
     func codeTime(_ btn: UIButton) {
         let emailT: String = loginView.emailT.text ?? ""
         if emailT.isEmpty {
-            MBProgressHUD.wj_showPlainText("Please enter your phone number", view: nil)
+            MBProgressHUD.wj_showPlainText("Masukkan nomor telepon anda.", view: nil)
         }else{
             self.getCode()
         }

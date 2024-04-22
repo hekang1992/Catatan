@@ -135,7 +135,7 @@ class AboutViewController: BaseViewController {
         if let whatsappURL = URL(string: "https://wa.me/\(phoneNumber)"), UIApplication.shared.canOpenURL(whatsappURL) {
             UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
         } else {
-            MBProgressHUD.wj_showPlainText("Not installed WhatsApp", view: nil)
+            MBProgressHUD.wj_showPlainText("Tidak diinstal WhatsApp.", view: nil)
         }
     }
     

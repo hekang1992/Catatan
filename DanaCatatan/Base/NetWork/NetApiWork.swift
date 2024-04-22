@@ -29,7 +29,14 @@ class NetApiWork: NSObject {
                     timeout: TimeInterval = 30,
                     complete: @escaping CompleteBlock,
                     errorBlock: @escaping NSErrorBlock){
-        var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
+        var baseApiUrl = UserDefaults.standard.object(forKey: APIBAERURL) as? String ?? ""
+        if baseApiUrl.isEmpty {
+            baseApiUrl = BASE_URL
+        }else {
+            UserDefaults.standard.set(baseApiUrl, forKey: APIBAERURL)
+            UserDefaults.standard.synchronize()
+        }
+        var wholeApiUrl = baseApiUrl + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         AF.request(wholeApiUrl, method: method, parameters: params, headers: headers).responseData { [weak self] response in
             switch response.result {
@@ -63,7 +70,14 @@ class NetApiWork: NSObject {
                         data: Data,
                         complete: @escaping CompleteBlock,
                         errorBlock: @escaping NSErrorBlock){
-        var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
+        var baseApiUrl = UserDefaults.standard.object(forKey: APIBAERURL) as? String ?? ""
+        if baseApiUrl.isEmpty {
+            baseApiUrl = BASE_URL
+        }else {
+            UserDefaults.standard.set(baseApiUrl, forKey: APIBAERURL)
+            UserDefaults.standard.synchronize()
+        }
+        var wholeApiUrl = baseApiUrl + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         AF.upload(
             multipartFormData: { multipartFormData in
@@ -103,7 +117,14 @@ class NetApiWork: NSObject {
                        timeout: TimeInterval = 30,
                        complete: @escaping CompleteBlock,
                        errorBlock: @escaping NSErrorBlock){
-        var wholeApiUrl = BASE_URL + pageUrl + "?" + CommonParams.getParas()
+        var baseApiUrl = UserDefaults.standard.object(forKey: APIBAERURL) as? String ?? ""
+        if baseApiUrl.isEmpty {
+            baseApiUrl = BASE_URL
+        }else {
+            UserDefaults.standard.set(baseApiUrl, forKey: APIBAERURL)
+            UserDefaults.standard.synchronize()
+        }
+        var wholeApiUrl = baseApiUrl + pageUrl + "?" + CommonParams.getParas()
         wholeApiUrl = wholeApiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         print("wholeApiUrl>>>data>>>\(wholeApiUrl)")
         AF.upload(

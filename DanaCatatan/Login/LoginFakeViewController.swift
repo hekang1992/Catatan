@@ -65,7 +65,6 @@ class LoginFakeViewController: BaseViewController {
     
     func endTimer() {
         countdownTimer.invalidate()
-        MBProgressHUD.wj_showPlainText("123", view: nil)
         self.loginView.codeBtn.isEnabled = true
         self.loginView.codeBtn.setTitle("Send code", for: .normal)
         UIView.animate(withDuration: 0.25) {

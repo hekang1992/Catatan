@@ -97,7 +97,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
     
     func nextVc() {
         if self.emancipation == "0"{
-            MBProgressHUD.wj_showPlainText("Please upload your ID information", view: nil)
+            MBProgressHUD.wj_showPlainText("Silakan unggah informasi ID Anda.", view: nil)
         }else{
             getProductDetailInfo(bidders, "")
         }
@@ -193,14 +193,14 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         case .authorized:
             completion(true)
         case .denied, .restricted:
-            self.wanLiuView("Anda belum mendapatkan izin kamera,silakan pergi ke pengaturan.")
+            self.wanLiuView("Tidak mendapat izin tersebut, apakah ingin pergi ke pengaturan?")
             completion(false)
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { (granted) in
                 completion(granted)
             }
         @unknown default:
-            self.wanLiuView("Anda belum mendapatkan izin kamera,silakan pergi ke pengaturan.")
+            self.wanLiuView("Tidak mendapat izin tersebut, apakah ingin pergi ke pengaturan?")
             completion(false)
         }
     }
@@ -264,7 +264,6 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
                 }
             }
             self?.removeHudView()
-            MBProgressHUD.wj_showPlainText(edges!, view: nil)
         } errorBlock: { [weak self] error in
             self?.removeHudView()
             print("error>>>>>>>\(error)")

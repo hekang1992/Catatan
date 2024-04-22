@@ -12,6 +12,8 @@ import HandyJSON
 
 class FristViewController: BaseViewController {
     
+    var apiArray: [String] = []
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.contentMode = .scaleAspectFill
@@ -34,48 +36,48 @@ class FristViewController: BaseViewController {
         USER_DEFAULTS.setValue("0", forKey: LOCATION_ONE)
         USER_DEFAULTS.synchronize()
         
-//        // 创建一个并行队列
-//        let concurrentQueue = OperationQueue()
-//        concurrentQueue.maxConcurrentOperationCount = 3 // 设置最大并发操作数为3，可以根据需要调整
-//
-//        // 创建第一个网络请求操作
-//        let operation1 = BlockOperation {
-//            if let url = URL(string: "https://www.apple.com") {
-//                if let data = try? Data(contentsOf: url) {
-//                    // 处理第一个请求返回的数据
-//                    print("Received data from request 1: \(data)")
-//                }
-//            }
-//        }
-//
-//        // 创建第二个网络请求操作
-//        let operation2 = BlockOperation {
-//            if let url = URL(string: "https://www.apple.com") {
-//                if let data = try? Data(contentsOf: url) {
-//                    // 处理第二个请求返回的数据
-//                    print("Received data from request 2: \(data)")
-//                }
-//            }
-//        }
-//
-//        // 创建第三个网络请求操作，它依赖于第一个操作
-//        let operation3 = BlockOperation {
-//            if let url = URL(string: "https://www.apple.com") {
-//                if let data = try? Data(contentsOf: url) {
-//                    // 处理第三个请求返回的数据
-//                    print("Received data from request 3: \(data)")
-//                }
-//            }
-//        }
-//
-//        // 将操作添加到并行队列中
-//        concurrentQueue.addOperation(operation1)
-//
-//        // 设置第三个操作依赖于第一个操作
-//        operation2.addDependency(operation1)
-//        operation3.addDependency(operation2)
-//        concurrentQueue.addOperation(operation2)
-//        concurrentQueue.addOperation(operation3)
+        //        // 创建一个并行队列
+        //        let concurrentQueue = OperationQueue()
+        //        concurrentQueue.maxConcurrentOperationCount = 3 // 设置最大并发操作数为3，可以根据需要调整
+        //
+        //        // 创建第一个网络请求操作
+        //        let operation1 = BlockOperation {
+        //            if let url = URL(string: "https://www.apple.com") {
+        //                if let data = try? Data(contentsOf: url) {
+        //                    // 处理第一个请求返回的数据
+        //                    print("Received data from request 1: \(data)")
+        //                }
+        //            }
+        //        }
+        //
+        //        // 创建第二个网络请求操作
+        //        let operation2 = BlockOperation {
+        //            if let url = URL(string: "https://www.apple.com") {
+        //                if let data = try? Data(contentsOf: url) {
+        //                    // 处理第二个请求返回的数据
+        //                    print("Received data from request 2: \(data)")
+        //                }
+        //            }
+        //        }
+        //
+        //        // 创建第三个网络请求操作，它依赖于第一个操作
+        //        let operation3 = BlockOperation {
+        //            if let url = URL(string: "https://www.apple.com") {
+        //                if let data = try? Data(contentsOf: url) {
+        //                    // 处理第三个请求返回的数据
+        //                    print("Received data from request 3: \(data)")
+        //                }
+        //            }
+        //        }
+        //
+        //        // 将操作添加到并行队列中
+        //        concurrentQueue.addOperation(operation1)
+        //
+        //        // 设置第三个操作依赖于第一个操作
+        //        operation2.addDependency(operation1)
+        //        operation3.addDependency(operation2)
+        //        concurrentQueue.addOperation(operation2)
+        //        concurrentQueue.addOperation(operation3)
         
     }
     
@@ -125,25 +127,23 @@ class FristViewController: BaseViewController {
     
     func devInfo() {
         let dict = ["together":"php"]
-        NetApiWork.shared.requestAPI(params: dict, pageUrl: shirtingSouth, method: .post) { baseModel in
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: shirtingSouth, method: .post) { [weak self] baseModel in
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let cleaved = (model?.cleaved ?? "") as String
                 if cleaved == "uu" {//b面
-                    let dict = ["cleaved":"uu"]
-                    CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
-                }else{
-                    let dict = ["cleaved":"aa"]
-                    CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+                    self?.bmian()
+                }else if cleaved == "ue" {
+                    self?.amian()
+                }else {
+                    self?.requestGit()
                 }
             }else {
-                let dict = ["cleaved":"aa"]
-                CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+                self?.requestGit()
             }
-        } errorBlock: { error in
-            let dict = ["cleaved":"aa"]
-            CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+        } errorBlock: { [weak self] error in
+            self?.requestGit()
         }
     }
     
@@ -158,3 +158,75 @@ class FristViewController: BaseViewController {
      */
 }
 
+
+extension FristViewController {
+    
+    func amian() {
+        let dict = ["cleaved":"aa"]
+        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+    }
+    
+    func bmian() {
+        let dict = ["cleaved":"uu"]
+        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+    }
+    
+    func requestGit() {
+        DispatchQueue.global(qos: .default).async {
+            let originalURLString = BASE_GIT_URL
+            guard let data = originalURLString.data(using: .utf8) else { return }
+            let base64String = data.base64EncodedString()
+            guard let decodedData = Data(base64Encoded: base64String),
+                  let decodedURLString = String(data: decodedData, encoding: .utf8),
+                  let url = URL(string: decodedURLString) else {
+                return
+            }
+            do {
+                let base64 = try String(contentsOf: url, encoding: .utf8)
+                let decodedString = base64.replacingOccurrences(of: "\n", with: "")
+                guard let finalDecodedData = Data(base64Encoded: decodedString),
+                      let stringV = String(data: finalDecodedData, encoding: .utf8) else {
+                    return
+                }
+                let stringArray = stringV.components(separatedBy: ",")
+                DispatchQueue.main.async {
+                    self.apiArray = stringArray
+                    self.netarrayApi(shirtingSouth, index: 0)
+                }
+            } catch {
+                print("Error occurred: \(error)")
+            }
+        }
+    }
+    
+    func netarrayApi(_ apiUrl: String, index: Int) {
+        guard index < apiArray.count else {
+            return
+        }
+        UserDefaults.standard.set(apiArray[index], forKey: APIBAERURL)
+        UserDefaults.standard.synchronize()
+        
+        let dict = ["together":"php"]
+        NetApiWork.shared.requestAPI(params: dict, pageUrl: apiUrl, method: .post) { [weak self] baseModel in
+            let awareness = baseModel.awareness
+            if awareness == 0 || awareness == 00 {
+                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                let cleaved = (model?.cleaved ?? "") as String
+                if cleaved == "uu" {//b面
+                    self?.bmian()
+                }else if cleaved == "ue" {
+                    self?.amian()
+                }else {
+                    self?.requestGit()
+                    self?.netarrayApi(shirtingSouth, index: index + 1)
+                }
+            }else {
+                self?.requestGit()
+                self?.netarrayApi(shirtingSouth, index: index + 1)
+            }
+        } errorBlock: { [weak self] error in
+            self?.requestGit()
+            self?.netarrayApi(shirtingSouth, index: index + 1)
+        }
+    }
+}
