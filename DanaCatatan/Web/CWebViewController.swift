@@ -159,7 +159,7 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
         guard arguments.count >= 2 else { return }
         let productId = arguments[0]
         let startTime = arguments[1]
-        self.maidian(productID: productId, startTime: startTime, type: "10", orderID: "")
+        self.maidian(productID: productId, startTime: startTime, type: "11", orderID: "")
     }
     
     func openUrl(_ arguments: [String]) {

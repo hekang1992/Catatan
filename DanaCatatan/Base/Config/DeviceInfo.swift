@@ -46,9 +46,15 @@ class DeviceInfo: NSObject {
     }
     
     static func bulletins() -> String {
-        var ifCharge : String = "0"
-        if UIDevice.current.batteryState == .charging || UIDevice.current.batteryState == .full {
+        var ifCharge :String = "0"
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        let batteryStatu = UIDevice.current.batteryState
+        if batteryStatu == .charging {
             ifCharge = "1"
+        }else if batteryStatu == .full {
+            ifCharge = "0"
+        }else {
+            ifCharge = "0"
         }
         return ifCharge
     }
@@ -88,7 +94,7 @@ class DeviceInfo: NSObject {
     }
     
     static func nines() -> String {
-        return "7"
+        return "0"
     }
     
     static func gentlemen() -> String {

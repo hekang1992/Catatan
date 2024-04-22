@@ -73,6 +73,9 @@ class BankViewController: BaseViewController {
             if awareness == 0 || awareness == 00 {
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "9", orderID: self?.hardworking ?? "")
                 self?.getProductDetailInfo(self?.bidders ?? "", "")
+                self?.delay(0.5) {
+                    self?.maidian(productID: self?.bidders ?? "", startTime: String(Int(Date().timeIntervalSince1970)), type: "10", orderID: self?.hardworking ?? "")
+                }
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)
