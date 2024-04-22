@@ -62,7 +62,8 @@ class LoginViewController: BaseViewController {
     @objc func updateTimer() {
         if seconds > 0 {
             seconds -= 1
-            loginView.countdownButton.setTitle("Resend(\(seconds))", for: .normal)
+            loginView.countdownButton.isEnabled = false
+            loginView.countdownButton.setTitle("Resend(\(self.seconds))", for: .normal)
         } else {
             stopTimer()
             loginView.countdownButton.isEnabled = true

@@ -8,6 +8,7 @@
 import Foundation
 
 let BASE_URL = "http://149.129.237.35:9013/daca"
+let BASE_HTML_URL = "http://149.129.237.35:9013/"
 let SCHEME_URL = "app.dcatan/"
 
 //LOGIN

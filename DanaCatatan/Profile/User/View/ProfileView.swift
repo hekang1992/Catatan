@@ -12,7 +12,7 @@ class ProfileView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     var blcok: IndexBlock?
     
-    let titleArray = ["Dalam Proses Pengajuan","Menunggu Pembayaran Kembali","Sudah Dibayar Kembali","Mengirim email","Keluar Akun","Pembatalan Akun"]
+    let titleArray = ["Dalam Proses Pengajuan","Menunggu Pembayaran Kembali","Sudah Dibayar Kembali","Mengirim email\nshahphai@outlook.com","Keluar Akun","Pembatalan Akun"]
     
     let titleArray1 = ["user123","user124","user125","user126","user127","user128"]
     

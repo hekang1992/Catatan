@@ -46,14 +46,17 @@ class SetViewController: BaseViewController {
         setView.block = { [weak self] in
             self?.imageAleet()
         }
-        setView.block1 = {
-            
+        setView.block1 = { [weak self] in
+            let url = BASE_HTML_URL + "nkimaFetch"
+            self?.pushWebVC(url)
         }
-        setView.block2 = {
-            
+        setView.block2 = { [weak self] in
+            let url = BASE_HTML_URL
+            self?.pushWebVC(url)
         }
-        setView.block3 = {
-            
+        setView.block3 = { [weak self] in
+            let url = BASE_HTML_URL + "neverCloser"
+            self?.pushWebVC(url)
         }
         setView.block4 = { [weak self] in
             if IS_LOGIN {
@@ -132,7 +135,11 @@ class SetViewController: BaseViewController {
         }
         tipsView.block2 = { [weak self] in
             self?.dismiss(animated: true, completion: {
-                self?.logoutInfo()
+                if IS_LOGIN {
+                    self?.logoutInfo()
+                }else{
+                    self?.pushLogin()
+                }
             })
         }
         tipsView.frame = self.view.bounds
@@ -149,7 +156,11 @@ class SetViewController: BaseViewController {
         }
         tipsView.block2 = { [weak self] in
             self?.dismiss(animated: true, completion: {
-                self?.deleAcc()
+                if IS_LOGIN {
+                    self?.deleAcc()
+                }else{
+                    self?.pushLogin()
+                }
             })
         }
         tipsView.frame = self.view.bounds

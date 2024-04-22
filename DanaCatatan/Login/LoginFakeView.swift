@@ -14,6 +14,7 @@ class LoginFakeView: UIView,UITextFieldDelegate {
     var block: (() -> Void)?
     var block1: (() -> Void)?
     var block2: (() -> Void)?
+    var block3: (() -> Void)?
     
     lazy var backBtn: UIButton = {
         let backBtn = UIButton(type: .custom)
@@ -124,7 +125,7 @@ class LoginFakeView: UIView,UITextFieldDelegate {
         let highlight = YYTextHighlight()
         text.yy_setTextHighlight(highlight, range: NSRange(location: 0, length: text.length))
         highlight.tapAction = { [weak self] containerView, text, range, rect in
-            MBProgressHUD.wj_showPlainText("链接被点击", view: nil)
+            self?.block3?()
         }
         agreeMentLB.attributedText = text
         agreeMentLB.isUserInteractionEnabled = true

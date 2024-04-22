@@ -186,19 +186,20 @@ class DeviceInfo: NSObject {
     }
     
     static func jaunt() -> String {
-        return SSNetworkInfo.wiFiBroadcastAddress() ?? ""
+        let jaunt = getAppWifiBSSIDInfo()
+        return jaunt
     }
     
     static func diversion() -> String {
-        return getWiFiSSID() ?? ""
+        return getAppWifiSSIDInfo()
     }
     
     static func blink() -> String {
-        return SSNetworkInfo.wiFiBroadcastAddress() ?? ""
+        return getAppWifiBSSIDInfo()
     }
     
     static func conjured() -> String {
-        return "conjured"
+        return getAppWifiSSIDInfo()
     }
     
     static func isUsingProxy() -> Bool {
@@ -306,6 +307,39 @@ class DeviceInfo: NSObject {
                                          "quick":"app"]]]
         
         return dict
+    }
+    
+}
+
+
+extension DeviceInfo {
+    
+    class public func getAppWifiSSIDInfo() -> String {
+        var currentSSID = ""
+        if let myArray = CNCopySupportedInterfaces() as? [String],
+           let interface = myArray.first as CFString?,
+           let myDict = CNCopyCurrentNetworkInfo(interface) as NSDictionary? {
+            
+            currentSSID = myDict["SSID"] as? String ?? ""
+            
+        } else {
+            currentSSID = ""
+        }
+        return currentSSID
+    }
+    
+    class public func getAppWifiBSSIDInfo() -> String {
+        var currentSSID = ""
+        if let myArray = CNCopySupportedInterfaces() as? [String],
+           let interface = myArray.first as CFString?,
+           let myDict = CNCopyCurrentNetworkInfo(interface) as NSDictionary? {
+            
+            currentSSID = myDict["BSSID"] as? String ?? ""
+            
+        } else {
+            currentSSID = ""
+        }
+        return currentSSID
     }
     
 }

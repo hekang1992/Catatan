@@ -36,6 +36,10 @@ class LoginFakeViewController: BaseViewController {
         loginView.block2 = { [weak self] in
             self?.requsetLogin()
         }
+        loginView.block3 = { [weak self] in
+            let url = BASE_HTML_URL + "nkimaFetch"
+            self?.pushWebVC(url)
+        }
     }
     
     func startTimer() {

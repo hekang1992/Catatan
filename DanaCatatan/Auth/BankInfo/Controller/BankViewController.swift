@@ -28,7 +28,7 @@ class BankViewController: BaseViewController {
         // Do any additional setup after loading the view.
         addNavView()
         navView.block = { [weak self] in
-            self?.popToSpecificViewController()
+            self?.wanLiuAuthView("Apakah Anda yakin ingin menyerah pada permohonan pinjaman ini?")
         }
         view.addSubview(bankView)
         view.insertSubview(bankView, belowSubview: navView)

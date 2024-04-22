@@ -100,7 +100,6 @@ class LoginView: UIView ,UITextFieldDelegate{
     }()
     
     lazy var agreeMentLB: YYLabel  = {
-        //创建YYLabel
         let agreeMentLB = YYLabel()
         agreeMentLB.numberOfLines = 0
         let text = NSMutableAttributedString(string: "Dengan masuk atau membuat akun, Anda setuju ")

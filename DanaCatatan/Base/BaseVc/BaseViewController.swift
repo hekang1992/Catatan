@@ -209,6 +209,28 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     
+    func wanLiuAuthView(_ title: String) {
+        let exitView = ExitView()
+        exitView.descLabel.text = title
+        exitView.sureBtn.setTitle("Konfirmasi", for: .normal)
+        exitView.cancelBtn.setTitle("Batal", for: .normal)
+        exitView.sureBtn.backgroundColor = UIColor("#FFFFFF")
+        exitView.sureBtn.setTitleColor(.black, for: .normal)
+        exitView.cancelBtn.backgroundColor = UIColor("#BBD598")
+        exitView.cancelBtn.setTitleColor(.white, for: .normal)
+        exitView.frame = self.view.bounds
+        let alertVC = TYAlertController(alert: exitView, preferredStyle: .alert)
+        self.present(alertVC!, animated: true)
+        exitView.block = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.popToSpecificViewController()
+            })
+        }
+        exitView.cblock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
+    
     func wanLiuView(_ title: String) {
         let exitView = ExitView()
         exitView.descLabel.text = title

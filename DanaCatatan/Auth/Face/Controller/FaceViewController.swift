@@ -44,7 +44,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         addNavView()
         navView.nameLabel.text = "Informasi dasar"
         navView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.wanLiuAuthView("Apakah Anda yakin ingin menyerah pada permohonan pinjaman ini?")
         }
         view.insertSubview(faceViwe, belowSubview: navView)
         faceViwe.snp.makeConstraints { make in
@@ -254,7 +254,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 self?.imageFace = image
                 if self?.typeFace == "11" {
-                    self?.selectFaceView(model!)
+                    self?.selectFaceView(model!, image)
                 }else{
                     self?.faceViwe.mainBtn1.setImage(image, for: .normal)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
@@ -271,9 +271,10 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         }
     }
     
-    func selectFaceView(_ model: HoveredModel) {
+    func selectFaceView(_ model: HoveredModel, _ image: UIImage) {
         let selView = FaceSelectView(frame: self.view.bounds)
         selView.model = model
+        selView.bgImageView1.image = image
         let alertVc = TYAlertController(alert: selView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
         selView.block1 = { [weak self] name,phone,dateTime in
