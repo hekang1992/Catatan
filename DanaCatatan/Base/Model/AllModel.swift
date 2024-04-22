@@ -166,6 +166,7 @@ class IncomesModel: HandyJSON {
     var inquisitiveness: String?
     var notices: String?
     var correct: String?
+    var showText: String?
     
     var addressname: String?
     var flying: String?

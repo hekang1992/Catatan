@@ -186,13 +186,22 @@ class OrderNormalCell: UITableViewCell {
             self.label1.text = model.plumb ?? ""
             self.label2.text = model.managers ?? ""
             self.label3.text = model.coffle ?? ""
-            self.label4.text = model.notices ?? ""
+            let notices: String = model.notices ?? ""
+            if notices.isEmpty {
+                self.label4.text = model.untoward
+            }else {
+                self.label4.text = model.notices
+            }
             self.label5.text = model.inquisitiveness ?? ""
             self.label6.text = model.correct ?? ""
             self.label7.text = model.downcast ?? ""
             if model.masters == "1" {
                 label2.backgroundColor = UIColor("#FF9346")
                 bgView.backgroundColor = UIColor("#FF9346")
+            }else if model.masters == "2" {
+                label2.isHidden = true
+                bgView.isHidden = true
+                self.label6.text = model.showText
             }else if model.masters == "5" {
                 label2.backgroundColor = UIColor("#FF2F0D")
                 bgView.backgroundColor = UIColor("#FF2F0D")

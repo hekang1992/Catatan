@@ -55,6 +55,10 @@ class OrderView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = array[indexPath.row]
+        if model.masters == "2" {
+            return 124.pix()
+        }
         return 154.pix()
     }
     
