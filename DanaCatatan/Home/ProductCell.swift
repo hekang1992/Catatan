@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MarqueeLabel
 
 class ProductCell: UITableViewCell {
     
@@ -68,8 +69,11 @@ class ProductCell: UITableViewCell {
         return label1
     }()
     
-    lazy var label7: UILabel = {
-        let label1 = UILabel.createLabel(font: UIFont.systemFont(ofSize: 14.pix(), weight: .medium), textColor: UIColor("#FFFFFF"), textAlignment: .left)
+    lazy var label7: MarqueeLabel = {
+        let label1 = MarqueeLabel(frame: .zero)
+        label1.textColor = .white
+        label1.font = UIFont.systemFont(ofSize: 14.pix(), weight: .medium)
+        label1.textAlignment = .left
         return label1
     }()
     

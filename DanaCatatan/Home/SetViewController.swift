@@ -47,7 +47,7 @@ class SetViewController: BaseViewController {
             self?.imageAleet()
         }
         setView.block1 = { [weak self] in
-            let url = BASE_HTML_URL + "nkimaFetch"
+            let url = BASE_HTML_URL + "/nkimaFetch"
             self?.pushWebVC(url)
         }
         setView.block2 = { [weak self] in
@@ -55,7 +55,7 @@ class SetViewController: BaseViewController {
             self?.pushWebVC(url)
         }
         setView.block3 = { [weak self] in
-            let url = BASE_HTML_URL + "neverCloser"
+            let url = BASE_HTML_URL + "/neverCloser"
             self?.pushWebVC(url)
         }
         setView.block4 = { [weak self] in

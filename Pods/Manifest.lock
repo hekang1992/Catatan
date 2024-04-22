@@ -25,6 +25,7 @@ PODS:
   - JXGradientKit (0.0.11)
   - Kingfisher (7.11.0)
   - lottie-ios (4.3.4)
+  - MarqueeLabel (4.5.0)
   - "MBProgressHUD+WJExtension (1.3.1)"
   - MJRefresh (3.7.6)
   - ReachabilitySwift (5.0.0)
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - JXGradientKit (~> 0.0.11)
   - Kingfisher (~> 7.11.0)
   - lottie-ios (~> 4.3.1)
+  - MarqueeLabel (~> 4.5.0)
   - "MBProgressHUD+WJExtension (~> 1.3.1)"
   - MJRefresh (~> 3.7.6)
   - ReachabilitySwift (~> 5.0.0)
@@ -74,6 +76,7 @@ SPEC REPOS:
     - JXGradientKit
     - Kingfisher
     - lottie-ios
+    - MarqueeLabel
     - "MBProgressHUD+WJExtension"
     - MJRefresh
     - ReachabilitySwift
@@ -98,6 +101,7 @@ SPEC CHECKSUMS:
   JXGradientKit: b79a369bedbc501e20ebfda9716cd0b049b02955
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   lottie-ios: 3d98679b41fa6fd6aff2352b3953dbd3df8a397e
+  MarqueeLabel: 4b46d196abd253448e830cbd976f9eacc3af0849
   "MBProgressHUD+WJExtension": 1d9c93951b49e8c711fef6e6089aa6d7d3321192
   MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -110,6 +114,6 @@ SPEC CHECKSUMS:
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 957c432431237b976123c872280f2a7a1562256b
+PODFILE CHECKSUM: d4f1bf20ad4f6de577ed4ab233c6d55cd0e470bd
 
 COCOAPODS: 1.14.3

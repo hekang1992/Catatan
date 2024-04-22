@@ -34,14 +34,13 @@ class FristViewController: BaseViewController {
         USER_DEFAULTS.setValue("0", forKey: LOCATION_ONE)
         USER_DEFAULTS.synchronize()
         
-        
 //        // 创建一个并行队列
 //        let concurrentQueue = OperationQueue()
 //        concurrentQueue.maxConcurrentOperationCount = 3 // 设置最大并发操作数为3，可以根据需要调整
 //
 //        // 创建第一个网络请求操作
 //        let operation1 = BlockOperation {
-//            if let url = URL(string: "https://www.baidu.com") {
+//            if let url = URL(string: "https://www.apple.com") {
 //                if let data = try? Data(contentsOf: url) {
 //                    // 处理第一个请求返回的数据
 //                    print("Received data from request 1: \(data)")
@@ -51,7 +50,7 @@ class FristViewController: BaseViewController {
 //
 //        // 创建第二个网络请求操作
 //        let operation2 = BlockOperation {
-//            if let url = URL(string: "https://www.baidu.com") {
+//            if let url = URL(string: "https://www.apple.com") {
 //                if let data = try? Data(contentsOf: url) {
 //                    // 处理第二个请求返回的数据
 //                    print("Received data from request 2: \(data)")
@@ -61,7 +60,7 @@ class FristViewController: BaseViewController {
 //
 //        // 创建第三个网络请求操作，它依赖于第一个操作
 //        let operation3 = BlockOperation {
-//            if let url = URL(string: "https://www.baidu.com") {
+//            if let url = URL(string: "https://www.apple.com") {
 //                if let data = try? Data(contentsOf: url) {
 //                    // 处理第三个请求返回的数据
 //                    print("Received data from request 3: \(data)")

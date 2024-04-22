@@ -49,6 +49,8 @@ target 'DanaCatatan' do
   pod 'SwipeCellKit', '~> 2.7.1'
   
   pod 'DGCharts', '~> 5.1.0'
+  
+  pod 'MarqueeLabel', '~> 4.5.0'
     
   post_install do |installer|
     installer.pods_project.build_configurations.each do |config|

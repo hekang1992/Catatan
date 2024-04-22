@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import MarqueeLabel
 
 class OrderNormalCell: UITableViewCell {
 
@@ -70,8 +71,11 @@ class OrderNormalCell: UITableViewCell {
         return label1
     }()
     
-    lazy var label7: UILabel = {
-        let label1 = UILabel.createLabel(font: UIFont.systemFont(ofSize: 14.pix(), weight: .medium), textColor: UIColor("#FFFFFF"), textAlignment: .left)
+    lazy var label7: MarqueeLabel = {
+        let label1 = MarqueeLabel(frame: .zero)
+        label1.textColor = .white
+        label1.font = UIFont.systemFont(ofSize: 14.pix(), weight: .medium)
+        label1.textAlignment = .left
         return label1
     }()
     
@@ -96,7 +100,6 @@ class OrderNormalCell: UITableViewCell {
         whitView.addSubview(label6)
         bgView.addSubview(label7)
         bgView.addSubview(iconImageView1)
-        
         bgView.snp.makeConstraints { make in
             make.centerX.equalTo(contentView)
             make.left.equalTo(contentView).offset(16.pix())
@@ -180,13 +183,23 @@ class OrderNormalCell: UITableViewCell {
             guard let model = model else { return }
             let imageUrl = URL(string: model.auctions!)
             self.iconImageView.kf.setImage(with: imageUrl)
-            self.label1.text = model.plumb!
-            self.label2.text = model.managers!
-            self.label3.text = model.coffle!
-            self.label4.text = model.untoward!
-            self.label5.text = model.inquisitiveness!
-            self.label6.text = model.correct!
-            self.label7.text = model.merchandise!
+            self.label1.text = model.plumb ?? ""
+            self.label2.text = model.managers ?? ""
+            self.label3.text = model.coffle ?? ""
+            self.label4.text = model.notices ?? ""
+            self.label5.text = model.inquisitiveness ?? ""
+            self.label6.text = model.correct ?? ""
+            self.label7.text = model.downcast ?? ""
+            if model.masters == "1" {
+                label2.backgroundColor = UIColor("#FF9346")
+                bgView.backgroundColor = UIColor("#FF9346")
+            }else if model.masters == "5" {
+                label2.backgroundColor = UIColor("#FF2F0D")
+                bgView.backgroundColor = UIColor("#FF2F0D")
+            }else {
+                label2.backgroundColor = UIColor("#FF9346")
+                bgView.backgroundColor = UIColor("#FF9346")
+            }
         }
     }
 }
