@@ -88,10 +88,10 @@ class FristViewController: BaseViewController {
             switch status {
             case .wifi:
                 self?.devInfo()
-                self?.googleMarket()
+                print("wifi")
             case .cellular:
                 self?.devInfo()
-                self?.googleMarket()
+                print("4g/5g")
             case .none:
                 print("无网络连接")
             }
@@ -132,6 +132,7 @@ class FristViewController: BaseViewController {
         NetApiWork.shared.requestAPI(params: dict, pageUrl: shirtingSouth, method: .post) { [weak self] baseModel in
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
+                self?.googleMarket()
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let cleaved = (model?.cleaved ?? "") as String
                 if cleaved == "uu" {//b面
@@ -212,6 +213,7 @@ extension FristViewController {
             NetApiWork.shared.requestAPI(params: dict, pageUrl: apiUrl, method: .post) { [weak self] baseModel in
                 let awareness = baseModel.awareness
                 if awareness == 0 || awareness == 00 {
+                    self?.googleMarket()
                     let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                     let cleaved = (model?.cleaved ?? "") as String
                     if cleaved == "uu" {//b面
@@ -222,17 +224,14 @@ extension FristViewController {
                         self?.isGit = true
                     }else {
                         self?.isGit = false
-                        self?.requestGit()
                         self?.netarrayApi(shirtingSouth, index: index + 1)
                     }
                 }else {
                     self?.isGit = false
-                    self?.requestGit()
                     self?.netarrayApi(shirtingSouth, index: index + 1)
                 }
             } errorBlock: { [weak self] error in
                 self?.isGit = false
-                self?.requestGit()
                 self?.netarrayApi(shirtingSouth, index: index + 1)
             }
         }
