@@ -13,6 +13,15 @@ class BankListView: UIView {
     var block2: (() -> Void)?
     var block3: (() -> Void)?
     var block4: (() -> Void)?
+    var block5: (() -> Void)?
+    lazy var grayView: UIView = {
+        let grayView = UIView()
+        grayView.backgroundColor = .black.withAlphaComponent(0.3)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        grayView.isUserInteractionEnabled = true
+        grayView.addGestureRecognizer(tapGesture)
+        return grayView
+    }()
     
     lazy var iconImageViwe1: UIImageView = {
         let iconImageViwe = UIImageView()
@@ -63,6 +72,7 @@ class BankListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(grayView)
         addSubview(iconImageViwe1)
         addSubview(iconImageViwe2)
         addSubview(bgView)
@@ -70,7 +80,9 @@ class BankListView: UIView {
         bgView.addSubview(btn2)
         bgView.addSubview(btn3)
         bgView.addSubview(btn4)
-        
+        grayView.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
         iconImageViwe1.snp.makeConstraints { make in
             make.centerX.equalTo(self)
             make.top.equalTo(self).offset(210.pix())
@@ -134,4 +146,10 @@ class BankListView: UIView {
         }
     }
     
+}
+
+extension BankListView {
+    @objc func viewTapped() {
+        self.block5?()
+    }
 }

@@ -428,6 +428,9 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
                 }
             })
         }
+        bankListView.block5 = { [weak self] in
+            self?.dismiss(animated: true)
+        }
     }
     
     func pushListVc(_ type: String, _ index: Int) {

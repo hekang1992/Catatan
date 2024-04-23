@@ -14,6 +14,8 @@ class FristViewController: BaseViewController {
     
     var apiArray: [String] = []
     
+    var isGit: Bool = false
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.contentMode = .scaleAspectFill
@@ -200,33 +202,39 @@ extension FristViewController {
     }
     
     func netarrayApi(_ apiUrl: String, index: Int) {
-        guard index < apiArray.count else {
-            return
-        }
-        UserDefaults.standard.set(apiArray[index], forKey: APIBAERURL)
-        UserDefaults.standard.synchronize()
-        
-        let dict = ["together":"php"]
-        NetApiWork.shared.requestAPI(params: dict, pageUrl: apiUrl, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
-                let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
-                let cleaved = (model?.cleaved ?? "") as String
-                if cleaved == "uu" {//b面
-                    self?.bmian()
-                }else if cleaved == "ue" {
-                    self?.amian()
+        if isGit == false {
+            guard index < apiArray.count else {
+                return
+            }
+            UserDefaults.standard.set(apiArray[index], forKey: APIBAERURL)
+            UserDefaults.standard.synchronize()
+            let dict = ["together":"php"]
+            NetApiWork.shared.requestAPI(params: dict, pageUrl: apiUrl, method: .post) { [weak self] baseModel in
+                let awareness = baseModel.awareness
+                if awareness == 0 || awareness == 00 {
+                    let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
+                    let cleaved = (model?.cleaved ?? "") as String
+                    if cleaved == "uu" {//b面
+                        self?.bmian()
+                        self?.isGit = true
+                    }else if cleaved == "ue" {
+                        self?.amian()
+                        self?.isGit = true
+                    }else {
+                        self?.isGit = false
+                        self?.requestGit()
+                        self?.netarrayApi(shirtingSouth, index: index + 1)
+                    }
                 }else {
+                    self?.isGit = false
                     self?.requestGit()
                     self?.netarrayApi(shirtingSouth, index: index + 1)
                 }
-            }else {
+            } errorBlock: { [weak self] error in
+                self?.isGit = false
                 self?.requestGit()
                 self?.netarrayApi(shirtingSouth, index: index + 1)
             }
-        } errorBlock: { [weak self] error in
-            self?.requestGit()
-            self?.netarrayApi(shirtingSouth, index: index + 1)
         }
     }
 }

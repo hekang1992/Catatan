@@ -54,9 +54,11 @@ class SetViewController: BaseViewController {
             let url = BASE_HTML_URL
             self?.pushWebVC(url)
         }
-        setView.block3 = { [weak self] in
-            let url = BASE_HTML_URL + "/neverCloser"
-            self?.pushWebVC(url)
+        setView.block3 = {
+            let email = "shahphai@outlook.com"
+            if let emailURL = URL(string: "mailto:\(email)"), UIApplication.shared.canOpenURL(emailURL) {
+                UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+            }
         }
         setView.block4 = { [weak self] in
             if IS_LOGIN {

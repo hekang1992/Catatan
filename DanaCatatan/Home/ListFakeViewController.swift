@@ -9,7 +9,7 @@ import UIKit
 
 class ListFakeViewController: BaseViewController {
     
-    var titleStr: String?
+    var titleStr: String = ""
     
     var index: Int?
     
@@ -31,14 +31,11 @@ class ListFakeViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
         addNavView()
-        if let str = titleStr {
-            if str.contains("Other") {
-                navView.nameLabel.text = "Other"
-            }else {
-                navView.nameLabel.text = titleStr
-            }
+        if titleStr.contains("Other") {
+            navView.nameLabel.text = "Other"
+        }else {
+            navView.nameLabel.text = titleStr
         }
-        
         navView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
@@ -112,7 +109,7 @@ class ListFakeViewController: BaseViewController {
             adcDict["flying"] = "3"
         }
         if titleStr == "Other2" {
-            adcDict["school"] = "2"
+            adcDict["school"] = "3"
             adcDict["flying"] = "4"
         }
         if titleStr == "Cash" {
@@ -128,7 +125,7 @@ class ListFakeViewController: BaseViewController {
             adcDict["flying"] = "3"
         }
         if titleStr == "Other3" {
-            adcDict["school"] = "3"
+            adcDict["school"] = "2"
             adcDict["flying"] = "4"
         }
         if titleStr == "Car" {
