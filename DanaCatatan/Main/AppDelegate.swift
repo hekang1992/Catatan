@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         noti()
         keyboardManager()
 //        getFontNames()
+        getPush()
         window?.rootViewController = FristViewController()
         window?.makeKeyAndVisible()
         return true
@@ -76,4 +77,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func getPush() {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+        }
+        if #available(iOS 16.0, *) {
+            center.setBadgeCount(0) { error in
+                
+            }
+        } else {
+            
+        }
+        UIApplication.shared.registerForRemoteNotifications()
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        var strToken = ""
+        for byte in deviceToken {
+            strToken += String(format: "%02x", byte)
+        }
+        print("strToken===\(strToken)")
+    }
+    
+}
