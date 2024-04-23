@@ -75,12 +75,12 @@ class DeviceInfo: NSObject {
     }
     
     static func arrived() -> String {
-        let arrived = String.init(format: "%.0f",SCREEN_WIDTH)
+        let arrived = String.init(format: "%.0f",SCREEN_HEIGHT)
         return arrived
     }
     
     static func streamed() -> String {
-        let streamed = String.init(format: "%.0f",SCREEN_HEIGHT)
+        let streamed = String.init(format: "%.0f",SCREEN_WIDTH)
         return streamed
     }
     
