@@ -37,7 +37,13 @@ class LoginFakeViewController: BaseViewController {
             self?.requsetLogin()
         }
         loginView.block3 = { [weak self] in
-            let url = BASE_HTML_URL + "/nkimaFetch"
+            let abc = UserDefaults.standard.object(forKey: APIBAERURL) as? String ?? ""
+            var url: String = ""
+            if abc.isEmpty {
+                url = BASE_HTML_URL + "/nkimaFetch"
+            }else {
+                url = String(abc.dropLast(5)) + "/nkimaFetch"
+            }
             self?.pushWebVC(url)
         }
     }

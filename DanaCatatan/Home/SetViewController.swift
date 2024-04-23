@@ -47,11 +47,23 @@ class SetViewController: BaseViewController {
             self?.imageAleet()
         }
         setView.block1 = { [weak self] in
-            let url = BASE_HTML_URL + "/nkimaFetch"
+            let abc = UserDefaults.standard.object(forKey: APIBAERURL) as? String ?? ""
+            var url: String = ""
+            if abc.isEmpty {
+                url = BASE_HTML_URL + "/nkimaFetch"
+            }else {
+                url = String(abc.dropLast(5)) + "/nkimaFetch"
+            }
             self?.pushWebVC(url)
         }
         setView.block2 = { [weak self] in
-            let url = BASE_HTML_URL
+            let abc = UserDefaults.standard.object(forKey: APIBAERURL) as? String ?? ""
+            var url: String = ""
+            if abc.isEmpty {
+                url = BASE_HTML_URL
+            }else {
+                url = String(abc.dropLast(5))
+            }
             self?.pushWebVC(url)
         }
         setView.block3 = {
