@@ -112,7 +112,6 @@ class LoginFakeView: UIView,UITextFieldDelegate {
     }()
     
     lazy var agreeMentLB: YYLabel  = {
-        //创建YYLabel
         let agreeMentLB = YYLabel()
         agreeMentLB.numberOfLines = 0
         let text = NSMutableAttributedString(string: "By logging in or creating an account, you agree ")

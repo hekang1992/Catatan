@@ -202,6 +202,10 @@ class OrderNormalCell: UITableViewCell {
                 label2.isHidden = true
                 bgView.isHidden = true
                 self.label6.text = model.showText
+            }else if model.masters == "3"{
+                label2.isHidden = true
+                bgView.isHidden = true
+                self.label6.text = model.showText
             }else if model.masters == "5" {
                 label2.backgroundColor = UIColor("#FF2F0D")
                 bgView.backgroundColor = UIColor("#FF2F0D")

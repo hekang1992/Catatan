@@ -113,6 +113,7 @@ class AlertChartView: UIView {
         lineChartView.rightAxis.drawLabelsEnabled = false
         lineChartView.rightAxis.drawAxisLineEnabled = false
         lineChartView.legend.enabled = false
+        lineChartView.leftAxis.axisMinimum = 0
         lineChartView.translatesAutoresizingMaskIntoConstraints = false
         return lineChartView
     }()
