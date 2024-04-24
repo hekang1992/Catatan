@@ -38,7 +38,7 @@ let LOGIN_SEIZES = "seizes"
 let LOGIN_PHONE = "postmaster"
 
 // 状态栏高度
-let STATUSBAR_HIGH = is_iPhoneXSeries() ? 44 : 20
+let STATUSBAR_HIGH = is_iPhoneXSeries() ? 46 : 20
 
 // 导航栏高度
 let NAV_HIGH = 44 + STATUSBAR_HIGH;
@@ -75,6 +75,10 @@ func is_iPhoneXSeries() -> (Bool) {
     // iPhoneXS Max,XR
     let xsmax_xr = CGSize(width: 414, height: 896);
     if (__CGSizeEqualToSize(boundsSize, xsmax_xr)) {
+        return true
+    }
+    let xsmax_14pro = CGSize(width: 393, height: 852);
+    if (__CGSizeEqualToSize(boundsSize, xsmax_14pro)) {
         return true
     }
     return false

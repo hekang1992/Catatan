@@ -507,7 +507,7 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         let alertView = OAlertView()
         alertView.model = model
         alertView.index = index
-        alertView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 500.pix());
+        alertView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 550.pix());
         let alertVC = TYAlertController(alert: alertView, preferredStyle: .actionSheet)
         alertView.tableView.reloadData()
         self.present(alertVC!, animated: true)

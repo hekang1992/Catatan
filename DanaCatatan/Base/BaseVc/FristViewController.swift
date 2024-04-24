@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import AppsFlyerLib
 import HandyJSON
+import AppTrackingTransparency
 
 class FristViewController: BaseViewController {
     
@@ -22,8 +23,6 @@ class FristViewController: BaseViewController {
         bgImageView.image = UIImage(named: "launch")
         return bgImageView
     }()
-    
-    var isUpload:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,41 +97,11 @@ class FristViewController: BaseViewController {
         }
     }
     
-    //google
-    func googleMarket() {
-        if self.isUpload == false {
-            let finely = DeviceInfo.finely()
-            let stroll = DeviceInfo.stroll()
-            let dict = ["finely":finely,"stroll":stroll]
-            NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: singledTrouble, method: .post) { [weak self] model in
-                let awareness = model.awareness
-                if awareness == 0 || awareness == 00 {
-                    let dict = model.hovered
-                    let googleModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
-                    if let googleModel = googleModel {
-                        self?.upLoadGoole(googleModel.decades ?? "", googleModel.trapped ?? "")
-                        self?.isUpload = true
-                        print("googleMarket>>>>>>success")
-                    }
-                }
-            } errorBlock: { error in
-                
-            }
-        }
-    }
-    
-    func upLoadGoole(_ appid: String, _ key: String) {
-        AppsFlyerLib.shared().appsFlyerDevKey = key
-        AppsFlyerLib.shared().appleAppID = appid
-        AppsFlyerLib.shared().start()
-    }
-    
     func devInfo() {
         let dict = ["together":"php"]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: shirtingSouth, method: .post) { [weak self] baseModel in
             let awareness = baseModel.awareness
             if awareness == 0 || awareness == 00 {
-                self?.googleMarket()
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let cleaved = (model?.cleaved ?? "") as String
                 if cleaved == "uu" {//b面
@@ -163,7 +132,7 @@ class FristViewController: BaseViewController {
 
 
 extension FristViewController {
-    
+
     func amian() {
         let dict = ["cleaved":"aa"]
         CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
@@ -213,7 +182,6 @@ extension FristViewController {
             NetApiWork.shared.requestAPI(params: dict, pageUrl: apiUrl, method: .post) { [weak self] baseModel in
                 let awareness = baseModel.awareness
                 if awareness == 0 || awareness == 00 {
-                    self?.googleMarket()
                     let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                     let cleaved = (model?.cleaved ?? "") as String
                     if cleaved == "uu" {//b面

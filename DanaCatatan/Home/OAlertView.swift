@@ -45,12 +45,23 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
         return btn
     }()
     
+//    lazy var iconImage: UIImageView = {
+//        let iconImage = UIImageView()
+//        iconImage.isUserInteractionEnabled = true
+//        iconImage.contentMode = .center
+//        iconImage.backgroundColor = .red
+//        iconImage.image = UIImage(named: "cha3")
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideClick))
+//        iconImage.addGestureRecognizer(tapGesture)
+//        return iconImage
+//    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bgView)
-        bgView.addSubview(btn)
         bgView.addSubview(labelS)
         bgView.addSubview(tableView)
+        addSubview(btn)
     }
     
     override func layoutSubviews() {
@@ -65,9 +76,10 @@ class OAlertView: UIView, UITableViewDelegate,UITableViewDataSource {
             make.height.equalTo(22.pix())
         }
         btn.snp.makeConstraints { make in
-            make.right.equalTo(bgView).offset(-10.pix())
-            make.top.equalTo(bgView).offset(2.pix())
-            make.size.equalTo(CGSize(width: 66.pix(), height: 66.pix()))
+            make.top.equalTo(labelS.snp.top).offset(-10.pix())
+            make.bottom.equalTo(labelS.snp.bottom).offset(10.pix())
+            make.right.equalTo(self).offset(-15.pix())
+            make.width.equalTo(44.pix())
         }
         tableView.snp.makeConstraints { make in
             make.bottom.right.left.equalTo(bgView)

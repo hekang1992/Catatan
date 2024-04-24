@@ -8,11 +8,14 @@
 import UIKit
 import IQKeyboardManagerSwift
 import AppTrackingTransparency
+import HandyJSON
+import AppsFlyerLib
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var isUpload: Bool = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -57,6 +60,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else {
             window?.rootViewController = TabBarViewController()
         }
+        googleMarket()
+    }
+    
+    //google
+    func googleMarket() {
+        if self.isUpload == false {
+            let finely = DeviceInfo.finely()
+            let stroll = DeviceInfo.stroll()
+            let dict = ["finely":finely,"stroll":stroll]
+            NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: singledTrouble, method: .post) { [weak self] model in
+                let awareness = model.awareness
+                if awareness == 0 || awareness == 00 {
+                    let dict = model.hovered
+                    let googleModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
+                    if let googleModel = googleModel {
+                        self?.upLoadGoole(googleModel.decades ?? "", googleModel.trapped ?? "")
+                        self?.isUpload = true
+                        print("googleMarket>>>>>>success")
+                    }
+                }
+            } errorBlock: { error in
+                
+            }
+        }
+    }
+    
+    func upLoadGoole(_ appid: String, _ key: String) {
+        AppsFlyerLib.shared().appleAppID = appid
+        AppsFlyerLib.shared().appsFlyerDevKey = key
+        AppsFlyerLib.shared().delegate = self
+        AppsFlyerLib.shared().start()
     }
     
     func windowAnimation() {
@@ -77,7 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate, AppsFlyerLibDelegate {
+    
+    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        print("conversionInfo>>>>>>>>>\(conversionInfo)")
+    }
+    
+    func onConversionDataFail(_ error: any Error) {
+        print("error>>>>>>>>>\(error)")
+    }
     
     func getPush() {
         let center = UNUserNotificationCenter.current()

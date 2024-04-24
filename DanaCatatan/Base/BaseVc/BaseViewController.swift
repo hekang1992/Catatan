@@ -68,8 +68,8 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
     func addNavView() {
         view.addSubview(navView)
         navView.snp.makeConstraints { make in
-            make.left.right.top.equalTo(view)
             make.height.equalTo(NAV_HIGH)
+            make.left.right.top.equalTo(view)
         }
     }
     

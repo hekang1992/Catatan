@@ -366,10 +366,10 @@ extension SetView {
         guard let tappedView = sender.view else { return }
         switch tappedView.tag {
         case 200:
-            self.block6!()
+            self.block6?()
             break
         case 201:
-            self.block7!()
+            self.block7?()
             break
         case 202:
             let cacheDirectoryURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
