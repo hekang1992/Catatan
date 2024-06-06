@@ -83,8 +83,8 @@ class ReViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         addHudView()
         let dict: [String: Any] = [:]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: beforeStrips, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let dict = baseModel.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 self?.model = inModel

@@ -75,8 +75,8 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: shackledPenetrate, method: .get) { [weak self] baseModel in
             let hovered = baseModel.hovered
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 let emancipation = model?.checked?.emancipation
                 let occurred: String = model?.commented?.occurred ?? ""
@@ -249,8 +249,8 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         let dict = ["lives":lives,"pinched":pinched,"bidders":bidders]
         NetApiWork.shared.uploadImageAPI(params: dict, pageUrl: enoughGiven, method: .post, data: data) { [weak self] baseModel in
             let edges = baseModel.edges
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 self?.imageFace = image
                 if self?.typeFace == "11" {
@@ -290,9 +290,9 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         addHudView()
         let dict = ["locked":dateTime,"pawed":ktp,"conjured":name,"bidders":bidders,"warehouse":hardworking]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: spendMarched, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
+            let awess = baseModel.awareness
             let edges = baseModel.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 self?.faceViwe.mainBtn.setImage(self?.imageFace, for: .normal)
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "3", orderID: self?.hardworking ?? "")
             }

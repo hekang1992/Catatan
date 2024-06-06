@@ -51,8 +51,7 @@ class NetworkManager {
                 notifyNetworkStatus(.wifi)
             } else {
                 typeStr = "4G/5G"
-                notifyNetworkStatus(.cellular)
-                
+                notifyNetworkStatus(.cellular)                
             }
         } else {
             typeStr = "Unknown Network"

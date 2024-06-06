@@ -48,9 +48,9 @@ class BankViewController: BaseViewController {
         addHudView()
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: anythingAbundance, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
+            let awess = baseModel.awareness
             let edges = baseModel.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let craved = model?.craved
                 if let craved = craved {
@@ -68,9 +68,9 @@ class BankViewController: BaseViewController {
     func saveInfo(dict: [String: Any]) {
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: shinesHollowness, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
+            let awess = baseModel.awareness
             let edges = baseModel.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "9", orderID: self?.hardworking ?? "")
                 self?.getProductDetailInfo(self?.bidders ?? "", "")
                 self?.delay(0.5) {

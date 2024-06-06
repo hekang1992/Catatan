@@ -54,7 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if value == "uu" {
                     window?.rootViewController = TabBarViewController()
                 }else{
-                    window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
+                    window?.rootViewController = TabBarViewController()
+//                    window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
                 }
             }
         }else {
@@ -70,8 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let stroll = DeviceInfo.stroll()
             let dict = ["finely":finely,"stroll":stroll]
             NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: singledTrouble, method: .post) { [weak self] model in
-                let awareness = model.awareness
-                if awareness == 0 || awareness == 00 {
+                let awess = model.awareness
+                if awess == 0 || awess == 00 {
                     let dict = model.hovered
                     let googleModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                     if let googleModel = googleModel {

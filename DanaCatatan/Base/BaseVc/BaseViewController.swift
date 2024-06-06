@@ -113,8 +113,8 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         print("maidian>>>>参数>>>>>\(target),\(hardworking),\(possum),\(visits),\(wrath),\(excellent ?? 0.0),\(carpenter ?? 0.0),\(parents),\(confide)")
         let dict = ["target":target,"possum":possum,"hardworking":hardworking,"visits":visits,"wrath":wrath,"excellent":excellent ?? 0.0,"carpenter":carpenter ?? 0.0,"parents":parents,"confide":confide] as [String : Any]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: fullyYoure, method: .post) { baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 print("maidian\(type)>>>>success")
                 USER_DEFAULTS.setValue("1", forKey: MAIDIAN_ONE)
                 USER_DEFAULTS.synchronize()
@@ -129,8 +129,8 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         addHudView()
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fieldQuite, method: .post) { [weak self] baseModel in
             let hovered = baseModel.hovered
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 let picture = model?.circumstance?.picture
                 let hardworking = model?.blouses?.hardworking
@@ -257,8 +257,8 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         let dict = ["warehouse":orderId,"chests":chests,"signify":signify,"grievous":grievous]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: districtUnder, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 if let model = model {
                     let url = model.occurred

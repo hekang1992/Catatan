@@ -87,9 +87,9 @@ class LoginFakeViewController: BaseViewController {
         let dict = ["grieving":grieving]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fivedayTravel, method: .post) { [weak self] model in
-            let awareness = model.awareness
+            let awess = model.awareness
             let edges = model.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 self?.startTimer()
             }
             self?.removeHudView()
@@ -105,9 +105,9 @@ class LoginFakeViewController: BaseViewController {
         let dict = ["postmaster":postmaster,"badly":badly]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: neverSelfconfident, method: .post) { [weak self] model in
-            let awareness = model.awareness
+            let awess = model.awareness
             let edges = model.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 let hovered = model.hovered
                 let loginModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 guard let loginModel = loginModel else { return }
@@ -125,8 +125,8 @@ class LoginFakeViewController: BaseViewController {
     func bindLogin() {
         let dict: [String: Any] = [:]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: womanNecessary, method: .post) { baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let dict = ["cleaved":"aa"]
                 CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil, userInfo: dict)
             }

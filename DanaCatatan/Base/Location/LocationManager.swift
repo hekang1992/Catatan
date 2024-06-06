@@ -62,8 +62,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         let geocoder = CLGeocoder()
         let model = LocationModel()
-        model.carpenter = longitude
-        model.excellent = latitude
+        model.excellent = longitude
+        model.carpenter = latitude
         geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
             guard let self = self, let placemark = placemarks?.first else { return }
             model.country = placemark.country ?? ""

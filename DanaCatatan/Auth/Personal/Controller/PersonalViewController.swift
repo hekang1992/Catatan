@@ -49,9 +49,9 @@ class PersonalViewController: BaseViewController {
         addHudView()
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: boundAfter, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
+            let awess = baseModel.awareness
             let edges = baseModel.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let craved = model?.craved
                 if let craved = craved {
@@ -67,8 +67,8 @@ class PersonalViewController: BaseViewController {
     
     func getCityInfo() {
         NetApiWork.shared.requestAPI(params: [:], pageUrl: ricketySeason, method: .get) { baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 if let model = model {
                     self.personView.cityArray = model.incomes!
@@ -82,9 +82,9 @@ class PersonalViewController: BaseViewController {
     func saveInfo(dict: [String: Any]) {
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: rabbitThere, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
+            let awess = baseModel.awareness
             let edges = baseModel.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 self?.getProductDetailInfo(self?.bidders ?? "", "")
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "6", orderID: self?.hardworking ?? "")
             }

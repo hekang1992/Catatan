@@ -91,9 +91,9 @@ class UserViewController: BaseViewController {
         addHudView()
         let dict: [String: Any] = [:]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: obliteratedYears, method: .get) { [weak self] model in
-            let awareness = model.awareness
+            let awess = model.awareness
             let edges = model.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 SaveLoginInfo.removeLoginInfo()
                 CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
             }
@@ -127,9 +127,9 @@ class UserViewController: BaseViewController {
         addHudView()
         let dict: [String: Any] = [:]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: familiarHeadless, method: .get) { [weak self] model in
-            let awareness = model.awareness
+            let awess = model.awareness
             let edges = model.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 SaveLoginInfo.removeLoginInfo()
                 CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil)
             }

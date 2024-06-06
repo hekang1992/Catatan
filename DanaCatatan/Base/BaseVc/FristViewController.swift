@@ -100,14 +100,15 @@ class FristViewController: BaseViewController {
     func devInfo() {
         let dict = ["together":"php"]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: shirtingSouth, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let cleaved = (model?.cleaved ?? "") as String
                 if cleaved == "uu" {//b面
                     self?.bmian()
                 }else if cleaved == "ue" {
-                    self?.amian()
+                    self?.bmian()
+//                    self?.amian()
                 }else {
                     self?.requestGit()
                 }
@@ -133,10 +134,10 @@ class FristViewController: BaseViewController {
 
 extension FristViewController {
 
-    func amian() {
-        let dict = ["cleaved":"aa"]
-        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
-    }
+//    func amian() {
+//        let dict = ["cleaved":"aa"]
+//        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+//    }
     
     func bmian() {
         let dict = ["cleaved":"uu"]
@@ -180,15 +181,16 @@ extension FristViewController {
             UserDefaults.standard.synchronize()
             let dict = ["together":"php"]
             NetApiWork.shared.requestAPI(params: dict, pageUrl: apiUrl, method: .post) { [weak self] baseModel in
-                let awareness = baseModel.awareness
-                if awareness == 0 || awareness == 00 {
+                let awess = baseModel.awareness
+                if awess == 0 || awess == 00 {
                     let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                     let cleaved = (model?.cleaved ?? "") as String
                     if cleaved == "uu" {//b面
                         self?.bmian()
                         self?.isGit = true
                     }else if cleaved == "ue" {
-                        self?.amian()
+//                        self?.amian()
+                        self?.bmian()
                         self?.isGit = true
                     }else {
                         self?.isGit = false

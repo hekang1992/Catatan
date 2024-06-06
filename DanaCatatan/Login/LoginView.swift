@@ -9,6 +9,7 @@ import UIKit
 import JXGradientKit
 import YYText
 import MBProgressHUD_WJExtension
+import RxSwift
 
 typealias BtnBlock = () -> Void
 typealias BtnCodeBlock = (UIButton) -> Void

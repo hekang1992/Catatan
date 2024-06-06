@@ -82,9 +82,9 @@ class LoginViewController: BaseViewController {
         let dict = ["grieving":grieving]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fivedayTravel, method: .post) { [weak self] model in
-            let awareness = model.awareness
+            let awess = model.awareness
             let edges = model.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 self?.btn!.isEnabled = false
                 self?.startTimer()
             }
@@ -101,9 +101,9 @@ class LoginViewController: BaseViewController {
         let dict = ["postmaster":postmaster,"badly":badly]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: neverSelfconfident, method: .post) { [weak self] model in
-            let awareness = model.awareness
+            let awess = model.awareness
             let edges = model.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 let hovered = model.hovered
                 let loginModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 guard let loginModel = loginModel else { return }

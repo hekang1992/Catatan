@@ -62,8 +62,8 @@ class OrderViewController: BaseViewController {
         let dict = ["alley":type]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: scoopCould, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let array = model?.incomes
                 if let listArray = array {

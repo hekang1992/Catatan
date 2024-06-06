@@ -84,8 +84,7 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let body = message.body as? [String]
         let methodName = message.name
-        let methodArgs = body ?? []
-        
+        let methodArgs = body ?? []        
         switch methodName {
         case "likelihoodEvening":
             uploadRiskLoan(methodArgs)

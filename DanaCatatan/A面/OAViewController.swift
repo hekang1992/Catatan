@@ -444,8 +444,8 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         addHudView()
         let dict: [String: Any] = ["school":type]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: firstWhite, method: .post) { [weak self] model in
-            let awareness = model.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = model.awareness
+            if awess == 0 || awess == 00 {
                 let dict = model.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 if let model = inModel {
@@ -474,8 +474,8 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         let dict = ["scars":oid]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: passedBeyond, method: .post) { [weak self] model in
-            let awareness = model.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = model.awareness
+            if awess == 0 || awess == 00 {
                 self?.model?.incomes?.remove(at: index)
                 self?.getHomeFData(self!.selectIndex + 1)
             }
@@ -489,8 +489,8 @@ class OAViewController: BaseViewController, GKCycleScrollViewDataSource, GKCycle
         addHudView()
         let dict = ["school": index]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: briefFlesh, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let dict = baseModel.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 if let model = inModel {

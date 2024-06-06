@@ -142,9 +142,9 @@ class BankView: UIView ,UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model: CravedModel = array[indexPath.row]
-        let brick = model.brick
+        let brickType = model.brick
         let cell = tableView.cellForRow(at: indexPath) as? CommonCell
-        if brick == "rty" {//枚举
+        if brickType == "rty" {//枚举
             guard let modelArray = model.customers else { return }
             self.popEView(modelArray,model,cell!)
         }

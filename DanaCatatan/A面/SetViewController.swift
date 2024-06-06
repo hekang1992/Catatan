@@ -114,8 +114,8 @@ class SetViewController: BaseViewController {
         super.viewWillAppear(animated)
         addHudView()
         NetApiWork.shared.requestAPI(params: [:], pageUrl: belowBelow, method: .put) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let dict = baseModel.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 if let model = inModel {
@@ -187,9 +187,9 @@ class SetViewController: BaseViewController {
         delay(0.25) {
             let dict: [String: Any] = [:]
             NetApiWork.shared.requestAPI(params: dict, pageUrl: obliteratedYears, method: .get) { [weak self] model in
-                let awareness = model.awareness
+                let awess = model.awareness
                 let edges = model.edges
-                if awareness == 0 || awareness == 00 {
+                if awess == 0 || awess == 00 {
                     SaveLoginInfo.removeLoginInfo()
                     let dict = ["cleaved":"aa"]
                     CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil, userInfo: dict)
@@ -207,9 +207,9 @@ class SetViewController: BaseViewController {
         delay(0.25) {
             let dict: [String: Any] = [:]
             NetApiWork.shared.requestAPI(params: dict, pageUrl: familiarHeadless, method: .get) { [weak self] model in
-                let awareness = model.awareness
+                let awess = model.awareness
                 let edges = model.edges
-                if awareness == 0 || awareness == 00 {
+                if awess == 0 || awess == 00 {
                     SaveLoginInfo.removeLoginInfo()
                     let dict = ["cleaved":"aa"]
                     CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil, userInfo: dict)

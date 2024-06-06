@@ -62,9 +62,9 @@ class ContractViewController: BaseViewController {
         addHudView()
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: tarzanDamned, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
+            let awess = baseModel.awareness
             let edges = baseModel.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 let model = JSONDeserializer<HoveredModel>.deserializeFrom(dict: baseModel.hovered)
                 let incomes = model?.released?.incomes
                 if let incomes = incomes {
@@ -163,9 +163,9 @@ class ContractViewController: BaseViewController {
         }
         let dict = ["bidders":bidders,"hovered":jsonDataString ?? ""] as [String : Any]
         NetApiWork.shared.uploadDataAPI(params: dict, pageUrl: buttonGreat, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
+            let awess = baseModel.awareness
             let edges = baseModel.edges
-            if awareness == 0 || awareness == 00 {
+            if awess == 0 || awess == 00 {
                 print("isUpload>>>>>isUpload")
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "8", orderID: self?.hardworking ?? "")
                 self?.getProductDetailInfo(self?.bidders ?? "", "")
@@ -182,8 +182,8 @@ class ContractViewController: BaseViewController {
         let base64Data = jsonData?.base64EncodedString() ?? ""
         let dict = ["lives":"3","hovered":base64Data] as [String : Any]
         NetApiWork.shared.uploadDataAPI(params: dict, pageUrl: pocketsHardworking, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 self?.isUpload = true
                 print("isAllUpload>>>>>isAllUpload")
             }

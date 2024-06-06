@@ -38,8 +38,8 @@ class FuDaiViewController: BaseViewController {
         addHudView()
         let dict = ["bidders":index]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: thoseWater, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let dict = baseModel.hovered
                 let applyModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 let url = applyModel?.occurred
@@ -61,8 +61,8 @@ class FuDaiViewController: BaseViewController {
         super.viewWillAppear(animated)
         addHudView()
         NetApiWork.shared.requestAPI(params: [:], pageUrl: stretchHuman, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let hovered = baseModel.hovered
                 let modelArray = JSONDeserializer<HoveredModel>.deserializeFrom(dict: hovered)
                 if modelArray?.incomes?.count == 0 {

@@ -110,9 +110,9 @@ class HomeViewController: BaseViewController {
             if type != "1" {
                 let dict = ["stephen":locationModel.country ,"laborer":locationModel.countryCode,"description":locationModel.province,"joseph":locationModel.city,"moses":locationModel.district,"james":locationModel.street,"excellent":locationModel.excellent ?? 0.0,"carpenter":locationModel.carpenter ?? 0.0] as [String : Any]
                 NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: mastersThough, method: .post) { [weak self] model in
-                    let awareness = model.awareness
+                    let awess = model.awareness
                     self?.baseDictToBase64()
-                    if awareness == 0 || awareness == 00 {
+                    if awess == 0 || awess == 00 {
                         print("location>>>>>>success")
                         USER_DEFAULTS.setValue("1", forKey: LOCATION_ONE)
                         USER_DEFAULTS.synchronize()
@@ -150,8 +150,8 @@ class HomeViewController: BaseViewController {
     func uploadDeviceInfo(_ baseStr: String) {
         let dict = ["hovered": baseStr]
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: protestedPiteously, method: .post) { model in
-            let awareness = model.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = model.awareness
+            if awess == 0 || awess == 00 {
                 print("uploadDeviceInfo>>>>>>success")
             }
         } errorBlock: { error in
@@ -167,8 +167,8 @@ class HomeViewController: BaseViewController {
         addHudView()
         let dict: [String: Any] = [:]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: leatherScratched, method: .get) { [weak self] model in
-            let awareness = model.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = model.awareness
+            if awess == 0 || awess == 00 {
                 let dict = model.hovered
                 let inModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 let smodel = inModel?.selling
@@ -214,8 +214,8 @@ class HomeViewController: BaseViewController {
         let bidders = index
         let dict = ["bidders":bidders]
         NetApiWork.shared.requestAPI(params: dict, pageUrl: thoseWater, method: .post) { [weak self] baseModel in
-            let awareness = baseModel.awareness
-            if awareness == 0 || awareness == 00 {
+            let awess = baseModel.awareness
+            if awess == 0 || awess == 00 {
                 let dict = baseModel.hovered
                 let applyModel = JSONDeserializer<HoveredModel>.deserializeFrom(dict: dict)
                 let url = applyModel?.occurred
@@ -249,8 +249,8 @@ class HomeViewController: BaseViewController {
             print("maidian1>>>>参数>>>>>\(target),\(hardworking),\(possum),\(visits),\(wrath),\(excellent ?? 0.0),\(carpenter ?? 0.0),\(parents ?? ""),\(confide)")
             let dict = ["target":target,"possum":possum,"hardworking":hardworking,"visits":visits,"wrath":wrath,"excellent":excellent ?? 0.0,"carpenter":carpenter ?? 0.0,"parents":parents ?? "","confide":confide] as [String : Any]
             NetApiWork.shared.requestAPI(params: dict, pageUrl: fullyYoure, method: .post) { baseModel in
-                let awareness = baseModel.awareness
-                if awareness == 0 || awareness == 00 {
+                let awess = baseModel.awareness
+                if awess == 0 || awess == 00 {
                     print("maidian1>>>>success")
                     USER_DEFAULTS.setValue("1", forKey: MAIDIAN_ONE)
                     USER_DEFAULTS.synchronize()
