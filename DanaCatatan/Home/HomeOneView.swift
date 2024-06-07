@@ -18,6 +18,8 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
     
     var largeDataModel: [DrawingModel]?
     
+    var type: String?
+    
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
         iconImageView.image = UIImage(named: "qweerc")
@@ -92,7 +94,7 @@ class HomeOneView: UIView,UITableViewDelegate,UITableViewDataSource, GKCycleScro
         cell.selectionStyle = .none
         let model = largeDataModel?[indexPath.row]
         cell.model = model
-        self.label.text = model?.plumb
+        self.label.text = type
         let imageUrl = URL(string: model?.auctions ?? "")
         self.iconImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "qweerc"))
         cell.block = { [weak self] in

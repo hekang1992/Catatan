@@ -192,6 +192,7 @@ class HomeViewController: BaseViewController {
                         self?.homeTwoView.isHidden = true
                         self?.largeDataModel = model1.incomes?.filter{ $0.lives == "nn" }.compactMap{ $0.drawing }.first ?? []
                         if let modelArray = self?.largeDataModel {
+                            self?.homeOneView.type = model1.app_name
                             self?.homeOneView.largeDataModel = modelArray
                         }
                         self?.homeOneView.tableView.reloadData()

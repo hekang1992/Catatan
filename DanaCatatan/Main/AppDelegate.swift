@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow.init(frame: UIScreen.main.bounds)
         noti()
         keyboardManager()
-//        getFontNames()
+        //        getFontNames()
         getPush()
         window?.rootViewController = FristViewController()
         window?.makeKeyAndVisible()
@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization { status in
                 // Handle the tracking authorization status if needed
+                self.requestTrackingAuthorization { _ in
+                    
+                }
             }
         }
     }
@@ -56,13 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     window?.rootViewController = TabBarViewController()
                 }else{
                     window?.rootViewController = TabBarViewController()
-//                    window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
+                    //                    window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
                 }
             }
         }else {
             window?.rootViewController = TabBarViewController()
         }
-        googleMarket()
     }
     
     //google
@@ -144,6 +146,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate, AppsFlyerLibDelegate {
             strToken += String(format: "%02x", byte)
         }
         print("strToken===\(strToken)")
+    }
+    
+    func requestTrackingAuthorization(completion: @escaping (Bool) -> Void) {
+        // Check if the tracking authorization dialog can be shown
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                self.googleMarket()
+            }
+        } else {
+            // Fallback on earlier versions
+            print("Tracking authorization not available")
+            completion(false)
+        }
     }
     
 }
