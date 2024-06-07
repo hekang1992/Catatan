@@ -73,12 +73,22 @@ class JDViewController: BaseViewController {
             jdView.typeImageView.currentState = .dcan1
         }else if type == "dcan2" {
             jdView.typeImageView.currentState = .dcan2
+            jdView.typeView1.bgImageView.image = UIImage(named: "abc5")
         }else if type == "dcan3" {
             jdView.typeImageView.currentState = .dcan3
+            jdView.typeView1.bgImageView.image = UIImage(named: "abc5")
+            jdView.typeView2.bgImageView.image = UIImage(named: "abc5")
         }else if type == "dcan4" {
             jdView.typeImageView.currentState = .dcan4
+            jdView.typeView1.bgImageView.image = UIImage(named: "abc5")
+            jdView.typeView2.bgImageView.image = UIImage(named: "abc5")
+            jdView.typeView3.bgImageView.image = UIImage(named: "abc5")
         }else{
             jdView.typeImageView.currentState = .dcan4
+            jdView.typeView1.bgImageView.image = UIImage(named: "abc5")
+            jdView.typeView2.bgImageView.image = UIImage(named: "abc5")
+            jdView.typeView3.bgImageView.image = UIImage(named: "abc5")
+            jdView.typeView4.bgImageView.image = UIImage(named: "abc5")
         }
     }
     
@@ -104,7 +114,7 @@ class JDViewController: BaseViewController {
             if self.picture.isEmpty{
                 //通过orderid去获取url
                 if let modelq = model {
-                    self.orderIDUrl(hardworking, modelq.blouses?.chests ?? "", modelq.blouses?.signify ?? "", modelq.blouses?.grievous ?? "")
+                    self.orderIDUrl(hardworking, modelq.blouses?.chests ?? "", modelq.blouses?.signify ?? "", modelq.blouses?.grievous ?? "","")
                 }
             }
         }

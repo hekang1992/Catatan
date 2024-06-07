@@ -99,7 +99,7 @@ class FaceViewController: BaseViewController, UIImagePickerControllerDelegate {
         if self.emancipation == "0"{
             MBProgressHUD.wj_showPlainText("Silakan unggah informasi ID Anda.", view: nil)
         }else{
-            getProductDetailInfo(bidders, "")
+            getProductDetailInfo(bidders, "" ,"")
         }
     }
     

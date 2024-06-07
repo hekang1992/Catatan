@@ -9,17 +9,18 @@ import UIKit
 
 class CManager: NSObject {
 
-    static func pageJump(path: String, isVerify: Bool = false)
+    static func pageJump(path: String, isVerify: Bool = false, _ type: String)
     {
         if let url = URL(string:path), url.scheme != nil {
-            goWeb(path: path, isVerify: isVerify)
+            goWeb(path: path, isVerify: isVerify, type)
         } else {
             schemeFoRoute(by: path)
         }
     }
     
-    static func goWeb(path: String, isVerify: Bool = false) {
+    static func goWeb(path: String, isVerify: Bool = false, _ type: String) {
         let vc = CWebViewController()
+        vc.type = type
         getCurrentUIVC()?.navigationController?.pushViewController(vc, animated: true)
     }
     

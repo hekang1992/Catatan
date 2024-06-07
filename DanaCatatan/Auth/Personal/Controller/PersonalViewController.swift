@@ -85,7 +85,7 @@ class PersonalViewController: BaseViewController {
             let awess = baseModel.awareness
             let edges = baseModel.edges
             if awess == 0 || awess == 00 {
-                self?.getProductDetailInfo(self?.bidders ?? "", "")
+                self?.getProductDetailInfo(self?.bidders ?? "", "","")
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "6", orderID: self?.hardworking ?? "")
             }
             self?.removeHudView()

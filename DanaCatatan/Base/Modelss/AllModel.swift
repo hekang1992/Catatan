@@ -33,6 +33,7 @@ class HoveredModel: HandyJSON {
     var ogling: String?//月
     var buyers: String?//年
     var galloped: String?
+    var app_name: String?
     
     var incomes: [IncomesModel]?
     var circumstance: CircumstanceModel?

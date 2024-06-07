@@ -23,7 +23,7 @@ class TypeView: UIView {
 
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
-        bgImageView.image = UIImage(named: "abc5")
+//        bgImageView.image = UIImage(named: "abc5")
         bgImageView.contentMode = .scaleAspectFill
         return bgImageView
     }()

@@ -46,9 +46,9 @@ class FuDaiViewController: BaseViewController {
                 guard let url = url else { return }
                 print("url>>跳转>>\(url)")
                 if url.contains(SCHEME_URL) {
-                    self?.getProductDetailInfo(String(index),url)
+                    self?.getProductDetailInfo(String(index),url,"")
                 }else{
-                    self?.pushWebVC(url)
+                    self?.pushWebVC(url,"")
                 }
             }
             self?.removeHudView()

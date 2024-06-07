@@ -124,7 +124,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     
-    func getProductDetailInfo(_ bidders: String,_ url: String) {
+    func getProductDetailInfo(_ bidders: String,_ url: String, _ type: String) {
         let dict = ["bidders":bidders]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict as [String : Any], pageUrl: fieldQuite, method: .post) { [weak self] baseModel in
@@ -139,15 +139,15 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
                     if url.isEmpty {
                         self?.nextPushVc(picture ?? "",hardworking ?? "",bidders)
                     }else {
-                        CManager.pageJump(path: url, isVerify: false)
+                        CManager.pageJump(path: url, isVerify: false ,type)
                     }
                 }else {
                     //通过orderid去获取url
                     if occurred.contains("http://") || occurred.contains("https://") {
-                        self?.pushWebVC(occurred)
+                        self?.pushWebVC(occurred, "")
                     }else {
                         if let modelq = model {
-                            self?.orderIDUrl(hardworking ?? "",modelq.blouses?.chests ?? "",modelq.blouses?.signify ?? "",modelq.blouses?.grievous ?? "")
+                            self?.orderIDUrl(hardworking ?? "",modelq.blouses?.chests ?? "",modelq.blouses?.signify ?? "",modelq.blouses?.grievous ?? "", type)
                         }
                     }
                     
@@ -187,16 +187,21 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         self.navigationController?.pushViewController(currentVc, animated: true)
     }
     
-    func popToSpecificViewController() {
+    func popToSpecificViewController(_ type: String) {
         if let navigationController = self.navigationController {
             var viewControllerFound = false
-            for viewController in navigationController.viewControllers {
-                if let targetViewController = viewController as? JDViewController {
-                    navigationController.popToViewController(targetViewController, animated: true)
-                    viewControllerFound = true
-                    break
+            if type == "bank" {
+                navigationController.popToRootViewController(animated: true)
+            }else {
+                for viewController in navigationController.viewControllers {
+                    if let targetViewController = viewController as? JDViewController {
+                        navigationController.popToViewController(targetViewController, animated: true)
+                        viewControllerFound = true
+                        break
+                    }
                 }
             }
+            
             if !viewControllerFound {
                 navigationController.popViewController(animated: true)
             }
@@ -223,7 +228,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         self.present(alertVC!, animated: true)
         exitView.block = { [weak self] in
             self?.dismiss(animated: true, completion: {
-                self?.popToSpecificViewController()
+                self?.popToSpecificViewController("")
             })
         }
         exitView.cblock = { [weak self] in
@@ -253,7 +258,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     
-    func orderIDUrl(_ orderId: String,_ chests: String,_ signify: String,_ grievous: String) {
+    func orderIDUrl(_ orderId: String,_ chests: String,_ signify: String,_ grievous: String, _ type: String) {
         let dict = ["warehouse":orderId,"chests":chests,"signify":signify,"grievous":grievous]
         addHudView()
         NetApiWork.shared.requestAPI(params: dict, pageUrl: districtUnder, method: .post) { [weak self] baseModel in
@@ -263,7 +268,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
                 if let model = model {
                     let url = model.occurred
                     print("url>>>>>>>>\(url ?? "")")
-                    self?.pushWebVC(url ?? "")
+                    self?.pushWebVC(url ?? "", type)
                 }
             }
             self?.removeHudView()
@@ -272,10 +277,15 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     
-    func pushWebVC(_ url: String) {
+    func pushWebVC(_ url: String, _ type: String) {
         let webVc = CWebViewController()
-        let urlString = url + "?" + CommonParams.getParas()
-        if let encodedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+        var urlString: String?
+        if url.contains("?") {
+             urlString = url + "&" + CommonParams.getParas()
+        }else {
+             urlString = url + "?" + CommonParams.getParas()
+        }
+        if let encodedURLString = urlString?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             if let encodedURL = URL(string: encodedURLString) {
                 print("Encoded URL: \(encodedURL)")
             } else {
@@ -285,6 +295,7 @@ class BaseViewController: UIViewController,UINavigationControllerDelegate {
             print("URL编码失败")
         }
         webVc.url = urlString
+        webVc.type = type
         webVc.hideTabBar()
         getVc(webVc)
     }

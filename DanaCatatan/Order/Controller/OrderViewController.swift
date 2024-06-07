@@ -44,9 +44,9 @@ class OrderViewController: BaseViewController {
             if let josiah: String = model.josiah {
                 if josiah.contains("app.dcatan/terrainShoot") {
                     let splitedArray = josiah.components(separatedBy: "bidders=")
-                    self?.getProductDetailInfo(splitedArray.last ?? "",josiah)
+                    self?.getProductDetailInfo(splitedArray.last ?? "",josiah,"")
                 }else{
-                    self?.pushWebVC(josiah)
+                    self?.pushWebVC(josiah, "")
                 }
             }
         }

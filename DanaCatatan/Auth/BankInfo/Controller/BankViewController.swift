@@ -72,7 +72,7 @@ class BankViewController: BaseViewController {
             let edges = baseModel.edges
             if awess == 0 || awess == 00 {
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "9", orderID: self?.hardworking ?? "")
-                self?.getProductDetailInfo(self?.bidders ?? "", "")
+                self?.getProductDetailInfo(self?.bidders ?? "", "", "bank")
                 self?.delay(0.5) {
                     self?.maidian(productID: self?.bidders ?? "", startTime: String(Int(Date().timeIntervalSince1970)), type: "10", orderID: self?.hardworking ?? "")
                 }

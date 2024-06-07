@@ -40,6 +40,8 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
     
     var url: String?
     
+    var type: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,7 +52,7 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
             if isGo ?? true {
                 self?.webView.goBack()
             }else {
-                self?.popToSpecificViewController()
+                self?.popToSpecificViewController(self?.type ?? "")
             }
         }
         view.insertSubview(webView, belowSubview: navView)
@@ -165,9 +167,9 @@ class CWebViewController: BaseViewController, WKNavigationDelegate,WKScriptMessa
         guard let path = arguments.first else { return }
         if path.contains(SCHEME_URL) {
             let splitedArray = path.components(separatedBy: "bidders=")
-            self.getProductDetailInfo(splitedArray.last ?? "",path)
+            self.getProductDetailInfo(splitedArray.last ?? "" ,path ,"")
         }else{
-            self.pushWebVC(path)
+            self.pushWebVC(path,"")
         }
     }
     

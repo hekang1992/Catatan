@@ -44,7 +44,7 @@ class LoginFakeViewController: BaseViewController {
             }else {
                 url = String(abc.dropLast(5)) + "/nkimaFetch"
             }
-            self?.pushWebVC(url)
+            self?.pushWebVC(url, "")
         }
     }
     

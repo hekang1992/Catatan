@@ -59,7 +59,7 @@ class HomeViewController: BaseViewController {
             self?.applyClick(Int(productID) ?? 0)
         }
         homeTwoView.block1 = { [weak self] productUrl in
-            self?.pushWebVC(productUrl)
+            self?.pushWebVC(productUrl,"")
         }
         homeTwoView.block2 = { [weak self] str in
             self?.pushFuDaiVc()
@@ -179,6 +179,7 @@ class HomeViewController: BaseViewController {
                         self?.homeTwoView.isHidden = false
                         self?.largeDataModel = model1.incomes?.filter{ $0.lives == "yy" }.compactMap{ $0.drawing }.first ?? []
                         if let modelArray = self?.largeDataModel {
+                            self?.homeTwoView.type = model1.app_name
                             self?.homeTwoView.largeDataModel = modelArray
                         }
                         self?.largeDataModel1 = model1.incomes?.filter{ $0.lives == "mm" }.compactMap{ $0.drawing }.first ?? []
@@ -222,9 +223,9 @@ class HomeViewController: BaseViewController {
                 guard let url = url else { return }
                 print("url>>跳转>>\(url)")
                 if url.contains(SCHEME_URL) {
-                    self?.getProductDetailInfo(String(bidders),url)
+                    self?.getProductDetailInfo(String(bidders),url,"")
                 }else{
-                    self?.pushWebVC(url)
+                    self?.pushWebVC(url,"")
                 }
             }
             self?.removeHudView()

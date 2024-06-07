@@ -168,7 +168,7 @@ class ContractViewController: BaseViewController {
             if awess == 0 || awess == 00 {
                 print("isUpload>>>>>isUpload")
                 self?.maidian(productID: self?.bidders ?? "", startTime: self?.startTime1 ?? "", type: "8", orderID: self?.hardworking ?? "")
-                self?.getProductDetailInfo(self?.bidders ?? "", "")
+                self?.getProductDetailInfo(self?.bidders ?? "","","")
             }
             self?.removeHudView()
             MBProgressHUD.wj_showPlainText(edges ?? "", view: nil)

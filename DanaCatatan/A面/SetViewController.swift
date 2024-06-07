@@ -54,7 +54,7 @@ class SetViewController: BaseViewController {
             }else {
                 url = String(abc.dropLast(5)) + "/nkimaFetch"
             }
-            self?.pushWebVC(url)
+            self?.pushWebVC(url, "")
         }
         setView.block2 = { [weak self] in
             let abc = UserDefaults.standard.object(forKey: APIBAERURL) as? String ?? ""
@@ -64,7 +64,7 @@ class SetViewController: BaseViewController {
             }else {
                 url = String(abc.dropLast(5))
             }
-            self?.pushWebVC(url)
+            self?.pushWebVC(url, "")
         }
         setView.block3 = {
             let email = "shahphai@outlook.com"
