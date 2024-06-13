@@ -33,6 +33,8 @@ let LOCATION_ONE = "LOCATION_ONE"
 
 let SET_ROOTVC = "SET_ROOTVC"
 
+let SET_GOOGLEM = "SET_GOOGLEM"
+
 let LOGIN_SEIZES = "seizes"
 
 let LOGIN_PHONE = "postmaster"

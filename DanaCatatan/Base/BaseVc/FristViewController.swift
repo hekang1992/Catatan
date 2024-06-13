@@ -107,8 +107,7 @@ class FristViewController: BaseViewController {
                 if cleaved == "uu" {//b面
                     self?.bmian()
                 }else if cleaved == "ue" {
-                    self?.bmian()
-//                    self?.amian()
+                    self?.amian()
                 }else {
                     self?.requestGit()
                 }
@@ -134,14 +133,16 @@ class FristViewController: BaseViewController {
 
 extension FristViewController {
 
-//    func amian() {
-//        let dict = ["cleaved":"aa"]
-//        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
-//    }
+    func amian() {
+        let dict = ["cleaved":"aa"]
+        CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+        CNotificationCenter.post(name: NSNotification.Name(SET_GOOGLEM), object: nil , userInfo: dict)
+    }
     
     func bmian() {
         let dict = ["cleaved":"uu"]
         CNotificationCenter.post(name: NSNotification.Name(SET_ROOTVC), object: nil , userInfo: dict)
+        CNotificationCenter.post(name: NSNotification.Name(SET_GOOGLEM), object: nil , userInfo: dict)
     }
     
     func requestGit() {
@@ -189,8 +190,7 @@ extension FristViewController {
                         self?.bmian()
                         self?.isGit = true
                     }else if cleaved == "ue" {
-//                        self?.amian()
-                        self?.bmian()
+                        self?.amian()
                         self?.isGit = true
                     }else {
                         self?.isGit = false

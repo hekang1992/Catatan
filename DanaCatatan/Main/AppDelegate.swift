@@ -21,16 +21,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        noti()
+        rootVcNoti()
         keyboardManager()
-        //        getFontNames()
-        getPush()
+//        getFontNames()
+//        getPush()
         window?.rootViewController = FristViewController()
         window?.makeKeyAndVisible()
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
+    }
+    
+    func keyboardManager(){
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 5.pix()
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enable = true
+    }
+    
+    func rootVcNoti(){
+        CNotificationCenter.addObserver(self, selector: #selector(setUpRootVc(_:)), name: NSNotification.Name(SET_ROOTVC), object: nil)
+        CNotificationCenter.addObserver(self, selector: #selector(setGoogle), name: NSNotification.Name(SET_GOOGLEM), object: nil)
+    }
+    
+    @objc func setGoogle(_ notification: Notification){
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization { status in
                 // Handle the tracking authorization status if needed
@@ -41,16 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func keyboardManager(){
-        IQKeyboardManager.shared.keyboardDistanceFromTextField = 5.pix()
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        IQKeyboardManager.shared.enable = true
-    }
-    
-    func noti(){
-        CNotificationCenter.addObserver(self, selector: #selector(setUpRootVc(_:)), name: NSNotification.Name(SET_ROOTVC), object: nil)
-    }
-    
     @objc func setUpRootVc(_ notification: Notification){
         windowAnimation()
         if let userInfo = notification.userInfo {
@@ -58,8 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if value == "uu" {
                     window?.rootViewController = TabBarViewController()
                 }else{
-                    window?.rootViewController = TabBarViewController()
-                    //                    window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
+                    window?.rootViewController = BaseNavViewController(rootViewController: OAViewController())
                 }
             }
         }else {
@@ -81,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let googleModel = googleModel {
                         self?.upLoadGoole(googleModel.decades ?? "", googleModel.trapped ?? "")
                         self?.isUpload = true
-                        print("googleMarket>>>>>>success")
+                        print("🔥googleMarket>>>>>>success🔥")
                     }
                 }
             } errorBlock: { error in
@@ -152,7 +156,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate, AppsFlyerLibDelegate {
         // Check if the tracking authorization dialog can be shown
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization { status in
-                self.googleMarket()
+                if status == .authorized {
+                    self.googleMarket()
+                }else if status == .denied{
+                    self.googleMarket()
+                }
             }
         } else {
             // Fallback on earlier versions
